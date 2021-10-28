@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7CE2BAC-94D7-4871-9023-30123580EAB9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitacoreTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoreTable.Designer.cs">
+      <DependentUpon>BitacoreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadoAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoAltaModificacion.Designer.cs">
+      <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadoBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoBaja.Designer.cs">
+      <DependentUpon>EmpleadoBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadoHome.Designer.cs">
+      <DependentUpon>EmpleadoHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDV.Designer.cs">
+      <DependentUpon>ErrorDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorAltaModificacion.Designer.cs">
+      <DependentUpon>ProveedorAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProveedorBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorBaja.Designer.cs">
+      <DependentUpon>ProveedorBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProveedorHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorHome.Designer.cs">
+      <DependentUpon>ProveedorHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatableForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdatableForm.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmpleadoAltaModificacion.resx">
+      <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadoHome.resx">
+      <DependentUpon>EmpleadoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ProveedorAltaModificacion.resx">
+      <DependentUpon>ProveedorAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorBaja.resx">
+      <DependentUpon>ProveedorBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorHome.resx">
+      <DependentUpon>ProveedorHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatableForm.resx">
+      <DependentUpon>UpdatableForm.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UpdatableForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{2e11b022-2a37-4dda-b280-c9fec4417335}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EE\EE.csproj">
+      <Project>{0e88caec-50b3-4ed8-94d3-981198c1d248}</Project>
+      <Name>EE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{7ca445fa-378c-424d-b5c5-52a00a0e14c8}</Project>
+      <Name>Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MetroFramework.Design">
+      <Version>1.2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="MetroFramework.Fonts">
+      <Version>1.2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="MetroModernUI">
+      <Version>1.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\this.Icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

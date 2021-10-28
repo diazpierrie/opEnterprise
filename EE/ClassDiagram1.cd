@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EE.CompradorEe">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompradorEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.DepositoEe">
+    <Position X="22.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepositoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.DevolucionEe">
+    <Position X="25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DevolucionEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.EmblemaEe">
+    <Position X="34" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmblemaEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.EmpleadoDepositoEe">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>EmpleadoDepositoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.EmpleadoSucursalEe">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>EmpleadoSucursalEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.EnvioEe">
+    <Position X="43" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAEAAAAABAAACAAAAAAAAAAAAAAAAEAAAAAAAg=</HashCode>
+      <FileName>EnvioEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.FamiliaEe" Collapsed="true">
+    <Position X="12.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FamiliaEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.IdiomaEe">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>IdiomaEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.NotificacionEe">
+    <Position X="40.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAABAQAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>NotificacionEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.PatenteEe" Collapsed="true">
+    <Position X="10.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PatenteEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.PermisoEe" Collapsed="true">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PermisoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.ProductoEe">
+    <Position X="38.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAgAAQAAAAAAABABAAAAAAAAA=</HashCode>
+      <FileName>ProductoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.ProveedorEe">
+    <Position X="20.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProveedorEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.ReclamoEe">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAACAAAEAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ReclamoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.RenovacionDepositoEe">
+    <Position X="27.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAEAQAAAAAABAAAAAAAEAAAAAAAAAAg=</HashCode>
+      <FileName>RenovacionDepositoEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.ReposicionEe">
+    <Position X="31.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAQAAAAAAAAAAAAAABAAAAAAAAAAg=</HashCode>
+      <FileName>ReposicionEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.StockSucursalEe">
+    <Position X="36.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StockSucursalEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.SucursalEe">
+    <Position X="18.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SucursalEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.UsuarioEe" Collapsed="true">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAIAAAAAAAAIAAAABAAAAAAAAQAIAAAAAAAAA=</HashCode>
+      <FileName>UsuarioEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.VentaEe">
+    <Position X="29.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>VentaEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.PersonaEe">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAAAAAEAAAAgAAAAAAAAAAgAAAAAgAAAAA=</HashCode>
+      <FileName>PersonaEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.IdentityEe" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IdentityEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EE.EntidadFiscalEe">
+    <Position X="20.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAgAAAAAQAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>EntidadFiscalEe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EE.IIUpdatable" Collapsed="true">
+    <Position X="45.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>iUpdatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

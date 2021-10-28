@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E11B022-2A37-4DDA-B280-C9FEC4417335}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompradorBll.cs" />
+    <Compile Include="DepositoBll.cs" />
+    <Compile Include="DevolucionBll.cs" />
+    <Compile Include="EmblemaBll.cs" />
+    <Compile Include="EmpleadoDepositoBll.cs" />
+    <Compile Include="EmpleadoSucursalBll.cs" />
+    <Compile Include="EnvioBll.cs" />
+    <Compile Include="FamiliaBll.cs" />
+    <Compile Include="IdiomaBll.cs" />
+    <Compile Include="NotificacionBll.cs" />
+    <Compile Include="PatenteBll.cs" />
+    <Compile Include="PermisoBll.cs" />
+    <Compile Include="ProductoBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorBll.cs" />
+    <Compile Include="PuestoBll.cs" />
+    <Compile Include="ReclamoBll.cs" />
+    <Compile Include="RenovacionDepositoBll.cs" />
+    <Compile Include="ReposicionBll.cs" />
+    <Compile Include="SectorBll.cs" />
+    <Compile Include="StockSucursalBll.cs" />
+    <Compile Include="SucursalBll.cs" />
+    <Compile Include="TrabajadorBll.cs" />
+    <Compile Include="UsuarioBll.cs" />
+    <Compile Include="VentaBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{7eee7ea2-baa2-48a0-a0b5-c782c3a2ee5c}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EE\EE.csproj">
+      <Project>{0e88caec-50b3-4ed8-94d3-981198c1d248}</Project>
+      <Name>EE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{7ca445fa-378c-424d-b5c5-52a00a0e14c8}</Project>
+      <Name>Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
