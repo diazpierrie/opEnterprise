@@ -1,7 +1,7 @@
 ﻿
 namespace UI
 {
-    partial class EmpleadoBaja
+    partial class DepositoBaja
     {
         /// <summary>
         /// Required designer variable.
@@ -59,11 +59,11 @@ namespace UI
             this.lblPregunta.AutoSize = true;
             this.lblPregunta.Location = new System.Drawing.Point(98, 65);
             this.lblPregunta.Name = "lblPregunta";
-            this.lblPregunta.Size = new System.Drawing.Size(281, 19);
+            this.lblPregunta.Size = new System.Drawing.Size(272, 19);
             this.lblPregunta.TabIndex = 3;
-            this.lblPregunta.Text = "¿Está seguro que desea eliminar el empleado?";
+            this.lblPregunta.Text = "¿Está seguro que desea eliminar el deposito?";
             // 
-            // EmpleadoBaja
+            // DepositoBaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,8 +71,8 @@ namespace UI
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnSi);
             this.Controls.Add(this.lblPregunta);
-            this.Name = "EmpleadoBaja";
-            this.Text = "EmpleadoBaja";
+            this.Name = "DepositoBaja";
+            this.Text = "DepositoBaja";
             this.ResumeLayout(false);
             this.PerformLayout();
 

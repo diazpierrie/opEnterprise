@@ -69,6 +69,7 @@
     <Compile Include="Sesion.cs" />
     <Compile Include="StockSucursalEe.cs" />
     <Compile Include="SucursalEe.cs" />
+    <Compile Include="UsuarioDepositoEe.cs" />
     <Compile Include="UsuarioEe.cs" />
     <Compile Include="VentaEe.cs" />
   </ItemGroup>

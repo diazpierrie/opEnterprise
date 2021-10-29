@@ -37,7 +37,7 @@ namespace DAL
 		{
 			try
 			{
-				var query = new SqlCommand("SELECT f.id, f.Nombre FROM familias f JOIN usuarios u ON u.familia_id = f.id WHERE u.id = @id", Conn);
+				var query = new SqlCommand("SELECT f.id, f.Nombre FROM familia f JOIN usuario u ON u.familia_id = f.id WHERE u.id = @id", Conn);
 				query.Parameters.AddWithValue("@id", usuario.Id);
 				Conn.Open();
 				var data = query.ExecuteReader();
@@ -70,7 +70,7 @@ namespace DAL
 
 		public bool Actualizar(FamiliaEe familia)
 		{
-			var query = new SqlCommand("UPDATE familias SET Nombre = @Nombre WHERE id = @id", Conn);
+			var query = new SqlCommand("UPDATE familia SET Nombre = @Nombre WHERE id = @id", Conn);
 			query.Parameters.AddWithValue("@id", familia.Id);
 			query.Parameters.AddWithValue("@Nombre", familia.Nombre);
 
@@ -84,7 +84,7 @@ namespace DAL
 				return false;
 			}
 
-			var query = new SqlCommand("UPDATE usuarios SET familia_id = 0 WHERE familia_id = @id", Conn);
+			var query = new SqlCommand("UPDATE usuario SET familia_id = 0 WHERE familia_id = @id", Conn);
 			query.Parameters.AddWithValue("@id", id);
 
 			return ExecuteQuery(query);
@@ -133,9 +133,9 @@ namespace DAL
 
 		public bool ModificarFamilia(int userid, int permisoid)
 		{
-			var query = new SqlCommand("UPDATE usuarios SET familia_id = @familia_id WHERE id = @id", Conn);
+			var query = new SqlCommand("UPDATE usuario SET idFamilia = @idFamilia WHERE id = @id", Conn);
 			query.Parameters.AddWithValue("@id", userid);
-			query.Parameters.AddWithValue("@familia_id", permisoid);
+			query.Parameters.AddWithValue("@idFamilia", permisoid);
 
 			return ExecuteQuery(query);
 		}
@@ -144,7 +144,7 @@ namespace DAL
 		{
 			try
 			{
-				var queryTxt = $"SELECT id, Nombre FROM familias WHERE Nombre = '{nombre}'";
+				var queryTxt = $"SELECT id, Nombre FROM familia WHERE Nombre = '{nombre}'";
 
 				if (id != 0)
 				{

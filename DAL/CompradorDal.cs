@@ -41,7 +41,7 @@ namespace DAL
 		public int Crear(CompradorEe obj)
 		{
 			var columnas = new List<string> { "nombre", "apellido", "email", "telefono", "esSocio", "activo" };
-			var valores = new List<string> { obj.Nombre, obj.Apellido, obj.Email, obj.Telefono, obj.EsSocio.ToString(), obj.Activo.ToString() };
+			var valores = new List<string> { obj.Nombre, obj.Apellido, obj.Mail, obj.Telefono, obj.EsSocio.ToString(), obj.Activo.ToString() };
 
 			return Insert("comprador", columnas.ToArray(), valores.ToArray());
 		}
@@ -181,7 +181,7 @@ namespace DAL
 				Id = int.Parse(data["id"].ToString() ?? string.Empty),
 				Nombre = data["nombre"].ToString(),
 				Apellido = data["apellido"].ToString(),
-				Email = data["email"].ToString(),
+				Mail = data["email"].ToString(),
 				Telefono = data["telefono"].ToString(),
 				EsSocio = bool.Parse(data["esSocio"].ToString() ?? string.Empty),
 				Activo = bool.Parse(data["activo"].ToString() ?? string.Empty),

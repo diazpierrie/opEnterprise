@@ -12,22 +12,22 @@ using EE;
 
 namespace UI
 {
-    public partial class EmpleadoBaja : UpdatableForm
+    public partial class DepositoBaja : UpdatableForm
     {
-        public UsuarioEe Usuario;
-        private readonly EmpleadoHome _homeForm;
+        public DepositoEe Deposito;
+        private readonly DepositoHome _homeForm;
 
-        public EmpleadoBaja(EmpleadoHome homeForm, UsuarioEe usuario)
+        public DepositoBaja(DepositoHome homeForm, DepositoEe deposito)
         {
             InitializeComponent();
-            Usuario = usuario;
-            lblPregunta.Text = $@"¿Está seguro que desea eliminar el Usuario {Usuario.Nombre}?";
+            Deposito = deposito;
+            lblPregunta.Text = $@"¿Está seguro que desea eliminar el Deposito {Deposito.Nombre}?";
             _homeForm = homeForm;
         }
 
         private void btnSi_Click(object sender, EventArgs e)
         {
-            UsuarioBll.Eliminar(Usuario);
+            DepositoBll.Eliminar(Deposito);
             _homeForm.ActualizarGrid();
             this.Close();
         }

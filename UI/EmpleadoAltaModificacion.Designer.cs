@@ -350,7 +350,7 @@ namespace UI
             // 
             this.cbSector.FormattingEnabled = true;
             this.cbSector.ItemHeight = 23;
-            this.cbSector.Location = new System.Drawing.Point(166, 275);
+            this.cbSector.Location = new System.Drawing.Point(166, 310);
             this.cbSector.Name = "cbSector";
             this.cbSector.Size = new System.Drawing.Size(189, 29);
             this.cbSector.TabIndex = 62;
@@ -370,7 +370,7 @@ namespace UI
             // 
             this.cbPuesto.FormattingEnabled = true;
             this.cbPuesto.ItemHeight = 23;
-            this.cbPuesto.Location = new System.Drawing.Point(166, 310);
+            this.cbPuesto.Location = new System.Drawing.Point(166, 275);
             this.cbPuesto.Name = "cbPuesto";
             this.cbPuesto.Size = new System.Drawing.Size(189, 29);
             this.cbPuesto.TabIndex = 64;
@@ -379,7 +379,7 @@ namespace UI
             // lblSector
             // 
             this.lblSector.AutoSize = true;
-            this.lblSector.Location = new System.Drawing.Point(104, 281);
+            this.lblSector.Location = new System.Drawing.Point(104, 316);
             this.lblSector.Name = "lblSector";
             this.lblSector.Size = new System.Drawing.Size(46, 19);
             this.lblSector.TabIndex = 65;
@@ -388,7 +388,7 @@ namespace UI
             // lblPuesto
             // 
             this.lblPuesto.AutoSize = true;
-            this.lblPuesto.Location = new System.Drawing.Point(102, 316);
+            this.lblPuesto.Location = new System.Drawing.Point(102, 281);
             this.lblPuesto.Name = "lblPuesto";
             this.lblPuesto.Size = new System.Drawing.Size(48, 19);
             this.lblPuesto.TabIndex = 66;

@@ -48,6 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductoAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductoAgregar.Designer.cs">
+      <DependentUpon>ProductoAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentaHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaHome.Designer.cs">
+      <DependentUpon>VentaHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalAsignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalAsignar.Designer.cs">
+      <DependentUpon>SucursalAsignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoAsignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoAsignar.Designer.cs">
+      <DependentUpon>DepositoAsignar.cs</DependentUpon>
+    </Compile>
     <Compile Include="BitacoreTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +84,29 @@
     <Compile Include="EmpleadoAltaModificacion.Designer.cs">
       <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepositoAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoAltaModificacion.Designer.cs">
+      <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoBaja.Designer.cs">
+      <DependentUpon>DepositoBaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmpleadoBaja.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmpleadoBaja.Designer.cs">
       <DependentUpon>EmpleadoBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoHome.Designer.cs">
+      <DependentUpon>DepositoHome.cs</DependentUpon>
     </Compile>
     <Compile Include="EmpleadoHome.cs">
       <SubType>Form</SubType>
@@ -118,11 +160,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ProductoAgregar.resx">
+      <DependentUpon>ProductoAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaHome.resx">
+      <DependentUpon>VentaHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SucursalAsignar.resx">
+      <DependentUpon>SucursalAsignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoAsignar.resx">
+      <DependentUpon>DepositoAsignar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmpleadoAltaModificacion.resx">
       <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepositoAltaModificacion.resx">
+      <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoBaja.resx">
+      <DependentUpon>DepositoBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadoBaja.resx">
+      <DependentUpon>EmpleadoBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoHome.resx">
+      <DependentUpon>DepositoHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmpleadoHome.resx">
       <DependentUpon>EmpleadoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDV.resx">
+      <DependentUpon>ErrorDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -193,6 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\this.Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\%24this.Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

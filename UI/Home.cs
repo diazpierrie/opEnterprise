@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Home : Form
+    public partial class Home : MetroFramework.Forms.MetroForm
     {
         public Home()
         {
@@ -20,6 +20,12 @@ namespace UI
         {
             var empleadoHome = new EmpleadoHome();
             empleadoHome.Show();
+        }
+
+        private void btnRealizarVenta_Click(object sender, EventArgs e)
+        {
+            var ventaHome = new EmpleadoHome();
+            ventaHome.Show();
         }
     }
 }

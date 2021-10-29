@@ -10,7 +10,7 @@ namespace DAL
     {
         public int AgregarMensaje(BitacoraMensajeEe mensaje)
         {
-            string[] columns = { "fecha", "Titulo", "Descripcion", "tipo", "Usuario_id" };
+            string[] columns = { "fecha", "Titulo", "Descripcion", "tipo", "idUsuario" };
             var userid = mensaje.Usuario != null ? mensaje.Usuario.Id : 0;
             string[] values = { DateTime.Now.ToString(CultureInfo.InvariantCulture), mensaje.Titulo, mensaje.Descripcion, mensaje.Tipo.ToString(), userid.ToString() };
             return Insert("bitacora", columns, values);

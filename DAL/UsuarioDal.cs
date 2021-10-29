@@ -104,7 +104,7 @@ namespace DAL
 		{
 			try
 			{
-				var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector FROM usuario WHERE nombreUsuario = @username", Conn);
+				var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector FROM usuario WHERE nombreUsuario = @username AND activo = 1", Conn);
 				query.Parameters.AddWithValue("@username", username);
 				Conn.Open();
 				var data = query.ExecuteReader();
@@ -156,7 +156,7 @@ namespace DAL
 		{
 			try
 			{
-				var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono " +
+				var strQuery = "SELECT id, nombreUsuario, nombre,  apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
                                "FROM usuario";
 
 				if (name != null)
@@ -193,7 +193,7 @@ namespace DAL
 		{
 			try
 			{
-				var strQuery = "SELECT id, nombreUsuario, nombre,  apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
+				var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
                                      "FROM usuario WHERE activo = 1";
 
 				if (name != null)
@@ -233,7 +233,7 @@ namespace DAL
 		{
 			try
 			{
-				var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono " +
+				var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
                                $"FROM usuario WHERE id = {id}";
 
 				var query = new SqlCommand(strQuery, Conn);
@@ -260,11 +260,17 @@ namespace DAL
 
 		public bool Actualizar(UsuarioEe user)
 		{
-			var query = new SqlCommand("UPDATE usuario SET email = @email, nombre = @nombre, apellido = @apellido WHERE id = @id", Conn);
+            var query = new SqlCommand("UPDATE usuario SET nombreUsuario = @nombreUsuario, nombre = @nombre, apellido = @apellido, mail = @mail, dni = @dni, " +
+                                             "telefono = @telefono, idPuesto = @idPuesto, idSector = @idSector WHERE id = @id", Conn);
 			query.Parameters.AddWithValue("@id", user.Id);
-			query.Parameters.AddWithValue("@email", user.Email);
+			query.Parameters.AddWithValue("@mail", user.Mail);
 			query.Parameters.AddWithValue("@nombre", user.Nombre);
 			query.Parameters.AddWithValue("@apellido", user.Apellido);
+			query.Parameters.AddWithValue("@nombreUsuario", user.NombreUsuario);
+            query.Parameters.AddWithValue("@dni", user.Dni);
+			query.Parameters.AddWithValue("@telefono", user.Telefono);
+            query.Parameters.AddWithValue("@idPuesto", user.Puesto.Id);
+			query.Parameters.AddWithValue("@idSector", user.Sector.Id);
 
 			return ExecuteQuery(query);
 		}
@@ -279,38 +285,55 @@ namespace DAL
 
 		public int Crear(UsuarioEe us, string pass, FamiliaEe fam = null)
 		{
-			//TODO Balancear los campos 
-			var columns = new List<string>
+            var columns = new List<string>
             {
-                "nombreUsuario",
-                "email",
-                "nombre",
-                "apellido",
-                "password",
-                "fechaCreacion",
+				"nombre",
+				"apellido",
+				"dni",
+				"mail",
+				"telefono",
+				"nombreUsuario",
+				"password",
+				"fechaCreacion",
                 "activo",
                 "intentosFallidos"
             };
 
             var values = new List<string>
             {
-                us.NombreUsuario,
-                us.Email,
                 us.Nombre,
                 us.Apellido,
-                pass,
+                us.Dni.ToString(),
+                us.Mail,
+				us.Telefono,
+				us.NombreUsuario,
+				pass,
                 DateTime.Today.ToString(CultureInfo.InvariantCulture),
                 1.ToString(),
                 0.ToString()
             };
 
-            if (fam == null) return Insert("usuario", columns.ToArray(), values.ToArray());
+            if (us.Permiso != null)
+            {
+                columns.Add("idFamilia");
+                values.Add(us.Permiso.Id.ToString());
+            }
 
-            columns.Add("idFamilia");
-            values.Add(fam.Id.ToString());
+            if (us.Puesto != null)
+            {
+                columns.Add("idPuesto");
+                values.Add(us.Puesto.Id.ToString());
+            }
 
-            return Insert("usuario", columns.ToArray(), values.ToArray());
-		}
+            if (us.Sector != null)
+            {
+                columns.Add("idSector");
+                values.Add(us.Sector.Id.ToString());
+            }
+
+
+			return Insert("usuario", columns.ToArray(), values.ToArray());
+        }
 
 		public bool ActualizarPassword(int id, string newPass)
 		{

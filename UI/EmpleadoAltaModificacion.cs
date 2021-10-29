@@ -46,26 +46,33 @@ namespace UI
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
-       
-                var usuario = new UsuarioEe
-                {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Dni = int.Parse(txtDNI.Text),
-                    Mail = txtMail.Text,
-                    Telefono = txtTelefono.Text,
-                    NombreUsuario = txtUsername.Text,
-                    Permiso = new FamiliaEe() { Id = int.Parse(cbPermiso.SelectedValue.ToString()) },
-                    Sector = new SectorEe() { Id = int.Parse(cbSector.SelectedValue.ToString()) },
-                    Puesto = new PuestoEe() { Id = int.Parse(cbPuesto.SelectedValue.ToString()) }
-                };
-
                 if (_crear)
                 {
-                    UsuarioBll.Crear(usuario);
+                    var usuario = new UsuarioEe
+                    {
+                        Nombre = txtNombre.Text,
+                        Apellido = txtApellido.Text,
+                        Dni = int.Parse(txtDNI.Text),
+                        Mail = txtMail.Text,
+                        Telefono = txtTelefono.Text,
+                        NombreUsuario = txtUsername.Text,
+                        Permiso = new FamiliaEe() { Id = int.Parse(cbPermiso.SelectedValue.ToString()) },
+                        Sector = new SectorEe() { Id = int.Parse(cbSector.SelectedValue.ToString()) },
+                        Puesto = new PuestoEe() { Id = int.Parse(cbPuesto.SelectedValue.ToString()) }
+                    };
+                UsuarioBll.Crear(usuario);
                 }
                 else
                 {
+                    _usuario.Nombre = txtNombre.Text;
+                    _usuario.Apellido = txtApellido.Text;
+                    _usuario.Dni = int.Parse(txtDNI.Text);
+                    _usuario.Mail = txtMail.Text;
+                    _usuario.Telefono = txtTelefono.Text;
+                    _usuario.NombreUsuario = txtUsername.Text;
+                    _usuario.Permiso = new FamiliaEe() {Id = int.Parse(cbPermiso.SelectedValue.ToString())};
+                    _usuario.Sector = new SectorEe() {Id = int.Parse(cbSector.SelectedValue.ToString())};
+                    _usuario.Puesto = new PuestoEe() {Id = int.Parse(cbPuesto.SelectedValue.ToString())};
                     UsuarioBll.Actualizar(_usuario);
                 }
 

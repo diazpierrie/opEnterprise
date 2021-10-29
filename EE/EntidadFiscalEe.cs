@@ -7,6 +7,7 @@
         public string Mail { get; set; }
         public string Telefono { get; set; }
         public int CodigoPostal { get; set; }
+        public bool Activo { get; set; }
 
     }
 }

@@ -11,7 +11,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT p.id, p.Nombre FROM patentes p JOIN familia_patente fp ON fp.patente_id = p.id WHERE fp.familia_id = @id", Conn);
+                var query = new SqlCommand("SELECT p.id, p.nombre FROM patente p JOIN familia_patente fp ON fp.idPatente = p.id WHERE fp.idFamilia = @id", Conn);
                 query.Parameters.AddWithValue("@id", id);
                 Conn.Open();
                 var data = query.ExecuteReader();
