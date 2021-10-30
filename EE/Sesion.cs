@@ -4,21 +4,21 @@
     {
         public UsuarioEe Usuario;
         public IdiomaEe Idioma;
+        public SucursalEe Sucursal;
+        public DepositoEe Deposito;
         private static Sesion _sesion;
 
         private Sesion()
         {
             Idioma = new IdiomaEe();
             Usuario = new UsuarioEe();
+            Sucursal = new SucursalEe();
+            Deposito = new DepositoEe();
         }
 
         public static Sesion ObtenerSesion()
         {
-            if (_sesion == null)
-            {
-                _sesion = new Sesion();
-            }
-            return _sesion;
+            return _sesion ?? (_sesion = new Sesion());
         }
 	}
 }

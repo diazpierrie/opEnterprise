@@ -72,5 +72,9 @@ namespace BLL
             return _dal.DesasignarEmpleadoConSucursal(user, depo);
         }
 
+        public static List<ProductoEe> ObtenerPorNombre(string name = null)
+        {
+            return name == null ? null : _dal.ObtenerActivos(name);
+        }
     }
 }

@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DepositoElegir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoElegir.Designer.cs">
+      <DependentUpon>DepositoElegir.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DepositoElegir.resx">
+      <DependentUpon>DepositoElegir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductoAgregar.resx">
       <DependentUpon>ProductoAgregar.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using BLL;
 using EE;
 using Security;
 
@@ -54,9 +55,63 @@ namespace UI
             }
 
             this.Hide();
-            var h1 = new Home();
-            h1.ShowDialog();
-            this.Close();
+
+            switch (sesion.Usuario.Puesto.Id)
+            {
+                case 1:
+                {
+                    sesion.Usuario.Depositos = DepositoBll.ObtenerDepositosDeUsuario(sesion.Usuario);
+                    if (sesion.Usuario.Depositos != null)
+                    {
+                        if (sesion.Usuario.Depositos.Count == 1)
+                        {
+                            var h1 = new Home();
+                            h1.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            var depositoElegir = new DepositoElegir(sesion.Usuario.Depositos);
+                            depositoElegir.Show();
+                        }
+                    }
+                    else
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["no_warehouse_found"], sesion.Idioma.Textos["notification"]);
+                    }
+                    break;
+                }
+                case 2:
+                {
+                    sesion.Usuario.Sucursales = SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
+                    if (sesion.Usuario.Sucursales != null)
+                    {
+                        if (sesion.Usuario.Sucursales.Count == 1)
+                        {
+                            var h1 = new Home();
+                            h1.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            var depositoElegir = new SucursalElegir(sesion.Usuario.Sucursales);
+                            depositoElegir.Show();
+                        }
+                    }
+                    else
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["no_branch_found"], sesion.Idioma.Textos["notification"]);
+                    }
+                    break;
+                }
+                default:
+                {
+                    var h1 = new Home();
+                    h1.ShowDialog();
+                    this.Close();
+                    break;
+                }
+            }
         }
 
         private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)

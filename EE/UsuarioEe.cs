@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EE {
     public class UsuarioEe : PersonaEe {
@@ -8,6 +9,8 @@ namespace EE {
         public PermisoEe Permiso { get; set; }
         public SectorEe Sector { get; set; }
         public PuestoEe Puesto { get; set; }
+        public List<DepositoEe> Depositos { get; set; }
+        public List<SucursalEe> Sucursales { get; set; }
 
 public string NombreCompleto { get { return $"{Apellido}, {Nombre}"; } }
 	}
