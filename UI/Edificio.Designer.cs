@@ -8,42 +8,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Properties {
+namespace UI {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class Edificio : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        private static Edificio defaultInstance = ((Edificio)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Edificio())));
         
-        public static Settings Default {
+        public static Edificio Default {
             get {
                 return defaultInstance;
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TipoEdificio {
+        public string tipoEdificio {
             get {
-                return ((string)(this["TipoEdificio"]));
-            }
-            set {
-                this["TipoEdificio"] = value;
+                return ((string)(this["tipoEdificio"]));
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int IdEdificio {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string idEdificio {
             get {
-                return ((int)(this["IdEdificio"]));
-            }
-            set {
-                this["IdEdificio"] = value;
+                return ((string)(this["idEdificio"]));
             }
         }
     }

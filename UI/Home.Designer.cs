@@ -35,8 +35,9 @@ namespace UI
             this.tcHome = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
+            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.btnConfigurarEdificio = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -54,7 +55,7 @@ namespace UI
             // 
             // btnEmpleado
             // 
-            this.btnEmpleado.Location = new System.Drawing.Point(128, 20);
+            this.btnEmpleado.Location = new System.Drawing.Point(114, 20);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Size = new System.Drawing.Size(105, 38);
             this.btnEmpleado.TabIndex = 1;
@@ -64,7 +65,7 @@ namespace UI
             // 
             // btnUsuario
             // 
-            this.btnUsuario.Location = new System.Drawing.Point(249, 20);
+            this.btnUsuario.Location = new System.Drawing.Point(225, 20);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Size = new System.Drawing.Size(105, 38);
             this.btnUsuario.TabIndex = 2;
@@ -79,13 +80,14 @@ namespace UI
             this.tcHome.Controls.Add(this.metroTabPage1);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 1;
+            this.tcHome.SelectedIndex = 0;
             this.tcHome.Size = new System.Drawing.Size(776, 384);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
             // 
             // tabAdmin
             // 
+            this.tabAdmin.Controls.Add(this.btnConfigurarEdificio);
             this.tabAdmin.Controls.Add(this.btnUsuario);
             this.tabAdmin.Controls.Add(this.btnEmpleado);
             this.tabAdmin.Controls.Add(this.btnProveedor);
@@ -116,20 +118,6 @@ namespace UI
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // metroTabPage1
-            // 
-            this.metroTabPage1.HorizontalScrollbarBarColor = true;
-            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
-            this.metroTabPage1.Location = new System.Drawing.Point(4, 41);
-            this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(768, 381);
-            this.metroTabPage1.TabIndex = 2;
-            this.metroTabPage1.Text = "metroTabPage1";
-            this.metroTabPage1.VerticalScrollbarBarColor = true;
-            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
             // btnRealizarVenta
             // 
             this.btnRealizarVenta.Location = new System.Drawing.Point(23, 21);
@@ -139,6 +127,30 @@ namespace UI
             this.btnRealizarVenta.Text = "Realizar Venta";
             this.btnRealizarVenta.UseSelectable = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
+            // 
+            // metroTabPage1
+            // 
+            this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.Location = new System.Drawing.Point(4, 41);
+            this.metroTabPage1.Name = "metroTabPage1";
+            this.metroTabPage1.Size = new System.Drawing.Size(768, 339);
+            this.metroTabPage1.TabIndex = 2;
+            this.metroTabPage1.Text = "metroTabPage1";
+            this.metroTabPage1.VerticalScrollbarBarColor = true;
+            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // btnConfigurarEdificio
+            // 
+            this.btnConfigurarEdificio.Location = new System.Drawing.Point(336, 20);
+            this.btnConfigurarEdificio.Name = "btnConfigurarEdificio";
+            this.btnConfigurarEdificio.Size = new System.Drawing.Size(105, 38);
+            this.btnConfigurarEdificio.TabIndex = 3;
+            this.btnConfigurarEdificio.Text = "Configurar Edificio";
+            this.btnConfigurarEdificio.UseSelectable = true;
+            this.btnConfigurarEdificio.Click += new System.EventHandler(this.btnConfigurarEdificio_Click);
             // 
             // Home
             // 
@@ -165,5 +177,6 @@ namespace UI
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroButton btnRealizarVenta;
+        private MetroFramework.Controls.MetroButton btnConfigurarEdificio;
     }
 }

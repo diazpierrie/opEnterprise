@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using EE;
 using Security;
+using UI.Properties;
 
 namespace UI
 {
@@ -55,62 +57,76 @@ namespace UI
             }
 
             this.Hide();
+            var h1 = new Home();
+            h1.ShowDialog();
+            this.Close();
+
+            var tipoEdificio = Settings.Default.TipoEdificio;
+            var idEdificio = Settings.Default.IdEdificio;
+
 
             switch (sesion.Usuario.Puesto.Id)
             {
-                case 1:
-                {
-                    sesion.Usuario.Depositos = DepositoBll.ObtenerDepositosDeUsuario(sesion.Usuario);
-                    if (sesion.Usuario.Depositos != null)
+                case 1: //Deposito
                     {
-                        if (sesion.Usuario.Depositos.Count == 1)
+                        if (tipoEdificio == "Deposito")
                         {
-                            var h1 = new Home();
-                            h1.ShowDialog();
-                            this.Close();
+                            sesion.Usuario.Depositos = DepositoBll.ObtenerDepositosDeUsuario(sesion.Usuario);
+                            if (sesion.Usuario.Depositos != null)
+                            {
+
+                                if (sesion.Usuario.Depositos.Find(depo => depo.Id == idEdificio) != null)
+                                {
+
+                                    h1.ShowDialog();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"]);
+                                }
+                            }
+
                         }
                         else
                         {
-                            var depositoElegir = new DepositoElegir(sesion.Usuario.Depositos);
-                            depositoElegir.Show();
+                            MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
                         }
+                        break;
                     }
-                    else
-                    {
-                        MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["no_warehouse_found"], sesion.Idioma.Textos["notification"]);
-                    }
-                    break;
-                }
                 case 2:
-                {
-                    sesion.Usuario.Sucursales = SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
-                    if (sesion.Usuario.Sucursales != null)
                     {
-                        if (sesion.Usuario.Sucursales.Count == 1)
+                        if (tipoEdificio == "Sucursal")
                         {
-                            var h1 = new Home();
-                            h1.ShowDialog();
-                            this.Close();
+                            sesion.Usuario.Sucursales= SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
+                            if (sesion.Usuario.Sucursales != null)
+                            {
+
+                                if (sesion.Usuario.Sucursales.Find(sucu => sucu.Id == idEdificio) != null)
+                                {
+
+                                    h1.ShowDialog();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"]);
+                                }
+                            }
+
                         }
                         else
                         {
-                            var depositoElegir = new SucursalElegir(sesion.Usuario.Sucursales);
-                            depositoElegir.Show();
+                            MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
                         }
+                        break;
                     }
-                    else
-                    {
-                        MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["no_branch_found"], sesion.Idioma.Textos["notification"]);
-                    }
-                    break;
-                }
                 default:
-                {
-                    var h1 = new Home();
-                    h1.ShowDialog();
-                    this.Close();
-                    break;
-                }
+                    {
+                        h1.ShowDialog();
+                        this.Close();
+                        break;
+                    }
             }
         }
 

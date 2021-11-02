@@ -27,5 +27,11 @@ namespace UI
             var ventaHome = new EmpleadoHome();
             ventaHome.Show();
         }
+
+        private void btnConfigurarEdificio_Click(object sender, EventArgs e)
+        {
+            var configurarEdificio = new ConfigurarEdificio();
+            configurarEdificio.Show();
+        }
     }
 }

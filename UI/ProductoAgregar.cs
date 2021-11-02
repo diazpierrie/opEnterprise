@@ -32,7 +32,7 @@ namespace UI
                 var selectedRow = gridProductos.SelectedRows[index];
                 var sucursal = (SucursalEe) selectedRow.DataBoundItem;
 
-                ProductoBll.AsignarEmpleadoConSucursal(Usuario, sucursal);
+                //ProductoBll.AsignarEmpleadoConSucursal(Usuario, sucursal);
             }
 
             ActualizarGrids();
@@ -47,7 +47,7 @@ namespace UI
                 var selectedRow = gridProductosAAgregar.SelectedRows[index];
                 var sucursal = (SucursalEe) selectedRow.DataBoundItem;
 
-                ProductoBll.DesasignarEmpleadoConSucursal(Usuario, sucursal);
+                //ProductoBll.DesasignarEmpleadoConSucursal(Usuario, sucursal);
             }
 
             ActualizarGrids();
@@ -55,7 +55,7 @@ namespace UI
 
         private void ActualizarGrids()
         {
-            gridProductos.DataSource = ProductoBll.ObtenerPorSucursal();
+            //gridProductos.DataSource = ProductoBll.ObtenerPorSucursal();
             gridProductos.Columns["id"].Visible = false;
             gridProductos.Columns["dvh"].Visible = false;
             gridProductos.Columns["activo"].Visible = false;
@@ -66,7 +66,7 @@ namespace UI
             gridProductos.Columns["precio"].DisplayIndex = 3;
             gridProductos.Columns["costo"].DisplayIndex = 4;
 
-            gridProductosAAgregar.DataSource = ProductoBll.ObtenerSucursalesDeUsuario(Usuario);
+            //gridProductosAAgregar.DataSource = ProductoBll.ObtenerSucursalesDeUsuario(Usuario);
             gridProductosAAgregar.Columns["id"].Visible = false;
             gridProductosAAgregar.Columns["dvh"].Visible = false;
             gridProductosAAgregar.Columns["activo"].Visible = false;

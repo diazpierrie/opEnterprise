@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using EE;
 
 namespace DAL
@@ -72,43 +73,13 @@ namespace DAL
             }
         }
 
-        public ProductoEe ObtenerSucursalPorNombre(string nombre)
-        {
-            try
-            {
-                var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono FROM sucursal " +
-                               $"WHERE nombre = {nombre}";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                ProductoEe sucursal = null;
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        sucursal = CastDto(data);
-                    }
-                }
-
-                Conn.Close();
-                return sucursal;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
 
         public List<ProductoEe> ObtenerActivos(string name = null)
         {
             try
             {
-                var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono " +
-                                     "FROM sucursal WHERE activo = 1";
+                var strQuery = "SELECT id, nombre, fechaCreacion, precio, costo " +
+                                     "FROM producto WHERE activo = 1";
 
                 if (name != null)
                 {
@@ -145,22 +116,20 @@ namespace DAL
 
 		public int Crear(ProductoEe obj)
 		{
-			var columnas = new List<string> { "nombre", "direccion", "mail", "telefono", "codigoPostal", "activo" };
-			var valores = new List<string> { obj.Nombre, obj.Direccion, obj.Mail, obj.Telefono, obj.CodigoPostal.ToString(), 1.ToString() };
+			var columnas = new List<string> { "nombre", "codigo", "fechaCreacion", "precio", "costo", "activo" };
+            var valores = new List<string> { obj.Nombre, obj.Codigo, obj.FechaCreacion.ToString(CultureInfo.InvariantCulture), obj.Precio.ToString(CultureInfo.InvariantCulture), obj.Costo.ToString(CultureInfo.InvariantCulture), 1.ToString() };
 
-			return Insert("sucursal", columnas.ToArray(), valores.ToArray());
-		}
+            return Insert("producto", columnas.ToArray(), valores.ToArray());
+        }
 
         public bool Actualizar(ProductoEe sucu)
         {
-            var query = new SqlCommand("UPDATE Sucursal SET nombre = @nombre, direccion = @direccion, mail = @mail, codigoPostal = @codigoPostal, telefono = @telefono " +
+            var query = new SqlCommand("UPDATE producto SET nombre = @nombre, codigo = @codigo, precio = @precio, costo = @costo " +
                                              "WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", sucu.Id);
-            query.Parameters.AddWithValue("@mail", sucu.Mail);
-            query.Parameters.AddWithValue("@nombre", sucu.Nombre);
-            query.Parameters.AddWithValue("@telefono", sucu.Telefono);
-            query.Parameters.AddWithValue("@codigoPostal", sucu.CodigoPostal);
-            query.Parameters.AddWithValue("@direccion", sucu.Direccion);
+            query.Parameters.AddWithValue("@codigo", sucu.Codigo);
+            query.Parameters.AddWithValue("@precio", sucu.Precio);
+            query.Parameters.AddWithValue("@costo", sucu.Costo);
 
             return ExecuteQuery(query);
         }
@@ -271,17 +240,17 @@ namespace DAL
 
 
         public ProductoEe CastDto(SqlDataReader data)
-		{
+        {
             return new ProductoEe()
-			{
-				Id = int.Parse(data["id"].ToString()),
-				Nombre = data["nombre"].ToString(),
-                Mail = data["mail"].ToString(),
-                Direccion = data["direccion"].ToString(),
-				CodigoPostal = int.Parse(data["codigoPostal"].ToString()),
-				Telefono = data["telefono"].ToString(),
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Nombre = data["nombre"].ToString(),
+                //Mail = data["mail"].ToString(),
+                //Direccion = data["direccion"].ToString(),
+                //CodigoPostal = int.Parse(data["codigoPostal"].ToString()),
+                //Telefono = data["telefono"].ToString(),
             };
-		}
+        }
 
 
     }

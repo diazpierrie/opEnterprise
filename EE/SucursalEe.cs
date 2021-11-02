@@ -2,6 +2,9 @@
 {
     public class SucursalEe : EntidadFiscalEe
     {
-
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }
