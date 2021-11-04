@@ -56,14 +56,30 @@ namespace UI
                 return;
             }
 
-            this.Hide();
-            var h1 = new Home();
-            h1.ShowDialog();
-            this.Close();
 
             var tipoEdificio = Settings.Default.TipoEdificio;
             var idEdificio = Settings.Default.IdEdificio;
 
+            if (!string.IsNullOrEmpty(tipoEdificio) && !string.IsNullOrEmpty(idEdificio.ToString()))
+            {
+                switch (tipoEdificio)
+                {
+                    case "Deposito":
+                        sesion.Deposito = DepositoBll.Obtener(idEdificio);
+                        break;
+                    case "Sucursal":
+                        sesion.Sucursal = SucursalBll.Obtener(idEdificio);
+                        break;
+                }
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
+                return;
+            }
+
+            this.Hide();
+            var h1 = new Home();
 
             switch (sesion.Usuario.Puesto.Id)
             {
@@ -94,7 +110,7 @@ namespace UI
                         }
                         break;
                     }
-                case 2:
+                case 2: //Sucursal
                     {
                         if (tipoEdificio == "Sucursal")
                         {

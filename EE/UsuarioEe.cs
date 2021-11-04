@@ -12,6 +12,11 @@ namespace EE {
         public List<DepositoEe> Depositos { get; set; }
         public List<SucursalEe> Sucursales { get; set; }
 
-public string NombreCompleto { get { return $"{Apellido}, {Nombre}"; } }
-	}
+        public string NombreCompleto => $"{Apellido}, {Nombre}";
+
+        public override string ToString()
+        {
+            return NombreCompleto;
+        }
+    }
 }

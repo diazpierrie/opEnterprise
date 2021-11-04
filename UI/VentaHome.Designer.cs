@@ -32,23 +32,23 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnAsignar = new MetroFramework.Controls.MetroButton();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.gridVenta = new MetroFramework.Controls.MetroGrid();
-            this.btnBorrarVenta = new MetroFramework.Controls.MetroButton();
             this.btnModificarVenta = new MetroFramework.Controls.MetroButton();
             this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
+            this.btnCompletarVenta = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridVenta)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAsignar
+            // lblTotal
             // 
-            this.btnAsignar.Location = new System.Drawing.Point(626, 216);
-            this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(136, 41);
-            this.btnAsignar.TabIndex = 8;
-            this.btnAsignar.Text = "Asignar";
-            this.btnAsignar.UseSelectable = true;
-            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(621, 389);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(67, 25);
+            this.lblTotal.TabIndex = 9;
+            this.lblTotal.Text = "Total: ";
             // 
             // gridVenta
             // 
@@ -82,7 +82,6 @@ namespace UI
             this.gridVenta.Location = new System.Drawing.Point(38, 75);
             this.gridVenta.MultiSelect = false;
             this.gridVenta.Name = "gridVenta";
-            this.gridVenta.ReadOnly = true;
             this.gridVenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -97,16 +96,7 @@ namespace UI
             this.gridVenta.Size = new System.Drawing.Size(563, 301);
             this.gridVenta.TabIndex = 7;
             this.gridVenta.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellDoubleClick);
-            // 
-            // btnBorrarVenta
-            // 
-            this.btnBorrarVenta.Location = new System.Drawing.Point(626, 169);
-            this.btnBorrarVenta.Name = "btnBorrarVenta";
-            this.btnBorrarVenta.Size = new System.Drawing.Size(136, 41);
-            this.btnBorrarVenta.TabIndex = 6;
-            this.btnBorrarVenta.Text = "Borrar Venta";
-            this.btnBorrarVenta.UseSelectable = true;
-            this.btnBorrarVenta.Click += new System.EventHandler(this.btnBorrarVenta_Click);
+            this.gridVenta.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellValueChanged);
             // 
             // btnModificarVenta
             // 
@@ -114,7 +104,8 @@ namespace UI
             this.btnModificarVenta.Name = "btnModificarVenta";
             this.btnModificarVenta.Size = new System.Drawing.Size(136, 41);
             this.btnModificarVenta.TabIndex = 5;
-            this.btnModificarVenta.Text = "Modificar Venta";
+            this.btnModificarVenta.Tag = "remove_product";
+            this.btnModificarVenta.Text = "Remover Producto";
             this.btnModificarVenta.UseSelectable = true;
             this.btnModificarVenta.Click += new System.EventHandler(this.btnModificarVenta_Click);
             // 
@@ -128,14 +119,25 @@ namespace UI
             this.btnAgregarProducto.UseSelectable = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnCrearVenta_Click);
             // 
+            // btnCompletarVenta
+            // 
+            this.btnCompletarVenta.Location = new System.Drawing.Point(626, 169);
+            this.btnCompletarVenta.Name = "btnCompletarVenta";
+            this.btnCompletarVenta.Size = new System.Drawing.Size(136, 41);
+            this.btnCompletarVenta.TabIndex = 10;
+            this.btnCompletarVenta.Tag = "remove_product";
+            this.btnCompletarVenta.Text = "Completar Venta";
+            this.btnCompletarVenta.UseSelectable = true;
+            this.btnCompletarVenta.Click += new System.EventHandler(this.btnCompletarVenta_Click);
+            // 
             // VentaHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnAsignar);
+            this.Controls.Add(this.btnCompletarVenta);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.gridVenta);
-            this.Controls.Add(this.btnBorrarVenta);
             this.Controls.Add(this.btnModificarVenta);
             this.Controls.Add(this.btnAgregarProducto);
             this.Name = "VentaHome";
@@ -143,15 +145,16 @@ namespace UI
             this.Load += new System.EventHandler(this.VentaHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridVenta)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private MetroFramework.Controls.MetroGrid gridVenta;
-        private MetroFramework.Controls.MetroButton btnBorrarVenta;
         private MetroFramework.Controls.MetroButton btnModificarVenta;
         private MetroFramework.Controls.MetroButton btnAgregarProducto;
-        private MetroFramework.Controls.MetroButton btnAsignar;
+        private System.Windows.Forms.Label lblTotal;
+        private MetroFramework.Controls.MetroButton btnCompletarVenta;
     }
 }

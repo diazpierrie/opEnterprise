@@ -50,6 +50,7 @@
     <Compile Include="EnvioBll.cs" />
     <Compile Include="FamiliaBll.cs" />
     <Compile Include="IdiomaBll.cs" />
+    <Compile Include="VentaEstadoBll.cs" />
     <Compile Include="NotificacionBll.cs" />
     <Compile Include="PatenteBll.cs" />
     <Compile Include="PermisoBll.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="ReposicionBll.cs" />
     <Compile Include="SectorBll.cs" />
     <Compile Include="StockSucursalBll.cs" />
+    <Compile Include="MetodoPagoBll.cs" />
     <Compile Include="SucursalBll.cs" />
     <Compile Include="TrabajadorBll.cs" />
     <Compile Include="UsuarioBll.cs" />

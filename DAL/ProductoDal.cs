@@ -239,17 +239,17 @@ namespace DAL
 		}
 
 
-        public ProductoEe CastDto(SqlDataReader data)
+        private static ProductoEe CastDto(SqlDataReader data)
         {
             return new ProductoEe()
             {
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString(),
-                //Mail = data["mail"].ToString(),
-                //Direccion = data["direccion"].ToString(),
-                //CodigoPostal = int.Parse(data["codigoPostal"].ToString()),
-                //Telefono = data["telefono"].ToString(),
+                Codigo = data["codigo"].ToString(),
+                Precio = double.Parse(data["precio"].ToString()),
+                Costo = double.Parse(data["costo"].ToString()),
             };
+
         }
 
 

@@ -50,6 +50,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteAlta.Designer.cs">
+      <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentaQuejaCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaQuejaCrear.Designer.cs">
+      <DependentUpon>VentaQuejaCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentaBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaBuscar.Designer.cs">
+      <DependentUpon>VentaBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteBuscar.Designer.cs">
+      <DependentUpon>ClienteBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompletarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompletarVenta.Designer.cs">
+      <DependentUpon>CompletarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigurarEdificio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,17 +92,11 @@
     <Compile Include="DepositoElegir.Designer.cs">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edificio.cs" />
     <Compile Include="ProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductoAgregar.Designer.cs">
       <DependentUpon>ProductoAgregar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Edificio.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Edificio.settings</DependentUpon>
     </Compile>
     <Compile Include="VentaHome.cs">
       <SubType>Form</SubType>
@@ -180,6 +204,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
+    <Compile Include="VentaVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaVerDetalle.Designer.cs">
+      <DependentUpon>VentaVerDetalle.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClienteAlta.resx">
+      <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaQuejaCrear.resx">
+      <DependentUpon>VentaQuejaCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaBuscar.resx">
+      <DependentUpon>VentaBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteBuscar.resx">
+      <DependentUpon>ClienteBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompletarVenta.resx">
+      <DependentUpon>CompletarVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigurarEdificio.resx">
       <DependentUpon>ConfigurarEdificio.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +293,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UpdatableForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="VentaVerDetalle.resx">
+      <DependentUpon>VentaVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -257,10 +305,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Edificio.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Edificio.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

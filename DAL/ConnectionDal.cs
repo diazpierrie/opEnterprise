@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,9 +10,10 @@ namespace DAL
     public abstract class ConnectionDal
     {
 		protected SqlConnection Conn;
+
         internal string DateFormat = "yyyy-MM-dd HH:mm:ss";
 
-		public ConnectionDal()
+        protected ConnectionDal()
 		{
 			try
 			{
@@ -61,7 +63,67 @@ namespace DAL
 			}
 		}
 
-		public int Insert(string table, string[] columns, string[] values)
+        protected int Insert(string table, string[] columns, List<string[]> values)
+        {
+            try
+            {
+                var queryString = new StringBuilder().AppendFormat("INSERT INTO {0} (", table);
+
+                for (var i = 0; i < columns.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        queryString.Append(", ");
+                    }
+
+                    queryString.Append(columns[i]);
+                }
+
+                queryString.Append(") VALUES");
+
+                var loopCount = 0;
+                foreach (var value in values)
+                {
+                    loopCount++;
+                    queryString.Append(" (");
+					for (var i = 0; i < value.Length; i++)
+                    {
+                        if (i != 0)
+                        {
+                            queryString.Append(", ");
+                        }
+
+                        queryString.Append(value[i]);
+                    }
+
+                    queryString.Append(")");
+                    if (loopCount != values.Count)
+                    {
+                        queryString.Append(",");
+                    }
+                }
+
+				var query = new SqlCommand(queryString.ToString(), Conn);
+
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return 0;
+                }
+
+                Conn.Open();
+                query.ExecuteNonQuery();
+                Conn.Close();
+
+                return GetLastid(table);
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return 0;
+            }
+        }
+
+        protected int Insert(string table, string[] columns, string[] values)
 		{
 			try
 			{

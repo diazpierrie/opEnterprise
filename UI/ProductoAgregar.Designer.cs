@@ -43,6 +43,7 @@ namespace UI
             this.lblProductos = new MetroFramework.Controls.MetroLabel();
             this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
+            this.btnAsignarProductos = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductosAAgregar)).BeginInit();
             this.SuspendLayout();
@@ -228,11 +229,24 @@ namespace UI
             this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
+            // btnAsignarProductos
+            // 
+            this.btnAsignarProductos.Location = new System.Drawing.Point(24, 353);
+            this.btnAsignarProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAsignarProductos.Name = "btnAsignarProductos";
+            this.btnAsignarProductos.Size = new System.Drawing.Size(123, 23);
+            this.btnAsignarProductos.TabIndex = 24;
+            this.btnAsignarProductos.Tag = "assign";
+            this.btnAsignarProductos.Text = "Asignar";
+            this.btnAsignarProductos.UseSelectable = true;
+            this.btnAsignarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
+            // 
             // ProductoAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 398);
+            this.Controls.Add(this.btnAsignarProductos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblProductosAAgregar);
             this.Controls.Add(this.lblProductos);
@@ -260,5 +274,6 @@ namespace UI
         private MetroFramework.Controls.MetroLabel lblProductos;
         private MetroFramework.Controls.MetroLabel lblProductosAAgregar;
         private MetroFramework.Controls.MetroTextBox txtBuscar;
+        private MetroFramework.Controls.MetroButton btnAsignarProductos;
     }
 }

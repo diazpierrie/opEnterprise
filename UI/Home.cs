@@ -24,7 +24,7 @@ namespace UI
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            var ventaHome = new EmpleadoHome();
+            var ventaHome = new VentaHome();
             ventaHome.Show();
         }
 
@@ -32,6 +32,17 @@ namespace UI
         {
             var configurarEdificio = new ConfigurarEdificio();
             configurarEdificio.Show();
+        }
+
+        private void btnBuscarVenta_Click(object sender, EventArgs e)
+        {
+            var buscarVenta = new VentaBuscar();
+            buscarVenta.Show();
+        }
+
+        private void btnCrearQueja_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

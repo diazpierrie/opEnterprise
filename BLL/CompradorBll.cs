@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using System.Collections.Generic;
+using DAL;
 using EE;
 using Security;
 
@@ -11,6 +12,11 @@ namespace BLL
         public static CompradorEe BuscarComprador(int id)
         {
             return _dao.Obtener(id);
+        }
+
+        public static List<CompradorEe> Obtener(string name = null)
+        {
+            return _dao.Obtener(name);
         }
 
 

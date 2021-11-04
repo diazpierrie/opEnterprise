@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using BLL;
 using EE;
@@ -10,6 +12,7 @@ namespace UI
     {
         public UsuarioEe Usuario;
         private readonly VentaHome _homeForm;
+        private BindingList<ProductoEe> _productosAAgregar = new BindingList<ProductoEe>();
 
         public ProductoAgregar(VentaHome homeForm)
         {
@@ -30,12 +33,11 @@ namespace UI
             for (var index = 0; index < gridProductos.SelectedRows.Count; index++)
             {
                 var selectedRow = gridProductos.SelectedRows[index];
-                var sucursal = (SucursalEe) selectedRow.DataBoundItem;
+                var producto = (ProductoEe) selectedRow.DataBoundItem;
 
-                //ProductoBll.AsignarEmpleadoConSucursal(Usuario, sucursal);
+                _productosAAgregar.Add(producto);
             }
 
-            ActualizarGrids();
         }
 
         private void btnDesasignarSucursal_Click(object sender, EventArgs e)
@@ -45,37 +47,37 @@ namespace UI
             for (var index = 0; index < gridProductosAAgregar.SelectedRows.Count; index++)
             {
                 var selectedRow = gridProductosAAgregar.SelectedRows[index];
-                var sucursal = (SucursalEe) selectedRow.DataBoundItem;
+                var producto = (ProductoEe)selectedRow.DataBoundItem;
 
-                //ProductoBll.DesasignarEmpleadoConSucursal(Usuario, sucursal);
+                _productosAAgregar.Remove(producto);
             }
 
-            ActualizarGrids();
         }
 
         private void ActualizarGrids()
         {
-            //gridProductos.DataSource = ProductoBll.ObtenerPorSucursal();
+            gridProductos.DataSource = ProductoBll.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal);
             gridProductos.Columns["id"].Visible = false;
-            gridProductos.Columns["dvh"].Visible = false;
             gridProductos.Columns["activo"].Visible = false;
+            gridProductos.Columns["fechaCreacion"].Visible = false;
+            gridProductos.Columns["costo"].Visible = false;
+            gridProductos.Columns["cantidad"].Visible = false;
 
             gridProductos.Columns["nombre"].DisplayIndex = 0;
             gridProductos.Columns["codigo"].DisplayIndex = 1;
-            gridProductos.Columns["fechaCreacion"].DisplayIndex = 2;
-            gridProductos.Columns["precio"].DisplayIndex = 3;
-            gridProductos.Columns["costo"].DisplayIndex = 4;
+            gridProductos.Columns["precio"].DisplayIndex = 2;
 
-            //gridProductosAAgregar.DataSource = ProductoBll.ObtenerSucursalesDeUsuario(Usuario);
+
+            gridProductosAAgregar.DataSource = _productosAAgregar;
             gridProductosAAgregar.Columns["id"].Visible = false;
-            gridProductosAAgregar.Columns["dvh"].Visible = false;
             gridProductosAAgregar.Columns["activo"].Visible = false;
+            gridProductosAAgregar.Columns["fechaCreacion"].Visible = false;
+            gridProductosAAgregar.Columns["costo"].Visible = false;
+            gridProductosAAgregar.Columns["cantidad"].Visible = false;
 
             gridProductosAAgregar.Columns["nombre"].DisplayIndex = 0;
             gridProductosAAgregar.Columns["codigo"].DisplayIndex = 1;
-            gridProductosAAgregar.Columns["fechaCreacion"].DisplayIndex = 2;
-            gridProductosAAgregar.Columns["precio"].DisplayIndex = 3;
-            gridProductosAAgregar.Columns["costo"].DisplayIndex = 4;
+            gridProductosAAgregar.Columns["precio"].DisplayIndex = 2;
         }
 
         private void ProductoAgregar_Load(object sender, EventArgs e)
@@ -87,12 +89,23 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void txtBuscar_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
             {
                 gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
             }
+        }
+
+        private void btnAsignarProductos_Click(object sender, EventArgs e)
+        {
+            foreach (var producto in _productosAAgregar)
+            {
+                producto.Cantidad = 1;
+                _homeForm.Productos.Add(producto);
+            }
+            _homeForm.ActualizarGrid();
+            Close();
         }
     }
 }
