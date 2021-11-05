@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using BLL;
@@ -12,6 +11,7 @@ namespace UI
     {
         public UsuarioEe Usuario;
         private readonly VentaHome _homeForm;
+        private readonly DepositoCrearReposicion _depositoForm;
         private BindingList<ProductoEe> _productosAAgregar = new BindingList<ProductoEe>();
 
         public ProductoAgregar(VentaHome homeForm)
@@ -19,6 +19,13 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
             _homeForm = homeForm;
+        }
+
+        public ProductoAgregar(DepositoCrearReposicion depositoForm)
+        {
+            InitializeComponent();
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+            _depositoForm = depositoForm;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -99,13 +106,26 @@ namespace UI
 
         private void btnAsignarProductos_Click(object sender, EventArgs e)
         {
-            foreach (var producto in _productosAAgregar)
+            if (_homeForm != null)
             {
-                producto.Cantidad = 1;
-                _homeForm.Productos.Add(producto);
+                foreach (var producto in _productosAAgregar)
+                {
+                    producto.Cantidad = 1;
+                    _homeForm.Productos.Add(producto);
+                }
+                _homeForm.ActualizarGrid();
+                Close();
             }
-            _homeForm.ActualizarGrid();
-            Close();
+            else
+            {
+                foreach (var producto in _productosAAgregar)
+                {
+                    producto.Cantidad = 1;
+                    _depositoForm.Productos.Add(producto);
+                }
+                _depositoForm.ActualizarGrid();
+                Close();
+            }
         }
     }
 }

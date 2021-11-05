@@ -32,7 +32,7 @@ namespace UI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            var bt = new BitacoreTable();
+            var bt = new VerBitacora();
             bt.Show();
         }
 

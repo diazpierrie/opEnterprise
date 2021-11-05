@@ -8,7 +8,21 @@ namespace UI
     {
         public ProveedorEe Proveedor = new ProveedorEe();
         private ProveedorHome _homeForm;
+        private ProveedorBuscar _buscarForm;
+
         public bool Crear;
+
+        public ProveedorAltaModificacion(ProveedorBuscar buscarForm)
+        {
+            _buscarForm = buscarForm;
+
+            Crear = true;
+            InitializeComponent();
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            btnAccion.Text = "Crear";
+            this.Text = "Crear Proveedor";
+        }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm)
         {
@@ -68,7 +82,15 @@ namespace UI
             }
 
             this.Close();
-            _homeForm.ActualizarGrid();
+            if (_homeForm != null)
+            {
+                _homeForm.ActualizarGrid();
+            }
+            else
+            {
+                _buscarForm.ActualizarGrid();
+            }
+            
         }
 
         private void ProveedorCrear_Load(object sender, System.EventArgs e)

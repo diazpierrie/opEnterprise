@@ -48,10 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackUp.cs" />
+    <Compile Include="ControlCambiosManager.cs" />
     <Compile Include="BitacoraManager.cs" />
     <Compile Include="DV.cs" />
     <Compile Include="Encriptador.cs" />
-    <Compile Include="FileManager.cs" />
     <Compile Include="IdiomaManager.cs" />
     <Compile Include="PermisosManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

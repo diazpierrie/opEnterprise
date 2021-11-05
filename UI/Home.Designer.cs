@@ -29,50 +29,31 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProveedor = new MetroFramework.Controls.MetroButton();
-            this.btnEmpleado = new MetroFramework.Controls.MetroButton();
-            this.btnUsuario = new MetroFramework.Controls.MetroButton();
             this.tcHome = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.btnConfigurarEdificio = new MetroFramework.Controls.MetroButton();
             this.tabVenta = new MetroFramework.Controls.MetroTabPage();
+            this.btnCrearQueja = new MetroFramework.Controls.MetroButton();
             this.btnBuscarVenta = new MetroFramework.Controls.MetroButton();
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
             this.tabDeposito = new MetroFramework.Controls.MetroTabPage();
-            this.btnCrearQueja = new MetroFramework.Controls.MetroButton();
+            this.btnPenalizarProveedor = new MetroFramework.Controls.MetroButton();
+            this.btnCrearReposicion = new MetroFramework.Controls.MetroButton();
+            this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
+            this.gbConfiguracion = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnUsuario = new MetroFramework.Controls.MetroButton();
+            this.btnEmpleado = new MetroFramework.Controls.MetroButton();
+            this.btnProveedor = new MetroFramework.Controls.MetroButton();
+            this.btnBitacora = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.tabVenta.SuspendLayout();
+            this.tabDeposito.SuspendLayout();
+            this.gbConfiguracion.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnProveedor
-            // 
-            this.btnProveedor.Location = new System.Drawing.Point(3, 20);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(105, 38);
-            this.btnProveedor.TabIndex = 0;
-            this.btnProveedor.Text = "Proveedor";
-            this.btnProveedor.UseSelectable = true;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // btnEmpleado
-            // 
-            this.btnEmpleado.Location = new System.Drawing.Point(114, 20);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(105, 38);
-            this.btnEmpleado.TabIndex = 1;
-            this.btnEmpleado.Text = "Empleado";
-            this.btnEmpleado.UseSelectable = true;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.Location = new System.Drawing.Point(225, 20);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(105, 38);
-            this.btnUsuario.TabIndex = 2;
-            this.btnUsuario.Text = "Usuario";
-            this.btnUsuario.UseSelectable = true;
             // 
             // tcHome
             // 
@@ -82,17 +63,15 @@ namespace UI
             this.tcHome.Controls.Add(this.tabDeposito);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 1;
+            this.tcHome.SelectedIndex = 0;
             this.tcHome.Size = new System.Drawing.Size(776, 384);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
             // 
             // tabAdmin
             // 
-            this.tabAdmin.Controls.Add(this.btnConfigurarEdificio);
-            this.tabAdmin.Controls.Add(this.btnUsuario);
-            this.tabAdmin.Controls.Add(this.btnEmpleado);
-            this.tabAdmin.Controls.Add(this.btnProveedor);
+            this.tabAdmin.Controls.Add(this.groupBox1);
+            this.tabAdmin.Controls.Add(this.gbConfiguracion);
             this.tabAdmin.HorizontalScrollbarBarColor = true;
             this.tabAdmin.HorizontalScrollbarHighlightOnWheel = false;
             this.tabAdmin.HorizontalScrollbarSize = 10;
@@ -107,11 +86,11 @@ namespace UI
             // 
             // btnConfigurarEdificio
             // 
-            this.btnConfigurarEdificio.Location = new System.Drawing.Point(336, 20);
+            this.btnConfigurarEdificio.Location = new System.Drawing.Point(11, 19);
             this.btnConfigurarEdificio.Name = "btnConfigurarEdificio";
-            this.btnConfigurarEdificio.Size = new System.Drawing.Size(105, 38);
+            this.btnConfigurarEdificio.Size = new System.Drawing.Size(136, 23);
             this.btnConfigurarEdificio.TabIndex = 3;
-            this.btnConfigurarEdificio.Text = "Configurar Edificio";
+            this.btnConfigurarEdificio.Text = "Edificio";
             this.btnConfigurarEdificio.UseSelectable = true;
             this.btnConfigurarEdificio.Click += new System.EventHandler(this.btnConfigurarEdificio_Click);
             // 
@@ -131,6 +110,16 @@ namespace UI
             this.tabVenta.VerticalScrollbarBarColor = true;
             this.tabVenta.VerticalScrollbarHighlightOnWheel = false;
             this.tabVenta.VerticalScrollbarSize = 10;
+            // 
+            // btnCrearQueja
+            // 
+            this.btnCrearQueja.Location = new System.Drawing.Point(241, 21);
+            this.btnCrearQueja.Name = "btnCrearQueja";
+            this.btnCrearQueja.Size = new System.Drawing.Size(103, 39);
+            this.btnCrearQueja.TabIndex = 4;
+            this.btnCrearQueja.Text = "Crear Queja";
+            this.btnCrearQueja.UseSelectable = true;
+            this.btnCrearQueja.Click += new System.EventHandler(this.btnCrearQueja_Click);
             // 
             // btnBuscarVenta
             // 
@@ -154,6 +143,9 @@ namespace UI
             // 
             // tabDeposito
             // 
+            this.tabDeposito.Controls.Add(this.btnPenalizarProveedor);
+            this.tabDeposito.Controls.Add(this.btnCrearReposicion);
+            this.tabDeposito.Controls.Add(this.btnRegistrarEntrada);
             this.tabDeposito.HorizontalScrollbarBarColor = true;
             this.tabDeposito.HorizontalScrollbarHighlightOnWheel = false;
             this.tabDeposito.HorizontalScrollbarSize = 10;
@@ -166,15 +158,105 @@ namespace UI
             this.tabDeposito.VerticalScrollbarHighlightOnWheel = false;
             this.tabDeposito.VerticalScrollbarSize = 10;
             // 
-            // btnCrearQueja
+            // btnPenalizarProveedor
             // 
-            this.btnCrearQueja.Location = new System.Drawing.Point(241, 21);
-            this.btnCrearQueja.Name = "btnCrearQueja";
-            this.btnCrearQueja.Size = new System.Drawing.Size(103, 39);
-            this.btnCrearQueja.TabIndex = 4;
-            this.btnCrearQueja.Text = "Crear Queja";
-            this.btnCrearQueja.UseSelectable = true;
-            this.btnCrearQueja.Click += new System.EventHandler(this.btnCrearQueja_Click);
+            this.btnPenalizarProveedor.Location = new System.Drawing.Point(236, 19);
+            this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
+            this.btnPenalizarProveedor.Size = new System.Drawing.Size(139, 39);
+            this.btnPenalizarProveedor.TabIndex = 7;
+            this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
+            this.btnPenalizarProveedor.UseSelectable = true;
+            this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
+            // 
+            // btnCrearReposicion
+            // 
+            this.btnCrearReposicion.Location = new System.Drawing.Point(127, 19);
+            this.btnCrearReposicion.Name = "btnCrearReposicion";
+            this.btnCrearReposicion.Size = new System.Drawing.Size(103, 39);
+            this.btnCrearReposicion.TabIndex = 6;
+            this.btnCrearReposicion.Text = "Crear Reposicion";
+            this.btnCrearReposicion.UseSelectable = true;
+            this.btnCrearReposicion.Click += new System.EventHandler(this.btnCrearReposicion_Click);
+            // 
+            // btnRegistrarEntrada
+            // 
+            this.btnRegistrarEntrada.Location = new System.Drawing.Point(18, 19);
+            this.btnRegistrarEntrada.Name = "btnRegistrarEntrada";
+            this.btnRegistrarEntrada.Size = new System.Drawing.Size(103, 39);
+            this.btnRegistrarEntrada.TabIndex = 5;
+            this.btnRegistrarEntrada.Text = "Registrar Entrada";
+            this.btnRegistrarEntrada.UseSelectable = true;
+            this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
+            // 
+            // gbConfiguracion
+            // 
+            this.gbConfiguracion.Controls.Add(this.metroButton2);
+            this.gbConfiguracion.Controls.Add(this.btnUsuario);
+            this.gbConfiguracion.Controls.Add(this.btnBitacora);
+            this.gbConfiguracion.Controls.Add(this.btnConfigurarEdificio);
+            this.gbConfiguracion.Location = new System.Drawing.Point(-4, 15);
+            this.gbConfiguracion.Name = "gbConfiguracion";
+            this.gbConfiguracion.Size = new System.Drawing.Size(396, 213);
+            this.gbConfiguracion.TabIndex = 4;
+            this.gbConfiguracion.TabStop = false;
+            this.gbConfiguracion.Text = "Configuracion";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEmpleado);
+            this.groupBox1.Controls.Add(this.btnProveedor);
+            this.groupBox1.Location = new System.Drawing.Point(398, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(374, 213);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Gestion";
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.Location = new System.Drawing.Point(11, 77);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(136, 23);
+            this.btnUsuario.TabIndex = 5;
+            this.btnUsuario.Text = "Usuario";
+            this.btnUsuario.UseSelectable = true;
+            // 
+            // btnEmpleado
+            // 
+            this.btnEmpleado.Location = new System.Drawing.Point(6, 19);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Size = new System.Drawing.Size(136, 23);
+            this.btnEmpleado.TabIndex = 4;
+            this.btnEmpleado.Text = "Empleado";
+            this.btnEmpleado.UseSelectable = true;
+            // 
+            // btnProveedor
+            // 
+            this.btnProveedor.Location = new System.Drawing.Point(6, 51);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Size = new System.Drawing.Size(136, 23);
+            this.btnProveedor.TabIndex = 3;
+            this.btnProveedor.Text = "Proveedor";
+            this.btnProveedor.UseSelectable = true;
+            // 
+            // btnBitacora
+            // 
+            this.btnBitacora.Location = new System.Drawing.Point(11, 48);
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.Size = new System.Drawing.Size(136, 23);
+            this.btnBitacora.TabIndex = 4;
+            this.btnBitacora.Text = "Bitacora";
+            this.btnBitacora.UseSelectable = true;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(11, 115);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(136, 23);
+            this.metroButton2.TabIndex = 6;
+            this.metroButton2.Text = "Edificio";
+            this.metroButton2.UseSelectable = true;
             // 
             // Home
             // 
@@ -187,15 +269,14 @@ namespace UI
             this.tcHome.ResumeLayout(false);
             this.tabAdmin.ResumeLayout(false);
             this.tabVenta.ResumeLayout(false);
+            this.tabDeposito.ResumeLayout(false);
+            this.gbConfiguracion.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroButton btnProveedor;
-        private MetroFramework.Controls.MetroButton btnEmpleado;
-        private MetroFramework.Controls.MetroButton btnUsuario;
         private MetroFramework.Controls.MetroTabControl tcHome;
         private MetroFramework.Controls.MetroTabPage tabAdmin;
         private MetroFramework.Controls.MetroTabPage tabVenta;
@@ -204,5 +285,15 @@ namespace UI
         private MetroFramework.Controls.MetroButton btnConfigurarEdificio;
         private MetroFramework.Controls.MetroButton btnBuscarVenta;
         private MetroFramework.Controls.MetroButton btnCrearQueja;
+        private MetroFramework.Controls.MetroButton btnPenalizarProveedor;
+        private MetroFramework.Controls.MetroButton btnCrearReposicion;
+        private MetroFramework.Controls.MetroButton btnRegistrarEntrada;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroButton btnEmpleado;
+        private MetroFramework.Controls.MetroButton btnProveedor;
+        private System.Windows.Forms.GroupBox gbConfiguracion;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton btnUsuario;
+        private MetroFramework.Controls.MetroButton btnBitacora;
     }
 }

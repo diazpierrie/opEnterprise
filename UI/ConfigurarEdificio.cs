@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Configuration;
-using System.Security.Cryptography.X509Certificates;
 using UI.Properties;
 using BLL;
 using EE;
-using Jot;
 
 namespace UI
 {
     public partial class ConfigurarEdificio : UpdatableForm
     {
+        private readonly Home _homeForm;
+
         private enum TipoEdificioEnum { Deposito = 0, Sucursal = 1 }
 
 
-        public ConfigurarEdificio()
+        public ConfigurarEdificio(Home homeForm)
         {
+            _homeForm = homeForm;
             InitializeComponent();
 
             cbTipoEdificio.DataSource = Enum.GetValues(typeof(TipoEdificioEnum));
@@ -58,6 +58,7 @@ namespace UI
             var edificioSeleccionado = (EntidadFiscalEe)cbEdificio.SelectedItem;
             Settings.Default["IdEdificio"] = edificioSeleccionado.Id;
             Settings.Default.Save();
+            _homeForm.ActualizarTabs();
         }
     }
 }

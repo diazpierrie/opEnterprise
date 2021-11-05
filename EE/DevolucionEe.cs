@@ -1,9 +1,11 @@
-﻿namespace EE
+﻿using System;
+
+namespace EE
 {
-     public class DevolucionEe : IdentityEe
-     {
-         public string Detalle { get; set; }
-        public CompradorEe Comprador { get; set; }
-        public ProductoEe Producto { get; set; }
+    public class DevolucionEe : IdentityEe
+    {
+        public SucursalEe Sucursal { get; set; }
+        public UsuarioEe Usuario { get; set; }
+        public DateTime Fecha { get; set; }
     }
 }

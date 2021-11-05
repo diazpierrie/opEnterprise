@@ -41,11 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlCambiosEe.cs" />
     <Compile Include="BitacoraMensajeEe.cs" />
     <Compile Include="CompradorEe.cs" />
     <Compile Include="DepositoEe.cs" />
-    <Compile Include="DevolucionEe.cs" />
-    <Compile Include="EmblemaEe.cs" />
     <Compile Include="EmpleadoDepositoEe.cs" />
     <Compile Include="EmpleadoSucursalEe.cs" />
     <Compile Include="EntidadFiscalEe.cs" />
@@ -54,7 +53,11 @@
     <Compile Include="IdentityEe.cs" />
     <Compile Include="IdiomaEe.cs" />
     <Compile Include="IIUpdatable.cs" />
+    <Compile Include="PedidoProveedorDetalleEe.cs" />
+    <Compile Include="DevolucionEe.cs" />
     <Compile Include="VentaDetalleEe.cs" />
+    <Compile Include="PedidoProveedorEe.cs" />
+    <Compile Include="PedidoEstadoEe.cs" />
     <Compile Include="VentaEstadoEe.cs" />
     <Compile Include="MetodoPagoEe.cs" />
     <Compile Include="NotificacionEe.cs" />
@@ -65,7 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorEe.cs" />
     <Compile Include="PuestoEe.cs" />
-    <Compile Include="ReclamoEe.cs" />
+    <Compile Include="PerdidaEe.cs" />
     <Compile Include="RenovacionDepositoEe.cs" />
     <Compile Include="ReposicionEe.cs" />
     <Compile Include="SectorEe.cs" />

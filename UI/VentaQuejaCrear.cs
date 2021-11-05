@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using EE;
@@ -81,9 +75,8 @@ namespace UI
 
         private void btnElegirVenta_Click(object sender, EventArgs e)
         {
-            //TODO Crear Elegir Queja Screen
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
-            new VentaVerDetalle(venta);
+            new VentaElegirQueja(venta);
         }
     }
 }

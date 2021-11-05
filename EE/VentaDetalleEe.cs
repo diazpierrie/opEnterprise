@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EE
+﻿namespace EE
 {
     public class VentaDetalleEe : IdentityEe
     {

@@ -10,9 +10,7 @@ namespace DAL
     public abstract class ConnectionDal
     {
 		protected SqlConnection Conn;
-
-        internal string DateFormat = "yyyy-MM-dd HH:mm:ss";
-
+		
         protected ConnectionDal()
 		{
 			try
@@ -25,7 +23,7 @@ namespace DAL
 			}
 		}
 
-		public bool IsForeignKey(string colName)
+        protected static bool IsForeignKey(string colName)
 		{
 			if (colName.Length < 4)
 			{
@@ -40,7 +38,7 @@ namespace DAL
 			return false;
 		}
 
-		public bool DeleteByid(string table, int id)
+        protected bool DeleteByid(string table, int id)
 		{
 			try
 			{
@@ -208,12 +206,12 @@ namespace DAL
 			}
 		}
 
-		public string Truncate(string value, int maxChars)
+        private string Truncate(string value, int maxChars)
 		{
 			return value.Length <= maxChars ? value : value.Substring(0, maxChars) + " ...";
 		}
 
-		public int GetLastid(string table)
+        protected int GetLastid(string table)
 		{
 			try
 			{
@@ -230,7 +228,7 @@ namespace DAL
 				if (data.HasRows)
 				{
 					data.Read();
-					result = int.Parse(data["id"].ToString() ?? string.Empty);
+					result = int.Parse(data["id"].ToString());
 				}
 
 				Conn.Close();

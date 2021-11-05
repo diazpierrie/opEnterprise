@@ -1,13 +1,16 @@
-﻿using System;
+﻿using BLL;
+using Security;
+using System;
 using System.Collections.Generic;
 using EE;
-using Security;
+using UI;
 
 namespace UI
 {
-    public partial class BitacoreTable : UpdatableForm
-    {
-		public BitacoreTable()
+	public partial class VerBitacora : UpdatableForm
+	{
+
+		public VerBitacora()
 		{
 			InitializeComponent();
 			Sesion.ObtenerSesion().Idioma.Forms.Add(this);

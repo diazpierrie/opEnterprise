@@ -10,7 +10,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("BACKUP DATABASE aWords TO  DISK = @bkpPath", Conn);
+                var query = new SqlCommand("BACKUP DATABASE openEnterprise TO  DISK = @bkpPath", Conn);
                 var bkpPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\BackUps\\bkp" + GetTimestamp(DateTime.Now) + ".bak";
                 File.Delete(bkpPath);
                 query.Parameters.AddWithValue("@bkpPath", bkpPath);
@@ -32,9 +32,9 @@ namespace DAL
         {
             try
             {
-                var singleUser = new SqlCommand("ALTER DATABASE aWords SET Single_User WITH Rollback Immediate", Conn);
-                var query = new SqlCommand("USE master; RESTORE DATABASE aWords FROM DISK = @bkpPath WITH REPLACE;", Conn);
-                var multiUser = new SqlCommand("ALTER DATABASE aWords SET Multi_User", Conn);
+                var singleUser = new SqlCommand("ALTER DATABASE openEnterprise SET Single_User WITH Rollback Immediate", Conn);
+                var query = new SqlCommand("USE master; RESTORE DATABASE openEnterprise FROM DISK = @bkpPath WITH REPLACE;", Conn);
+                var multiUser = new SqlCommand("ALTER DATABASE openEnterprise SET Multi_User", Conn);
 
                 query.Parameters.AddWithValue("@bkpPath", nombreArchivo);
 

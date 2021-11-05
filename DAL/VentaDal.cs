@@ -91,6 +91,7 @@ namespace DAL
                 return null;
             }
         }
+
         public List<VentaEe> Obtener(UsuarioEe user)
         {
             try
@@ -246,6 +247,12 @@ namespace DAL
             }
         }
 
+        public void Actualizar(ProductoEe sucu)
+        {
+
+        }
+
+
         public int Crear(VentaEe obj)
 		{
 			var columnas = new List<string> { "idUsuario", "idComprador", "idSucursal", "idMetodoPago", "fecha", "total" };
@@ -253,7 +260,6 @@ namespace DAL
 
 			return Insert("venta", columnas.ToArray(), valores.ToArray());
         }
-
 
         public int CrearDetalle(VentaEe venta, List<ProductoEe> productos)
         {
@@ -272,6 +278,77 @@ namespace DAL
             return Insert("venta_detalle", columnas.ToArray(), valores);
 
         }
+
+        public int RegistrarPerdida(VentaEe obj)
+        {
+            var columnas = new List<string> { "idSucursal", "idUsuario", "fecha", "total" };
+            var valores = new List<string>
+            {
+                obj.Sucursal.Id.ToString(),
+                obj.Empleado.Id.ToString(),
+                DateTime.Today.ToString(CultureInfo.InvariantCulture),
+                obj.Total.ToString(CultureInfo.InvariantCulture)
+            };
+
+            return Insert("perdida", columnas.ToArray(), valores.ToArray());
+        }
+
+        public int RegistrarDetallesPerdida(PerdidaEe perdida, List<VentaDetalleEe> productos)
+        {
+            var columnas = new List<string> { "idPerdida", "idProducto", "costoUnitario", "cantidad" };
+            var valores = new List<string[]>();
+            foreach (var producto in productos)
+            {
+                string[] value =
+                {
+                    perdida.Id.ToString(),
+                    producto.Producto.Id.ToString(),
+                    producto.Costo.ToString(CultureInfo.InvariantCulture),
+                    producto.Cantidad.ToString()
+                };
+                valores.Add(value);
+            }
+            return Insert("perdida_detalle", columnas.ToArray(), valores);
+        }
+
+        public int RegistrarDevolucion(VentaEe obj)
+        {
+            var columnas = new List<string> { "idSucursal", "idUsuario", "fecha" };
+            var valores = new List<string>
+            {
+                obj.Sucursal.Id.ToString(),
+                obj.Empleado.Id.ToString(),
+                DateTime.Today.ToString(CultureInfo.InvariantCulture)
+            };
+
+            return Insert("devolucion", columnas.ToArray(), valores.ToArray());
+        }
+
+        public int RegistrarDetallesDevolucion(DevolucionEe devolucion, List<VentaDetalleEe> productos)
+        {
+            var columnas = new List<string> { "idDevolucion", "cantidad" };
+            var valores = new List<string[]>();
+            foreach (var producto in productos)
+            {
+                string[] value =
+                {
+                    devolucion.Id.ToString(),
+                    producto.Cantidad.ToString()
+                };
+                valores.Add(value);
+            }
+            return Insert("devolucion_detalle", columnas.ToArray(), valores);
+        }
+
+        public bool MarcarVentaComoPerdida(VentaEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 3);
+
+            return ExecuteQuery(query);
+        }
+
 
         private VentaEe CastDto(SqlDataReader data)
         {        
@@ -303,6 +380,7 @@ namespace DAL
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
         }
+
 
 
     }

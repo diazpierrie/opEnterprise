@@ -56,6 +56,36 @@
     <Compile Include="ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProveedorBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorBuscar.Designer.cs">
+      <DependentUpon>ProveedorBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompletarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompletarPedido.Designer.cs">
+      <DependentUpon>CompletarPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoEntradaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoEntradaRegistrar.Designer.cs">
+      <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentaElegirQueja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaElegirQueja.Designer.cs">
+      <DependentUpon>VentaElegirQueja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoCrearReposicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoCrearReposicion.Designer.cs">
+      <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentaQuejaCrear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,12 +145,6 @@
     </Compile>
     <Compile Include="DepositoAsignar.Designer.cs">
       <DependentUpon>DepositoAsignar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BitacoreTable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BitacoreTable.Designer.cs">
-      <DependentUpon>BitacoreTable.cs</DependentUpon>
     </Compile>
     <Compile Include="EmpleadoAltaModificacion.cs">
       <SubType>Form</SubType>
@@ -204,14 +228,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
+    <Compile Include="VentaQuejaElegirProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaQuejaElegirProducto.Designer.cs">
+      <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentaVerDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VentaVerDetalle.Designer.cs">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerBitacora.Designer.cs">
+      <DependentUpon>VerBitacora.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorBuscar.resx">
+      <DependentUpon>ProveedorBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompletarPedido.resx">
+      <DependentUpon>CompletarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaElegirQueja.resx">
+      <DependentUpon>VentaElegirQueja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoCrearReposicion.resx">
+      <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaQuejaCrear.resx">
       <DependentUpon>VentaQuejaCrear.cs</DependentUpon>
@@ -292,6 +340,9 @@
       <DependentUpon>UpdatableForm.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UpdatableForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaQuejaElegirProducto.resx">
+      <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaVerDetalle.resx">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
