@@ -7,35 +7,33 @@ namespace Security {
 		static BackupDal _dao = new BackupDal();
 
         public static bool RealizarBackUp(UsuarioEe usuarioLoggeado) {
-			if(_dao.BackUp()) {
-				BitacoraManager.AgregarMensaje(new BitacoraMensajeEe {
-					Titulo = "BackUp", 
-					Descripcion = "Se ha realizado un backUp", 
-					Tipo = Tipo.Info, 
-					Fecha = DateTime.Now,
-					Usuario = usuarioLoggeado
-				});
+            if (!_dao.BackUp()) return false;
 
-				return true;
-			}
+            BitacoraManager.AgregarMensaje(new BitacoraMensajeEe {
+                Titulo = "BackUp", 
+                Descripcion = "Se ha realizado un backUp", 
+                Tipo = Tipo.Info, 
+                Fecha = DateTime.Now,
+                Usuario = usuarioLoggeado
+            });
 
-			return false;
-		}
+            return true;
+
+        }
 
 		public static bool RealizarRestore(string nombreArchivo, UsuarioEe usuarioLoggeado) {
-			if (_dao.Restore(nombreArchivo)) {
-				BitacoraManager.AgregarMensaje(new BitacoraMensajeEe {
-					Titulo = "Restore",
-					Descripcion = "Se ha realizado un restore",
-					Tipo = Tipo.Info,
-					Fecha = DateTime.Now,
-					Usuario = usuarioLoggeado
-				});
+            if (!_dao.Restore(nombreArchivo)) return false;
 
-				return true;
-			}
+            BitacoraManager.AgregarMensaje(new BitacoraMensajeEe {
+                Titulo = "Restore",
+                Descripcion = "Se ha realizado un restore",
+                Tipo = Tipo.Info,
+                Fecha = DateTime.Now,
+                Usuario = usuarioLoggeado
+            });
 
-			return false;
-		}
+            return true;
+
+        }
 	}
 }

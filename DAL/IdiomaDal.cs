@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using EE;
 
 namespace DAL
@@ -21,7 +23,7 @@ namespace DAL
                 var result = new Dictionary<string, string>();
                 while (data.Read())
                 {
-                    result.Add(data["tag"].ToString() ?? string.Empty, data["texto"].ToString());
+                    result.Add(data["tag"].ToString(), data["texto"].ToString());
                 }
                 Conn.Close();
 
@@ -33,6 +35,8 @@ namespace DAL
                 return null;
             }
         }
+
+
 
         public IdiomaEe CargarDefault()
         {
@@ -110,7 +114,7 @@ namespace DAL
             }
         }
 
-        public IdiomaEe CastDto(SqlDataReader data)
+        private IdiomaEe CastDto(SqlDataReader data)
         {
             var result = new IdiomaEe()
             {
@@ -119,6 +123,106 @@ namespace DAL
             };
 
             return result;
+        }
+
+        private ControlEe CastControlDto(SqlDataReader data)
+        {
+            var result = new ControlEe()
+            {
+                Id = Convert.ToInt32(data["id"]),
+                IdIdioma = int.Parse(data["IdIdioma"].ToString()),
+                Tag = data["Tag"].ToString(),
+                Texto = data["Texto"].ToString(),
+            };
+
+            return result;
+        }
+
+        public int Crear()
+        {
+            var columnas = new List<string> { "Nombre" };
+            var valores = new List<string> { "Lenguaje sin nombre" };
+
+            return Insert("idioma", columnas.ToArray(), valores.ToArray());
+        }
+
+        public bool CrearControles(int idIdioma)
+        {
+            try
+            {
+                const string strQuery = "INSERT INTO control " +
+                                        "SELECT @idIdioma " +
+                                        ",tag " +
+                                        ",texto = '' " +
+                                        "FROM control " +
+                                        "WHERE idIdioma = 1";
+
+                var query = new SqlCommand(strQuery, Conn);
+                query.Parameters.AddWithValue("@idIdioma", idIdioma);
+                var controles = new List<ControlEe>();
+
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return Convert.ToBoolean(0);
+                }
+
+                Conn.Open();
+                var resultado = query.ExecuteNonQuery();
+                Conn.Close();
+                return Convert.ToBoolean(resultado);
+
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return Convert.ToBoolean(0);
+            }
+        }
+
+        public List<ControlEe> ObtenerControles(int idiomaId)
+        {
+            try
+            {
+                var query = new SqlCommand("SELECT id, idIdioma, tag, texto " +
+                                                  "FROM control " +
+                                                  "WHERE idIdioma = @idIdioma", Conn);
+                query.Parameters.AddWithValue("@idIdioma", idiomaId);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+
+                var result = new List<ControlEe>();
+                while (data.Read())
+                {
+                    result.Add(CastControlDto(data));
+                }
+                Conn.Close();
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public int ActualizarControles(List<ControlEe> controlesModificados)
+        {
+            var columnas = new List<string> { "id", "IdIdioma", "Tag", "Texto" };
+            var valores = new List<string[]>();
+            foreach (var control in controlesModificados)
+            {
+                string[] value =
+                {
+                    control.Id.ToString(), 
+                    control.IdIdioma.ToString(), 
+                    control.Tag, 
+                    control.Texto
+                };
+                valores.Add(value);
+            }
+            return Insert("control", columnas.ToArray(), valores);
         }
     }
 }

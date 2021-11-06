@@ -15,5 +15,9 @@ namespace EE
         public List<IIUpdatable> Forms = new List<IIUpdatable>();
         public Dictionary<string, string> Textos = new Dictionary<string, string>();
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

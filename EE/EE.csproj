@@ -55,6 +55,7 @@
     <Compile Include="IIUpdatable.cs" />
     <Compile Include="PedidoProveedorDetalleEe.cs" />
     <Compile Include="DevolucionEe.cs" />
+    <Compile Include="ControlEe.cs" />
     <Compile Include="VentaDetalleEe.cs" />
     <Compile Include="PedidoProveedorEe.cs" />
     <Compile Include="PedidoEstadoEe.cs" />

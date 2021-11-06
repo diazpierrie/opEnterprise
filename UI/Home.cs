@@ -1,5 +1,6 @@
 ﻿using System;
 using EE;
+using Security;
 using UI.Properties;
 
 namespace UI
@@ -10,18 +11,6 @@ namespace UI
         {
             InitializeComponent();
             ActualizarTabs();
-        }
-
-        private void btnProveedor_Click(object sender, EventArgs e)
-        {
-            var proveedorHome = new ProveedorHome();
-            proveedorHome.Show();
-        }
-
-        private void btnEmpleado_Click(object sender, EventArgs e)
-        {
-            var empleadoHome = new EmpleadoHome();
-            empleadoHome.Show();
         }
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
@@ -79,8 +68,43 @@ namespace UI
 
         private void btnBitacora_Click(object sender, EventArgs e)
         {
-            VerBitacora bt = new VerBitacora();
+            var bt = new VerBitacora();
             bt.Show();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            var homeEmpleado = new EmpleadoHome();
+            homeEmpleado.Show();
+        }
+
+        private void btnRestaurarDv_Click(object sender, EventArgs e)
+        {
+            Dv.ActualizarDv();
+        }
+
+        private void btnBackUp_Click(object sender, EventArgs e)
+        {
+            RealizarBackup bkp = new RealizarBackup();
+            bkp.Show();
+        }
+
+        private void btnProveedor_Click_1(object sender, EventArgs e)
+        {
+            var proveedorHome = new ProveedorHome();
+            proveedorHome.Show();
+        }
+
+        private void btnEmpleado_Click_1(object sender, EventArgs e)
+        {
+            var empleadoHome = new EmpleadoHome();
+            empleadoHome.Show();
+        }
+
+        private void btnIdioma_Click(object sender, EventArgs e)
+        {
+            var gestionarIdioma = new GestionarIdioma();
+            gestionarIdioma.Show();
         }
     }
 }

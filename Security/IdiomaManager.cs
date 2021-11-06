@@ -51,5 +51,22 @@ namespace Security
         {
             Sesion.ObtenerSesion().Idioma = _dao.CargarDefault();
         }
+
+        public static int Crear()
+        {
+            var idiomaId = _dao.Crear();
+            _dao.CrearControles(idiomaId);
+            return idiomaId;
+        }
+
+        public static List<ControlEe> ObtenerControles(int idiomaId)
+        {
+            return _dao.ObtenerControles(idiomaId);
+        }
+
+        public static void ActualizarControles(List<ControlEe> controlesModificados)
+        {
+            _dao.ActualizarControles(controlesModificados);
+        }
     }
 }

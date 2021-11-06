@@ -20,7 +20,7 @@ namespace DAL
         {
             try
             {
-                var consultaSql = $"SELECT id, fecha, Titulo, Descripcion, tipo, Usuario_id FROM bitacora WHERE fecha BETWEEN '{desde.ToString("yyyy-MM-dd")}' AND '{hasta.ToString("yyyy-MM-dd")}  23:59:59'";
+                var consultaSql = $"SELECT id, fecha, titulo, Descripcion, tipo, idUsuario FROM bitacora WHERE fecha BETWEEN '{desde.ToString("yyyy-MM-dd")}' AND '{hasta.ToString("yyyy-MM-dd")}  23:59:59'";
 
                 if (tipo != null)
                 {
@@ -74,7 +74,7 @@ namespace DAL
             }
             result.Usuario = new UsuarioEe()
             {
-                Id = Convert.ToInt32(data["Usuario_id"])
+                Id = Convert.ToInt32(data["idUsuario"])
             };
 
             return result;

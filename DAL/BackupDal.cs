@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 
@@ -10,8 +11,14 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("BACKUP DATABASE openEnterprise TO  DISK = @bkpPath", Conn);
-                var bkpPath = Directory.GetCurrentDirectory() + "\\..\\..\\..\\BackUps\\bkp" + GetTimestamp(DateTime.Now) + ".bak";
+                var query = new SqlCommand("sp_backup", Conn);
+                query.CommandType = CommandType.StoredProcedure;
+                var path = @"C:\openEnterprise Backup\";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                var bkpPath = path + "\\bkp" + GetTimestamp(DateTime.Now) + ".bak";
                 File.Delete(bkpPath);
                 query.Parameters.AddWithValue("@bkpPath", bkpPath);
 

@@ -1,9 +1,7 @@
-﻿using BLL;
-using Security;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Linq;
 using EE;
-using UI;
+using Security;
 
 namespace UI
 {
@@ -14,6 +12,14 @@ namespace UI
 		{
 			InitializeComponent();
 			Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            var dict = Enum.GetValues(typeof(Tipo))
+                .Cast<Tipo>()
+                .ToDictionary(t => (int)t, t => t.ToString());
+			 dict.Add(4, "Todos");
+             cbTipo.DataSource = dict.ToList();
+             cbTipo.DisplayMember = "Value";
+             cbTipo.SelectedIndex = 4;
 		}
 
 		private void BitacoreTable_Load(object sender, EventArgs e)
@@ -44,7 +50,7 @@ namespace UI
 			gridBitacora.Columns.Add("Tipo", Sesion.ObtenerSesion().Idioma.Textos["type"]);
 			gridBitacora.Columns.Add("Nombre de usuario", Sesion.ObtenerSesion().Idioma.Textos["username"]);
 
-			var filter = string.IsNullOrEmpty(txtTipo.Text) ? null : txtTipo.Text;
+            var filter = (string)cbTipo.Text == "Todos" ? null : (string)cbTipo.Text;
 
 			var mensajes = BitacoraManager.Obtener(dateFrom.Value, dateTo.Value, filter);
 
