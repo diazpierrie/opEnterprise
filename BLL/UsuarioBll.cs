@@ -4,10 +4,11 @@ using DAL;
 using EE;
 using Security;
 
-namespace BLL {
+namespace BLL
+{
     public class UsuarioBll
     {
-        static UsuarioDal _dal = new UsuarioDal();
+        private static UsuarioDal _dal = new UsuarioDal();
 
         public static void Actualizar(UsuarioEe usuario)
         {
@@ -60,10 +61,8 @@ namespace BLL {
                 Dv.ActualizarDv();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public static List<UsuarioEe> Obtener(string name = null)
@@ -81,5 +80,5 @@ namespace BLL {
             return _dal.Obtener(id);
         }
 
-	}
+    }
 }

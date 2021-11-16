@@ -31,13 +31,13 @@ namespace UI
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            VentaBll.Crear(new VentaEe()
+            VentaBll.Crear(new VentaEe
             {
                 Comprador = _cliente,
                 Sucursal = Sesion.ObtenerSesion().Sucursal,
                 Empleado = Sesion.ObtenerSesion().Usuario,
                 Fecha = DateTime.Now,
-                MetodoPago = (MetodoPagoEe) cbMetodoPago.SelectedItem,
+                MetodoPago = (MetodoPagoEe)cbMetodoPago.SelectedItem,
                 Total = _ventahome.Total
             },
                 _ventahome.Productos.ToList());

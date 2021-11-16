@@ -8,7 +8,7 @@ namespace UI
     public partial class CompletarPedido : UpdatableForm
     {
         private readonly DepositoCrearReposicion _depositoHome;
-        private ProveedorEe _Proveedor;
+        private ProveedorEe _proveedor;
         public CompletarPedido(DepositoCrearReposicion depositoHome)
         {
             _depositoHome = depositoHome;
@@ -22,17 +22,17 @@ namespace UI
             buscarProveedor.Show();
         }
 
-        public void AsignarProveedor(ProveedorEe Proveedor)
+        public void AsignarProveedor(ProveedorEe proveedor)
         {
-            _Proveedor = Proveedor;
-            txtProveedor.Text = _Proveedor.ToString();
+            _proveedor = proveedor;
+            txtProveedor.Text = _proveedor.ToString();
         }
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            PedidoProveedorBll.Crear(new PedidoProveedorEe()
+            PedidoProveedorBll.Crear(new PedidoProveedorEe
             {
-                Proveedor = _Proveedor,
+                Proveedor = _proveedor,
                 Deposito = Sesion.ObtenerSesion().Deposito,
                 Empleado = Sesion.ObtenerSesion().Usuario,
                 Estado = PedidoEstadoBll.Obtener(1),

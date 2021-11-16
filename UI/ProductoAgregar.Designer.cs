@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ProductoAgregar
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -36,10 +39,10 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridProductos = new MetroFramework.Controls.MetroGrid();
-            this.btnAsignarSucursal = new MetroFramework.Controls.MetroButton();
+            this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
             this.gridProductosAAgregar = new MetroFramework.Controls.MetroGrid();
             this.btnCerrar = new MetroFramework.Controls.MetroButton();
-            this.btnDesasignarSucursal = new MetroFramework.Controls.MetroButton();
+            this.btnRemoverProducto = new MetroFramework.Controls.MetroButton();
             this.lblProductos = new MetroFramework.Controls.MetroLabel();
             this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
@@ -53,8 +56,11 @@ namespace UI
             this.gridProductos.AllowUserToAddRows = false;
             this.gridProductos.AllowUserToDeleteRows = false;
             this.gridProductos.AllowUserToResizeRows = false;
+            this.gridProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -77,9 +83,8 @@ namespace UI
             this.gridProductos.EnableHeadersVisualStyles = false;
             this.gridProductos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductos.Location = new System.Drawing.Point(24, 95);
+            this.gridProductos.Location = new System.Drawing.Point(23, 95);
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.ReadOnly = true;
             this.gridProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -91,28 +96,35 @@ namespace UI
             this.gridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductos.Size = new System.Drawing.Size(350, 253);
+            this.gridProductos.Size = new System.Drawing.Size(467, 343);
             this.gridProductos.TabIndex = 17;
+            this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellEndEdit);
+            this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProductos_DataBindingComplete);
             // 
-            // btnAsignarSucursal
+            // btnAgregarProducto
             // 
-            this.btnAsignarSucursal.Location = new System.Drawing.Point(251, 353);
-            this.btnAsignarSucursal.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAsignarSucursal.Name = "btnAsignarSucursal";
-            this.btnAsignarSucursal.Size = new System.Drawing.Size(123, 23);
-            this.btnAsignarSucursal.TabIndex = 14;
-            this.btnAsignarSucursal.Tag = "add";
-            this.btnAsignarSucursal.Text = "Agregar";
-            this.btnAsignarSucursal.UseSelectable = true;
-            this.btnAsignarSucursal.Click += new System.EventHandler(this.btnAsignarSucursal_Click);
+            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(495, 191);
+            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(30, 56);
+            this.btnAgregarProducto.TabIndex = 14;
+            this.btnAgregarProducto.Tag = "";
+            this.btnAgregarProducto.Text = ">";
+            this.btnAgregarProducto.UseSelectable = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // gridProductosAAgregar
             // 
             this.gridProductosAAgregar.AllowUserToAddRows = false;
             this.gridProductosAAgregar.AllowUserToDeleteRows = false;
             this.gridProductosAAgregar.AllowUserToResizeRows = false;
+            this.gridProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gridProductosAAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductosAAgregar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridProductosAAgregar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridProductosAAgregar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridProductosAAgregar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -135,7 +147,7 @@ namespace UI
             this.gridProductosAAgregar.EnableHeadersVisualStyles = false;
             this.gridProductosAAgregar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridProductosAAgregar.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductosAAgregar.Location = new System.Drawing.Point(380, 95);
+            this.gridProductosAAgregar.Location = new System.Drawing.Point(530, 95);
             this.gridProductosAAgregar.Name = "gridProductosAAgregar";
             this.gridProductosAAgregar.ReadOnly = true;
             this.gridProductosAAgregar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -149,12 +161,15 @@ namespace UI
             this.gridProductosAAgregar.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridProductosAAgregar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProductosAAgregar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductosAAgregar.Size = new System.Drawing.Size(350, 252);
+            this.gridProductosAAgregar.Size = new System.Drawing.Size(467, 343);
             this.gridProductosAAgregar.TabIndex = 20;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(613, 352);
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Location = new System.Drawing.Point(859, 443);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(117, 23);
@@ -164,20 +179,27 @@ namespace UI
             this.btnCerrar.UseSelectable = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnDesasignarSucursal
+            // btnRemoverProducto
             // 
-            this.btnDesasignarSucursal.Location = new System.Drawing.Point(486, 352);
-            this.btnDesasignarSucursal.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDesasignarSucursal.Name = "btnDesasignarSucursal";
-            this.btnDesasignarSucursal.Size = new System.Drawing.Size(123, 23);
-            this.btnDesasignarSucursal.TabIndex = 18;
-            this.btnDesasignarSucursal.Tag = "remove";
-            this.btnDesasignarSucursal.Text = "Remover";
-            this.btnDesasignarSucursal.UseSelectable = true;
-            this.btnDesasignarSucursal.Click += new System.EventHandler(this.btnDesasignarSucursal_Click);
+            this.btnRemoverProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoverProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnRemoverProducto.Location = new System.Drawing.Point(495, 264);
+            this.btnRemoverProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoverProducto.Name = "btnRemoverProducto";
+            this.btnRemoverProducto.Size = new System.Drawing.Size(30, 56);
+            this.btnRemoverProducto.TabIndex = 18;
+            this.btnRemoverProducto.Tag = "";
+            this.btnRemoverProducto.Text = "<";
+            this.btnRemoverProducto.UseSelectable = true;
+            this.btnRemoverProducto.Click += new System.EventHandler(this.btnbtnRemoverProducto_Click);
             // 
             // lblProductos
             // 
+            this.lblProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProductos.AutoSize = true;
             this.lblProductos.Location = new System.Drawing.Point(24, 73);
             this.lblProductos.Name = "lblProductos";
@@ -188,8 +210,11 @@ namespace UI
             // 
             // lblProductosAAgregar
             // 
+            this.lblProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProductosAAgregar.AutoSize = true;
-            this.lblProductosAAgregar.Location = new System.Drawing.Point(380, 69);
+            this.lblProductosAAgregar.Location = new System.Drawing.Point(365, 69);
             this.lblProductosAAgregar.Name = "lblProductosAAgregar";
             this.lblProductosAAgregar.Size = new System.Drawing.Size(130, 19);
             this.lblProductosAAgregar.TabIndex = 22;
@@ -198,6 +223,8 @@ namespace UI
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -212,7 +239,7 @@ namespace UI
             this.txtBuscar.CustomButton.Visible = false;
             this.txtBuscar.Lines = new string[] {
         "Busqueda"};
-            this.txtBuscar.Location = new System.Drawing.Point(176, 69);
+            this.txtBuscar.Location = new System.Drawing.Point(161, 69);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
@@ -231,7 +258,10 @@ namespace UI
             // 
             // btnAsignarProductos
             // 
-            this.btnAsignarProductos.Location = new System.Drawing.Point(24, 353);
+            this.btnAsignarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsignarProductos.Location = new System.Drawing.Point(732, 443);
             this.btnAsignarProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btnAsignarProductos.Name = "btnAsignarProductos";
             this.btnAsignarProductos.Size = new System.Drawing.Size(123, 23);
@@ -245,17 +275,18 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 398);
+            this.ClientSize = new System.Drawing.Size(1020, 508);
             this.Controls.Add(this.btnAsignarProductos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblProductosAAgregar);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.gridProductosAAgregar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnDesasignarSucursal);
+            this.Controls.Add(this.btnRemoverProducto);
             this.Controls.Add(this.gridProductos);
-            this.Controls.Add(this.btnAsignarSucursal);
+            this.Controls.Add(this.btnAgregarProducto);
             this.Name = "ProductoAgregar";
+            this.Resizable = false;
             this.Text = "Agregar Productos";
             this.Load += new System.EventHandler(this.ProductoAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
@@ -266,14 +297,14 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton btnAsignarSucursal;
-        private MetroFramework.Controls.MetroGrid gridProductos;
-        private MetroFramework.Controls.MetroGrid gridProductosAAgregar;
-        private MetroFramework.Controls.MetroButton btnCerrar;
-        private MetroFramework.Controls.MetroButton btnDesasignarSucursal;
-        private MetroFramework.Controls.MetroLabel lblProductos;
-        private MetroFramework.Controls.MetroLabel lblProductosAAgregar;
-        private MetroFramework.Controls.MetroTextBox txtBuscar;
-        private MetroFramework.Controls.MetroButton btnAsignarProductos;
+        private MetroButton btnAgregarProducto;
+        private MetroGrid gridProductos;
+        private MetroGrid gridProductosAAgregar;
+        private MetroButton btnCerrar;
+        private MetroButton btnRemoverProducto;
+        private MetroLabel lblProductos;
+        private MetroLabel lblProductosAAgregar;
+        private MetroTextBox txtBuscar;
+        private MetroButton btnAsignarProductos;
     }
 }

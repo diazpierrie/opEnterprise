@@ -6,7 +6,7 @@ namespace Security
 {
     public static class SesionManager
     {
-        static UsuarioDal _dao = new UsuarioDal();
+        private static UsuarioDal _dao = new UsuarioDal();
 
         public static bool IniciarSesion(string nombreUsuario, string password)
         {

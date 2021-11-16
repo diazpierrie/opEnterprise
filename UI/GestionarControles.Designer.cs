@@ -1,12 +1,15 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
-    partial class AgregarIdioma
+    partial class GestionarControles
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -35,7 +38,7 @@ namespace UI
             this.gridIdioma = new MetroFramework.Controls.MetroGrid();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
-            this.btnCrear = new MetroFramework.Controls.MetroButton();
+            this.btnAplicar = new MetroFramework.Controls.MetroButton();
             this.btnCerrar = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridIdioma)).BeginInit();
             this.SuspendLayout();
@@ -125,15 +128,15 @@ namespace UI
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
-            // btnCrear
+            // btnAplicar
             // 
-            this.btnCrear.Location = new System.Drawing.Point(682, 666);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(94, 23);
-            this.btnCrear.TabIndex = 3;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseSelectable = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            this.btnAplicar.Location = new System.Drawing.Point(682, 666);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(94, 23);
+            this.btnAplicar.TabIndex = 3;
+            this.btnAplicar.Text = "Crear";
+            this.btnAplicar.UseSelectable = true;
+            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
             // btnCerrar
             // 
@@ -143,18 +146,19 @@ namespace UI
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // AgregarIdioma
+            // GestionarControles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 712);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnCrear);
+            this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.gridIdioma);
-            this.Name = "AgregarIdioma";
+            this.Name = "GestionarControles";
             this.Text = "AgregarIdioma";
             ((System.ComponentModel.ISupportInitialize)(this.gridIdioma)).EndInit();
             this.ResumeLayout(false);
@@ -164,10 +168,10 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridIdioma;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroButton btnCrear;
-        private MetroFramework.Controls.MetroButton btnCerrar;
+        private MetroGrid gridIdioma;
+        private MetroTextBox txtNombre;
+        private MetroLabel lblNombre;
+        private MetroButton btnAplicar;
+        private MetroButton btnCerrar;
     }
 }

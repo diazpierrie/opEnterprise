@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using DAL;
 using EE;
 
-namespace BLL {
+namespace BLL
+{
     public class NotificacionBll
     {
-        static NotificacionDal _dal = new NotificacionDal();
+        private static NotificacionDal _dal = new NotificacionDal();
 
         public static List<NotificacionEe> Obtener(UsuarioEe us)
         {
@@ -26,5 +27,5 @@ namespace BLL {
         {
             _dal.LeerTodas(us);
         }
-}
+    }
 }

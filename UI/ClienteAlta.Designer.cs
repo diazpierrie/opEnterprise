@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ClienteAlta
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -322,18 +325,18 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton btnAccion;
-        private MetroFramework.Controls.MetroLabel lblEsSocio;
-        private MetroFramework.Controls.MetroComboBox cbEsSocio;
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
-        private MetroFramework.Controls.MetroTextBox txtMail;
-        private MetroFramework.Controls.MetroLabel lblMail;
-        private MetroFramework.Controls.MetroLabel lblDNI;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroTextBox txtDNI;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroLabel lblApellido;
-        private MetroFramework.Controls.MetroTextBox txtApellido;
+        private MetroButton btnAccion;
+        private MetroLabel lblEsSocio;
+        private MetroComboBox cbEsSocio;
+        private MetroTextBox txtTelefono;
+        private MetroLabel lblTelefono;
+        private MetroTextBox txtMail;
+        private MetroLabel lblMail;
+        private MetroLabel lblDNI;
+        private MetroTextBox txtNombre;
+        private MetroTextBox txtDNI;
+        private MetroLabel lblNombre;
+        private MetroLabel lblApellido;
+        private MetroTextBox txtApellido;
     }
 }

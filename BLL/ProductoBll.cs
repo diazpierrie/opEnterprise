@@ -7,7 +7,7 @@ namespace BLL
 {
     public class ProductoBll
     {
-        static ProductoDal _dal = new ProductoDal();
+        private static ProductoDal _dal = new ProductoDal();
 
         public static void Actualizar(ProductoEe producto)
         {

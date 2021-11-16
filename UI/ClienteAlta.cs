@@ -7,22 +7,19 @@ namespace UI
     public partial class ClienteAlta : UpdatableForm
     {
         private readonly ClienteBuscar _clienteBuscar;
-        private enum EsSocio
-        {
-            No = 0,
-            Si = 1
-        };
+        private readonly string[] _esSocioStrings = { "No", "Si" };
+
 
         public ClienteAlta(ClienteBuscar clienteBuscar)
         {
             _clienteBuscar = clienteBuscar;
             InitializeComponent();
-            cbEsSocio.DataSource = Enum.GetValues(typeof(EsSocio));
+            cbEsSocio.DataSource = _esSocioStrings;
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
-            CompradorBll.Crear(new CompradorEe()
+            CompradorBll.Crear(new CompradorEe
             {
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,

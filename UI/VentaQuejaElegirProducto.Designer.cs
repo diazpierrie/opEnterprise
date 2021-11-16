@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class VentaQuejaElegirProducto
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -137,9 +140,9 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridDetalle;
-        private MetroFramework.Controls.MetroButton btnElegir;
-        private MetroFramework.Controls.MetroLabel lblTotal;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroGrid gridDetalle;
+        private MetroButton btnElegir;
+        private MetroLabel lblTotal;
+        private MetroButton metroButton1;
     }
 }

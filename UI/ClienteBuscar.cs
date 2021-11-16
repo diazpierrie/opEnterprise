@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using BLL;
 using EE;
 
+// ReSharper disable PossibleNullReferenceException
+
 namespace UI
 {
     public partial class ClienteBuscar : UpdatableForm
@@ -18,13 +20,13 @@ namespace UI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == null && 
-                txtApellido.Text == null && 
+            if (txtNombre.Text == null &&
+                txtApellido.Text == null &&
                 txtDni.Text == null &&
                 txtMail.Text == null &&
                 txtTelefono.Text == null) return;
 
-            gridClientes.DataSource = _dataTable.FindAll(x=> x.Nombre.Contains(txtNombre.Text.ToLower())
+            gridClientes.DataSource = _dataTable.FindAll(x => x.Nombre.Contains(txtNombre.Text.ToLower())
                                                              && x.Apellido.Contains(txtApellido.Text.ToLower())
                                                              && x.Dni.ToString().Contains(txtDni.Text.ToLower())
                                                              && x.Mail.Contains(txtMail.Text.ToLower())

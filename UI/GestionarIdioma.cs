@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using EE;
 using Security;
 
@@ -24,21 +16,33 @@ namespace UI
         {
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
-            cmbLanguages.DisplayMember = "Text";
-            cmbLanguages.ValueMember = "Value";
+            cbLenguajes.DisplayMember = "Text";
+            cbLenguajes.ValueMember = "Value";
 
             CargarComboBox();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var agregarIdioma = new AgregarIdioma(this);
+            var agregarIdioma = new GestionarControles(this);
             agregarIdioma.Show();
         }
 
         public void CargarComboBox()
         {
-            cmbLanguages.DataSource = IdiomaManager.Obtener();
+            cbLenguajes.DataSource = IdiomaManager.Obtener();
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            var modificarIdioma = new GestionarControles(this, (IdiomaEe)cbLenguajes.SelectedValue);
+            modificarIdioma.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var borrarIdioma = new BorrarIdioma(this, (IdiomaEe)cbLenguajes.SelectedValue);
+            borrarIdioma.Show();
         }
     }
 }

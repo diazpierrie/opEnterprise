@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class VentaVerDetalle
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -121,8 +124,8 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridDetalle;
-        private MetroFramework.Controls.MetroButton btnCerrar;
-        private MetroFramework.Controls.MetroLabel lblTotal;
+        private MetroGrid gridDetalle;
+        private MetroButton btnCerrar;
+        private MetroLabel lblTotal;
     }
 }

@@ -1,4 +1,8 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class VentaHome
@@ -6,7 +10,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -151,10 +155,10 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridVenta;
-        private MetroFramework.Controls.MetroButton btnModificarVenta;
-        private MetroFramework.Controls.MetroButton btnAgregarProducto;
-        private System.Windows.Forms.Label lblTotal;
-        private MetroFramework.Controls.MetroButton btnCompletarVenta;
+        private MetroGrid gridVenta;
+        private MetroButton btnModificarVenta;
+        private MetroButton btnAgregarProducto;
+        private Label lblTotal;
+        private MetroButton btnCompletarVenta;
     }
 }

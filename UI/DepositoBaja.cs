@@ -21,12 +21,12 @@ namespace UI
         {
             DepositoBll.Eliminar(Deposito);
             _homeForm.ActualizarGrid();
-            this.Close();
+            Close();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

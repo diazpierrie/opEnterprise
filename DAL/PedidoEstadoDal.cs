@@ -69,7 +69,7 @@ namespace DAL
 
         private static PedidoEstadoEe CastDto(SqlDataReader data)
         {
-            return new PedidoEstadoEe()
+            return new PedidoEstadoEe
             {
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString()

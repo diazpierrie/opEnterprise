@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ConfigurarEdificio
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -118,11 +121,11 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroComboBox cbTipoEdificio;
-        private MetroFramework.Controls.MetroComboBox cbEdificio;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroButton btnConfigurar;
-        private MetroFramework.Controls.MetroButton btnCerrar;
+        private MetroComboBox cbTipoEdificio;
+        private MetroComboBox cbEdificio;
+        private MetroLabel metroLabel1;
+        private MetroLabel metroLabel2;
+        private MetroButton btnConfigurar;
+        private MetroButton btnCerrar;
     }
 }

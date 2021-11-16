@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class DepositoAsignar
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -217,12 +220,12 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton btnAsignarDeposito;
-        private MetroFramework.Controls.MetroGrid gridAsignarDeposito;
-        private MetroFramework.Controls.MetroGrid gridDesasignarDeposito;
-        private MetroFramework.Controls.MetroButton btnCerrar;
-        private MetroFramework.Controls.MetroButton btnDesasignarDeposito;
-        private MetroFramework.Controls.MetroLabel lblDepositos;
-        private MetroFramework.Controls.MetroLabel lblDepositosAsignados;
+        private MetroButton btnAsignarDeposito;
+        private MetroGrid gridAsignarDeposito;
+        private MetroGrid gridDesasignarDeposito;
+        private MetroButton btnCerrar;
+        private MetroButton btnDesasignarDeposito;
+        private MetroLabel lblDepositos;
+        private MetroLabel lblDepositosAsignados;
     }
 }

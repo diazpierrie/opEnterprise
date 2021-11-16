@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using BLL;
 using EE;
+// ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
@@ -98,17 +99,17 @@ namespace UI
                 return;
             }
 
-            var selectedItem = 0;
+            int selectedItem;
             UsuarioEe selectedEmpleado;
 
             var puesto = (PuestoEe)gridEmpleado.SelectedRows[0].Cells["puesto"].Value;
             switch (puesto.Id)
             {
                 case 1:
-                     selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
-                     selectedEmpleado = UsuarioBll.Obtener(selectedItem);
+                    selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
+                    selectedEmpleado = UsuarioBll.Obtener(selectedItem);
                     var depoAssign = new DepositoAsignar(selectedEmpleado);
-                     depoAssign.Show();
+                    depoAssign.Show();
                     break;
                 case 2:
                     selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());

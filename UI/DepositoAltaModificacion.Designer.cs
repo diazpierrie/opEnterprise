@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class DepositoAltaModificacion
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -307,16 +310,16 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
-        private MetroFramework.Controls.MetroButton btnAccion;
-        private MetroFramework.Controls.MetroTextBox txtMail;
-        private MetroFramework.Controls.MetroLabel lblMail;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroLabel lblDireccion;
-        private MetroFramework.Controls.MetroTextBox txtDireccion;
-        private MetroFramework.Controls.MetroTextBox txtCodigoPostal;
-        private MetroFramework.Controls.MetroLabel lblCodigoPostal;
+        private MetroTextBox txtTelefono;
+        private MetroLabel lblTelefono;
+        private MetroButton btnAccion;
+        private MetroTextBox txtMail;
+        private MetroLabel lblMail;
+        private MetroTextBox txtNombre;
+        private MetroLabel lblNombre;
+        private MetroLabel lblDireccion;
+        private MetroTextBox txtDireccion;
+        private MetroTextBox txtCodigoPostal;
+        private MetroLabel lblCodigoPostal;
     }
 }

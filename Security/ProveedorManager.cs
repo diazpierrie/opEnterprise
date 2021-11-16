@@ -6,7 +6,7 @@ namespace Security
 {
     public static class ProveedorManager
     {
-        static ProveedorDal _dal = new ProveedorDal();
+        private static ProveedorDal _dal = new ProveedorDal();
 
         public static void Actualizar(ProveedorEe proveedor)
         {

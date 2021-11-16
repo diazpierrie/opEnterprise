@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class EmpleadoAltaModificacion
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -428,24 +431,24 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
-        private MetroFramework.Controls.MetroButton btnAccion;
-        private MetroFramework.Controls.MetroTextBox txtMail;
-        private MetroFramework.Controls.MetroLabel lblMail;
-        private MetroFramework.Controls.MetroLabel lblDNI;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroTextBox txtDNI;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroLabel lblApellido;
-        private MetroFramework.Controls.MetroTextBox txtApellido;
-        private MetroFramework.Controls.MetroTextBox txtUsername;
-        private MetroFramework.Controls.MetroLabel lblUsername;
-        private MetroFramework.Controls.MetroComboBox cbPermiso;
-        private MetroFramework.Controls.MetroComboBox cbSector;
-        private MetroFramework.Controls.MetroLabel lblRol;
-        private MetroFramework.Controls.MetroComboBox cbPuesto;
-        private MetroFramework.Controls.MetroLabel lblSector;
-        private MetroFramework.Controls.MetroLabel lblPuesto;
+        private MetroTextBox txtTelefono;
+        private MetroLabel lblTelefono;
+        private MetroButton btnAccion;
+        private MetroTextBox txtMail;
+        private MetroLabel lblMail;
+        private MetroLabel lblDNI;
+        private MetroTextBox txtNombre;
+        private MetroTextBox txtDNI;
+        private MetroLabel lblNombre;
+        private MetroLabel lblApellido;
+        private MetroTextBox txtApellido;
+        private MetroTextBox txtUsername;
+        private MetroLabel lblUsername;
+        private MetroComboBox cbPermiso;
+        private MetroComboBox cbSector;
+        private MetroLabel lblRol;
+        private MetroComboBox cbPuesto;
+        private MetroLabel lblSector;
+        private MetroLabel lblPuesto;
     }
 }

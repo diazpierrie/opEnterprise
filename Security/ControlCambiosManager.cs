@@ -1,15 +1,14 @@
-﻿using EE;
-using DAL;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using DAL;
+using EE;
 using Newtonsoft.Json;
-using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Security
 {
     public static class ControlCambiosManager
     {
-        static BitacoraDal _dao = new BitacoraDal();
+        private static BitacoraDal _dao = new BitacoraDal();
 
         public static List<BitacoraMensajeEe> Obtener(DateTime desde, DateTime hasta, string tipo = null)
         {

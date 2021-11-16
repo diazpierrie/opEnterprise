@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using EE;
 using Security;
@@ -37,7 +36,7 @@ namespace UI
 
         private void RealizarBackup_Load(object sender, EventArgs e)
         {
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }

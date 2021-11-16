@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EE {
-    public class UsuarioEe : PersonaEe {
+namespace EE
+{
+    public class UsuarioEe : PersonaEe
+    {
         public string NombreUsuario { get; set; }
         public new DateTime FechaCreacion { get; set; }
         public bool Bloqueado { get; set; }

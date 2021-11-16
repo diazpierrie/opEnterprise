@@ -6,8 +6,8 @@ namespace Security
 {
     public static class PermisosManager
     {
-        static readonly FamiliaDal DalFamilia = new FamiliaDal();
-        static readonly PatenteDal DalPatente = new PatenteDal();
+        private static readonly FamiliaDal DalFamilia = new FamiliaDal();
+        private static readonly PatenteDal DalPatente = new PatenteDal();
 
         public static List<FamiliaEe> ObtenerFamilia(string nombre = null)
         {

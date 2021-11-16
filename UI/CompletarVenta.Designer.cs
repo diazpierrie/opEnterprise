@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class CompletarVenta
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -136,11 +139,11 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroLabel lblCliente;
-        private MetroFramework.Controls.MetroTextBox txtCliente;
-        private MetroFramework.Controls.MetroLabel lblMetodoPago;
-        private MetroFramework.Controls.MetroButton btnBuscarCliente;
-        private MetroFramework.Controls.MetroComboBox cbMetodoPago;
-        private MetroFramework.Controls.MetroButton btnRealizarVenta;
+        private MetroLabel lblCliente;
+        private MetroTextBox txtCliente;
+        private MetroLabel lblMetodoPago;
+        private MetroButton btnBuscarCliente;
+        private MetroComboBox cbMetodoPago;
+        private MetroButton btnRealizarVenta;
     }
 }

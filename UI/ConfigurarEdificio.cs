@@ -1,15 +1,15 @@
 ﻿using System;
-using UI.Properties;
 using BLL;
 using EE;
+using UI.Properties;
 
 namespace UI
 {
     public partial class ConfigurarEdificio : UpdatableForm
     {
         private readonly Home _homeForm;
+        private readonly string[] _tipoEdificioStrings = { "Deposito", "Sucursal" };
 
-        private enum TipoEdificioEnum { Deposito = 0, Sucursal = 1 }
 
 
         public ConfigurarEdificio(Home homeForm)
@@ -17,7 +17,7 @@ namespace UI
             _homeForm = homeForm;
             InitializeComponent();
 
-            cbTipoEdificio.DataSource = Enum.GetValues(typeof(TipoEdificioEnum));
+            cbTipoEdificio.DataSource = _tipoEdificioStrings;
             CargarEdificios();
         }
 
@@ -53,12 +53,25 @@ namespace UI
                 return;
             }
 
-            Settings.Default["TipoEdificio"] = Enum.GetName(typeof(TipoEdificioEnum), cbTipoEdificio.SelectedIndex);
+            Settings.Default["TipoEdificio"] = _tipoEdificioStrings[cbTipoEdificio.SelectedIndex];
 
             var edificioSeleccionado = (EntidadFiscalEe)cbEdificio.SelectedItem;
             Settings.Default["IdEdificio"] = edificioSeleccionado.Id;
             Settings.Default.Save();
+
+            if (ReferenceEquals(Settings.Default["TipoEdificio"], "Deposito"))
+            {
+                Sesion.ObtenerSesion().Deposito = DepositoBll.Obtener(edificioSeleccionado.Id);
+                Sesion.ObtenerSesion().Sucursal = null;
+            }
+            else if (ReferenceEquals(Settings.Default["TipoEdificio"], "Sucursal"))
+            {
+                Sesion.ObtenerSesion().Deposito = null;
+                Sesion.ObtenerSesion().Sucursal = SucursalBll.Obtener(edificioSeleccionado.Id);
+            }
+
             _homeForm.ActualizarTabs();
+
         }
     }
 }

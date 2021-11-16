@@ -19,7 +19,7 @@ namespace UI
 
         private void ErrorDV_Load(object sender, EventArgs e)
         {
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
 
             var erorrs = Dv.ObtenerErrores().Split('\n');
             foreach (var error in erorrs)
@@ -56,5 +56,5 @@ namespace UI
         {
             Dv.ActualizarDv();
         }
-	}
+    }
 }

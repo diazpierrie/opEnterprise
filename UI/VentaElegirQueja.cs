@@ -7,7 +7,7 @@ namespace UI
     public partial class VentaElegirQueja : UpdatableForm
     {
         private readonly VentaEe _venta;
-        private readonly List<string> _quejas = new List<string>(){ "El producto llegó en mal estado", "El producto no fue el deseado" };
+        private readonly List<string> _quejas = new List<string> { "El producto llegó en mal estado", "El producto no fue el deseado" };
 
         public VentaElegirQueja(VentaEe venta)
         {
@@ -27,11 +27,9 @@ namespace UI
                 case 1:
                     new VentaQuejaElegirProducto(_venta, "Devolucion");
                     break;
-                default:
-                    break;
             }
 
-            
+
 
 
             //var perdida = new PerdidaEe()

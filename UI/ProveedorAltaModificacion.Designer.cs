@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ProveedorAltaModificacion
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -305,16 +308,16 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroLabel lblMail;
-        private MetroFramework.Controls.MetroLabel lblCodigoPostal;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroTextBox txtCodigoPostal;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroLabel lblDireccion;
-        private MetroFramework.Controls.MetroTextBox txtDireccion;
-        private MetroFramework.Controls.MetroTextBox txtMail;
-        private MetroFramework.Controls.MetroButton btnAccion;
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
+        private MetroLabel lblMail;
+        private MetroLabel lblCodigoPostal;
+        private MetroTextBox txtNombre;
+        private MetroTextBox txtCodigoPostal;
+        private MetroLabel lblNombre;
+        private MetroLabel lblDireccion;
+        private MetroTextBox txtDireccion;
+        private MetroTextBox txtMail;
+        private MetroButton btnAccion;
+        private MetroTextBox txtTelefono;
+        private MetroLabel lblTelefono;
     }
 }

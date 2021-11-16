@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarIdioma.cs">
+    <Compile Include="GestionarControles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AgregarIdioma.Designer.cs">
-      <DependentUpon>AgregarIdioma.cs</DependentUpon>
+    <Compile Include="GestionarControles.Designer.cs">
+      <DependentUpon>GestionarControles.cs</DependentUpon>
     </Compile>
     <Compile Include="ClienteAlta.cs">
       <SubType>Form</SubType>
@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="GestionarIdioma.Designer.cs">
       <DependentUpon>GestionarIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BorrarIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrarIdioma.Designer.cs">
+      <DependentUpon>BorrarIdioma.cs</DependentUpon>
     </Compile>
     <Compile Include="ProveedorBuscar.cs">
       <SubType>Form</SubType>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="DepositoEntradaRegistrar.Designer.cs">
       <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProveedorRestaurar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedorRestaurar.Designer.cs">
+      <DependentUpon>ProveedorRestaurar.cs</DependentUpon>
     </Compile>
     <Compile Include="RealizarBackup.cs">
       <SubType>Form</SubType>
@@ -264,8 +276,8 @@
     <Compile Include="VerBitacora.Designer.cs">
       <DependentUpon>VerBitacora.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AgregarIdioma.resx">
-      <DependentUpon>AgregarIdioma.cs</DependentUpon>
+    <EmbeddedResource Include="GestionarControles.resx">
+      <DependentUpon>GestionarControles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
@@ -273,11 +285,17 @@
     <EmbeddedResource Include="GestionarIdioma.resx">
       <DependentUpon>GestionarIdioma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BorrarIdioma.resx">
+      <DependentUpon>BorrarIdioma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompletarPedido.resx">
       <DependentUpon>CompletarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedorRestaurar.resx">
+      <DependentUpon>ProveedorRestaurar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaElegirQueja.resx">
       <DependentUpon>VentaElegirQueja.cs</DependentUpon>

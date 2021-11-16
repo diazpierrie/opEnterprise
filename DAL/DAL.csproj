@@ -53,11 +53,12 @@
     <Compile Include="BitacoraDal.cs" />
     <Compile Include="PedidoProveedorDal.cs" />
     <Compile Include="PedidoEstadoDal.cs" />
+    <Compile Include="SucursalDal.cs" />
     <Compile Include="VentaEstadoDal.cs" />
     <Compile Include="ProductoDal.cs" />
     <Compile Include="MetodoPagoDal.cs" />
     <Compile Include="VentaDal.cs" />
-    <Compile Include="SucursalDal.cs" />
+    <Compile Include="VersionEntidadDal.cs" />
     <Compile Include="DepositoDal.cs" />
     <Compile Include="CompradorDal.cs" />
     <Compile Include="ConnectionDal.cs" />

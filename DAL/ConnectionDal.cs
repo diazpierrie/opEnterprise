@@ -9,120 +9,120 @@ namespace DAL
 {
     public abstract class ConnectionDal
     {
-		protected SqlConnection Conn;
-		
+        protected SqlConnection Conn;
+
         protected ConnectionDal()
-		{
-			try
-			{
-				Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e);
-			}
-		}
+        {
+            try
+            {
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["local"].ConnectionString);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
 
         protected static bool IsForeignKey(string colName)
-		{
-			if (colName.Length < 4)
-			{
-				return false;
-			}
+        {
+            if (colName.Length < 4)
+            {
+                return false;
+            }
 
-			if (colName.Substring(colName.Length - 3, 3).Equals("_id"))
-			{
-				return true;
-			}
+            if (colName.Substring(colName.Length - 3, 3).Equals("_id"))
+            {
+                return true;
+            }
 
-			return false;
-		}
+            return false;
+        }
 
         protected bool DeleteByid(string table, int id)
-		{
-			try
-			{
-				if (Conn.State == ConnectionState.Open)
-				{
-					return false;
-				}
+        {
+            try
+            {
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return false;
+                }
 
-				var query = new SqlCommand($"DELETE FROM {table} WHERE id = {id}", Conn);
+                var query = new SqlCommand($"DELETE FROM {table} WHERE id = {id}", Conn);
 
-				Conn.Open();
-				query.ExecuteNonQuery();
-				Conn.Close();
-				return true;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return false;
-			}
-		}
+                Conn.Open();
+                query.ExecuteNonQuery();
+                Conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+        }
 
         protected int Insert(string table, string[] columns, string[] values)
-		{
-			try
-			{
-				var queryString = new StringBuilder().AppendFormat("INSERT INTO {0} (", table);
+        {
+            try
+            {
+                var queryString = new StringBuilder().AppendFormat("INSERT INTO {0} (", table);
 
-				for (var i = 0; i < columns.Length; i++)
-				{
-					if (i != 0)
-					{
-						queryString.Append(", ");
-					}
+                for (var i = 0; i < columns.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        queryString.Append(", ");
+                    }
 
-					queryString.Append(columns[i]);
-				}
+                    queryString.Append(columns[i]);
+                }
 
-				queryString.Append(") VALUES (");
+                queryString.Append(") VALUES (");
 
-				for (var i = 0; i < columns.Length; i++)
-				{
-					if (i != 0)
-					{
-						queryString.Append(", ");
-					}
+                for (var i = 0; i < columns.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        queryString.Append(", ");
+                    }
 
-					queryString.Append("@" + columns[i]);
-				}
+                    queryString.Append("@" + columns[i]);
+                }
 
-				queryString.Append(")");
+                queryString.Append(")");
 
-				var query = new SqlCommand(queryString.ToString(), Conn);
+                var query = new SqlCommand(queryString.ToString(), Conn);
 
-				query.Parameters.AddWithValue("@table", table);
-				for (var i = 0; i < columns.Length; i++)
-				{
-					if (values[i] == null)
-					{
-						query.Parameters.AddWithValue("@" + columns[i], DBNull.Value);
-					}
-					else
-					{
-						query.Parameters.AddWithValue("@" + columns[i], Truncate(values[i], 200));
-					}
-				}
+                query.Parameters.AddWithValue("@table", table);
+                for (var i = 0; i < columns.Length; i++)
+                {
+                    if (values[i] == null)
+                    {
+                        query.Parameters.AddWithValue("@" + columns[i], DBNull.Value);
+                    }
+                    else
+                    {
+                        query.Parameters.AddWithValue("@" + columns[i], Truncate(values[i], 200));
+                    }
+                }
 
-				if (Conn.State == ConnectionState.Open)
-				{
-					return 0;
-				}
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return 0;
+                }
 
-				Conn.Open();
-				query.ExecuteNonQuery();
-				Conn.Close();
+                Conn.Open();
+                query.ExecuteNonQuery();
+                Conn.Close();
 
-				return GetLastid(table);
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return 0;
-			}
-		}
+                return GetLastid(table);
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return 0;
+            }
+        }
         protected int Insert(string table, string[] columns, List<string[]> values)
         {
             try
@@ -183,79 +183,79 @@ namespace DAL
             }
         }
 
-		public bool ExecuteQuery(SqlCommand strQuery)
-		{
-			try
-			{
-				if (Conn.State == ConnectionState.Open)
-				{
-					return false;
-				}
+        public bool ExecuteQuery(SqlCommand strQuery)
+        {
+            try
+            {
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return false;
+                }
 
-				Conn.Open();
-				strQuery.ExecuteNonQuery();
-				Conn.Close();
+                Conn.Open();
+                strQuery.ExecuteNonQuery();
+                Conn.Close();
 
-				return true;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return false;
-			}
-		}
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+        }
 
         private string Truncate(string value, int maxChars)
-		{
-			return value.Length <= maxChars ? value : value.Substring(0, maxChars) + " ...";
-		}
+        {
+            return value.Length <= maxChars ? value : value.Substring(0, maxChars) + " ...";
+        }
 
         protected int GetLastid(string table)
-		{
-			try
-			{
-				if (Conn.State == ConnectionState.Open)
-				{
-					return 0;
-				}
+        {
+            try
+            {
+                if (Conn.State == ConnectionState.Open)
+                {
+                    return 0;
+                }
 
-				var query = new SqlCommand($"SELECT TOP 1 id FROM {table} ORDER BY id DESC", Conn);
-				Conn.Open();
-				var data = query.ExecuteReader();
-				var result = 0;
+                var query = new SqlCommand($"SELECT TOP 1 id FROM {table} ORDER BY id DESC", Conn);
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var result = 0;
 
-				if (data.HasRows)
-				{
-					data.Read();
-					result = int.Parse(data["id"].ToString());
-				}
+                if (data.HasRows)
+                {
+                    data.Read();
+                    result = int.Parse(data["id"].ToString());
+                }
 
-				Conn.Close();
-				return result;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return 0;
-			}
-		}
+                Conn.Close();
+                return result;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return 0;
+            }
+        }
 
-		public bool ColumnExists(IDataReader reader, string columnName)
-		{
-			for (var i = 0; i < reader.FieldCount; i++)
-			{
-				if (reader.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
-				{
-					return true;
-				}
-			}
+        public bool ColumnExists(IDataReader reader, string columnName)
+        {
+            for (var i = 0; i < reader.FieldCount; i++)
+            {
+                if (reader.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		public string GetTimestamp(DateTime value)
-		{
-			return value.ToString("yyyyMMdd");
-		}
-	}
+        public string GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMdd");
+        }
+    }
 }

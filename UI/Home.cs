@@ -1,11 +1,12 @@
 ﻿using System;
 using EE;
+using MetroFramework.Forms;
 using Security;
 using UI.Properties;
 
 namespace UI
 {
-    public partial class Home : MetroFramework.Forms.MetroForm
+    public partial class Home : MetroForm
     {
         public Home()
         {
@@ -85,7 +86,7 @@ namespace UI
 
         private void btnBackUp_Click(object sender, EventArgs e)
         {
-            RealizarBackup bkp = new RealizarBackup();
+            var bkp = new RealizarBackup();
             bkp.Show();
         }
 

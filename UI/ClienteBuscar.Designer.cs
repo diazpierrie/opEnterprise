@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ClienteBuscar
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -355,19 +358,19 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridClientes;
-        private MetroFramework.Controls.MetroTextBox txtNombre;
-        private MetroFramework.Controls.MetroLabel lblNombre;
-        private MetroFramework.Controls.MetroLabel lblApellido;
-        private MetroFramework.Controls.MetroTextBox txtApellido;
-        private MetroFramework.Controls.MetroLabel lblDni;
-        private MetroFramework.Controls.MetroTextBox txtDni;
-        private MetroFramework.Controls.MetroLabel lblMail;
-        private MetroFramework.Controls.MetroTextBox txtMail;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroButton btnBuscar;
-        private MetroFramework.Controls.MetroButton btnElegir;
-        private MetroFramework.Controls.MetroButton btnAltaCliente;
+        private MetroGrid gridClientes;
+        private MetroTextBox txtNombre;
+        private MetroLabel lblNombre;
+        private MetroLabel lblApellido;
+        private MetroTextBox txtApellido;
+        private MetroLabel lblDni;
+        private MetroTextBox txtDni;
+        private MetroLabel lblMail;
+        private MetroTextBox txtMail;
+        private MetroLabel lblTelefono;
+        private MetroTextBox txtTelefono;
+        private MetroButton btnBuscar;
+        private MetroButton btnElegir;
+        private MetroButton btnAltaCliente;
     }
 }

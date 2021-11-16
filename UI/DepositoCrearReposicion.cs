@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using EE;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
@@ -22,26 +23,12 @@ namespace UI
             agregarProducto.Show();
         }
 
-        private void btnBorrarVenta_Click(object sender, EventArgs e)
-        {
-            if (gridPedido.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            //var selectedItem = int.Parse(gridVenta.SelectedRows[0].Cells["id"].Value.ToString());
-            //var selectedVenta = UsuarioBll.Obtener(selectedItem);
-            //var provBaja = new VentaBaja(this, selectedVenta);
-            //provBaja.Show();
-        }
-
         private void VentaHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
 
             if (gridPedido.SelectedRows.Count == 0)
             {
-                return;
             }
         }
 
@@ -72,22 +59,12 @@ namespace UI
         {
             if (gridPedido.SelectedRows.Count == 0)
             {
-                return;
             }
 
             //var selectedItem = int.Parse(gridVenta.SelectedRows[0].Cells["id"].Value.ToString());
             //var selectedVenta = UsuarioBll.Obtener(selectedItem);
             //var provAm = new VentaAltaModificacion(this, selectedVenta);
             //provAm.Show();
-        }
-
-        private void btnAsignar_Click(object sender, EventArgs e)
-        {
-            if (gridPedido.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
         }
 
 

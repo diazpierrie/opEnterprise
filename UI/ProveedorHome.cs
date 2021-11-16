@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BLL;
+// ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
@@ -38,13 +39,16 @@ namespace UI
         public void ActualizarGrid()
         {
             gridProveedor.DataSource = ProveedorBll.Obtener();
+
             gridProveedor.Columns["id"].Visible = false;
+            gridProveedor.Columns["activo"].Visible = false;
+
             gridProveedor.Columns["nombre"].DisplayIndex = 0;
             gridProveedor.Columns["direccion"].DisplayIndex = 1;
             gridProveedor.Columns["codigoPostal"].DisplayIndex = 2;
             gridProveedor.Columns["mail"].DisplayIndex = 3;
             gridProveedor.Columns["telefono"].DisplayIndex = 4;
-            gridProveedor.Columns["cantidadErrores"].DisplayIndex = 5;
+            gridProveedor.Columns["CantidadErrores"].DisplayIndex = 5;
         }
 
         private void gridProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +75,14 @@ namespace UI
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
             var provBaja = new ProveedorBaja(this, selectedProveedor);
             provBaja.Show();
+        }
+
+        private void btnRestaurarProveedor_Click(object sender, EventArgs e)
+        {
+            var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
+            var selectedProveedor = ProveedorBll.Obtener(selectedItem);
+            // ReSharper disable once ObjectCreationAsStatement
+            new ProveedorRestaurar(this, selectedProveedor);
         }
     }
 }

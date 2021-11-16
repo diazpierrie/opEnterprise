@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class DepositoElegir
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -82,8 +85,8 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroComboBox cbDepositos;
-        private MetroFramework.Controls.MetroButton btnElegir;
-        private MetroFramework.Controls.MetroButton btnLogOut;
+        private MetroComboBox cbDepositos;
+        private MetroButton btnElegir;
+        private MetroButton btnLogOut;
     }
 }

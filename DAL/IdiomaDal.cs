@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
+using System.Linq;
 using EE;
 
 namespace DAL
@@ -42,7 +42,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT TOP 1 id, nombre FROM idioma i", Conn);
+                var query = new SqlCommand("SELECT TOP 1 id, nombre FROM idioma i WHERE activo = 1", Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -67,7 +67,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT id, nombre FROM idioma i", Conn);
+                var query = new SqlCommand("SELECT id, nombre FROM idioma i WHERE activo = 1", Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -92,7 +92,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT id, nombre FROM idioma WHERE id = @id", Conn);
+                var query = new SqlCommand("SELECT id, nombre FROM idioma WHERE id = @id AND activo = 1", Conn);
                 query.Parameters.AddWithValue("@id", id);
 
                 Conn.Open();
@@ -116,7 +116,7 @@ namespace DAL
 
         private IdiomaEe CastDto(SqlDataReader data)
         {
-            var result = new IdiomaEe()
+            var result = new IdiomaEe
             {
                 Id = Convert.ToInt32(data["id"]),
                 Nombre = data["Nombre"].ToString()
@@ -127,7 +127,7 @@ namespace DAL
 
         private ControlEe CastControlDto(SqlDataReader data)
         {
-            var result = new ControlEe()
+            var result = new ControlEe
             {
                 Id = Convert.ToInt32(data["id"]),
                 IdIdioma = int.Parse(data["IdIdioma"].ToString()),
@@ -140,8 +140,8 @@ namespace DAL
 
         public int Crear()
         {
-            var columnas = new List<string> { "Nombre" };
-            var valores = new List<string> { "Lenguaje sin nombre" };
+            var columnas = new List<string> { "Nombre", "activo" };
+            var valores = new List<string> { "Lenguaje sin nombre", 1.ToString() };
 
             return Insert("idioma", columnas.ToArray(), valores.ToArray());
         }
@@ -159,7 +159,7 @@ namespace DAL
 
                 var query = new SqlCommand(strQuery, Conn);
                 query.Parameters.AddWithValue("@idIdioma", idIdioma);
-                var controles = new List<ControlEe>();
+
 
                 if (Conn.State == ConnectionState.Open)
                 {
@@ -207,22 +207,41 @@ namespace DAL
             }
         }
 
-        public int ActualizarControles(List<ControlEe> controlesModificados)
+        public bool ActualizarControles(List<ControlEe> controlesModificados)
         {
-            var columnas = new List<string> { "id", "IdIdioma", "Tag", "Texto" };
-            var valores = new List<string[]>();
-            foreach (var control in controlesModificados)
+            var result = false;
+            foreach (var query in controlesModificados.Select(control => new SqlCommand($"UPDATE control SET texto = '{control.Texto}' WHERE id = {control.Id} ", Conn)))
             {
-                string[] value =
-                {
-                    control.Id.ToString(), 
-                    control.IdIdioma.ToString(), 
-                    control.Tag, 
-                    control.Texto
-                };
-                valores.Add(value);
+                result = ExecuteQuery(query);
             }
-            return Insert("control", columnas.ToArray(), valores);
+
+            return result;
+
         }
+
+        public bool EliminarIdioma(int idiomaId)
+        {
+            var query = new SqlCommand("UPDATE idioma SET activo = 0 WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", idiomaId);
+
+            return ExecuteQuery(query);
+        }
+
+        //public bool EliminarControlesIdioma(int idiomaId)
+        //{
+        //    var query = new SqlCommand("DELETE FROM control WHERE idIdioma = @id", Conn);
+        //    query.Parameters.AddWithValue("@id", idiomaId);
+
+        //    return ExecuteQuery(query);
+        //}
+
+        public bool ActualizarIdioma(IdiomaEe idioma, string nombreNuevo)
+        {
+            var query = new SqlCommand($"UPDATE idioma SET nombre = '{nombreNuevo}' WHERE id = {idioma.Id} ", Conn);
+            query.Parameters.AddWithValue("@id", idioma.Id);
+
+            return ExecuteQuery(query);
+        }
+
     }
 }

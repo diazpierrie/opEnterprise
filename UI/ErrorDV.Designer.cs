@@ -1,4 +1,8 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ErrorDv
@@ -6,7 +10,7 @@ namespace UI
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -111,10 +115,10 @@ namespace UI
 		}
 
 		#endregion
-		private MetroFramework.Controls.MetroButton btnBitacora;
-		private MetroFramework.Controls.MetroButton btnRestore;
-		private MetroFramework.Controls.MetroLabel lblResponse;
-		private System.Windows.Forms.ListBox listErrors;
-		private MetroFramework.Controls.MetroButton btnRestDV;
+		private MetroButton btnBitacora;
+		private MetroButton btnRestore;
+		private MetroLabel lblResponse;
+		private ListBox listErrors;
+		private MetroButton btnRestDV;
 	}
 }

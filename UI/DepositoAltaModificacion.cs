@@ -19,7 +19,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            this.Text = "Crear Empleado";
+            Text = "Crear Empleado";
         }
 
         public DepositoAltaModificacion(DepositoHome homeForm, DepositoEe deposito)
@@ -32,36 +32,36 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            this.Text = "Modificar Empleado";
+            Text = "Modificar Empleado";
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
-                if (_crear)
+            if (_crear)
+            {
+                var deposito = new DepositoEe
                 {
-                    var deposito = new DepositoEe
-                    {
-                        Nombre = txtNombre.Text,
-                        Mail = txtMail.Text,
-                        Telefono = txtTelefono.Text,
-                        Direccion = txtDireccion.Text,
-                        CodigoPostal = int.Parse(txtCodigoPostal.Text),
-                    };
+                    Nombre = txtNombre.Text,
+                    Mail = txtMail.Text,
+                    Telefono = txtTelefono.Text,
+                    Direccion = txtDireccion.Text,
+                    CodigoPostal = int.Parse(txtCodigoPostal.Text),
+                };
                 DepositoBll.Crear(deposito);
-                }
-                else
-                {
-                    _deposito.Nombre = txtNombre.Text;
-                    _deposito.Mail = txtMail.Text;
-                    _deposito.Telefono = txtTelefono.Text;
-                    _deposito.Direccion = txtDireccion.Text;
-                    _deposito.CodigoPostal = int.Parse(txtCodigoPostal.Text);
+            }
+            else
+            {
+                _deposito.Nombre = txtNombre.Text;
+                _deposito.Mail = txtMail.Text;
+                _deposito.Telefono = txtTelefono.Text;
+                _deposito.Direccion = txtDireccion.Text;
+                _deposito.CodigoPostal = int.Parse(txtCodigoPostal.Text);
 
-                    DepositoBll.Actualizar(_deposito);
-                }
+                DepositoBll.Actualizar(_deposito);
+            }
 
-                this.Close();
-                _homeForm.ActualizarGrid();
+            Close();
+            _homeForm.ActualizarGrid();
         }
 
         private void EmpleadoAltaModificacion_Load(object sender, EventArgs e)
@@ -80,12 +80,12 @@ namespace UI
 
         private void CargarDetalleDeposito()
         {
-            if (this._deposito.Id == 0) { return; } 
-           txtNombre.Text = _deposito.Nombre;
-           txtMail.Text = _deposito.Mail;
-           txtTelefono.Text = _deposito.Telefono;
-           txtDireccion.Text = _deposito.Direccion;
-           txtCodigoPostal.Text = _deposito.CodigoPostal.ToString();
+            if (_deposito.Id == 0) { return; }
+            txtNombre.Text = _deposito.Nombre;
+            txtMail.Text = _deposito.Mail;
+            txtTelefono.Text = _deposito.Telefono;
+            txtDireccion.Text = _deposito.Direccion;
+            txtCodigoPostal.Text = _deposito.CodigoPostal.ToString();
         }
     }
 }

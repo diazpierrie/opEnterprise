@@ -6,7 +6,7 @@ namespace Security
 {
     public static class IdiomaManager
     {
-        static IdiomaDal _dao = new IdiomaDal();
+        private static IdiomaDal _dao = new IdiomaDal();
 
         public static void Cambiar(IdiomaEe sesionidioma, int idiomaid)
         {
@@ -68,5 +68,21 @@ namespace Security
         {
             _dao.ActualizarControles(controlesModificados);
         }
+
+        public static void ActualizarIdioma(IdiomaEe idioma, string nombreNuevo)
+        {
+            _dao.ActualizarIdioma(idioma, nombreNuevo);
+        }
+
+        public static void Eliminar(IdiomaEe idioma)
+        {
+            _dao.EliminarIdioma(idioma.Id);
+            //_dao.EliminarControlesIdioma(idioma.Id);
+
+            Dv.ActualizarDv();
+
+            BitacoraManager.AgregarMensajeControl("Idioma eliminado: ", idioma);
+        }
+
     }
 }

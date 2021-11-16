@@ -72,7 +72,7 @@ namespace DAL
                     result.Tipo = Tipo.Info;
                     break;
             }
-            result.Usuario = new UsuarioEe()
+            result.Usuario = new UsuarioEe
             {
                 Id = Convert.ToInt32(data["idUsuario"])
             };

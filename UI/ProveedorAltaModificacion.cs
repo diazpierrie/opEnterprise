@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using System;
+using BLL;
 using EE;
 using Security;
 
@@ -6,34 +7,34 @@ namespace UI
 {
     public partial class ProveedorAltaModificacion : UpdatableForm
     {
-        public ProveedorEe Proveedor = new ProveedorEe();
+        private ProveedorEe Proveedor = new ProveedorEe();
         private ProveedorHome _homeForm;
         private ProveedorBuscar _buscarForm;
 
-        public bool Crear;
+        private readonly bool _crear;
 
         public ProveedorAltaModificacion(ProveedorBuscar buscarForm)
         {
             _buscarForm = buscarForm;
 
-            Crear = true;
+            _crear = true;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            this.Text = "Crear Proveedor";
+            Text = "Crear Proveedor";
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm)
         {
             _homeForm = homeForm;
 
-            Crear = true;
+            _crear = true;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            this.Text = "Crear Proveedor";
+            Text = "Crear Proveedor";
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm, ProveedorEe proveedor)
@@ -41,13 +42,13 @@ namespace UI
             _homeForm = homeForm;
             Proveedor = proveedor;
 
-            Crear = false;
+            _crear = false;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            this.Text = "Modificar Proveedor";
-            
+            Text = "Modificar Proveedor";
+
             txtNombre.Text = Proveedor.Nombre;
             txtCodigoPostal.Text = Proveedor.CodigoPostal.ToString();
             txtDireccion.Text = Proveedor.Direccion;
@@ -55,9 +56,9 @@ namespace UI
             txtMail.Text = Proveedor.Mail;
         }
 
-        private void btnAccion_Click(object sender, System.EventArgs e)
+        private void btnAccion_Click(object sender, EventArgs e)
         {
-            if (Crear)
+            if (_crear)
             {
                 var proveedor = new ProveedorEe
                 {
@@ -81,7 +82,6 @@ namespace UI
                 ProveedorBll.Actualizar(Proveedor);
             }
 
-            this.Close();
             if (_homeForm != null)
             {
                 _homeForm.ActualizarGrid();
@@ -90,12 +90,14 @@ namespace UI
             {
                 _buscarForm.ActualizarGrid();
             }
-            
+
+            Close();
+
         }
 
-        private void ProveedorCrear_Load(object sender, System.EventArgs e)
+        private void ProveedorCrear_Load(object sender, EventArgs e)
         {
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
 
             AllControls.Add(lblDireccion);
             AllControls.Add(lblCodigoPostal);

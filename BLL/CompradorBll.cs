@@ -7,7 +7,7 @@ namespace BLL
 {
     public class CompradorBll
     {
-        static CompradorDal _dao = new CompradorDal();
+        private static CompradorDal _dao = new CompradorDal();
 
         public static CompradorEe BuscarComprador(int id)
         {

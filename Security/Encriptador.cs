@@ -7,16 +7,16 @@ namespace Security
 {
     public static class Encriptador
     {
-        static readonly string PasswordHash = "P@@Sw0rd";
-        static readonly string SaltKey = "S@LT&KEY";
-        static readonly string ViKey = "@1B2c3D4e5F6g7H8";
+        private static readonly string PasswordHash = "P@@Sw0rd";
+        private static readonly string SaltKey = "S@LT&KEY";
+        private static readonly string ViKey = "@1B2c3D4e5F6g7H8";
 
         public static string Encriptar(string texto)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(texto);
 
             var keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
-            var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.Zeros };
+            var symmetricKey = new RijndaelManaged { Mode = CipherMode.CBC, Padding = PaddingMode.Zeros };
             var encryptor = symmetricKey.CreateEncryptor(keyBytes, Encoding.ASCII.GetBytes(ViKey));
 
             byte[] cipherTextBytes;
@@ -39,7 +39,7 @@ namespace Security
         {
             var cipherTextBytes = Convert.FromBase64String(texto);
             var keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
-            var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.None };
+            var symmetricKey = new RijndaelManaged { Mode = CipherMode.CBC, Padding = PaddingMode.None };
 
             var decryptor = symmetricKey.CreateDecryptor(keyBytes, Encoding.ASCII.GetBytes(ViKey));
             var memoryStream = new MemoryStream(cipherTextBytes);

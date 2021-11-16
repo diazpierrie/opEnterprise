@@ -11,6 +11,7 @@ namespace UI
         public DepositoElegir(List<DepositoEe> depositos)
         {
             _depositos = depositos;
+            // ReSharper disable once PossibleNullReferenceException
             cbDepositos.DataSource = _depositos;
             InitializeComponent();
         }

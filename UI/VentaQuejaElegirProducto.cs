@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using BLL;
 using EE;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
@@ -12,16 +13,15 @@ namespace UI
         private readonly VentaEe _venta;
         private readonly string _motivo;
         private double _total;
-        private List<VentaDetalleEe> _productos = new List<VentaDetalleEe>();
-        private List<VentaDetalleEe> _productosSeleccionados = new List<VentaDetalleEe>();
+        private readonly List<VentaDetalleEe> _productosSeleccionados = new List<VentaDetalleEe>();
 
         public VentaQuejaElegirProducto(VentaEe venta, string motivo)
         {
             _venta = venta;
             _motivo = motivo;
             InitializeComponent();
-            _productos = VentaBll.ObtenerDetalle(venta.Id);
-            gridDetalle.DataSource = _productos;
+            var productos = VentaBll.ObtenerDetalle(venta.Id);
+            gridDetalle.DataSource = productos;
 
             if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
             {
@@ -35,7 +35,7 @@ namespace UI
             gridDetalle.Columns["costo"].ReadOnly = true;
             gridDetalle.Columns["precio"].ReadOnly = true;
 
-            lblTotal.Text = $@"Perdida Total: $0";
+            lblTotal.Text = @"Perdida Total: $0";
 
             Show();
         }
@@ -68,8 +68,6 @@ namespace UI
 
                     VentaBll.RegistrarDevolucion(_venta, _productosSeleccionados);
                     break;
-                default:
-                    break;
             }
         }
 
@@ -99,7 +97,7 @@ namespace UI
 
         private void gridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if ((int)gridDetalle.CurrentCell.Value <= (int)gridDetalle.Tag && 
+            if ((int)gridDetalle.CurrentCell.Value <= (int)gridDetalle.Tag &&
                 (int)gridDetalle.CurrentCell.Value > 0)
             {
                 ActualizarTotal();

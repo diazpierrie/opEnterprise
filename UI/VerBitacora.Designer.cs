@@ -1,11 +1,15 @@
-﻿namespace UI
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+using MetroFramework.Controls;
+
+namespace UI
 {
 	partial class VerBitacora
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -233,19 +237,19 @@
 
 		#endregion
 
-		private MetroFramework.Controls.MetroGrid gridBitacora;
-		private System.Windows.Forms.DataGridViewTextBoxColumn id;
-		private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-		private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
-		private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-		private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario;
-		private MetroFramework.Controls.MetroButton btnFiltrar;
-		private MetroFramework.Controls.MetroLabel lblTipo;
-		private MetroFramework.Controls.MetroDateTime dateFrom;
-		private MetroFramework.Controls.MetroDateTime dateTo;
-		private MetroFramework.Controls.MetroLabel lblHyphen;
-		private System.Windows.Forms.WebBrowser messageDetail;
-        private MetroFramework.Controls.MetroComboBox cbTipo;
+		private MetroGrid gridBitacora;
+		private DataGridViewTextBoxColumn id;
+		private DataGridViewTextBoxColumn fecha;
+		private DataGridViewTextBoxColumn titulo;
+		private DataGridViewTextBoxColumn descripcion;
+		private DataGridViewTextBoxColumn tipo;
+		private DataGridViewTextBoxColumn NombreUsuario;
+		private MetroButton btnFiltrar;
+		private MetroLabel lblTipo;
+		private MetroDateTime dateFrom;
+		private MetroDateTime dateTo;
+		private MetroLabel lblHyphen;
+		private WebBrowser messageDetail;
+        private MetroComboBox cbTipo;
     }
 }

@@ -7,7 +7,7 @@ namespace BLL
 {
     public class SucursalBll
     {
-        static SucursalDal _dal = new SucursalDal();
+        private static SucursalDal _dal = new SucursalDal();
 
         public static void Actualizar(SucursalEe sucursal)
         {
@@ -61,10 +61,8 @@ namespace BLL
             {
                 return _dal.AsignarEmpleadoConSucursal(user, depo);
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         public static bool DesasignarEmpleadoConSucursal(UsuarioEe user, SucursalEe depo)

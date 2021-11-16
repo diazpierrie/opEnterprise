@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class SucursalAsignar
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -217,12 +220,12 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton btnAsignarSucursal;
-        private MetroFramework.Controls.MetroGrid gridAsignarSucursal;
-        private MetroFramework.Controls.MetroGrid gridDesasignarSucursal;
-        private MetroFramework.Controls.MetroButton btnCerrar;
-        private MetroFramework.Controls.MetroButton btnDesasignarSucursal;
-        private MetroFramework.Controls.MetroLabel lblSucursales;
-        private MetroFramework.Controls.MetroLabel lblSucursalesAsignadas;
+        private MetroButton btnAsignarSucursal;
+        private MetroGrid gridAsignarSucursal;
+        private MetroGrid gridDesasignarSucursal;
+        private MetroButton btnCerrar;
+        private MetroButton btnDesasignarSucursal;
+        private MetroLabel lblSucursales;
+        private MetroLabel lblSucursalesAsignadas;
     }
 }

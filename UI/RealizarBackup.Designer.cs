@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
 	partial class RealizarBackup
@@ -6,7 +9,7 @@ namespace UI
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -83,8 +86,8 @@ namespace UI
 		}
 
 		#endregion
-		private MetroFramework.Controls.MetroButton btnBackUp;
-		private MetroFramework.Controls.MetroButton btnRestore;
-		private MetroFramework.Controls.MetroLabel label1;
+		private MetroButton btnBackUp;
+		private MetroButton btnRestore;
+		private MetroLabel label1;
 	}
 }

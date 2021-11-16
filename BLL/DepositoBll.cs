@@ -7,7 +7,7 @@ namespace BLL
 {
     public class DepositoBll
     {
-        static DepositoDal _dal = new DepositoDal();
+        private static DepositoDal _dal = new DepositoDal();
 
         public static void Actualizar(DepositoEe deposito)
         {
@@ -39,7 +39,7 @@ namespace BLL
 
             return deposito.Id;
         }
-        
+
 
         public static List<DepositoEe> ObtenerActivos(string name = null)
         {
@@ -62,10 +62,8 @@ namespace BLL
             {
                 return _dal.AsignarEmpleadoConDeposito(user, depo);
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         public static bool DesasignarEmpleadoConDeposito(UsuarioEe user, DepositoEe depo)

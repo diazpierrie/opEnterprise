@@ -2,6 +2,7 @@
 using BLL;
 using EE;
 using Security;
+// ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
@@ -37,7 +38,7 @@ namespace UI
             for (var index = 0; index < gridAsignarDeposito.SelectedRows.Count; index++)
             {
                 var selectedRow = gridAsignarDeposito.SelectedRows[index];
-                var deposito = (DepositoEe) selectedRow.DataBoundItem;
+                var deposito = (DepositoEe)selectedRow.DataBoundItem;
 
                 DepositoBll.AsignarEmpleadoConDeposito(Usuario, deposito);
             }
@@ -52,7 +53,7 @@ namespace UI
             for (var index = 0; index < gridDesasignarDeposito.SelectedRows.Count; index++)
             {
                 var selectedRow = gridDesasignarDeposito.SelectedRows[index];
-                var deposito = (DepositoEe) selectedRow.DataBoundItem;
+                var deposito = (DepositoEe)selectedRow.DataBoundItem;
 
                 DepositoBll.DesasignarEmpleadoConDeposito(Usuario, deposito);
             }

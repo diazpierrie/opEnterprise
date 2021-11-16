@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using EE;
+using MetroFramework;
 using Security;
 using UI.Properties;
 
@@ -20,12 +21,19 @@ namespace UI
             IdiomaManager.CargarDefault();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
             AllControls.Add(lbUsuario);
             AllControls.Add(lbPassword);
             AllControls.Add(lbIdioma);
 
+            txtUsuario.Text = "admin";
+            txtPassword.Text = "admin";
+
+
             CargarIdiomas();
+
+            btnIniciarSesion_Click(null, null);
+
         }
 
 
@@ -33,12 +41,12 @@ namespace UI
         {
             if (!SesionManager.IniciarSesion(txtUsuario.Text, txtPassword.Text))
             {
-                MetroFramework.MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["login_failed"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["login_failed"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
                 return;
             }
             var sesion = Sesion.ObtenerSesion();
 
-            MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"]);
+            //MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"]);
 
             //Dv.ActualizarDv();
 
@@ -51,7 +59,7 @@ namespace UI
                     return;
                 }
 
-                MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["error_contact_admin"], sesion.Idioma.Textos["notification"]);
+                MetroMessageBox.Show(this, sesion.Idioma.Textos["error_contact_admin"], sesion.Idioma.Textos["notification"]);
                 return;
             }
 
@@ -73,11 +81,11 @@ namespace UI
             }
             else
             {
-                MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
+                MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
                 return;
             }
 
-            this.Hide();
+            Hide();
             var h1 = new Home();
 
             switch (sesion.Usuario.Puesto.Id)
@@ -94,18 +102,18 @@ namespace UI
                                 {
 
                                     h1.ShowDialog();
-                                    this.Close();
+                                    Close();
                                 }
                                 else
                                 {
-                                    MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"]);
+                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"]);
                                 }
                             }
 
                         }
                         else
                         {
-                            MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
+                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
                         }
                         break;
                     }
@@ -113,7 +121,7 @@ namespace UI
                     {
                         if (tipoEdificio == "Sucursal")
                         {
-                            sesion.Usuario.Sucursales= SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
+                            sesion.Usuario.Sucursales = SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
                             if (sesion.Usuario.Sucursales != null)
                             {
 
@@ -121,25 +129,25 @@ namespace UI
                                 {
 
                                     h1.ShowDialog();
-                                    this.Close();
+                                    Close();
                                 }
                                 else
                                 {
-                                    MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"]);
+                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"]);
                                 }
                             }
 
                         }
                         else
                         {
-                            MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
+                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
                         }
                         break;
                     }
                 default:
                     {
                         h1.ShowDialog();
-                        this.Close();
+                        Close();
                         break;
                     }
             }
@@ -147,7 +155,7 @@ namespace UI
 
         private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdioma.SelectedValue.ToString() ?? string.Empty));
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdioma.SelectedValue.ToString()));
         }
 
         private void CargarIdiomas()

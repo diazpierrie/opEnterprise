@@ -7,7 +7,7 @@ namespace BLL
 {
     public class ProveedorBll
     {
-        static ProveedorDal _dal = new ProveedorDal();
+        private static ProveedorDal _dal = new ProveedorDal();
 
         public static void Actualizar(ProveedorEe proveedor)
         {
@@ -45,6 +45,11 @@ namespace BLL
         public static ProveedorEe Obtener(int id)
         {
             return _dal.Obtener(id);
+        }
+
+        public static bool Restaurar(ProveedorEe proveedorAntes, ProveedorEe proveedorDespues)
+        {
+            return _dal.Restaurar(proveedorAntes.Id, proveedorDespues);
         }
     }
 

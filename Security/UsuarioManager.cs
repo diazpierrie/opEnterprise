@@ -7,7 +7,7 @@ namespace Security
 {
     public static class UsuarioManager
     {
-        static UsuarioDal _dal = new UsuarioDal();
+        private static UsuarioDal _dal = new UsuarioDal();
 
         public static void Actualizar(UsuarioEe usuario)
         {
@@ -60,10 +60,8 @@ namespace Security
                 Dv.ActualizarDv();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public static List<UsuarioEe> Obtener(string name = "")

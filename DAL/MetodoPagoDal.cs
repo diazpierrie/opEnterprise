@@ -70,7 +70,7 @@ namespace DAL
 
         private static MetodoPagoEe CastDto(SqlDataReader data)
         {
-            return new MetodoPagoEe()
+            return new MetodoPagoEe
             {
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString()

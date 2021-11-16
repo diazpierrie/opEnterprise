@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class VentaQuejaCrear
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -250,15 +253,15 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridClientes;
-        private MetroFramework.Controls.MetroButton btnCerrar;
-        private MetroFramework.Controls.MetroButton btnBuscar;
-        private MetroFramework.Controls.MetroLabel lblCliente;
-        private MetroFramework.Controls.MetroTextBox txtCliente;
-        private MetroFramework.Controls.MetroLabel lblUsuario;
-        private MetroFramework.Controls.MetroTextBox txtUsuario;
-        private MetroFramework.Controls.MetroComboBox cbEstado;
-        private MetroFramework.Controls.MetroLabel lblEstado;
-        private MetroFramework.Controls.MetroButton btnElegirVenta;
+        private MetroGrid gridClientes;
+        private MetroButton btnCerrar;
+        private MetroButton btnBuscar;
+        private MetroLabel lblCliente;
+        private MetroTextBox txtCliente;
+        private MetroLabel lblUsuario;
+        private MetroTextBox txtUsuario;
+        private MetroComboBox cbEstado;
+        private MetroLabel lblEstado;
+        private MetroButton btnElegirVenta;
     }
 }

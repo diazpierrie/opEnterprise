@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BLL;
+// ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {

@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class EmpleadoHome
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -149,10 +152,10 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridEmpleado;
-        private MetroFramework.Controls.MetroButton btnBorrarEmpleado;
-        private MetroFramework.Controls.MetroButton btnModificarEmpleado;
-        private MetroFramework.Controls.MetroButton btnCrearEmpleado;
-        private MetroFramework.Controls.MetroButton btnAsignar;
+        private MetroGrid gridEmpleado;
+        private MetroButton btnBorrarEmpleado;
+        private MetroButton btnModificarEmpleado;
+        private MetroButton btnCrearEmpleado;
+        private MetroButton btnAsignar;
     }
 }

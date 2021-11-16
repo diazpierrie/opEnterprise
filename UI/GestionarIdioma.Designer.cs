@@ -1,11 +1,14 @@
-﻿namespace UI
+﻿using System.ComponentModel;
+using MetroFramework.Controls;
+
+namespace UI
 {
     partial class GestionarIdioma
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,22 +31,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbLanguages = new MetroFramework.Controls.MetroComboBox();
+            this.cbLenguajes = new MetroFramework.Controls.MetroComboBox();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.Editar = new MetroFramework.Controls.MetroButton();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // cmbLanguages
+            // cbLenguajes
             // 
-            this.cmbLanguages.FormattingEnabled = true;
-            this.cmbLanguages.ItemHeight = 23;
-            this.cmbLanguages.Location = new System.Drawing.Point(127, 91);
-            this.cmbLanguages.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbLanguages.Name = "cmbLanguages";
-            this.cmbLanguages.Size = new System.Drawing.Size(187, 29);
-            this.cmbLanguages.TabIndex = 0;
-            this.cmbLanguages.UseSelectable = true;
+            this.cbLenguajes.FormattingEnabled = true;
+            this.cbLenguajes.ItemHeight = 23;
+            this.cbLenguajes.Location = new System.Drawing.Point(127, 91);
+            this.cbLenguajes.Margin = new System.Windows.Forms.Padding(2);
+            this.cbLenguajes.Name = "cbLenguajes";
+            this.cbLenguajes.Size = new System.Drawing.Size(187, 29);
+            this.cbLenguajes.TabIndex = 0;
+            this.cbLenguajes.UseSelectable = true;
             // 
             // btnAdd
             // 
@@ -67,6 +70,7 @@
             this.Editar.Tag = "edit";
             this.Editar.Text = "Editar";
             this.Editar.UseSelectable = true;
+            this.Editar.Click += new System.EventHandler(this.Editar_Click);
             // 
             // btnDelete
             // 
@@ -78,6 +82,7 @@
             this.btnDelete.Tag = "delete";
             this.btnDelete.Text = "Borrar";
             this.btnDelete.UseSelectable = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // GestionarIdioma
             // 
@@ -87,7 +92,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.Editar);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.cmbLanguages);
+            this.Controls.Add(this.cbLenguajes);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GestionarIdioma";
             this.Padding = new System.Windows.Forms.Padding(11, 60, 11, 11);
@@ -100,9 +105,9 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroComboBox cmbLanguages;
-        private MetroFramework.Controls.MetroButton btnAdd;
-        private MetroFramework.Controls.MetroButton Editar;
-        private MetroFramework.Controls.MetroButton btnDelete;
+        private MetroComboBox cbLenguajes;
+        private MetroButton btnAdd;
+        private MetroButton Editar;
+        private MetroButton btnDelete;
     }
 }

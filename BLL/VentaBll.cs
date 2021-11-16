@@ -54,7 +54,7 @@ namespace BLL
 
         public static int RegistrarPerdida(VentaEe venta, double total, List<VentaDetalleEe> productos)
         {
-            var perdida = new PerdidaEe() { Id = Dal.RegistrarPerdida(venta), Total = total};
+            var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta), Total = total };
             Dal.RegistrarDetallesPerdida(perdida, productos);
             Dal.MarcarVentaComoPerdida(venta);
 
@@ -68,7 +68,7 @@ namespace BLL
 
         public static int RegistrarDevolucion(VentaEe venta, List<VentaDetalleEe> productos)
         {
-            var devolucion = new DevolucionEe() { Id = Dal.RegistrarDevolucion(venta) };
+            var devolucion = new DevolucionEe { Id = Dal.RegistrarDevolucion(venta) };
             Dal.RegistrarDetallesDevolucion(devolucion, productos);
 
             Dv.ActualizarDv();

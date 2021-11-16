@@ -47,7 +47,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT u.id, u.Nombre_usuario, u.Mail, u.Nombre, u.Apellido, u.fecha_entrada FROM usuarios u " +
+                var strQuery = "SELECT u.id, u.Nombre_usuario, u.Mail, u.Nombre, u.Apellido, u.fecha_entrada FROM usuarios u " +
                                $"JOIN sector_puesto_usuario spu ON spu.usuario_id = u.id WHERE spu.sector_id = {sectorid}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -76,35 +76,35 @@ namespace DAL
         }
 
         public SectorEe Obtener(int id)
-		{
-			try
-			{
-				var strQuery = "SELECT * FROM sector " +
-							   $"WHERE id = {id}";
+        {
+            try
+            {
+                var strQuery = "SELECT * FROM sector " +
+                               $"WHERE id = {id}";
 
-				var query = new SqlCommand(strQuery, Conn);
+                var query = new SqlCommand(strQuery, Conn);
 
-				Conn.Open();
-				var data = query.ExecuteReader();
-				SectorEe sectorEe = null;
+                Conn.Open();
+                var data = query.ExecuteReader();
+                SectorEe sectorEe = null;
 
-				if (data.HasRows)
-				{
-					while (data.Read())
-					{
-						sectorEe = CastDto(data);
-					}
-				}
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        sectorEe = CastDto(data);
+                    }
+                }
 
-				Conn.Close();
-				return sectorEe;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return null;
-			}
-		}
+                Conn.Close();
+                return sectorEe;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
 
         public bool Actualizar(SectorEe sector)
         {
@@ -188,8 +188,8 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT s.id, s.Nombre, s.nivel FROM sectores s " +
-                               $"JOIN sector_puesto_usuario spu ON spu.sector_id = s.id " +
+                var strQuery = "SELECT s.id, s.Nombre, s.nivel FROM sectores s " +
+                               "JOIN sector_puesto_usuario spu ON spu.sector_id = s.id " +
                                $"WHERE s.borrado = 0 AND spu.usuario_id = {usuario.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -216,7 +216,7 @@ namespace DAL
             }
         }
 
-		public List<SectorEe> ObtenerPorJefeid(int id)
+        public List<SectorEe> ObtenerPorJefeid(int id)
         {
             try
             {
@@ -246,70 +246,70 @@ namespace DAL
             }
         }
 
-		public int Crear(SectorEe obj)
-		{
-			var columnas = new List<string> { "nombre" };
-			var valores = new List<string> { obj.Nombre };
+        public int Crear(SectorEe obj)
+        {
+            var columnas = new List<string> { "nombre" };
+            var valores = new List<string> { obj.Nombre };
 
-			return Insert("sector", columnas.ToArray(), valores.ToArray());
-		}
+            return Insert("sector", columnas.ToArray(), valores.ToArray());
+        }
 
 
-		public bool Borrar(int id)
-		{
-			return DeleteByid("sector", id);
-		}
+        public bool Borrar(int id)
+        {
+            return DeleteByid("sector", id);
+        }
 
-		public List<SectorEe> Obtener(SectorEe us, int limit = 0)
-		{
-			try
-			{
-				var strQuery = "SELECT";
+        public List<SectorEe> Obtener(SectorEe us, int limit = 0)
+        {
+            try
+            {
+                var strQuery = "SELECT";
 
-				if (limit != 0)
-				{
-					strQuery += $" TOP {limit}";
-				}
+                if (limit != 0)
+                {
+                    strQuery += $" TOP {limit}";
+                }
 
-				strQuery += " * FROM sector " +
-					$"WHERE id = {us.Id}";
+                strQuery += " * FROM sector " +
+                    $"WHERE id = {us.Id}";
 
-				if (limit != 0)
-				{
-					strQuery += " ORDER BY id DESC";
-				}
+                if (limit != 0)
+                {
+                    strQuery += " ORDER BY id DESC";
+                }
 
-				var query = new SqlCommand(strQuery, Conn);
+                var query = new SqlCommand(strQuery, Conn);
 
-				Conn.Open();
-				var data = query.ExecuteReader();
-				var sectores = new List<SectorEe>();
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var sectores = new List<SectorEe>();
 
-				if (data.HasRows)
-				{
-					while (data.Read())
-					{
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
                         sectores.Add(CastDto(data));
-					}
-				}
+                    }
+                }
 
-				Conn.Close();
+                Conn.Close();
 
-				return sectores;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return null;
-			}
-		}
+                return sectores;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
 
         public List<KeyValuePair<PuestoEe, UsuarioEe>> ObtenerPuestos(int sectorid)
         {
             try
             {
-                var strQuery = $"SELECT spu.sector_id, spu.puesto_id, spu.usuario_id " +
-                               $"FROM sector_puesto_usuario spu " +
+                var strQuery = "SELECT spu.sector_id, spu.puesto_id, spu.usuario_id " +
+                               "FROM sector_puesto_usuario spu " +
                                $"WHERE spu.sector_id = {sectorid} ";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -327,8 +327,8 @@ namespace DAL
                 while (data.Read())
                 {
                     sectorArrayList.Add(new[] {
-                        int.Parse(data["puesto_id"].ToString() ?? string.Empty),
-                        data["usuario_id"].ToString() == "" ? 0 : int.Parse(data["usuario_id"].ToString() ?? string.Empty)
+                        int.Parse(data["puesto_id"].ToString()),
+                        data["usuario_id"].ToString() == "" ? 0 : int.Parse(data["usuario_id"].ToString())
                     });
                 }
 
@@ -352,14 +352,14 @@ namespace DAL
             }
         }
 
-		public static SectorEe CastDto(SqlDataReader data)
-		{
-            return new SectorEe()
-			{
-				Id = int.Parse(data["id"].ToString() ?? string.Empty),
-				Nombre = data["nombre"].ToString(),
+        public static SectorEe CastDto(SqlDataReader data)
+        {
+            return new SectorEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Nombre = data["nombre"].ToString(),
             };
-		}
+        }
 
         public bool VerSiExiste(string nombre)
         {

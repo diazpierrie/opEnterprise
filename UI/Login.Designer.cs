@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class Login
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -168,12 +171,12 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroTextBox txtUsuario;
-        private MetroFramework.Controls.MetroTextBox txtPassword;
-        private MetroFramework.Controls.MetroLabel lbUsuario;
-        private MetroFramework.Controls.MetroLabel lbPassword;
-        private MetroFramework.Controls.MetroButton btnIniciarSesion;
-        private MetroFramework.Controls.MetroComboBox cbIdioma;
-        private MetroFramework.Controls.MetroLabel lbIdioma;
+        private MetroTextBox txtUsuario;
+        private MetroTextBox txtPassword;
+        private MetroLabel lbUsuario;
+        private MetroLabel lbPassword;
+        private MetroButton btnIniciarSesion;
+        private MetroComboBox cbIdioma;
+        private MetroLabel lbIdioma;
     }
 }

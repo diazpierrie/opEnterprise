@@ -1,41 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 using EE;
+using MetroFramework.Forms;
 
 namespace UI
 {
-    public class UpdatableForm : MetroFramework.Forms.MetroForm, IIUpdatable
+    public class UpdatableForm : MetroForm, IIUpdatable
     {
-        protected List<System.Windows.Forms.Control> AllControls = new List<System.Windows.Forms.Control>();
+        protected List<Control> AllControls = new List<Control>();
 
         public virtual void ActualizarTextos()
         {
-            if (this.Tag != null && this.Text != "" && Sesion.ObtenerSesion().Idioma.Textos.ContainsKey(this.Tag.ToString() ?? string.Empty))
+            if (Tag != null && Text != "" && Sesion.ObtenerSesion().Idioma.Textos.ContainsKey(Tag.ToString()))
             {
-                this.Text = Sesion.ObtenerSesion().Idioma.Textos[this.Tag.ToString() ?? string.Empty];
+                Text = Sesion.ObtenerSesion().Idioma.Textos[Tag.ToString()];
             }
 
             foreach (var ctrl in from ctrl in AllControls where ctrl.Tag != null && ctrl.Tag.ToString() != "" let asd = ctrl.Tag.ToString() select ctrl)
             {
-                ctrl.Text = Sesion.ObtenerSesion().Idioma.Textos[ctrl.Tag.ToString() ?? string.Empty];
+                ctrl.Text = Sesion.ObtenerSesion().Idioma.Textos[ctrl.Tag.ToString()];
             }
 
-            this.Refresh();
+            Refresh();
         }
 
         private void InitializeComponent()
         {
-            var resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdatableForm));
-            this.SuspendLayout();
+            var resources = new ComponentResourceManager(typeof(UpdatableForm));
+            SuspendLayout();
             // 
             // UpdatableForm
             // 
-            this.ClientSize = new System.Drawing.Size(300, 300);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("this.Icon")));
-            this.Name = "UpdatableForm";
-            this.Load += new System.EventHandler(this.UpdatableForm_Load);
-            this.ResumeLayout(false);
+            ClientSize = new Size(300, 300);
+            Icon = ((Icon)(resources.GetObject("this.Icon")));
+            Name = "UpdatableForm";
+            Load += UpdatableForm_Load;
+            ResumeLayout(false);
 
         }
 

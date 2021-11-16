@@ -7,36 +7,36 @@ namespace DAL
 {
     public class SucursalDal : ConnectionDal
     {
-		public SucursalEe Obtener(int id)
-		{
-			try
-			{
-				var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono FROM sucursal " +
+        public SucursalEe Obtener(int id)
+        {
+            try
+            {
+                var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono FROM sucursal " +
                                $"WHERE id = {id}";
 
-				var query = new SqlCommand(strQuery, Conn);
+                var query = new SqlCommand(strQuery, Conn);
 
-				Conn.Open();
-				var data = query.ExecuteReader();
-				SucursalEe sucursal = null;
+                Conn.Open();
+                var data = query.ExecuteReader();
+                SucursalEe sucursal = null;
 
-				if (data.HasRows)
-				{
-					while (data.Read())
-					{
-						sucursal = CastDto(data);
-					}
-				}
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        sucursal = CastDto(data);
+                    }
+                }
 
-				Conn.Close();
-				return sucursal;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return null;
-			}
-		}
+                Conn.Close();
+                return sucursal;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
 
         public List<SucursalEe> Obtener(UsuarioEe user)
         {
@@ -143,13 +143,13 @@ namespace DAL
             }
         }
 
-		public int Crear(SucursalEe obj)
-		{
-			var columnas = new List<string> { "nombre", "direccion", "mail", "telefono", "codigoPostal", "activo" };
-			var valores = new List<string> { obj.Nombre, obj.Direccion, obj.Mail, obj.Telefono, obj.CodigoPostal.ToString(), 1.ToString() };
+        public int Crear(SucursalEe obj)
+        {
+            var columnas = new List<string> { "nombre", "direccion", "mail", "telefono", "codigoPostal", "activo" };
+            var valores = new List<string> { obj.Nombre, obj.Direccion, obj.Mail, obj.Telefono, obj.CodigoPostal.ToString(), 1.ToString() };
 
-			return Insert("sucursal", columnas.ToArray(), valores.ToArray());
-		}
+            return Insert("sucursal", columnas.ToArray(), valores.ToArray());
+        }
 
         public bool Actualizar(SucursalEe sucu)
         {
@@ -187,7 +187,7 @@ namespace DAL
             try
             {
                 const string strQuery = "SELECT * FROM usuario_Sucursal " +
-                                        "WHERE idUsuario  = @idUsuario " + 
+                                        "WHERE idUsuario  = @idUsuario " +
                                           "AND idSucursal = @idSucursal";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -202,12 +202,10 @@ namespace DAL
                     Conn.Close();
                     return true;
                 }
-                else
-                {
-                    Conn.Close();
-                    return false;
-                }
-                
+
+                Conn.Close();
+                return false;
+
             }
             catch (Exception e)
             {
@@ -218,70 +216,70 @@ namespace DAL
 
 
         public bool Borrar(int id)
-		{
+        {
             var query = new SqlCommand("UPDATE Sucursal SET activo = 0 WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", id);
 
             return ExecuteQuery(query);
-		}
+        }
 
         public List<SucursalEe> Obtener(SucursalEe dep, int limit = 0)
-		{
-			try
-			{
-				var strQuery = "SELECT";
+        {
+            try
+            {
+                var strQuery = "SELECT";
 
-				if (limit != 0)
-				{
-					strQuery += $" TOP {limit}";
-				}
+                if (limit != 0)
+                {
+                    strQuery += $" TOP {limit}";
+                }
 
-				strQuery += " id, nombre, direccion, mail, codigoPostal, telefono FROM Sucursal " +
-					$"WHERE id = {dep.Id}";
+                strQuery += " id, nombre, direccion, mail, codigoPostal, telefono FROM Sucursal " +
+                    $"WHERE id = {dep.Id}";
 
-				if (limit != 0)
-				{
-					strQuery += " ORDER BY id DESC";
-				}
+                if (limit != 0)
+                {
+                    strQuery += " ORDER BY id DESC";
+                }
 
-				var query = new SqlCommand(strQuery, Conn);
+                var query = new SqlCommand(strQuery, Conn);
 
-				Conn.Open();
-				var data = query.ExecuteReader();
-				var sucursal = new List<SucursalEe>();
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var sucursal = new List<SucursalEe>();
 
-				if (data.HasRows)
-				{
-					while (data.Read())
-					{
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
                         sucursal.Add(CastDto(data));
-					}
-				}
+                    }
+                }
 
-				Conn.Close();
+                Conn.Close();
 
-				return sucursal;
-			}
-			catch (Exception e)
-			{
+                return sucursal;
+            }
+            catch (Exception e)
+            {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-				return null;
-			}
-		}
+                return null;
+            }
+        }
 
 
         public SucursalEe CastDto(SqlDataReader data)
-		{
-            return new SucursalEe()
-			{
-				Id = int.Parse(data["id"].ToString()),
-				Nombre = data["nombre"].ToString(),
+        {
+            return new SucursalEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Nombre = data["nombre"].ToString(),
                 Mail = data["mail"].ToString(),
                 Direccion = data["direccion"].ToString(),
-				CodigoPostal = int.Parse(data["codigoPostal"].ToString()),
-				Telefono = data["telefono"].ToString(),
+                CodigoPostal = int.Parse(data["codigoPostal"].ToString()),
+                Telefono = data["telefono"].ToString(),
             };
-		}
+        }
 
 
     }

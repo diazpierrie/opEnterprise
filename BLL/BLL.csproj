@@ -45,6 +45,7 @@
     <Compile Include="DepositoBll.cs" />
     <Compile Include="PedidoProveedorBll.cs" />
     <Compile Include="PedidoEstadoBll.cs" />
+    <Compile Include="VersionEntidadBll.cs" />
     <Compile Include="VentaEstadoBll.cs" />
     <Compile Include="NotificacionBll.cs" />
     <Compile Include="ProductoBll.cs" />

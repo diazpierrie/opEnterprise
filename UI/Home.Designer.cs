@@ -1,4 +1,8 @@
 ﻿
+using System.ComponentModel;
+using System.Windows.Forms;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class Home
@@ -6,7 +10,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -306,25 +310,25 @@ namespace UI
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTabControl tcHome;
-        private MetroFramework.Controls.MetroTabPage tabAdmin;
-        private MetroFramework.Controls.MetroTabPage tabVenta;
-        private MetroFramework.Controls.MetroTabPage tabDeposito;
-        private MetroFramework.Controls.MetroButton btnRealizarVenta;
-        private MetroFramework.Controls.MetroButton btnConfigurarEdificio;
-        private MetroFramework.Controls.MetroButton btnBuscarVenta;
-        private MetroFramework.Controls.MetroButton btnCrearQueja;
-        private MetroFramework.Controls.MetroButton btnPenalizarProveedor;
-        private MetroFramework.Controls.MetroButton btnCrearReposicion;
-        private MetroFramework.Controls.MetroButton btnRegistrarEntrada;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private MetroFramework.Controls.MetroButton btnEmpleado;
-        private MetroFramework.Controls.MetroButton btnProveedor;
-        private System.Windows.Forms.GroupBox gbConfiguracion;
-        private MetroFramework.Controls.MetroButton btnRestaurarDv;
-        private MetroFramework.Controls.MetroButton btnUsuario;
-        private MetroFramework.Controls.MetroButton btnBitacora;
-        private MetroFramework.Controls.MetroButton btnBackUp;
-        private MetroFramework.Controls.MetroButton btnIdioma;
+        private MetroTabControl tcHome;
+        private MetroTabPage tabAdmin;
+        private MetroTabPage tabVenta;
+        private MetroTabPage tabDeposito;
+        private MetroButton btnRealizarVenta;
+        private MetroButton btnConfigurarEdificio;
+        private MetroButton btnBuscarVenta;
+        private MetroButton btnCrearQueja;
+        private MetroButton btnPenalizarProveedor;
+        private MetroButton btnCrearReposicion;
+        private MetroButton btnRegistrarEntrada;
+        private GroupBox groupBox1;
+        private MetroButton btnEmpleado;
+        private MetroButton btnProveedor;
+        private GroupBox gbConfiguracion;
+        private MetroButton btnRestaurarDv;
+        private MetroButton btnUsuario;
+        private MetroButton btnBitacora;
+        private MetroButton btnBackUp;
+        private MetroButton btnIdioma;
     }
 }

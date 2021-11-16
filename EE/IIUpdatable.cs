@@ -1,5 +1,7 @@
-﻿namespace EE {
-	public interface IIUpdatable {
-		void ActualizarTextos();
-	}
+﻿namespace EE
+{
+    public interface IIUpdatable
+    {
+        void ActualizarTextos();
+    }
 }

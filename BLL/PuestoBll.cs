@@ -8,7 +8,7 @@ namespace BLL
 {
     public class PuestoBll
     {
-        static PuestoDal _dao = new PuestoDal();
+        private static PuestoDal _dao = new PuestoDal();
 
         public static List<PuestoEe> Obtener()
         {
@@ -46,5 +46,5 @@ namespace BLL
             return us.Puesto ?? (us.Puesto = _dao.Obtener(us));
         }
 
-	}
+    }
 }

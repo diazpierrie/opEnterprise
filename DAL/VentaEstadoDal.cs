@@ -69,7 +69,7 @@ namespace DAL
 
         private static VentaEstadoEe CastDto(SqlDataReader data)
         {
-            return new VentaEstadoEe()
+            return new VentaEstadoEe
             {
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString()

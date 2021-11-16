@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class DepositoHome
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -135,9 +138,9 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroGrid gridDeposito;
-        private MetroFramework.Controls.MetroButton btnBorrarDeposito;
-        private MetroFramework.Controls.MetroButton btnModificarDeposito;
-        private MetroFramework.Controls.MetroButton btnCrearDeposito;
+        private MetroGrid gridDeposito;
+        private MetroButton btnBorrarDeposito;
+        private MetroButton btnModificarDeposito;
+        private MetroButton btnCrearDeposito;
     }
 }

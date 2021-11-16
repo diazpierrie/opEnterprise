@@ -16,9 +16,9 @@ namespace DAL
         private readonly ProductoDal _productoDal = new ProductoDal();
 
         public VentaEe Obtener(int id)
-		{
-			try
-			{ 
+        {
+            try
+            {
                 var strQuery = "SELECT" +
                                " id," +
                                " idUsuario," +
@@ -30,29 +30,29 @@ namespace DAL
                                " fecha FROM venta" +
                                $" WHERE v.id = {id}";
 
-				var query = new SqlCommand(strQuery, Conn);
+                var query = new SqlCommand(strQuery, Conn);
 
-				Conn.Open();
-				var data = query.ExecuteReader();
-				VentaEe venta = null;
+                Conn.Open();
+                var data = query.ExecuteReader();
+                VentaEe venta = null;
 
-				if (data.HasRows)
-				{
-					while (data.Read())
-					{
-						venta = CastDto(data);
-					}
-				}
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        venta = CastDto(data);
+                    }
+                }
 
-				Conn.Close();
-				return venta;
-			}
-			catch (Exception e)
-			{
-				ErrorManagerDal.AgregarMensaje(e.ToString());
-				return null;
-			}
-		}
+                Conn.Close();
+                return venta;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
 
         public List<VentaEe> Obtener()
         {
@@ -254,11 +254,11 @@ namespace DAL
 
 
         public int Crear(VentaEe obj)
-		{
-			var columnas = new List<string> { "idUsuario", "idComprador", "idSucursal", "idMetodoPago", "fecha", "total" };
-			var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Comprador.Id.ToString(), obj.Sucursal.Id.ToString(), obj.MetodoPago.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
+        {
+            var columnas = new List<string> { "idUsuario", "idComprador", "idSucursal", "idMetodoPago", "fecha", "total" };
+            var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Comprador.Id.ToString(), obj.Sucursal.Id.ToString(), obj.MetodoPago.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
 
-			return Insert("venta", columnas.ToArray(), valores.ToArray());
+            return Insert("venta", columnas.ToArray(), valores.ToArray());
         }
 
         public int CrearDetalle(VentaEe venta, List<ProductoEe> productos)
@@ -351,11 +351,11 @@ namespace DAL
 
 
         private VentaEe CastDto(SqlDataReader data)
-        {        
-         
-            return new VentaEe()
-			{
-				Id = int.Parse(data["id"].ToString()),
+        {
+
+            return new VentaEe
+            {
+                Id = int.Parse(data["id"].ToString()),
                 Empleado = _usuarioDal.Obtener(int.Parse(data["idUsuario"].ToString())),
                 Comprador = _compradorDal.Obtener(int.Parse(data["idComprador"].ToString())),
                 Sucursal = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString())),
@@ -364,11 +364,11 @@ namespace DAL
                 Fecha = DateTime.Parse(data["fecha"].ToString()),
                 Total = double.Parse(data["total"].ToString())
             };
-		}
+        }
 
         private VentaDetalleEe CastDtoDetalle(SqlDataReader data)
         {
-            return new VentaDetalleEe()
+            return new VentaDetalleEe
             {
                 Id = int.Parse(data["id"].ToString()),
                 //Venta = new VentaEe(){Id = int.Parse(data["idVenta"].ToString()) },

@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
 namespace UI
 {
     partial class ProveedorHome
@@ -6,7 +9,7 @@ namespace UI
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -36,6 +39,7 @@ namespace UI
             this.btnModificarProveedor = new MetroFramework.Controls.MetroButton();
             this.btnBorrarProveedor = new MetroFramework.Controls.MetroButton();
             this.gridProveedor = new MetroFramework.Controls.MetroGrid();
+            this.btnRestaurarProveedor = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +121,22 @@ namespace UI
             this.gridProveedor.TabIndex = 3;
             this.gridProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProveedor_CellDoubleClick);
             // 
+            // btnRestaurarProveedor
+            // 
+            this.btnRestaurarProveedor.Location = new System.Drawing.Point(611, 204);
+            this.btnRestaurarProveedor.Name = "btnRestaurarProveedor";
+            this.btnRestaurarProveedor.Size = new System.Drawing.Size(136, 41);
+            this.btnRestaurarProveedor.TabIndex = 4;
+            this.btnRestaurarProveedor.Text = "Restaurar Proveedor";
+            this.btnRestaurarProveedor.UseSelectable = true;
+            this.btnRestaurarProveedor.Click += new System.EventHandler(this.btnRestaurarProveedor_Click);
+            // 
             // ProveedorHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 387);
+            this.Controls.Add(this.btnRestaurarProveedor);
             this.Controls.Add(this.gridProveedor);
             this.Controls.Add(this.btnBorrarProveedor);
             this.Controls.Add(this.btnModificarProveedor);
@@ -136,9 +151,10 @@ namespace UI
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton btnCrearProveedor;
-        private MetroFramework.Controls.MetroButton btnModificarProveedor;
-        private MetroFramework.Controls.MetroButton btnBorrarProveedor;
-        private MetroFramework.Controls.MetroGrid gridProveedor;
+        private MetroButton btnCrearProveedor;
+        private MetroButton btnModificarProveedor;
+        private MetroButton btnBorrarProveedor;
+        private MetroGrid gridProveedor;
+        private MetroButton btnRestaurarProveedor;
     }
 }

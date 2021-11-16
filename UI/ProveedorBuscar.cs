@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BLL;
 using EE;
+// ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
@@ -18,13 +19,13 @@ namespace UI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == null && 
-                txtDireccion.Text == null && 
+            if (txtNombre.Text == null &&
+                txtDireccion.Text == null &&
                 txtCodigoPostal.Text == null &&
                 txtMail.Text == null &&
                 txtTelefono.Text == null) return;
 
-            gridClientes.DataSource = _dataTable.FindAll(x=> x.Nombre.Contains(txtNombre.Text.ToLower())
+            gridClientes.DataSource = _dataTable.FindAll(x => x.Nombre.Contains(txtNombre.Text.ToLower())
                                                              && x.Direccion.Contains(txtDireccion.Text.ToLower())
                                                              && x.CodigoPostal.ToString().Contains(txtCodigoPostal.Text.ToLower())
                                                              && x.Mail.Contains(txtMail.Text.ToLower())
