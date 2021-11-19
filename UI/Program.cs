@@ -99,7 +99,7 @@ namespace UI
                 using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
                 {
                     connection.Open();
-                    return (command.ExecuteScalar() != DBNull.Value);
+                    return command.ExecuteScalar() != DBNull.Value;
                 }
             }
         }

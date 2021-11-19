@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DireccionAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DireccionAgregar.Designer.cs">
+      <DependentUpon>DireccionAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionarControles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,18 @@
     <Compile Include="BorrarIdioma.Designer.cs">
       <DependentUpon>BorrarIdioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="DireccionAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DireccionAltaModificacion.Designer.cs">
+      <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DireccionBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DireccionBaja.Designer.cs">
+      <DependentUpon>DireccionBaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProveedorBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +109,12 @@
     </Compile>
     <Compile Include="DepositoEntradaRegistrar.Designer.cs">
       <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DireccionHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DireccionHome.Designer.cs">
+      <DependentUpon>DireccionHome.cs</DependentUpon>
     </Compile>
     <Compile Include="ProveedorRestaurar.cs">
       <SubType>Form</SubType>
@@ -288,11 +312,20 @@
     <EmbeddedResource Include="BorrarIdioma.resx">
       <DependentUpon>BorrarIdioma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DireccionAltaModificacion.resx">
+      <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DireccionBaja.resx">
+      <DependentUpon>DireccionBaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompletarPedido.resx">
       <DependentUpon>CompletarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DireccionHome.resx">
+      <DependentUpon>DireccionHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProveedorRestaurar.resx">
       <DependentUpon>ProveedorRestaurar.cs</DependentUpon>

@@ -45,12 +45,16 @@ namespace UI
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
             this.lblApellido = new MetroFramework.Controls.MetroLabel();
             this.txtApellido = new MetroFramework.Controls.MetroTextBox();
+            this.btnCerrar = new MetroFramework.Controls.MetroButton();
+            this.lblDireccion = new MetroFramework.Controls.MetroLabel();
+            this.btnAgregarDireccion = new MetroFramework.Controls.MetroButton();
+            this.txtDireccion = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // btnAccion
             // 
             this.btnAccion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAccion.Location = new System.Drawing.Point(229, 254);
+            this.btnAccion.Location = new System.Drawing.Point(246, 266);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
             this.btnAccion.TabIndex = 75;
@@ -61,7 +65,7 @@ namespace UI
             // lblEsSocio
             // 
             this.lblEsSocio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblEsSocio.Location = new System.Drawing.Point(11, 208);
+            this.lblEsSocio.Location = new System.Drawing.Point(28, 235);
             this.lblEsSocio.Name = "lblEsSocio";
             this.lblEsSocio.Size = new System.Drawing.Size(117, 19);
             this.lblEsSocio.TabIndex = 91;
@@ -74,7 +78,7 @@ namespace UI
             // 
             this.cbEsSocio.FormattingEnabled = true;
             this.cbEsSocio.ItemHeight = 23;
-            this.cbEsSocio.Location = new System.Drawing.Point(134, 206);
+            this.cbEsSocio.Location = new System.Drawing.Point(151, 232);
             this.cbEsSocio.Name = "cbEsSocio";
             this.cbEsSocio.Size = new System.Drawing.Size(179, 29);
             this.cbEsSocio.TabIndex = 90;
@@ -97,7 +101,7 @@ namespace UI
             this.txtTelefono.CustomButton.UseSelectable = true;
             this.txtTelefono.CustomButton.Visible = false;
             this.txtTelefono.Lines = new string[0];
-            this.txtTelefono.Location = new System.Drawing.Point(134, 176);
+            this.txtTelefono.Location = new System.Drawing.Point(151, 173);
             this.txtTelefono.MaxLength = 32767;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PasswordChar = '\0';
@@ -115,7 +119,7 @@ namespace UI
             // lblTelefono
             // 
             this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTelefono.Location = new System.Drawing.Point(11, 176);
+            this.lblTelefono.Location = new System.Drawing.Point(28, 173);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(117, 19);
             this.lblTelefono.TabIndex = 88;
@@ -141,7 +145,7 @@ namespace UI
             this.txtMail.CustomButton.UseSelectable = true;
             this.txtMail.CustomButton.Visible = false;
             this.txtMail.Lines = new string[0];
-            this.txtMail.Location = new System.Drawing.Point(134, 147);
+            this.txtMail.Location = new System.Drawing.Point(151, 144);
             this.txtMail.MaxLength = 32767;
             this.txtMail.Name = "txtMail";
             this.txtMail.PasswordChar = '\0';
@@ -159,7 +163,7 @@ namespace UI
             // lblMail
             // 
             this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMail.Location = new System.Drawing.Point(11, 147);
+            this.lblMail.Location = new System.Drawing.Point(28, 144);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(117, 19);
             this.lblMail.TabIndex = 86;
@@ -171,7 +175,7 @@ namespace UI
             // lblDNI
             // 
             this.lblDNI.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDNI.Location = new System.Drawing.Point(11, 117);
+            this.lblDNI.Location = new System.Drawing.Point(28, 114);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(117, 19);
             this.lblDNI.TabIndex = 85;
@@ -197,7 +201,7 @@ namespace UI
             this.txtNombre.CustomButton.UseSelectable = true;
             this.txtNombre.CustomButton.Visible = false;
             this.txtNombre.Lines = new string[0];
-            this.txtNombre.Location = new System.Drawing.Point(134, 60);
+            this.txtNombre.Location = new System.Drawing.Point(151, 57);
             this.txtNombre.MaxLength = 32767;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
@@ -229,7 +233,7 @@ namespace UI
             this.txtDNI.CustomButton.UseSelectable = true;
             this.txtDNI.CustomButton.Visible = false;
             this.txtDNI.Lines = new string[0];
-            this.txtDNI.Location = new System.Drawing.Point(134, 118);
+            this.txtDNI.Location = new System.Drawing.Point(151, 115);
             this.txtDNI.MaxLength = 32767;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.PasswordChar = '\0';
@@ -247,7 +251,7 @@ namespace UI
             // lblNombre
             // 
             this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNombre.Location = new System.Drawing.Point(11, 59);
+            this.lblNombre.Location = new System.Drawing.Point(28, 57);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(117, 19);
             this.lblNombre.TabIndex = 81;
@@ -259,7 +263,7 @@ namespace UI
             // lblApellido
             // 
             this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblApellido.Location = new System.Drawing.Point(11, 88);
+            this.lblApellido.Location = new System.Drawing.Point(28, 85);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(117, 19);
             this.lblApellido.TabIndex = 83;
@@ -285,7 +289,7 @@ namespace UI
             this.txtApellido.CustomButton.UseSelectable = true;
             this.txtApellido.CustomButton.Visible = false;
             this.txtApellido.Lines = new string[0];
-            this.txtApellido.Location = new System.Drawing.Point(134, 89);
+            this.txtApellido.Location = new System.Drawing.Point(151, 86);
             this.txtApellido.MaxLength = 32767;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.PasswordChar = '\0';
@@ -300,11 +304,82 @@ namespace UI
             this.txtApellido.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtApellido.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCerrar.Location = new System.Drawing.Point(151, 266);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(84, 23);
+            this.btnCerrar.TabIndex = 92;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseSelectable = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDireccion.Location = new System.Drawing.Point(28, 203);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(117, 19);
+            this.lblDireccion.TabIndex = 93;
+            this.lblDireccion.Tag = "telephone";
+            this.lblDireccion.Text = "Direccion";
+            this.lblDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDireccion.WrapToLine = true;
+            // 
+            // btnAgregarDireccion
+            // 
+            this.btnAgregarDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregarDireccion.Location = new System.Drawing.Point(336, 202);
+            this.btnAgregarDireccion.Name = "btnAgregarDireccion";
+            this.btnAgregarDireccion.Size = new System.Drawing.Size(115, 23);
+            this.btnAgregarDireccion.TabIndex = 94;
+            this.btnAgregarDireccion.Text = "Agregar Direccion";
+            this.btnAgregarDireccion.UseSelectable = true;
+            this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            // 
+            // 
+            // 
+            this.txtDireccion.CustomButton.Image = null;
+            this.txtDireccion.CustomButton.Location = new System.Drawing.Point(157, 1);
+            this.txtDireccion.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccion.CustomButton.Name = "";
+            this.txtDireccion.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDireccion.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDireccion.CustomButton.TabIndex = 1;
+            this.txtDireccion.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDireccion.CustomButton.UseSelectable = true;
+            this.txtDireccion.CustomButton.Visible = false;
+            this.txtDireccion.Enabled = false;
+            this.txtDireccion.Lines = new string[0];
+            this.txtDireccion.Location = new System.Drawing.Point(151, 202);
+            this.txtDireccion.MaxLength = 32767;
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.PasswordChar = '\0';
+            this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDireccion.SelectedText = "";
+            this.txtDireccion.SelectionLength = 0;
+            this.txtDireccion.SelectionStart = 0;
+            this.txtDireccion.ShortcutsEnabled = true;
+            this.txtDireccion.Size = new System.Drawing.Size(179, 23);
+            this.txtDireccion.TabIndex = 95;
+            this.txtDireccion.UseSelectable = true;
+            this.txtDireccion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDireccion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // ClienteAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 342);
+            this.ClientSize = new System.Drawing.Size(457, 340);
+            this.Controls.Add(this.txtDireccion);
+            this.Controls.Add(this.btnAgregarDireccion);
+            this.Controls.Add(this.lblDireccion);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblEsSocio);
             this.Controls.Add(this.cbEsSocio);
             this.Controls.Add(this.txtTelefono);
@@ -338,5 +413,9 @@ namespace UI
         private MetroLabel lblNombre;
         private MetroLabel lblApellido;
         private MetroTextBox txtApellido;
+        private MetroButton btnCerrar;
+        private MetroLabel lblDireccion;
+        private MetroButton btnAgregarDireccion;
+        private MetroTextBox txtDireccion;
     }
 }

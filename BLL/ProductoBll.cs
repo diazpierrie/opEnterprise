@@ -27,7 +27,7 @@ namespace BLL
 
         public static int Crear(SucursalEe sucursal)
         {
-            //if (_dal.ObtenerSucursalPorNombre(sucursal.Nombre) != null)
+            //if (_dal.ObtenerSucursalPorCalle(sucursal.Nombre) != null)
             //{
             //    return 0;
             //}
@@ -40,7 +40,7 @@ namespace BLL
             return sucursal.Id;
         }
 
-        public static List<ProductoEe> ObtenerPorSucursal(SucursalEe sucursal)
+        public static List<ProductoEdificioEe> ObtenerPorSucursal(SucursalEe sucursal)
         {
             return _dal.ObtenerPorSucursal(sucursal);
         }
@@ -75,6 +75,11 @@ namespace BLL
         public static List<ProductoEe> ObtenerPorNombre(string name = null)
         {
             return name == null ? null : _dal.ObtenerActivos(name);
+        }
+
+        public static IList<ProductoEdificioEe> ObtenerTodosDeposito()
+        {
+            return _dal.ObtenerTodosDeposito();
         }
     }
 }

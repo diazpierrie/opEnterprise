@@ -32,62 +32,61 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCliente = new MetroFramework.Controls.MetroLabel();
-            this.txtCliente = new MetroFramework.Controls.MetroTextBox();
-            this.lblMetodoPago = new MetroFramework.Controls.MetroLabel();
-            this.btnBuscarCliente = new MetroFramework.Controls.MetroButton();
-            this.cbMetodoPago = new MetroFramework.Controls.MetroComboBox();
+            this.cbCuotas = new MetroFramework.Controls.MetroComboBox();
+            this.lblCuotas = new MetroFramework.Controls.MetroLabel();
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
+            this.cbMetodoPago = new MetroFramework.Controls.MetroComboBox();
+            this.btnBuscarCliente = new MetroFramework.Controls.MetroButton();
+            this.lblMetodoPago = new MetroFramework.Controls.MetroLabel();
+            this.txtCliente = new MetroFramework.Controls.MetroTextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.cbMetodoEntrega = new MetroFramework.Controls.MetroComboBox();
+            this.lblMetodoEntrega = new MetroFramework.Controls.MetroLabel();
+            this.cbDirecciones = new MetroFramework.Controls.MetroComboBox();
+            this.lblDireccion = new MetroFramework.Controls.MetroLabel();
+            this.lblCliente = new MetroFramework.Controls.MetroLabel();
+            this.metroUserControl1 = new MetroFramework.Controls.MetroUserControl();
             this.SuspendLayout();
             // 
-            // lblCliente
+            // cbCuotas
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(90, 80);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(49, 19);
-            this.lblCliente.TabIndex = 0;
-            this.lblCliente.Text = "Cliente";
+            this.cbCuotas.FormattingEnabled = true;
+            this.cbCuotas.ItemHeight = 23;
+            this.cbCuotas.Location = new System.Drawing.Point(144, 214);
+            this.cbCuotas.Name = "cbCuotas";
+            this.cbCuotas.Size = new System.Drawing.Size(204, 29);
+            this.cbCuotas.TabIndex = 10;
+            this.cbCuotas.UseSelectable = true;
             // 
-            // txtCliente
+            // lblCuotas
             // 
+            this.lblCuotas.AutoSize = true;
+            this.lblCuotas.Location = new System.Drawing.Point(88, 219);
+            this.lblCuotas.Name = "lblCuotas";
+            this.lblCuotas.Size = new System.Drawing.Size(49, 19);
+            this.lblCuotas.TabIndex = 9;
+            this.lblCuotas.Text = "Cuotas";
             // 
+            // btnRealizarVenta
             // 
+            this.btnRealizarVenta.Location = new System.Drawing.Point(233, 249);
+            this.btnRealizarVenta.Name = "btnRealizarVenta";
+            this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
+            this.btnRealizarVenta.TabIndex = 8;
+            this.btnRealizarVenta.Text = "Completar Venta";
+            this.btnRealizarVenta.UseSelectable = true;
+            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
             // 
-            this.txtCliente.CustomButton.Image = null;
-            this.txtCliente.CustomButton.Location = new System.Drawing.Point(181, 1);
-            this.txtCliente.CustomButton.Name = "";
-            this.txtCliente.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCliente.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCliente.CustomButton.TabIndex = 1;
-            this.txtCliente.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCliente.CustomButton.UseSelectable = true;
-            this.txtCliente.CustomButton.Visible = false;
-            this.txtCliente.Enabled = false;
-            this.txtCliente.Lines = new string[0];
-            this.txtCliente.Location = new System.Drawing.Point(145, 80);
-            this.txtCliente.MaxLength = 32767;
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.PasswordChar = '\0';
-            this.txtCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCliente.SelectedText = "";
-            this.txtCliente.SelectionLength = 0;
-            this.txtCliente.SelectionStart = 0;
-            this.txtCliente.ShortcutsEnabled = true;
-            this.txtCliente.Size = new System.Drawing.Size(203, 23);
-            this.txtCliente.TabIndex = 1;
-            this.txtCliente.UseSelectable = true;
-            this.txtCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // cbMetodoPago
             // 
-            // lblMetodoPago
-            // 
-            this.lblMetodoPago.AutoSize = true;
-            this.lblMetodoPago.Location = new System.Drawing.Point(30, 116);
-            this.lblMetodoPago.Name = "lblMetodoPago";
-            this.lblMetodoPago.Size = new System.Drawing.Size(109, 19);
-            this.lblMetodoPago.TabIndex = 2;
-            this.lblMetodoPago.Text = "Metodo de Pago";
+            this.cbMetodoPago.FormattingEnabled = true;
+            this.cbMetodoPago.ItemHeight = 23;
+            this.cbMetodoPago.Location = new System.Drawing.Point(144, 179);
+            this.cbMetodoPago.Name = "cbMetodoPago";
+            this.cbMetodoPago.Size = new System.Drawing.Size(204, 29);
+            this.cbMetodoPago.TabIndex = 7;
+            this.cbMetodoPago.UseSelectable = true;
+            this.cbMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cbMetodoPago_SelectedIndexChanged);
             // 
             // btnBuscarCliente
             // 
@@ -99,31 +98,125 @@ namespace UI
             this.btnBuscarCliente.UseSelectable = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
-            // cbMetodoPago
+            // lblMetodoPago
             // 
-            this.cbMetodoPago.FormattingEnabled = true;
-            this.cbMetodoPago.ItemHeight = 23;
-            this.cbMetodoPago.Location = new System.Drawing.Point(146, 109);
-            this.cbMetodoPago.Name = "cbMetodoPago";
-            this.cbMetodoPago.Size = new System.Drawing.Size(202, 29);
-            this.cbMetodoPago.TabIndex = 7;
-            this.cbMetodoPago.UseSelectable = true;
+            this.lblMetodoPago.AutoSize = true;
+            this.lblMetodoPago.Location = new System.Drawing.Point(29, 186);
+            this.lblMetodoPago.Name = "lblMetodoPago";
+            this.lblMetodoPago.Size = new System.Drawing.Size(109, 19);
+            this.lblMetodoPago.TabIndex = 2;
+            this.lblMetodoPago.Text = "Metodo de Pago";
             // 
-            // btnRealizarVenta
+            // txtCliente
             // 
-            this.btnRealizarVenta.Location = new System.Drawing.Point(234, 144);
-            this.btnRealizarVenta.Name = "btnRealizarVenta";
-            this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
-            this.btnRealizarVenta.TabIndex = 8;
-            this.btnRealizarVenta.Text = "Completar Venta";
-            this.btnRealizarVenta.UseSelectable = true;
-            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
+            // 
+            // 
+            // 
+            this.txtCliente.CustomButton.Image = null;
+            this.txtCliente.CustomButton.Location = new System.Drawing.Point(182, 1);
+            this.txtCliente.CustomButton.Name = "";
+            this.txtCliente.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtCliente.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCliente.CustomButton.TabIndex = 1;
+            this.txtCliente.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCliente.CustomButton.UseSelectable = true;
+            this.txtCliente.CustomButton.Visible = false;
+            this.txtCliente.Enabled = false;
+            this.txtCliente.Lines = new string[0];
+            this.txtCliente.Location = new System.Drawing.Point(144, 80);
+            this.txtCliente.MaxLength = 32767;
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.PasswordChar = '\0';
+            this.txtCliente.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCliente.SelectedText = "";
+            this.txtCliente.SelectionLength = 0;
+            this.txtCliente.SelectionStart = 0;
+            this.txtCliente.ShortcutsEnabled = true;
+            this.txtCliente.Size = new System.Drawing.Size(204, 23);
+            this.txtCliente.TabIndex = 1;
+            this.txtCliente.UseSelectable = true;
+            this.txtCliente.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCliente.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(25, 315);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(67, 25);
+            this.lblTotal.TabIndex = 11;
+            this.lblTotal.Text = "Total: ";
+            // 
+            // cbMetodoEntrega
+            // 
+            this.cbMetodoEntrega.FormattingEnabled = true;
+            this.cbMetodoEntrega.ItemHeight = 23;
+            this.cbMetodoEntrega.Location = new System.Drawing.Point(144, 109);
+            this.cbMetodoEntrega.Name = "cbMetodoEntrega";
+            this.cbMetodoEntrega.Size = new System.Drawing.Size(203, 29);
+            this.cbMetodoEntrega.TabIndex = 13;
+            this.cbMetodoEntrega.UseSelectable = true;
+            this.cbMetodoEntrega.SelectedIndexChanged += new System.EventHandler(this.cbMetodoEntrega_SelectedIndexChanged);
+            // 
+            // lblMetodoEntrega
+            // 
+            this.lblMetodoEntrega.AutoSize = true;
+            this.lblMetodoEntrega.Location = new System.Drawing.Point(84, 115);
+            this.lblMetodoEntrega.Name = "lblMetodoEntrega";
+            this.lblMetodoEntrega.Size = new System.Drawing.Size(54, 19);
+            this.lblMetodoEntrega.TabIndex = 12;
+            this.lblMetodoEntrega.Text = "Entrega";
+            // 
+            // cbDirecciones
+            // 
+            this.cbDirecciones.FormattingEnabled = true;
+            this.cbDirecciones.ItemHeight = 23;
+            this.cbDirecciones.Location = new System.Drawing.Point(144, 144);
+            this.cbDirecciones.Name = "cbDirecciones";
+            this.cbDirecciones.Size = new System.Drawing.Size(204, 29);
+            this.cbDirecciones.TabIndex = 15;
+            this.cbDirecciones.UseSelectable = true;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(74, 150);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(63, 19);
+            this.lblDireccion.TabIndex = 14;
+            this.lblDireccion.Text = "Direccion";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(90, 80);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(49, 19);
+            this.lblCliente.TabIndex = 0;
+            this.lblCliente.Text = "Cliente";
+            // 
+            // metroUserControl1
+            // 
+            this.metroUserControl1.Location = new System.Drawing.Point(366, 186);
+            this.metroUserControl1.Name = "metroUserControl1";
+            this.metroUserControl1.Size = new System.Drawing.Size(150, 150);
+            this.metroUserControl1.TabIndex = 16;
+            this.metroUserControl1.UseSelectable = true;
             // 
             // CompletarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 187);
+            this.ClientSize = new System.Drawing.Size(524, 356);
+            this.Controls.Add(this.metroUserControl1);
+            this.Controls.Add(this.cbDirecciones);
+            this.Controls.Add(this.lblDireccion);
+            this.Controls.Add(this.cbMetodoEntrega);
+            this.Controls.Add(this.lblMetodoEntrega);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.cbCuotas);
+            this.Controls.Add(this.lblCuotas);
             this.Controls.Add(this.btnRealizarVenta);
             this.Controls.Add(this.cbMetodoPago);
             this.Controls.Add(this.btnBuscarCliente);
@@ -138,12 +231,19 @@ namespace UI
         }
 
         #endregion
-
-        private MetroLabel lblCliente;
         private MetroTextBox txtCliente;
         private MetroLabel lblMetodoPago;
         private MetroButton btnBuscarCliente;
         private MetroComboBox cbMetodoPago;
         private MetroButton btnRealizarVenta;
+        private MetroComboBox cbCuotas;
+        private MetroLabel lblCuotas;
+        private System.Windows.Forms.Label lblTotal;
+        private MetroComboBox cbMetodoEntrega;
+        private MetroLabel lblMetodoEntrega;
+        private MetroComboBox cbDirecciones;
+        private MetroLabel lblDireccion;
+        private MetroLabel lblCliente;
+        private MetroUserControl metroUserControl1;
     }
 }

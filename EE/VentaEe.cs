@@ -8,6 +8,7 @@ namespace EE
         public CompradorEe Comprador { get; set; }
         public SucursalEe Sucursal { get; set; }
         public MetodoPagoEe MetodoPago { get; set; }
+        public TipoEntregaEe TipoEntrega { get; set; }
         public VentaEstadoEe Estado { get; set; }
         public DateTime Fecha { get; set; }
         public double Total { get; set; }

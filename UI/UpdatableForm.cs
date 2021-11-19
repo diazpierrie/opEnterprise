@@ -36,7 +36,7 @@ namespace UI
             // UpdatableForm
             // 
             ClientSize = new Size(300, 300);
-            Icon = ((Icon)(resources.GetObject("this.Icon")));
+            Icon = (Icon)resources.GetObject("this.Icon");
             Name = "UpdatableForm";
             Load += UpdatableForm_Load;
             ResumeLayout(false);

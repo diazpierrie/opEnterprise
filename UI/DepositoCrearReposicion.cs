@@ -10,7 +10,7 @@ namespace UI
 {
     public partial class DepositoCrearReposicion : UpdatableForm
     {
-        public BindingList<ProductoEe> Productos = new BindingList<ProductoEe>();
+        public BindingList<ProductoEdificioEe> Productos = new BindingList<ProductoEdificioEe>();
         public double Total;
         public DepositoCrearReposicion()
         {
@@ -19,8 +19,8 @@ namespace UI
 
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
-            var agregarProducto = new ProductoAgregar(this);
-            agregarProducto.Show();
+            //var agregarProducto = new ProductoAgregar(this);
+            //agregarProducto.Show();
         }
 
         private void VentaHome_Load(object sender, EventArgs e)

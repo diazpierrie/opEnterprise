@@ -86,6 +86,7 @@ namespace UI
             this.gridVenta.Location = new System.Drawing.Point(38, 75);
             this.gridVenta.MultiSelect = false;
             this.gridVenta.Name = "gridVenta";
+            this.gridVenta.ReadOnly = true;
             this.gridVenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));

@@ -255,13 +255,13 @@ namespace DAL
 
         public int Crear(VentaEe obj)
         {
-            var columnas = new List<string> { "idUsuario", "idComprador", "idSucursal", "idMetodoPago", "fecha", "total" };
-            var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Comprador.Id.ToString(), obj.Sucursal.Id.ToString(), obj.MetodoPago.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
+            var columnas = new List<string> { "idUsuario", "idComprador", "idSucursal", "idMetodoPago", "idTipoEntrega", "idEstado", "fecha", "total" };
+            var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Comprador.Id.ToString(), obj.Sucursal.Id.ToString(), obj.MetodoPago.Id.ToString(), obj.TipoEntrega.Id.ToString(), obj.Estado.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
 
             return Insert("venta", columnas.ToArray(), valores.ToArray());
         }
 
-        public int CrearDetalle(VentaEe venta, List<ProductoEe> productos)
+        public int CrearDetalle(VentaEe venta, List<ProductoEdificioEe> productos)
         {
 
             var columnas = new List<string> { "idVenta", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };

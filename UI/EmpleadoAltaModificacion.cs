@@ -139,13 +139,13 @@ namespace UI
             txtUsername.Text = _usuario.NombreUsuario;
 
             PermisosManager.ObtenerFamilia(_usuario);
-            cbPermiso.SelectedIndex = cbPermiso.FindStringExact((_usuario.Permiso != null ? _usuario.Permiso.Nombre : ""));
+            cbPermiso.SelectedIndex = cbPermiso.FindStringExact(_usuario.Permiso != null ? _usuario.Permiso.Nombre : "");
 
             SectorManager.Obtener(_usuario);
             cbSector.Text = _usuario.Sector != null ? _usuario.Sector.Nombre : "";
 
             PuestoBll.Obtener(_usuario);
-            cbPuesto.SelectedIndex = cbPuesto.FindStringExact((_usuario.Puesto != null ? _usuario.Puesto.Nombre : ""));
+            cbPuesto.SelectedIndex = cbPuesto.FindStringExact(_usuario.Puesto != null ? _usuario.Puesto.Nombre : "");
         }
     }
 }

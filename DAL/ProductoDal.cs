@@ -8,6 +8,8 @@ namespace DAL
 {
     public class ProductoDal : ConnectionDal
     {
+        private static readonly DepositoDal _depositoDal = new DepositoDal();
+        private static readonly SucursalDal _sucursalDal = new SucursalDal();
         public ProductoEe Obtener(int id)
         {
             try
@@ -39,11 +41,44 @@ namespace DAL
             }
         }
 
-        public List<ProductoEe> ObtenerPorSucursal(SucursalEe sucursal)
+        public IList<ProductoEdificioEe> ObtenerTodosDeposito()
         {
             try
             {
-                var strQuery = "SELECT p.[id], p.[nombre] ,p.[codigo] ,p.[precio], s.[stock] " +
+                var strQuery = " SELECT p.[id], d.[idDeposito], p.[nombre] ,p.[codigo] ,p.[precio], d.[stock] FROM " +
+                               "[dbo].[producto] as p " +
+                               "INNER JOIN deposito_producto as d " +
+                               "ON d.idProducto = p.id WHERE p.activo = 1";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var sucus = new List<ProductoEdificioEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        sucus.Add(CastDtoDeposito(data));
+                    }
+                }
+
+                Conn.Close();
+                return sucus;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<ProductoEdificioEe> ObtenerPorSucursal(SucursalEe sucursal)
+        {
+            try
+            {
+                var strQuery = "SELECT p.[id], s.[idSucursal], p.[nombre] ,p.[codigo] ,p.[precio], s.[stock] " +
                                      "FROM[dbo].[producto] as p " +
                                      "INNER JOIN sucursal_producto as s " +
                                      "ON s.idProducto = p.id " +
@@ -53,13 +88,13 @@ namespace DAL
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var sucus = new List<ProductoEe>();
+                var sucus = new List<ProductoEdificioEe>();
 
                 if (data.HasRows)
                 {
                     while (data.Read())
                     {
-                        sucus.Add(CastDto(data));
+                        sucus.Add(CastDtoSucursal(data));
                     }
                 }
 
@@ -237,6 +272,8 @@ namespace DAL
         }
 
 
+
+
         private static ProductoEe CastDto(SqlDataReader data)
         {
             return new ProductoEe
@@ -247,8 +284,34 @@ namespace DAL
                 Precio = double.Parse(data["precio"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString())
             };
-
         }
+
+        private static ProductoEdificioEe CastDtoSucursal(SqlDataReader data)
+        {
+            return new ProductoEdificioEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Nombre = data["nombre"].ToString(),
+                Codigo = data["codigo"].ToString(),
+                Precio = double.Parse(data["precio"].ToString()),
+                Cantidad = int.Parse(data["stock"].ToString()),
+                Edificio = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString()))
+            };
+        }
+
+        private static ProductoEdificioEe CastDtoDeposito(SqlDataReader data)
+        {
+            return new ProductoEdificioEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Nombre = data["nombre"].ToString(),
+                Codigo = data["codigo"].ToString(),
+                Precio = double.Parse(data["precio"].ToString()),
+                Cantidad = int.Parse(data["stock"].ToString()),
+                Edificio = _depositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))
+            };
+        }
+
 
 
     }

@@ -9,5 +9,9 @@
         public int CodigoPostal { get; set; }
         public bool Activo { get; set; }
 
+        public override string ToString()
+        {
+            return GetType().Name + Nombre;
+        }
     }
 }

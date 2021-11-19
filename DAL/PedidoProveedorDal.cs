@@ -260,7 +260,7 @@ namespace DAL
             return Insert("pedido_proveedor", columnas.ToArray(), valores.ToArray());
         }
 
-        public int CrearDetalle(PedidoProveedorEe venta, List<ProductoEe> productos)
+        public int CrearDetalle(PedidoProveedorEe venta, List<ProductoEdificioEe> productos)
         {
 
             var columnas = new List<string> { "idUsuario", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };
