@@ -282,8 +282,7 @@ namespace DAL
                 Nombre = data["nombre"].ToString(),
                 Codigo = data["codigo"].ToString(),
                 Precio = double.Parse(data["precio"].ToString()),
-                Costo = double.Parse(data["Costo"].ToString()),
-                Cantidad = int.Parse(data["stock"].ToString())
+                Costo = double.Parse(data["Costo"].ToString())
             };
         }
 

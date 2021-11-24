@@ -65,6 +65,7 @@ namespace UI
             }
 
             tcHome.TabPages.Add(tipoEdificio == "Deposito" ? tabDeposito : tabVenta);
+            tcHome.TabPages.Add(tabCaja);
         }
 
         private void btnBitacora_Click(object sender, EventArgs e)

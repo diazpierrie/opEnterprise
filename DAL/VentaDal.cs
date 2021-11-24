@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using EE;
@@ -28,11 +29,15 @@ namespace DAL
                                " idEstado," +
                                " total," +
                                " fecha FROM venta" +
-                               $" WHERE v.id = {id}";
+                               $" WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
-                Conn.Open();
+                if (Conn.State == ConnectionState.Closed)
+                {
+                    Conn.Open();
+                }
+
                 var data = query.ExecuteReader();
                 VentaEe venta = null;
 
@@ -425,10 +430,10 @@ namespace DAL
             return new VentaDetalleEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                //Venta = new VentaEe(){Id = int.Parse(data["idVenta"].ToString()) },
-                //Producto = new ProductoEe(){Id = int.Parse(data["idProducto"].ToString()) },
-                Venta = Obtener(int.Parse(data["idVenta"].ToString())),
-                Producto = _productoDal.Obtener(int.Parse(data["idProducto"].ToString())),
+                Venta = new VentaEe() { Id = int.Parse(data["idVenta"].ToString()) },
+                Producto = new ProductoEe() { Id = int.Parse(data["idProducto"].ToString()) },
+                //Venta = Obtener(int.Parse(data["idVenta"].ToString())),
+                //Producto = _productoDal.Obtener(int.Parse(data["idProducto"].ToString())),
                 Costo = double.Parse(data["costoUnitario"].ToString()),
                 Precio = double.Parse(data["precioUnitario"].ToString()),
                 Cantidad = int.Parse(data["cantidad"].ToString())

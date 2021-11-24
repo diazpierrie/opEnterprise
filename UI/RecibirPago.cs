@@ -33,7 +33,7 @@ namespace UI
                 gridVentas.Refresh();
         }
 
-        private void ActualizarGrid()
+        public void ActualizarGrid()
         {
             _dataTable = VentaBll.ObtenerPendienteDePago(Sesion.ObtenerSesion().Sucursal);
             gridVentas.DataSource = _dataTable;
@@ -66,7 +66,7 @@ namespace UI
         private void btnElegirVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            var confirmarPago = new ConfirmarPago(venta);
+            var confirmarPago = new ConfirmarPago(this, venta);
             confirmarPago.Show();
         }
     }

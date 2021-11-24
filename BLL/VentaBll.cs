@@ -106,7 +106,16 @@ namespace BLL
 
         public static List<VentaDetalleEe> ObtenerDetalle(int id)
         {
-            return Dal.ObtenerDetalle(id);
+             var meme = Dal.ObtenerDetalle(id);
+
+             foreach (var mem in  meme)
+             {
+                 mem.Venta = VentaBll.Obtener(mem.Id);
+                 mem.Producto = ProductoBll.Obtener(mem.Producto.Id);
+                 mem.TotalDetalle = mem.Cantidad * mem.Precio;
+             }
+
+             return meme;
         }
 
         public static List<VentaEe> ObtenerVentasDeUsuario(UsuarioEe user)
