@@ -78,7 +78,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT p.[id], s.[idSucursal], p.[nombre] ,p.[codigo] ,p.[precio], s.[stock] " +
+                var strQuery = "SELECT p.[id], s.[idSucursal], p.[nombre] ,p.[codigo] ,p.[precio], p.[costo], s.[stock] " +
                                      "FROM[dbo].[producto] as p " +
                                      "INNER JOIN sucursal_producto as s " +
                                      "ON s.idProducto = p.id " +
@@ -282,6 +282,7 @@ namespace DAL
                 Nombre = data["nombre"].ToString(),
                 Codigo = data["codigo"].ToString(),
                 Precio = double.Parse(data["precio"].ToString()),
+                Costo = double.Parse(data["Costo"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString())
             };
         }
@@ -294,6 +295,7 @@ namespace DAL
                 Nombre = data["nombre"].ToString(),
                 Codigo = data["codigo"].ToString(),
                 Precio = double.Parse(data["precio"].ToString()),
+                Costo = double.Parse(data["Costo"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString()),
                 Edificio = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString()))
             };

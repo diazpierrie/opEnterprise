@@ -209,6 +209,46 @@ namespace DAL
             }
         }
 
+        public List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
+        {
+            try
+            {
+                var strQuery = "SELECT" +
+                               " id," +
+                               " idUsuario," +
+                               " idComprador," +
+                               " idSucursal," +
+                               " idMetodoPago," +
+                               " idEstado," +
+                               " total," +
+                               " fecha FROM venta" +
+                               $" WHERE idSucursal = {sucursal.Id}" +
+                               $" AND idEstado = 1";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var sucus = new List<VentaEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        sucus.Add(CastDto(data));
+                    }
+                }
+
+                Conn.Close();
+                return sucus;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
         public List<VentaDetalleEe> ObtenerDetalle(int id)
         {
             try
@@ -261,22 +301,36 @@ namespace DAL
             return Insert("venta", columnas.ToArray(), valores.ToArray());
         }
 
-        public int CrearDetalle(VentaEe venta, List<ProductoEdificioEe> productos)
+        public int CrearDetalle(VentaEe venta, ProductoEdificioEe producto)
         {
 
             var columnas = new List<string> { "idVenta", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };
-            var valores = new List<string[]>();
-            foreach (var producto in productos)
-            {
-                string[] value =
-                {
-                    venta.Id.ToString(), producto.Id.ToString(), producto.Costo.ToString(CultureInfo.InvariantCulture),
-                    producto.Precio.ToString(CultureInfo.InvariantCulture), producto.Cantidad.ToString()
-                };
-                valores.Add(value);
-            }
+            var valores = new[] { venta.Id.ToString(), producto.Id.ToString(), producto.Costo.ToString(CultureInfo.InvariantCulture),
+                producto.Precio.ToString(CultureInfo.InvariantCulture), producto.Cantidad.ToString() };
+
             return Insert("venta_detalle", columnas.ToArray(), valores);
 
+        }
+
+        public bool ConfirmarPago(VentaEe venta)
+        {
+            try
+            {
+                var strQuery = "UPDATE[dbo].[venta] " +
+                               "SET[idEstado] = 2 " +
+                               $"WHERE id = @id";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                query.Parameters.AddWithValue("@id", venta.Id);
+
+                return ExecuteQuery(query);
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
         }
 
         public int RegistrarPerdida(VentaEe obj)

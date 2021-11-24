@@ -5,7 +5,7 @@ using Security;
 
 namespace BLL
 {
-    public class EnvioBll
+    public static class EnvioBll
     {
         private static readonly EnvioDal Dal = new EnvioDal();
 
@@ -28,6 +28,24 @@ namespace BLL
 
             return envio.Id;
         }
+
+
+        public static int CrearDetalleDeSucursal(EnvioSucursalDetalleEe envio)
+        {
+            envio.Id = Dal.CrearDetalleDeSucursal(envio);
+            Dv.ActualizarDv();
+
+            return envio.Id;
+        }
+
+        public static int CrearDetalleDeDeposito(EnvioDepositoDetalleEe envio)
+        {
+            envio.Id = Dal.CrearDetalleDeDeposito(envio);
+            Dv.ActualizarDv();
+
+            return envio.Id;
+        }
+
 
         public static List<EnvioSucursalEe> ObtenerDeSucursal()
         {

@@ -107,5 +107,11 @@ namespace UI
             var gestionarIdioma = new GestionarIdioma();
             gestionarIdioma.Show();
         }
+
+        private void btnRecibirPago_Click(object sender, EventArgs e)
+        {
+            var recibirPago = new RecibirPago();
+            recibirPago.Show();
+        }
     }
 }

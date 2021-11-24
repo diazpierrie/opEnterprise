@@ -28,8 +28,6 @@ namespace UI
         {
             if (_homeForm.ProductosAAsignar.Count == 0) Close();
 
-
-
             foreach (var producto in _homeForm.ProductosAAsignar)
             {
                 var productoNuevo = (ProductoEdificioEe)producto.Clone();
@@ -72,7 +70,7 @@ namespace UI
             for (var index = 0; index < gridProductos.SelectedRows.Count; index++)
             {
                 var selectedRow = gridProductos.SelectedRows[index];
-                var producto = (ProductoEe)selectedRow.DataBoundItem;
+                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
                 var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
                 if ((int)selectedRow.Cells["CantidadAComprar"].Value == 0 || selectedRow.Cells["CantidadAComprar"].Value == null)

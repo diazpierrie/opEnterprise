@@ -29,7 +29,16 @@ namespace UI
                 string.Format("12 cuotas de ${0:##.##}", _ventahome.Total / 12)
             };
 
-            cbMetodoEntrega.DataSource = EnvioBll.ObtenerTiposEntrega();
+
+            var metodosEntrega = EnvioBll.ObtenerTiposEntrega();
+
+            var boolContains = ventahome.ProductosAAsignar.All(x => x.Edificio == Sesion.ObtenerSesion().Sucursal);
+            if (!boolContains)
+            {
+                metodosEntrega.RemoveAt(0);
+            }
+
+            cbMetodoEntrega.DataSource = metodosEntrega;
             cbDirecciones.Text = "Seleccione a un cliente";
         }
 
@@ -58,25 +67,12 @@ namespace UI
                 Fecha = Now,
                 MetodoPago = (MetodoPagoEe) cbMetodoPago.SelectedItem,
                 TipoEntrega = (TipoEntregaEe) cbMetodoEntrega.SelectedItem,
-                Estado = new VentaEstadoEe(){Id = 1, Nombre = "Iniciado" },
+                Estado = new VentaEstadoEe(){ Id = 1, Nombre = "Iniciado" },
                 Total = _total
             };
 
-            VentaBll.Crear(ventaNueva, _ventahome.ProductosAAsignar.ToList());
-
-            if (cbMetodoEntrega.SelectedValue.ToString() != "Retiro en Local")
-            {
-                EnvioBll.CrearDeSucursal(new EnvioSucursalEe
-                {
-                    Venta = ventaNueva,
-                    Direccion = (DireccionEe) cbDirecciones.SelectedItem,
-                    Sucursal = ObtenerSesion().Sucursal,
-                    FechaSalida = Now,
-                    FechaLlegada = new DateTime(),
-                    EstadoEnvio = 1
-                });
-            }
-
+            VentaBll.Crear(ventaNueva, (DireccionEe)cbDirecciones.SelectedItem, _ventahome.ProductosAAsignar.ToList());
+            
             Close();
             _ventahome.Close();
         }
@@ -117,7 +113,7 @@ namespace UI
 
         private void ActualizarDirecciones()
         {
-            if (cbMetodoEntrega.SelectedValue.ToString() == "Retiro en Local")
+            if (cbMetodoEntrega.SelectedValue.ToString() == "Retiro en Local" || cbDirecciones.Items.Count == 0)
             {
                 cbDirecciones.Text = null;
                 cbDirecciones.Enabled = false;
@@ -125,7 +121,7 @@ namespace UI
             else
             {
                 cbDirecciones.Enabled = true;
-                if (cbDirecciones.DataSource != null)
+                if (cbDirecciones.DataSource != null && cbDirecciones.Items.Count != 0)
                 {
                     cbDirecciones.SelectedIndex = 0;
                 }

@@ -53,12 +53,15 @@ namespace UI
             this.btnPenalizarProveedor = new MetroFramework.Controls.MetroButton();
             this.btnCrearReposicion = new MetroFramework.Controls.MetroButton();
             this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
+            this.tabCaja = new MetroFramework.Controls.MetroTabPage();
+            this.btnRecibirPago = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbConfiguracion.SuspendLayout();
             this.tabVenta.SuspendLayout();
             this.tabDeposito.SuspendLayout();
+            this.tabCaja.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcHome
@@ -67,9 +70,10 @@ namespace UI
             this.tcHome.Controls.Add(this.tabAdmin);
             this.tcHome.Controls.Add(this.tabVenta);
             this.tcHome.Controls.Add(this.tabDeposito);
+            this.tcHome.Controls.Add(this.tabCaja);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 0;
+            this.tcHome.SelectedIndex = 3;
             this.tcHome.Size = new System.Drawing.Size(776, 384);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
@@ -291,6 +295,31 @@ namespace UI
             this.btnRegistrarEntrada.UseSelectable = true;
             this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
             // 
+            // tabCaja
+            // 
+            this.tabCaja.Controls.Add(this.btnRecibirPago);
+            this.tabCaja.HorizontalScrollbarBarColor = true;
+            this.tabCaja.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabCaja.HorizontalScrollbarSize = 10;
+            this.tabCaja.Location = new System.Drawing.Point(4, 41);
+            this.tabCaja.Name = "tabCaja";
+            this.tabCaja.Size = new System.Drawing.Size(768, 339);
+            this.tabCaja.TabIndex = 3;
+            this.tabCaja.Text = "Caja";
+            this.tabCaja.VerticalScrollbarBarColor = true;
+            this.tabCaja.VerticalScrollbarHighlightOnWheel = false;
+            this.tabCaja.VerticalScrollbarSize = 10;
+            // 
+            // btnRecibirPago
+            // 
+            this.btnRecibirPago.Location = new System.Drawing.Point(7, 29);
+            this.btnRecibirPago.Name = "btnRecibirPago";
+            this.btnRecibirPago.Size = new System.Drawing.Size(136, 24);
+            this.btnRecibirPago.TabIndex = 2;
+            this.btnRecibirPago.Text = "Recibir Pago";
+            this.btnRecibirPago.UseSelectable = true;
+            this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +334,7 @@ namespace UI
             this.gbConfiguracion.ResumeLayout(false);
             this.tabVenta.ResumeLayout(false);
             this.tabDeposito.ResumeLayout(false);
+            this.tabCaja.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -330,5 +360,7 @@ namespace UI
         private MetroButton btnBitacora;
         private MetroButton btnBackUp;
         private MetroButton btnIdioma;
+        private MetroTabPage tabCaja;
+        private MetroButton btnRecibirPago;
     }
 }

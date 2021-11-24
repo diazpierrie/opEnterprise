@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DAL;
 using EE;
 using Security;
@@ -9,10 +11,81 @@ namespace BLL
     {
         private static readonly VentaDal Dal = new VentaDal();
 
-        public static int Crear(VentaEe venta, List<ProductoEdificioEe> productos)
+        public static int Crear(VentaEe venta, DireccionEe cbDireccionesSelectedItem, List<ProductoEdificioEe> productos)
         {
             venta.Id = Dal.Crear(venta);
-            Dal.CrearDetalle(venta, productos);
+
+            var edificios = productos.Select(x => x.Edificio).Distinct().ToList();
+            if (cbDireccionesSelectedItem != null)
+            {
+                edificios.Remove(Sesion.ObtenerSesion().Sucursal);
+            }
+
+            if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
+            {
+                foreach (var edificio in edificios)
+                {
+                    switch (edificio.GetType().Name)
+                    {
+                        case "SucursalEe":
+                            EnvioBll.CrearDeSucursal(new EnvioSucursalEe
+                            {
+                                Venta = venta,
+                                Direccion = cbDireccionesSelectedItem,
+                                Sucursal = (SucursalEe)edificio,
+                                FechaSalida = DateTime.Now,
+                                FechaLlegada = new DateTime(),
+                                EstadoEnvio = 1
+                            });
+                            break;
+                        case "DepositoEe":
+                            EnvioBll.CrearDeDeposito(new EnvioDepositoEe
+                            {
+                                Venta = venta,
+                                Direccion = cbDireccionesSelectedItem,
+                                Deposito = (DepositoEe)edificio,
+                                FechaSalida = DateTime.Now,
+                                FechaLlegada = new DateTime(),
+                                EstadoEnvio = 1
+                            });
+                            break;
+                    }
+                }
+            }
+
+            foreach (var producto in productos)
+            {
+                var ventaDetalleId = Dal.CrearDetalle(venta, producto);
+
+                if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
+                {
+                    switch (producto.Edificio.GetType().Name)
+                    {
+                        case "SucursalEe":
+                            EnvioBll.CrearDetalleDeSucursal(new EnvioSucursalDetalleEe
+                            {
+                                VentaDetalle = new VentaDetalleEe()
+                                {
+                                    Id = ventaDetalleId
+                                },
+                                Sucursal = (SucursalEe)producto.Edificio,
+                                Cantidad = producto.CantidadAComprar,
+                            });
+                            break;
+                        case "DepositoEe":
+                            EnvioBll.CrearDetalleDeDeposito(new EnvioDepositoDetalleEe()
+                            {
+                                VentaDetalle = new VentaDetalleEe()
+                                {
+                                    Id = ventaDetalleId
+                                },
+                                Deposito = (DepositoEe)producto.Edificio,
+                                Cantidad = producto.CantidadAComprar,
+                            });
+                            break;
+                    } 
+                }
+            }
 
             Dv.ActualizarDv();
 
@@ -46,9 +119,19 @@ namespace BLL
             return Dal.Obtener(sucursal);
         }
 
+        public static List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
+        {
+            return Dal.ObtenerPendienteDePago(sucursal);
+        }
+
         public static List<VentaEe> ObtenerVentasDeCliente(CompradorEe comprador)
         {
             return Dal.Obtener(comprador);
+        }
+
+        public static bool ConfirmarPago(VentaEe venta)
+        {
+            return Dal.ConfirmarPago(venta);
         }
 
 
@@ -77,5 +160,7 @@ namespace BLL
 
             return devolucion.Id;
         }
+
+
     }
 }

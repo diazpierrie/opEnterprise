@@ -41,12 +41,12 @@ namespace UI
             this.gridProductos = new MetroFramework.Controls.MetroGrid();
             this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
             this.gridProductosAAgregar = new MetroFramework.Controls.MetroGrid();
-            this.btnCerrar = new MetroFramework.Controls.MetroButton();
+            this.btnQuitarProductos = new MetroFramework.Controls.MetroButton();
             this.btnRemoverProducto = new MetroFramework.Controls.MetroButton();
             this.lblProductos = new MetroFramework.Controls.MetroLabel();
             this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
-            this.btnAsignarProductos = new MetroFramework.Controls.MetroButton();
+            this.btnAgregarProductos = new MetroFramework.Controls.MetroButton();
             this.rbSucursal = new MetroFramework.Controls.MetroRadioButton();
             this.rbDeposito = new MetroFramework.Controls.MetroRadioButton();
             this.cbDepositos = new MetroFramework.Controls.MetroComboBox();
@@ -167,20 +167,20 @@ namespace UI
             this.gridProductosAAgregar.Size = new System.Drawing.Size(467, 343);
             this.gridProductosAAgregar.TabIndex = 20;
             // 
-            // btnCerrar
+            // btnQuitarProductos
             // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnQuitarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Location = new System.Drawing.Point(859, 443);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(117, 23);
-            this.btnCerrar.TabIndex = 19;
-            this.btnCerrar.Tag = "close";
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnQuitarProductos.Location = new System.Drawing.Point(859, 443);
+            this.btnQuitarProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuitarProductos.Name = "btnQuitarProductos";
+            this.btnQuitarProductos.Size = new System.Drawing.Size(117, 23);
+            this.btnQuitarProductos.TabIndex = 19;
+            this.btnQuitarProductos.Tag = "empty_cart";
+            this.btnQuitarProductos.Text = "Vaciar Carrito";
+            this.btnQuitarProductos.UseSelectable = true;
+            this.btnQuitarProductos.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnRemoverProducto
             // 
@@ -259,20 +259,20 @@ namespace UI
             this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
-            // btnAsignarProductos
+            // btnAgregarProductos
             // 
-            this.btnAsignarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAsignarProductos.Location = new System.Drawing.Point(732, 443);
-            this.btnAsignarProductos.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAsignarProductos.Name = "btnAsignarProductos";
-            this.btnAsignarProductos.Size = new System.Drawing.Size(123, 23);
-            this.btnAsignarProductos.TabIndex = 24;
-            this.btnAsignarProductos.Tag = "assign";
-            this.btnAsignarProductos.Text = "Asignar";
-            this.btnAsignarProductos.UseSelectable = true;
-            this.btnAsignarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
+            this.btnAgregarProductos.Location = new System.Drawing.Point(732, 443);
+            this.btnAgregarProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarProductos.Name = "btnAgregarProductos";
+            this.btnAgregarProductos.Size = new System.Drawing.Size(123, 23);
+            this.btnAgregarProductos.TabIndex = 24;
+            this.btnAgregarProductos.Tag = "add_to_cart";
+            this.btnAgregarProductos.Text = "Agregar al Carrito";
+            this.btnAgregarProductos.UseSelectable = true;
+            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
             // 
             // rbSucursal
             // 
@@ -314,12 +314,12 @@ namespace UI
             this.Controls.Add(this.cbDepositos);
             this.Controls.Add(this.rbDeposito);
             this.Controls.Add(this.rbSucursal);
-            this.Controls.Add(this.btnAsignarProductos);
+            this.Controls.Add(this.btnAgregarProductos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblProductosAAgregar);
             this.Controls.Add(this.lblProductos);
             this.Controls.Add(this.gridProductosAAgregar);
-            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnQuitarProductos);
             this.Controls.Add(this.btnRemoverProducto);
             this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.btnAgregarProducto);
@@ -338,12 +338,12 @@ namespace UI
         private MetroButton btnAgregarProducto;
         private MetroGrid gridProductos;
         private MetroGrid gridProductosAAgregar;
-        private MetroButton btnCerrar;
+        private MetroButton btnQuitarProductos;
         private MetroButton btnRemoverProducto;
         private MetroLabel lblProductos;
         private MetroLabel lblProductosAAgregar;
         private MetroTextBox txtBuscar;
-        private MetroButton btnAsignarProductos;
+        private MetroButton btnAgregarProductos;
         private MetroRadioButton rbSucursal;
         private MetroRadioButton rbDeposito;
         private MetroComboBox cbDepositos;

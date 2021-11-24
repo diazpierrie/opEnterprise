@@ -48,6 +48,7 @@
     <Compile Include="EmpleadoDepositoEe.cs" />
     <Compile Include="EmpleadoSucursalEe.cs" />
     <Compile Include="EntidadFiscalEe.cs" />
+    <Compile Include="EnvioSucursalDetalleEe.cs" />
     <Compile Include="EnvioDepositoEe.cs" />
     <Compile Include="EnvioSucursalEe.cs" />
     <Compile Include="FamiliaEe.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="DireccionEe.cs" />
     <Compile Include="ProductoEdificioEe.cs" />
     <Compile Include="TipoEntregaEe.cs" />
+    <Compile Include="EnvioDepositoDetalleEe.cs" />
     <Compile Include="VentaDetalleEe.cs" />
     <Compile Include="PedidoProveedorEe.cs" />
     <Compile Include="PedidoEstadoEe.cs" />

@@ -176,12 +176,28 @@ namespace DAL
             return Insert("envio_sucursal", columnas.ToArray(), valores.ToArray());
         }
 
+        public int CrearDetalleDeSucursal(EnvioSucursalDetalleEe obj)
+        {
+            var columnas = new List<string> { "idVentaDetalle", "idSucursal", "cantidad" };
+            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Sucursal.Id.ToString(), obj.Cantidad.ToString() };
+
+            return Insert("envio_sucursal_detalle", columnas.ToArray(), valores.ToArray());
+        }
+
         public int CrearDeDeposito(EnvioDepositoEe obj)
         {
-            var columnas = new List<string> { "idVenta", "idDireccion", "idDeposito", "fechaSalida", "fechaLlegada", "idEstadoEnvio" };
-            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Deposito.ToString(), obj.FechaSalida.ToString(CultureInfo.InvariantCulture), obj.FechaLlegada.ToString(CultureInfo.InvariantCulture), obj.EstadoEnvio.ToString() };
+            var columnas = new List<string> { "idVenta", "idDireccion", "idDeposito", "fechaSalida", "idEstadoEnvio" };
+            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Deposito.Id.ToString(), obj.FechaSalida.ToString(CultureInfo.InvariantCulture), obj.EstadoEnvio.ToString() };
 
-            return Insert("envio", columnas.ToArray(), valores.ToArray());
+            return Insert("envio_deposito", columnas.ToArray(), valores.ToArray());
+        }
+
+        public int CrearDetalleDeDeposito(EnvioDepositoDetalleEe obj)
+        {
+            var columnas = new List<string> { "idVentaDetalle","idDeposito", "cantidad" };
+            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Deposito.Id.ToString(), obj.Cantidad.ToString() };
+
+            return Insert("envio_deposito_detalle", columnas.ToArray(), valores.ToArray());
         }
 
         //public bool Actualizar(EnvioSucursalEe sucu)
@@ -228,7 +244,6 @@ namespace DAL
 
             };
         }
-
 
     }
 }
