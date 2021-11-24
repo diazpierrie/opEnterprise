@@ -149,7 +149,7 @@ namespace DAL
         public int Crear(DireccionEe obj)
         {
             var columnas = new List<string> { "idComprador", "calle", "localidad", "provincia", "pais", "codigoPostal", "activo" };
-            var valores = new List<string> { obj.Comprador.Id.ToString(), obj.Calle, obj.Localidad, obj.Provincia, obj.Pais, obj.CodigoPostal.ToString(), 1.ToString() };
+            var valores = new List<string> { obj.Comprador.Id.ToString(), obj.Calle, obj.Localidad, obj.Provincia, obj.Pais, obj.CodigoPostal, 1.ToString() };
 
             return Insert("direccion", columnas.ToArray(), valores.ToArray());
         }

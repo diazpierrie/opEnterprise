@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace EE
 {
@@ -8,16 +9,7 @@ namespace EE
 
         public override bool TienePermiso(string permiso)
         {
-            foreach (var permisoEe in Patentes)
-            {
-                var patente = (PatenteEe)permisoEe;
-                if (patente.TienePermiso(permiso))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Patentes.Cast<PatenteEe>().Any(patente => patente.TienePermiso(permiso));
         }
     }
 }

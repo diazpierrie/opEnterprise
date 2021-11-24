@@ -8,15 +8,14 @@ namespace DAL
 {
     public class ProductoDal : ConnectionDal
     {
-        private static readonly DepositoDal _depositoDal = new DepositoDal();
-        private static readonly SucursalDal _sucursalDal = new SucursalDal();
+        private static readonly DepositoDal DepositoDal = new DepositoDal();
+        private static readonly SucursalDal SucursalDal = new SucursalDal();
 
         public ProductoEe Obtener(int id)
         {
             try
             {
-                var strQuery = "SELECT id, nombre, codigo, fechaCreacion, precio, costo FROM producto " +
-                               $"WHERE id = {id}";
+                string strQuery = $"SELECT id, nombre, codigo, fechaCreacion, precio, costo FROM producto WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -291,7 +290,7 @@ namespace DAL
                 Precio = double.Parse(data["precio"].ToString()),
                 Costo = double.Parse(data["Costo"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString()),
-                Edificio = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString()))
+                Edificio = SucursalDal.Obtener(int.Parse(data["idSucursal"].ToString()))
             };
         }
 
@@ -304,7 +303,7 @@ namespace DAL
                 Codigo = data["codigo"].ToString(),
                 Precio = double.Parse(data["precio"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString()),
-                Edificio = _depositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))
+                Edificio = DepositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))
             };
         }
     }

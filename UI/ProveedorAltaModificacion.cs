@@ -7,7 +7,7 @@ namespace UI
 {
     public partial class ProveedorAltaModificacion : UpdatableForm
     {
-        private ProveedorEe Proveedor = new ProveedorEe();
+        private ProveedorEe _proveedor = new ProveedorEe();
         private ProveedorHome _homeForm;
         private ProveedorBuscar _buscarForm;
 
@@ -40,7 +40,7 @@ namespace UI
         public ProveedorAltaModificacion(ProveedorHome homeForm, ProveedorEe proveedor)
         {
             _homeForm = homeForm;
-            Proveedor = proveedor;
+            _proveedor = proveedor;
 
             _crear = false;
             InitializeComponent();
@@ -49,11 +49,11 @@ namespace UI
             btnAccion.Text = "Modificar";
             Text = "Modificar Proveedor";
 
-            txtNombre.Text = Proveedor.Nombre;
-            txtCodigoPostal.Text = Proveedor.CodigoPostal.ToString();
-            txtDireccion.Text = Proveedor.Direccion;
-            txtTelefono.Text = Proveedor.Telefono;
-            txtMail.Text = Proveedor.Mail;
+            txtNombre.Text = _proveedor.Nombre;
+            txtCodigoPostal.Text = _proveedor.CodigoPostal.ToString();
+            txtDireccion.Text = _proveedor.Direccion;
+            txtTelefono.Text = _proveedor.Telefono;
+            txtMail.Text = _proveedor.Mail;
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
@@ -73,13 +73,13 @@ namespace UI
             }
             else
             {
-                Proveedor.Nombre = txtNombre.Text;
-                Proveedor.CodigoPostal = int.Parse(txtCodigoPostal.Text);
-                Proveedor.Direccion = txtDireccion.Text;
-                Proveedor.Telefono = txtTelefono.Text;
-                Proveedor.Mail = txtMail.Text;
+                _proveedor.Nombre = txtNombre.Text;
+                _proveedor.CodigoPostal = int.Parse(txtCodigoPostal.Text);
+                _proveedor.Direccion = txtDireccion.Text;
+                _proveedor.Telefono = txtTelefono.Text;
+                _proveedor.Mail = txtMail.Text;
 
-                ProveedorBll.Actualizar(Proveedor);
+                ProveedorBll.Actualizar(_proveedor);
             }
 
             if (_homeForm != null)

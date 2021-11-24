@@ -54,8 +54,8 @@ namespace UI
 
         private void btnAgregarDireccion_Click(object sender, EventArgs e)
         {
-            var AgregarDireccion = new DireccionAltaModificacion(this);
-            AgregarDireccion.Show();
+            var agregarDireccion = new DireccionAltaModificacion(this);
+            agregarDireccion.Show();
         }
 
         public void ActualizarDireccion()
