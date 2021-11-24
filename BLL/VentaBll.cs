@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -38,6 +38,7 @@ namespace BLL
                                 EstadoEnvio = 1
                             });
                             break;
+
                         case "DepositoEe":
                             EnvioBll.CrearDeDeposito(new EnvioDepositoEe
                             {
@@ -72,6 +73,7 @@ namespace BLL
                                 Cantidad = producto.CantidadAComprar,
                             });
                             break;
+
                         case "DepositoEe":
                             EnvioBll.CrearDetalleDeDeposito(new EnvioDepositoDetalleEe()
                             {
@@ -83,7 +85,7 @@ namespace BLL
                                 Cantidad = producto.CantidadAComprar,
                             });
                             break;
-                    } 
+                    }
                 }
             }
 
@@ -106,16 +108,16 @@ namespace BLL
 
         public static List<VentaDetalleEe> ObtenerDetalle(int id)
         {
-             var meme = Dal.ObtenerDetalle(id);
+            var meme = Dal.ObtenerDetalle(id);
 
-             foreach (var mem in  meme)
-             {
-                 mem.Venta = VentaBll.Obtener(mem.Id);
-                 mem.Producto = ProductoBll.Obtener(mem.Producto.Id);
-                 mem.TotalDetalle = mem.Cantidad * mem.Precio;
-             }
+            foreach (var mem in meme)
+            {
+                mem.Venta = VentaBll.Obtener(mem.Id);
+                mem.Producto = ProductoBll.Obtener(mem.Producto.Id);
+                mem.TotalDetalle = mem.Cantidad * mem.Precio;
+            }
 
-             return meme;
+            return meme;
         }
 
         public static List<VentaEe> ObtenerVentasDeUsuario(UsuarioEe user)
@@ -138,11 +140,11 @@ namespace BLL
             return Dal.Obtener(comprador);
         }
 
-        public static bool ConfirmarPago(VentaEe venta)
+        public static bool ConfirmarPago(PagoEe pago)
         {
-            return Dal.ConfirmarPago(venta);
+            Dal.RegistrarPago(pago);
+            return Dal.CambiarEstadoAPagado(pago.Venta);
         }
-
 
         public static int RegistrarPerdida(VentaEe venta, double total, List<VentaDetalleEe> productos)
         {
@@ -155,7 +157,6 @@ namespace BLL
             BitacoraManager.AgregarMensajeControl("Perdida registrada: ", venta);
 
             return perdida.Id;
-
         }
 
         public static int RegistrarDevolucion(VentaEe venta, List<VentaDetalleEe> productos)
@@ -170,6 +171,9 @@ namespace BLL
             return devolucion.Id;
         }
 
-
+        public static bool Cancelar(VentaEe venta)
+        {
+            return Dal.Cancelar(venta);
+        }
     }
 }

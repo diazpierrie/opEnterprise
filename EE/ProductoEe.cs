@@ -16,5 +16,14 @@ namespace EE
         {
             return Nombre;
         }
+
+        public override bool Equals(object obj)
+        {
+            var p = obj as ProductoEe;
+            if (p == null)
+                return false;
+
+            return this.Id.Equals(p.Id);
+        }
     }
 }

@@ -114,5 +114,11 @@ namespace UI
             var recibirPago = new RecibirPago();
             recibirPago.Show();
         }
+
+        private void btnCancelarVenta_Click(object sender, EventArgs e)
+        {
+            var cancelarVenta = new CancelarVenta();
+            cancelarVenta.Show();
+        }
     }
 }

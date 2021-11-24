@@ -13,6 +13,7 @@ namespace UI
     {
         private readonly RecibirPago _recibirPago;
         private readonly VentaEe _venta;
+        private double _vuelto = 0;
 
         public ConfirmarPago(RecibirPago recibirPago, VentaEe venta)
         {
@@ -21,7 +22,6 @@ namespace UI
             InitializeComponent();
             ActualizarGrid();
             lblTotal.Text = $@"Total: ${venta.Total}";
-
         }
 
         private void ActualizarGrid()
@@ -47,32 +47,45 @@ namespace UI
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
-            VentaBll.ConfirmarPago(_venta);
-            _recibirPago.ActualizarGrid();
-            Close();
+            if (_vuelto < 0)
+            {
+                VentaBll.ConfirmarPago(new PagoEe() { Venta = _venta, MontoCobrado = _venta.Total, Vuelto = _vuelto * -1 });
+                _recibirPago.ActualizarGrid();
+                Close();
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Pago incorrecto", "Error");
+            }
+
 ;        }
 
         private void txtEfectivo_TextChanged(object sender, EventArgs e)
         {
             if (txtEfectivo.Text == Empty || !txtEfectivo.Text.All(char.IsDigit)) return;
 
-            var vuelto = _venta.Total - double.Parse(txtEfectivo.Text);
+            _vuelto = _venta.Total - double.Parse(txtEfectivo.Text);
 
             lblVueltoADar.FontSize = MetroLabelSize.Medium;
 
-            if (vuelto == 0)
+            if (_vuelto == 0)
             {
                 lblVueltoADar.Visible = false;
             }
-            else if (vuelto > 0)
+            else if (_vuelto < 0)
             {
-                lblVueltoADar.Text = $@"Vuelto a dar: ${vuelto}";
+                lblVueltoADar.Text = $@"Vuelto a dar: ${_vuelto * -1}";
             }
             else
             {
-                lblVueltoADar.Text = $@"Dinero faltante: ${vuelto * -1}";
+                lblVueltoADar.Text = $@"Dinero faltante: ${_vuelto }";
 
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

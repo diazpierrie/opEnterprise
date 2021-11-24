@@ -9,17 +9,13 @@ using EE;
 
 namespace UI
 {
-    public partial class RecibirPago : UpdatableForm
+    public partial class CancelarVenta : UpdatableForm
     {
         private List<VentaEe> _dataTable;
 
-        public RecibirPago()
+        public CancelarVenta()
         {
             InitializeComponent();
-
-            var estados = VentaEstadoBll.Obtener();
-            estados.Add(new VentaEstadoEe { Id = 4, Nombre = "Todos" });
-
             ActualizarGrid();
         }
 
@@ -69,10 +65,11 @@ namespace UI
             new VentaVerDetalle(venta);
         }
 
-        private void btnElegirVenta_Click(object sender, EventArgs e)
+
+        private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            var confirmarPago = new ConfirmarPago(this, venta);
+            var confirmarPago = new CancelarVentaConfirmar(this, venta);
             confirmarPago.Show();
         }
     }

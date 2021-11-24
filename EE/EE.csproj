@@ -55,6 +55,7 @@
     <Compile Include="IdentityEe.cs" />
     <Compile Include="IdiomaEe.cs" />
     <Compile Include="IIUpdatable.cs" />
+    <Compile Include="PagoEe.cs" />
     <Compile Include="PedidoProveedorDetalleEe.cs" />
     <Compile Include="DevolucionEe.cs" />
     <Compile Include="ControlEe.cs" />

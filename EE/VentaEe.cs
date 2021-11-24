@@ -12,5 +12,14 @@ namespace EE
         public VentaEstadoEe Estado { get; set; }
         public DateTime Fecha { get; set; }
         public double Total { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var p = obj as VentaEe;
+            if (p == null)
+                return false;
+
+            return this.Id.Equals(p.Id);
+        }
     }
 }

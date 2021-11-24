@@ -92,6 +92,12 @@
     <Compile Include="DireccionBaja.Designer.cs">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="CancelarVentaConfirmar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelarVentaConfirmar.Designer.cs">
+      <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProveedorBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="ConfirmarPago.Designer.cs">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelarVenta.Designer.cs">
+      <DependentUpon>CancelarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="RecibirPago.cs">
       <SubType>Form</SubType>
@@ -330,6 +342,9 @@
     <EmbeddedResource Include="DireccionBaja.resx">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CancelarVentaConfirmar.resx">
+      <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmarPago.resx">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelarVenta.resx">
+      <DependentUpon>CancelarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecibirPago.resx">
       <DependentUpon>RecibirPago.cs</DependentUpon>

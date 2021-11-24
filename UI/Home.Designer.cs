@@ -55,6 +55,7 @@ namespace UI
             this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
             this.tabCaja = new MetroFramework.Controls.MetroTabPage();
             this.btnRecibirPago = new MetroFramework.Controls.MetroButton();
+            this.btnCancelarVenta = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -297,6 +298,7 @@ namespace UI
             // 
             // tabCaja
             // 
+            this.tabCaja.Controls.Add(this.btnCancelarVenta);
             this.tabCaja.Controls.Add(this.btnRecibirPago);
             this.tabCaja.HorizontalScrollbarBarColor = true;
             this.tabCaja.HorizontalScrollbarHighlightOnWheel = false;
@@ -319,6 +321,16 @@ namespace UI
             this.btnRecibirPago.Text = "Recibir Pago";
             this.btnRecibirPago.UseSelectable = true;
             this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
+            // 
+            // btnCancelarVenta
+            // 
+            this.btnCancelarVenta.Location = new System.Drawing.Point(7, 59);
+            this.btnCancelarVenta.Name = "btnCancelarVenta";
+            this.btnCancelarVenta.Size = new System.Drawing.Size(136, 24);
+            this.btnCancelarVenta.TabIndex = 3;
+            this.btnCancelarVenta.Text = "Cancelar Venta";
+            this.btnCancelarVenta.UseSelectable = true;
+            this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
             // 
             // Home
             // 
@@ -362,5 +374,6 @@ namespace UI
         private MetroButton btnIdioma;
         private MetroTabPage tabCaja;
         private MetroButton btnRecibirPago;
+        private MetroButton btnCancelarVenta;
     }
 }

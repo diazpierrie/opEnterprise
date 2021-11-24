@@ -317,12 +317,41 @@ namespace DAL
 
         }
 
-        public bool ConfirmarPago(VentaEe venta)
+        public int RegistrarPago(PagoEe pago)
+        {
+            var columnas = new List<string> { "idVenta", "montoCobrado", "vuelto" };
+            var valores = new List<string> { pago.Venta.Id.ToString(), pago.MontoCobrado.ToString(CultureInfo.InvariantCulture), pago.Vuelto.ToString(CultureInfo.InvariantCulture) };
+
+            return Insert("pago", columnas.ToArray(), valores.ToArray());
+        }
+
+        public bool CambiarEstadoAPagado(VentaEe venta)
         {
             try
             {
                 var strQuery = "UPDATE[dbo].[venta] " +
                                "SET[idEstado] = 2 " +
+                               $"WHERE id = @id";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                query.Parameters.AddWithValue("@id", venta.Id);
+
+                return ExecuteQuery(query);
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+        }
+
+        public bool Cancelar(VentaEe venta)
+        {
+            try
+            {
+                var strQuery = "UPDATE[dbo].[venta] " +
+                               "SET[idEstado] = 3 " +
                                $"WHERE id = @id";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -439,7 +468,6 @@ namespace DAL
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
         }
-
 
 
     }
