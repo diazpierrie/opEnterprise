@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
@@ -12,7 +12,6 @@ namespace DAL
             try
             {
                 var consultaSql = $"SELECT ROW_NUMBER() OVER(ORDER BY Descripcion) as id, Descripcion as Objeto FROM bitacora WHERE titulo LIKE '{entidad}%' AND descripcion LIKE'%\"id\":{id}%'";
-
 
                 var query = new SqlCommand(consultaSql, Conn);
                 Conn.Open();
@@ -44,7 +43,5 @@ namespace DAL
 
             return result;
         }
-
-
     }
 }

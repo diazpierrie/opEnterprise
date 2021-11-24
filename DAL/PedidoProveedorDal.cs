@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -248,9 +248,7 @@ namespace DAL
 
         public void Actualizar(ProductoEe sucu)
         {
-
         }
-
 
         public int Crear(PedidoProveedorEe obj)
         {
@@ -262,7 +260,6 @@ namespace DAL
 
         public int CrearDetalle(PedidoProveedorEe venta, List<ProductoEdificioEe> productos)
         {
-
             var columnas = new List<string> { "idUsuario", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };
             var valores = new List<string[]>();
             foreach (var producto in productos)
@@ -275,8 +272,8 @@ namespace DAL
                 valores.Add(value);
             }
             return Insert("pedido_proveedor_detalle", columnas.ToArray(), valores);
-
         }
+
         public bool MarcarVentaComoPerdida(PedidoProveedorEe venta)
         {
             var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
@@ -286,10 +283,8 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-
         private PedidoProveedorEe CastDto(SqlDataReader data)
         {
-
             return new PedidoProveedorEe
             {
                 Id = int.Parse(data["id"].ToString()),
@@ -315,8 +310,5 @@ namespace DAL
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
         }
-
-
-
     }
 }

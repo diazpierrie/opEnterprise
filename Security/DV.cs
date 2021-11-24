@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DAL;
+using EE;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
-using EE;
 
 namespace Security
 {
@@ -113,7 +113,6 @@ namespace Security
 
         //public static void ActualizarDv()
         //{
-
         //        try
         //        {
         //            BorrarErrores();
@@ -143,5 +142,4 @@ namespace Security
             _errores.Clear();
         }
     }
-
 }

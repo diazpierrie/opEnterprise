@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace Security
 {

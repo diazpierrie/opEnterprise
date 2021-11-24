@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -79,6 +79,5 @@ namespace BLL
         {
             return _dal.Obtener(id);
         }
-
     }
 }

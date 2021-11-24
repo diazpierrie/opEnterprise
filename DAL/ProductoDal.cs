@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -10,6 +10,7 @@ namespace DAL
     {
         private static readonly DepositoDal _depositoDal = new DepositoDal();
         private static readonly SucursalDal _sucursalDal = new SucursalDal();
+
         public ProductoEe Obtener(int id)
         {
             try
@@ -107,7 +108,6 @@ namespace DAL
                 return null;
             }
         }
-
 
         public List<ProductoEe> ObtenerActivos(string name = null)
         {
@@ -209,7 +209,6 @@ namespace DAL
 
                 Conn.Close();
                 return false;
-
             }
             catch (Exception e)
             {
@@ -217,7 +216,6 @@ namespace DAL
                 return false;
             }
         }
-
 
         public bool Borrar(int id)
         {
@@ -271,9 +269,6 @@ namespace DAL
             }
         }
 
-
-
-
         private static ProductoEe CastDto(SqlDataReader data)
         {
             return new ProductoEe
@@ -312,8 +307,5 @@ namespace DAL
                 Edificio = _depositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))
             };
         }
-
-
-
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
+using System;
+using System.Collections.Generic;
 
 namespace Security
 {
@@ -69,11 +69,9 @@ namespace Security
             return _dal.Obtener(name);
         }
 
-
         public static UsuarioEe Obtener(int id)
         {
             return _dal.Obtener(id);
         }
     }
-
 }

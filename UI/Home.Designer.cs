@@ -46,6 +46,7 @@ namespace UI
             this.btnBitacora = new MetroFramework.Controls.MetroButton();
             this.btnConfigurarEdificio = new MetroFramework.Controls.MetroButton();
             this.tabVenta = new MetroFramework.Controls.MetroTabPage();
+            this.btnCancelarVentaVenta = new MetroFramework.Controls.MetroButton();
             this.btnCrearQueja = new MetroFramework.Controls.MetroButton();
             this.btnBuscarVenta = new MetroFramework.Controls.MetroButton();
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
@@ -54,8 +55,9 @@ namespace UI
             this.btnCrearReposicion = new MetroFramework.Controls.MetroButton();
             this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
             this.tabCaja = new MetroFramework.Controls.MetroTabPage();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.btnCancelarVentaCaja = new MetroFramework.Controls.MetroButton();
             this.btnRecibirPago = new MetroFramework.Controls.MetroButton();
-            this.btnCancelarVenta = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,7 +76,7 @@ namespace UI
             this.tcHome.Controls.Add(this.tabCaja);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 3;
+            this.tcHome.SelectedIndex = 1;
             this.tcHome.Size = new System.Drawing.Size(776, 384);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
@@ -204,6 +206,7 @@ namespace UI
             // 
             // tabVenta
             // 
+            this.tabVenta.Controls.Add(this.btnCancelarVentaVenta);
             this.tabVenta.Controls.Add(this.btnCrearQueja);
             this.tabVenta.Controls.Add(this.btnBuscarVenta);
             this.tabVenta.Controls.Add(this.btnRealizarVenta);
@@ -218,6 +221,16 @@ namespace UI
             this.tabVenta.VerticalScrollbarBarColor = true;
             this.tabVenta.VerticalScrollbarHighlightOnWheel = false;
             this.tabVenta.VerticalScrollbarSize = 10;
+            // 
+            // btnCancelarVentaVenta
+            // 
+            this.btnCancelarVentaVenta.Location = new System.Drawing.Point(350, 21);
+            this.btnCancelarVentaVenta.Name = "btnCancelarVentaVenta";
+            this.btnCancelarVentaVenta.Size = new System.Drawing.Size(114, 39);
+            this.btnCancelarVentaVenta.TabIndex = 5;
+            this.btnCancelarVentaVenta.Text = "Cancelar Venta";
+            this.btnCancelarVentaVenta.UseSelectable = true;
+            this.btnCancelarVentaVenta.Click += new System.EventHandler(this.btnCancelarVentaVenta_Click);
             // 
             // btnCrearQueja
             // 
@@ -298,7 +311,8 @@ namespace UI
             // 
             // tabCaja
             // 
-            this.tabCaja.Controls.Add(this.btnCancelarVenta);
+            this.tabCaja.Controls.Add(this.metroButton2);
+            this.tabCaja.Controls.Add(this.btnCancelarVentaCaja);
             this.tabCaja.Controls.Add(this.btnRecibirPago);
             this.tabCaja.HorizontalScrollbarBarColor = true;
             this.tabCaja.HorizontalScrollbarHighlightOnWheel = false;
@@ -312,6 +326,25 @@ namespace UI
             this.tabCaja.VerticalScrollbarHighlightOnWheel = false;
             this.tabCaja.VerticalScrollbarSize = 10;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(7, 59);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(136, 23);
+            this.metroButton2.TabIndex = 4;
+            this.metroButton2.Text = "Buscar Venta";
+            this.metroButton2.UseSelectable = true;
+            // 
+            // btnCancelarVentaCaja
+            // 
+            this.btnCancelarVentaCaja.Location = new System.Drawing.Point(7, 88);
+            this.btnCancelarVentaCaja.Name = "btnCancelarVentaCaja";
+            this.btnCancelarVentaCaja.Size = new System.Drawing.Size(136, 24);
+            this.btnCancelarVentaCaja.TabIndex = 3;
+            this.btnCancelarVentaCaja.Text = "Cancelar Venta";
+            this.btnCancelarVentaCaja.UseSelectable = true;
+            this.btnCancelarVentaCaja.Click += new System.EventHandler(this.btnCancelarVentaCaja_Click);
+            // 
             // btnRecibirPago
             // 
             this.btnRecibirPago.Location = new System.Drawing.Point(7, 29);
@@ -321,16 +354,6 @@ namespace UI
             this.btnRecibirPago.Text = "Recibir Pago";
             this.btnRecibirPago.UseSelectable = true;
             this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
-            // 
-            // btnCancelarVenta
-            // 
-            this.btnCancelarVenta.Location = new System.Drawing.Point(7, 59);
-            this.btnCancelarVenta.Name = "btnCancelarVenta";
-            this.btnCancelarVenta.Size = new System.Drawing.Size(136, 24);
-            this.btnCancelarVenta.TabIndex = 3;
-            this.btnCancelarVenta.Text = "Cancelar Venta";
-            this.btnCancelarVenta.UseSelectable = true;
-            this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
             // 
             // Home
             // 
@@ -374,6 +397,8 @@ namespace UI
         private MetroButton btnIdioma;
         private MetroTabPage tabCaja;
         private MetroButton btnRecibirPago;
-        private MetroButton btnCancelarVenta;
+        private MetroButton btnCancelarVentaCaja;
+        private MetroButton btnCancelarVentaVenta;
+        private MetroButton metroButton2;
     }
 }

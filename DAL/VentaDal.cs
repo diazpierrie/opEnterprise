@@ -1,9 +1,9 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -294,9 +294,7 @@ namespace DAL
 
         public void Actualizar(ProductoEe sucu)
         {
-
         }
-
 
         public int Crear(VentaEe obj)
         {
@@ -308,13 +306,11 @@ namespace DAL
 
         public int CrearDetalle(VentaEe venta, ProductoEdificioEe producto)
         {
-
             var columnas = new List<string> { "idVenta", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };
             var valores = new[] { venta.Id.ToString(), producto.Id.ToString(), producto.Costo.ToString(CultureInfo.InvariantCulture),
                 producto.Precio.ToString(CultureInfo.InvariantCulture), producto.Cantidad.ToString() };
 
             return Insert("venta_detalle", columnas.ToArray(), valores);
-
         }
 
         public int RegistrarPago(PagoEe pago)
@@ -437,10 +433,8 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-
         private VentaEe CastDto(SqlDataReader data)
         {
-
             return new VentaEe
             {
                 Id = int.Parse(data["id"].ToString()),
@@ -468,7 +462,5 @@ namespace DAL
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
         }
-
-
     }
 }

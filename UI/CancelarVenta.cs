@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
-using BLL;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -24,10 +24,10 @@ namespace UI
             if (txtUsuario.Text == null &&
                 txtCliente.Text == null) return;
 
-                gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
+                                                              && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
 
-                gridVentas.Refresh();
+            gridVentas.Refresh();
         }
 
         public void ActualizarGrid()
@@ -64,7 +64,6 @@ namespace UI
             // ReSharper disable once ObjectCreationAsStatement
             new VentaVerDetalle(venta);
         }
-
 
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {

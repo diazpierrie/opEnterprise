@@ -1,13 +1,14 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
     public class DireccionDal : ConnectionDal
     {
         private readonly CompradorDal _compradorDal = new CompradorDal();
+
         public DireccionEe Obtener(int id)
         {
             try
@@ -166,8 +167,6 @@ namespace DAL
 
             return ExecuteQuery(query);
         }
-
-
 
         public bool Borrar(int id)
         {

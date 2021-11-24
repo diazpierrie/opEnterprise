@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using EE;
 
 namespace DAL
 {
@@ -174,6 +174,7 @@ namespace DAL
 
             return GetLastid("puestos");
         }
+
         public bool BorrarPuestos(int sectorid)
         {
             var strQuery = "DELETE FROM sector_puesto_usuario WHERE sector_id = @sectorid";
@@ -253,7 +254,6 @@ namespace DAL
 
             return Insert("sector", columnas.ToArray(), valores.ToArray());
         }
-
 
         public bool Borrar(int id)
         {
@@ -381,6 +381,5 @@ namespace DAL
                 return false;
             }
         }
-
     }
 }

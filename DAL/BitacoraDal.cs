@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -59,15 +59,19 @@ namespace DAL
                 case "Error":
                     result.Tipo = Tipo.Error;
                     break;
+
                 case "Info":
                     result.Tipo = Tipo.Info;
                     break;
+
                 case "Warning":
                     result.Tipo = Tipo.Warning;
                     break;
+
                 case "Control":
                     result.Tipo = Tipo.Control;
                     break;
+
                 default:
                     result.Tipo = Tipo.Info;
                     break;
@@ -81,4 +85,3 @@ namespace DAL
         }
     }
 }
-

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -11,6 +11,7 @@ namespace DAL
         private static readonly FamiliaDal DalFamilia = new FamiliaDal();
         private static readonly SectorDal DalSector = new SectorDal();
         private static readonly PuestoDal DalPuesto = new PuestoDal();
+
         public UsuarioEe Login(string username, string password)
         {
             try
@@ -73,7 +74,6 @@ namespace DAL
                 ExecuteQuery(querySet);
 
                 return intentosFallidos;
-
             }
             catch (Exception e)
             {
@@ -91,7 +91,6 @@ namespace DAL
                 querySet.Parameters.AddWithValue("@intentosFallidos", 0);
 
                 ExecuteQuery(querySet);
-
             }
             catch (Exception e)
             {
@@ -330,7 +329,6 @@ namespace DAL
                 values.Add(us.Sector.Id.ToString());
             }
 
-
             return Insert("usuario", columns.ToArray(), values.ToArray());
         }
 
@@ -361,6 +359,7 @@ namespace DAL
 
             return result;
         }
+
         public bool AgregarPuesto(UsuarioEe us)
         {
             var query = new SqlCommand("UPDATE usuario SET idPuesto = @puestoid WHERE id = @id", Conn);

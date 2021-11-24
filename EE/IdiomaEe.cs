@@ -4,8 +4,8 @@ namespace EE
 {
     public class IdiomaEe : IdentityEe
     {
-
         private string _nombre;
+
         public string Nombre
         {
             get => _nombre;

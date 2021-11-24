@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using EE;
 
 namespace DAL
 {
@@ -12,6 +12,7 @@ namespace DAL
         private readonly DireccionDal _direccionDal = new DireccionDal();
         private readonly SucursalDal _sucursalDal = new SucursalDal();
         private readonly DepositoDal _depositoDal = new DepositoDal();
+
         public EnvioSucursalEe ObtenerDeSucursal(int id)
         {
             try
@@ -194,7 +195,7 @@ namespace DAL
 
         public int CrearDetalleDeDeposito(EnvioDepositoDetalleEe obj)
         {
-            var columnas = new List<string> { "idVentaDetalle","idDeposito", "cantidad" };
+            var columnas = new List<string> { "idVentaDetalle", "idDeposito", "cantidad" };
             var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Deposito.Id.ToString(), obj.Cantidad.ToString() };
 
             return Insert("envio_deposito_detalle", columnas.ToArray(), valores.ToArray());
@@ -213,7 +214,6 @@ namespace DAL
 
         //    return ExecuteQuery(query);
         //}
-        
 
         private EnvioSucursalEe CastDtoSucursal(SqlDataReader data)
         {
@@ -226,7 +226,6 @@ namespace DAL
                 FechaSalida = Convert.ToDateTime(data["fechaSalida"].ToString()),
                 FechaLlegada = Convert.ToDateTime(data["fechaLlegada"].ToString()),
                 EstadoEnvio = int.Parse(data["EstadoEnvio"].ToString()),
-
             };
         }
 
@@ -241,9 +240,7 @@ namespace DAL
                 FechaSalida = Convert.ToDateTime(data["fechaSalida"].ToString()),
                 FechaLlegada = Convert.ToDateTime(data["fechaLlegada"].ToString()),
                 EstadoEnvio = int.Parse(data["EstadoEnvio"].ToString()),
-
             };
         }
-
     }
 }

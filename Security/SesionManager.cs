@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using DAL;
+﻿using DAL;
 using EE;
+using System.Threading;
 
 namespace Security
 {

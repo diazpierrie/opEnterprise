@@ -1,15 +1,14 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using EE;
 
 namespace DAL
 {
     public class IdiomaDal : ConnectionDal
     {
-
         public Dictionary<string, string> ObtenerTextos(int idiomaid)
         {
             try
@@ -35,8 +34,6 @@ namespace DAL
                 return null;
             }
         }
-
-
 
         public IdiomaEe CargarDefault()
         {
@@ -160,7 +157,6 @@ namespace DAL
                 var query = new SqlCommand(strQuery, Conn);
                 query.Parameters.AddWithValue("@idIdioma", idIdioma);
 
-
                 if (Conn.State == ConnectionState.Open)
                 {
                     return Convert.ToBoolean(0);
@@ -170,7 +166,6 @@ namespace DAL
                 var resultado = query.ExecuteNonQuery();
                 Conn.Close();
                 return Convert.ToBoolean(resultado);
-
             }
             catch (Exception e)
             {
@@ -216,7 +211,6 @@ namespace DAL
             }
 
             return result;
-
         }
 
         public bool EliminarIdioma(int idiomaId)
@@ -242,6 +236,5 @@ namespace DAL
 
             return ExecuteQuery(query);
         }
-
     }
 }

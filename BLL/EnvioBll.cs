@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -29,7 +29,6 @@ namespace BLL
             return envio.Id;
         }
 
-
         public static int CrearDetalleDeSucursal(EnvioSucursalDetalleEe envio)
         {
             envio.Id = Dal.CrearDetalleDeSucursal(envio);
@@ -45,7 +44,6 @@ namespace BLL
 
             return envio.Id;
         }
-
 
         public static List<EnvioSucursalEe> ObtenerDeSucursal()
         {
@@ -66,10 +64,10 @@ namespace BLL
         {
             return Dal.ObtenerDeDeposito(id);
         }
+
         public static List<TipoEntregaEe> ObtenerTiposEntrega()
         {
             return Dal.ObtenerTiposEntrega();
         }
-
     }
 }

@@ -15,6 +15,7 @@ namespace EE
             Usuario = usuario;
         }
 
-        public NotificacionEe() { }
+        public NotificacionEe()
+        { }
     }
 }

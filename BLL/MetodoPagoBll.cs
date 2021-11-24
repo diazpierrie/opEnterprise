@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -12,7 +12,5 @@ namespace BLL
         {
             return Dal.Obtener();
         }
-
-
     }
 }

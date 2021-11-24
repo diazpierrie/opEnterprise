@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
+using System.Collections.Generic;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -11,6 +11,7 @@ namespace UI
     {
         private List<CompradorEe> _dataTable;
         private readonly CompletarVenta _fatherform;
+
         public ClienteBuscar(CompletarVenta fatherform)
         {
             _fatherform = fatherform;

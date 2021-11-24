@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
@@ -88,5 +88,4 @@ namespace DAL
             return result;
         }
     }
-
 }

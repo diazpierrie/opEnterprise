@@ -10,11 +10,10 @@ namespace UI
 {
     public partial class VentaQuejaElegirProducto : UpdatableForm
     {
-        private readonly VentaEe _venta;
         private readonly string _motivo;
-        private double _total;
         private readonly List<VentaDetalleEe> _productosSeleccionados = new List<VentaDetalleEe>();
-
+        private readonly VentaEe _venta;
+        private double _total;
         public VentaQuejaElegirProducto(VentaEe venta, string motivo)
         {
             _venta = venta;
@@ -35,9 +34,34 @@ namespace UI
             gridDetalle.Columns["costo"].ReadOnly = true;
             gridDetalle.Columns["precio"].ReadOnly = true;
 
-            lblTotal.Text = @"Perdida Total: $0";
+            switch (_motivo)
+            {
+                case "Perdida":
+
+                    lblTotal.Text = @"Perdida Total: $0";
+                    break;
+
+                case "Devolucion":
+
+                    lblTotal.Visible = false;
+                    break;
+            }
 
             Show();
+        }
+
+        private void ActualizarTotal()
+        {
+            if (gridDetalle.SelectedRows.Count == 0) return;
+            _total = 0;
+
+            for (var i = 0; i < gridDetalle.SelectedRows.Count; i++)
+            {
+                var producto = (VentaDetalleEe)gridDetalle.SelectedRows[i].DataBoundItem;
+                _total += producto.Costo * producto.Cantidad;
+            }
+
+            lblTotal.Text = $@"Perdida Total: ${_total}";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -71,25 +95,6 @@ namespace UI
             }
         }
 
-        private void gridDetalle_SelectionChanged(object sender, EventArgs e)
-        {
-            ActualizarTotal();
-        }
-
-        private void ActualizarTotal()
-        {
-            if (gridDetalle.SelectedRows.Count == 0) return;
-            _total = 0;
-
-            for (var i = 0; i < gridDetalle.SelectedRows.Count; i++)
-            {
-                var producto = (VentaDetalleEe)gridDetalle.SelectedRows[i].DataBoundItem;
-                _total += producto.Costo * producto.Cantidad;
-            }
-
-            lblTotal.Text = $@"Perdida Total: ${_total}";
-        }
-
         private void gridDetalle_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             gridDetalle.Tag = gridDetalle.CurrentCell.Value;
@@ -106,6 +111,11 @@ namespace UI
             {
                 gridDetalle.CurrentCell.Value = gridDetalle.Tag;
             }
+        }
+
+        private void gridDetalle_SelectionChanged(object sender, EventArgs e)
+        {
+            ActualizarTotal();
         }
     }
 }

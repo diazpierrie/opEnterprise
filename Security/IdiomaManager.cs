@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
+using System.Collections.Generic;
 
 namespace Security
 {
@@ -83,6 +83,5 @@ namespace Security
 
             BitacoraManager.AgregarMensajeControl("Idioma eliminado: ", idioma);
         }
-
     }
 }

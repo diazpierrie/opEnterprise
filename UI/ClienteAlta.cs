@@ -1,13 +1,13 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
 
 namespace UI
 {
     public partial class ClienteAlta : UpdatableForm
     {
         private readonly ClienteBuscar _clienteBuscar;
-        private readonly string[] _esSocioStrings = {"No", "Si"};
+        private readonly string[] _esSocioStrings = { "No", "Si" };
         public DireccionEe Direccion = new DireccionEe();
 
         public ClienteAlta(ClienteBuscar clienteBuscar)
@@ -30,18 +30,18 @@ namespace UI
                 EsSocio = cbEsSocio.SelectedIndex == 1
             };
 
-             compradorNuevo.Id = CompradorBll.Crear(compradorNuevo);
+            compradorNuevo.Id = CompradorBll.Crear(compradorNuevo);
 
-             DireccionBll.Crear(new DireccionEe
-                 {
-                     Comprador = compradorNuevo,
-                     Calle = Direccion.Calle,
-                     Localidad = Direccion.Localidad,
-                     Provincia = Direccion.Provincia,
-                     Pais = Direccion.Pais,
-                     CodigoPostal = Direccion.CodigoPostal
-                 }
-             );
+            DireccionBll.Crear(new DireccionEe
+            {
+                Comprador = compradorNuevo,
+                Calle = Direccion.Calle,
+                Localidad = Direccion.Localidad,
+                Provincia = Direccion.Provincia,
+                Pais = Direccion.Pais,
+                CodigoPostal = Direccion.CodigoPostal
+            }
+            );
 
             _clienteBuscar.ActualizarGrid();
             Close();
@@ -58,7 +58,7 @@ namespace UI
             AgregarDireccion.Show();
         }
 
-        public void ActualizarDireccion( )
+        public void ActualizarDireccion()
         {
             txtDireccion.Text = Direccion.ToString();
         }

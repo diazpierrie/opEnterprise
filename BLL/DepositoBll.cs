@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -40,7 +40,6 @@ namespace BLL
             return deposito.Id;
         }
 
-
         public static List<DepositoEe> ObtenerActivos(string name = null)
         {
             return _dal.ObtenerActivos(name);
@@ -70,6 +69,5 @@ namespace BLL
         {
             return _dal.DesasignarEmpleadoConDeposito(user, depo);
         }
-
     }
 }

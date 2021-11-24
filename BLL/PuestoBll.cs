@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -45,6 +45,5 @@ namespace BLL
         {
             return us.Puesto ?? (us.Puesto = _dao.Obtener(us));
         }
-
     }
 }

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -19,7 +19,6 @@ namespace BLL
             return _dao.Obtener(name);
         }
 
-
         public static int Crear(CompradorEe obj)
         {
             obj.Id = _dao.Crear(obj);
@@ -29,6 +28,5 @@ namespace BLL
 
             return obj.Id;
         }
-
     }
 }

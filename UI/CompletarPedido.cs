@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
+using System.Linq;
 
 namespace UI
 {
@@ -9,6 +9,7 @@ namespace UI
     {
         private readonly DepositoCrearReposicion _depositoHome;
         private ProveedorEe _proveedor;
+
         public CompletarPedido(DepositoCrearReposicion depositoHome)
         {
             _depositoHome = depositoHome;
@@ -44,7 +45,5 @@ namespace UI
             Close();
             _depositoHome.Close();
         }
-
-
     }
 }

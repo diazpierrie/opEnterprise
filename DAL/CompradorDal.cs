@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
@@ -44,7 +44,6 @@ namespace DAL
             {
                 var strQuery = "SELECT id, nombre, apellido, dni, mail, telefono, esSocio, activo FROM comprador";
 
-
                 if (name != null)
                 {
                     strQuery += " WHERE nombre LIKE CONCAT('%', @name, '%') OR apellido LIKE CONCAT('%', @name, '%')";
@@ -73,7 +72,6 @@ namespace DAL
                 return null;
             }
         }
-
 
         public int Crear(CompradorEe obj)
         {
@@ -225,6 +223,5 @@ namespace DAL
                 Activo = bool.Parse(data["activo"].ToString()),
             };
         }
-
     }
 }

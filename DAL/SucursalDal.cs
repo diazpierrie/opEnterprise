@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
@@ -205,7 +205,6 @@ namespace DAL
 
                 Conn.Close();
                 return false;
-
             }
             catch (Exception e)
             {
@@ -213,7 +212,6 @@ namespace DAL
                 return false;
             }
         }
-
 
         public bool Borrar(int id)
         {
@@ -267,7 +265,6 @@ namespace DAL
             }
         }
 
-
         public SucursalEe CastDto(SqlDataReader data)
         {
             return new SucursalEe
@@ -280,7 +277,5 @@ namespace DAL
                 Telefono = data["telefono"].ToString(),
             };
         }
-
-
     }
 }

@@ -11,6 +11,5 @@ namespace EE
         public string Telefono { get; set; }
         public DateTime FechaCreacion { get; set; }
         public bool Activo { get; set; }
-
     }
 }

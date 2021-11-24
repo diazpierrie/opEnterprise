@@ -1,13 +1,12 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using EE;
 
 namespace DAL
 {
     public class PuestoDal : ConnectionDal
     {
-
         public List<PuestoEe> Obtener(int id = 0)
         {
             try

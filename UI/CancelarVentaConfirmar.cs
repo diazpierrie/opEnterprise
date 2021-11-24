@@ -1,6 +1,6 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
 
 namespace UI
 {

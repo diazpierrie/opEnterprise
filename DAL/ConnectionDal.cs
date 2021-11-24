@@ -123,6 +123,7 @@ namespace DAL
                 return 0;
             }
         }
+
         protected int Insert(string table, string[] columns, List<string[]> values)
         {
             try

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BLL;
 using EE;
 
 namespace UI
@@ -28,28 +29,6 @@ namespace UI
                     new VentaQuejaElegirProducto(_venta, "Devolucion");
                     break;
             }
-
-
-
-
-            //var perdida = new PerdidaEe()
-            //{
-            //    Sucursal = Sesion.ObtenerSesion().Sucursal,
-            //    Usuario = Sesion.ObtenerSesion().Usuario,
-            //    Fecha = DateTime.Now,
-            //    Total = _venta
-            //};
-            //switch (cbQuejas.SelectedIndex)
-            //{
-            //    case 0:
-            //        VentaBll.RegistrarPerdida(_venta);
-            //        break;
-            //    case 1:
-            //        VentaBll.RegistrarDevolucion(_venta);
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
     }
 }

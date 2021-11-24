@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
 using Security;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -41,7 +41,6 @@ namespace BLL
             return _dal.Obtener(name);
         }
 
-
         public static ProveedorEe Obtener(int id)
         {
             return _dal.Obtener(id);
@@ -52,5 +51,4 @@ namespace BLL
             return _dal.Restaurar(proveedorAntes.Id, proveedorDespues);
         }
     }
-
 }

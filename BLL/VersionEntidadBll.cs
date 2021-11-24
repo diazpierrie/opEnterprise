@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using DAL;
+﻿using DAL;
 using EE;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -8,11 +8,9 @@ namespace BLL
     {
         private static VersionEntidadDal _dal = new VersionEntidadDal();
 
-
         public static List<VersionEntidadEe> Obtener(string name, int id)
         {
             return _dal.Obtener(name, id);
         }
-
     }
 }

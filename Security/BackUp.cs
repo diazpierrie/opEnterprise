@@ -1,6 +1,6 @@
-﻿using System;
-using DAL;
+﻿using DAL;
 using EE;
+using System;
 
 namespace Security
 {
@@ -22,7 +22,6 @@ namespace Security
             });
 
             return true;
-
         }
 
         public static bool RealizarRestore(string nombreArchivo, UsuarioEe usuarioLoggeado)
@@ -39,7 +38,6 @@ namespace Security
             });
 
             return true;
-
         }
     }
 }
