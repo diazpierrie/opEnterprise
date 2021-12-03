@@ -1,6 +1,6 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
 using UI.Properties;
 
 namespace UI
@@ -9,8 +9,6 @@ namespace UI
     {
         private readonly Home _homeForm;
         private readonly string[] _tipoEdificioStrings = { "Deposito", "Sucursal" };
-
-
 
         public ConfigurarEdificio(Home homeForm)
         {
@@ -71,8 +69,6 @@ namespace UI
             }
 
             _homeForm.ActualizarTabs();
-
         }
     }
 }
-

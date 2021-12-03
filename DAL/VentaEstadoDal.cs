@@ -7,7 +7,7 @@ namespace DAL
 {
     public class VentaEstadoDal : ConnectionDal
     {
-        public List<VentaEstadoEe> Obtener()
+        public List<EstadoEe> Obtener()
         {
             try
             {
@@ -17,7 +17,7 @@ namespace DAL
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var ventaEstados = new List<VentaEstadoEe>();
+                var ventaEstados = new List<EstadoEe>();
 
                 if (data.HasRows)
                 {
@@ -37,7 +37,7 @@ namespace DAL
             }
         }
 
-        public VentaEstadoEe Obtener(int id)
+        public EstadoEe Obtener(int id)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace DAL
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var ventaEstado = new VentaEstadoEe();
+                var ventaEstado = new EstadoEe();
 
                 if (data.HasRows)
                 {
@@ -67,9 +67,9 @@ namespace DAL
             }
         }
 
-        private static VentaEstadoEe CastDto(SqlDataReader data)
+        private static EstadoEe CastDto(SqlDataReader data)
         {
-            return new VentaEstadoEe
+            return new EstadoEe
             {
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString()

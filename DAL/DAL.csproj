@@ -51,10 +51,20 @@
   <ItemGroup>
     <Compile Include="BackupDal.cs" />
     <Compile Include="BitacoraDal.cs" />
+    <Compile Include="openEnterpriseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PedidoProveedorDal.cs" />
     <Compile Include="PedidoEstadoDal.cs" />
     <Compile Include="DireccionDal.cs" />
     <Compile Include="EnvioDal.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SucursalDal.cs" />
     <Compile Include="VentaEstadoDal.cs" />
     <Compile Include="ProductoDal.cs" />
@@ -95,6 +105,24 @@
     <PackageReference Include="System.Security.Principal.Windows">
       <Version>5.0.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="openEnterpriseDataSet.xsc">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="openEnterpriseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>openEnterpriseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="openEnterpriseDataSet.xss">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,6 @@ namespace EE
         public DepositoEe Deposito { get; set; }
         public DateTime FechaSalida { get; set; }
         public DateTime FechaLlegada { get; set; }
-        public int EstadoEnvio { get; set; }
+        public EstadoEe Estado { get; set; }
     }
 }

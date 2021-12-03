@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmarEnvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmarEnvio.Designer.cs">
+      <DependentUpon>ConfirmarEnvio.cs</DependentUpon>
+    </Compile>
     <Compile Include="DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,17 @@
     </Compile>
     <Compile Include="CancelarVentaConfirmar.Designer.cs">
       <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="openEnterpriseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RetiroLocalAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RetiroLocalAgregar.Designer.cs">
+      <DependentUpon>RetiroLocalAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="ProveedorBuscar.cs">
       <SubType>Form</SubType>
@@ -151,6 +168,12 @@
     </Compile>
     <Compile Include="RecibirPago.Designer.cs">
       <DependentUpon>RecibirPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarEnvio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarEnvio.Designer.cs">
+      <DependentUpon>BuscarEnvio.cs</DependentUpon>
     </Compile>
     <Compile Include="VentaElegirQueja.cs">
       <SubType>Form</SubType>
@@ -312,6 +335,12 @@
     <Compile Include="VentaQuejaElegirProducto.Designer.cs">
       <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnvioVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnvioVerDetalle.Designer.cs">
+      <DependentUpon>EnvioVerDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentaVerDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +352,12 @@
     </Compile>
     <Compile Include="VerBitacora.Designer.cs">
       <DependentUpon>VerBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerEnvios.Designer.cs">
+      <DependentUpon>VerEnvios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="GestionarControles.resx">
       <DependentUpon>GestionarControles.cs</DependentUpon>
@@ -345,6 +380,9 @@
     <EmbeddedResource Include="CancelarVentaConfirmar.resx">
       <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RetiroLocalAgregar.resx">
+      <DependentUpon>RetiroLocalAgregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecibirPago.resx">
       <DependentUpon>RecibirPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarEnvio.resx">
+      <DependentUpon>BuscarEnvio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaElegirQueja.resx">
       <DependentUpon>VentaElegirQueja.cs</DependentUpon>
@@ -455,12 +496,29 @@
     <EmbeddedResource Include="VentaQuejaElegirProducto.resx">
       <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EnvioVerDetalle.resx">
+      <DependentUpon>EnvioVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentaVerDetalle.resx">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerBitacora.resx">
       <DependentUpon>VerBitacora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VerEnvios.resx">
+      <DependentUpon>VerEnvios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="openEnterpriseDataSet.xsc">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="openEnterpriseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>openEnterpriseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="openEnterpriseDataSet.xss">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

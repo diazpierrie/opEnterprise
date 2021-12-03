@@ -2,35 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
+using static System.Convert;
 
 namespace DAL
 {
     public class EnvioDal : ConnectionDal
     {
-        private readonly VentaDal _ventaDal = new VentaDal();
-        private readonly DireccionDal _direccionDal = new DireccionDal();
-        private readonly SucursalDal _sucursalDal = new SucursalDal();
-        private readonly DepositoDal _depositoDal = new DepositoDal();
-
-        public EnvioSucursalEe ObtenerDeSucursal(int id)
+        public List<EnvioSucursalEe> ObtenerDeSucursal(int id)
         {
             try
             {
-                var strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio " +
-                               $"WHERE id = {id}";
+                var strQuery = "SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_sucursal " +
+                               $"WHERE idSucursal = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                EnvioSucursalEe envioEe = null;
+                var envioEe = new List<EnvioSucursalEe>();
 
                 if (data.HasRows)
                 {
                     while (data.Read())
                     {
-                        envioEe = CastDtoSucursal(data);
+                        envioEe.Add(CastDtoSucursal(data));
                     }
                 }
 
@@ -44,54 +39,23 @@ namespace DAL
             }
         }
 
-        public List<EnvioSucursalEe> ObtenerDeSucursal()
+        public List<EnvioSucursalDetalleEe> ObtenerDetalleDeSucursal(int id)
         {
             try
             {
-                const string strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio ";
+                var strQuery = $"SELECT [id], [idVentaDetalle], [idSucursal] FROM [dbo].[envio_sucursal_detalle] WHERE id = { id }";
 
                 var query = new SqlCommand(strQuery, Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var envios = new List<EnvioSucursalEe>();
+                var envioEe = new List<EnvioSucursalDetalleEe>();
 
                 if (data.HasRows)
                 {
                     while (data.Read())
                     {
-                        envios.Add(CastDtoSucursal(data));
-                    }
-                }
-
-                Conn.Close();
-                return envios;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
-        public EnvioDepositoEe ObtenerDeDeposito(int id)
-        {
-            try
-            {
-                var strQuery = "SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio " +
-                               $"WHERE id = {id}";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                EnvioDepositoEe envioEe = null;
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        envioEe = CastDtoDeposito(data);
+                        envioEe.Add(CastDtoSucursalDetalle(data));
                     }
                 }
 
@@ -109,7 +73,7 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio ";
+                const string strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_sucursal ";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -127,6 +91,135 @@ namespace DAL
 
                 Conn.Close();
                 return envios;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<EnvioDepositoDetalleEe> ObtenerDetalleDeDeposito(int id)
+        {
+            try
+            {
+                var strQuery = $"SELECT [id] ,[idVentaDetalle] ,[idDeposito] FROM [openEnterprise].[dbo].[envio_deposito_detalle] WHERE id = { id }";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var envioEe = new List<EnvioDepositoDetalleEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        envioEe.Add(CastDtoDepositoDetalle(data));
+                    }
+                }
+
+                Conn.Close();
+                return envioEe;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<EnvioDepositoEe> ObtenerDeDeposito(int id)
+        {
+            try
+            {
+                var strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_sucursal " +
+                               $"WHERE idDeposito = {id}";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                List<EnvioDepositoEe> envioEe = null;
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        envioEe.Add(CastDtoDeposito(data));
+                    }
+                }
+
+                Conn.Close();
+                return envioEe;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<EstadoEe> ObtenerEstados()
+        {
+            try
+            {
+                const string strQuery = "SELECT [id],[descripcion] FROM [dbo].[estadoEnvio]";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var tiposEntrega = new List<EstadoEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        tiposEntrega.Add(new EstadoEe
+                        {
+                            Id = int.Parse(data["Id"].ToString()),
+                            Nombre = data["Descripcion"].ToString()
+                        });
+                    }
+                }
+
+                Conn.Close();
+                return tiposEntrega;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public EstadoEe ObtenerEstado(int id)
+        {
+            try
+            {
+                var strQuery = $"SELECT [id],[descripcion] FROM [dbo].[estadoEnvio] WHERE id = {id}";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var tiposEntrega = new EstadoEe();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        tiposEntrega = new EstadoEe
+                        {
+                            Id = int.Parse(data["Id"].ToString()),
+                            Nombre = data["Descripcion"].ToString()
+                        };
+                    }
+                }
+
+                Conn.Close();
+                return tiposEntrega;
             }
             catch (Exception e)
             {
@@ -171,32 +264,32 @@ namespace DAL
 
         public int CrearDeSucursal(EnvioSucursalEe obj)
         {
-            var columnas = new List<string> { "idVenta", "idDireccion", "idSucursal", "fechaSalida", "idEstadoEnvio" };
-            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Sucursal.Id.ToString(), obj.FechaSalida.ToString(CultureInfo.InvariantCulture), obj.EstadoEnvio.ToString() };
+            var columnas = new List<string> { "idVenta", "idDireccion", "idSucursal", "idEstadoEnvio" };
+            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Sucursal.Id.ToString(), obj.Estado.Id.ToString() };
 
             return Insert("envio_sucursal", columnas.ToArray(), valores.ToArray());
         }
 
         public int CrearDetalleDeSucursal(EnvioSucursalDetalleEe obj)
         {
-            var columnas = new List<string> { "idVentaDetalle", "idSucursal", "cantidad" };
-            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Sucursal.Id.ToString(), obj.Cantidad.ToString() };
+            var columnas = new List<string> { "idVentaDetalle", "idSucursal" };
+            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Sucursal.Id.ToString() };
 
             return Insert("envio_sucursal_detalle", columnas.ToArray(), valores.ToArray());
         }
 
         public int CrearDeDeposito(EnvioDepositoEe obj)
         {
-            var columnas = new List<string> { "idVenta", "idDireccion", "idDeposito", "fechaSalida", "idEstadoEnvio" };
-            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Deposito.Id.ToString(), obj.FechaSalida.ToString(CultureInfo.InvariantCulture), obj.EstadoEnvio.ToString() };
+            var columnas = new List<string> { "idVenta", "idDireccion", "idDeposito", "idEstadoEnvio" };
+            var valores = new List<string> { obj.Venta.Id.ToString(), obj.Direccion.Id.ToString(), obj.Deposito.Id.ToString(), obj.Estado.Id.ToString() };
 
             return Insert("envio_deposito", columnas.ToArray(), valores.ToArray());
         }
 
         public int CrearDetalleDeDeposito(EnvioDepositoDetalleEe obj)
         {
-            var columnas = new List<string> { "idVentaDetalle", "idDeposito", "cantidad" };
-            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Deposito.Id.ToString(), obj.Cantidad.ToString() };
+            var columnas = new List<string> { "idVentaDetalle", "idDeposito" };
+            var valores = new List<string> { obj.VentaDetalle.Id.ToString(), obj.Deposito.Id.ToString() };
 
             return Insert("envio_deposito_detalle", columnas.ToArray(), valores.ToArray());
         }
@@ -215,31 +308,53 @@ namespace DAL
         //    return ExecuteQuery(query);
         //}
 
-        private EnvioSucursalEe CastDtoSucursal(SqlDataReader data)
+        private static EnvioSucursalEe CastDtoSucursal(SqlDataReader data)
         {
-            return new EnvioSucursalEe
+            var ee = new EnvioSucursalEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                Venta = _ventaDal.Obtener(int.Parse(data["idVenta"].ToString())),
-                Direccion = _direccionDal.Obtener(int.Parse(data["idDireccion"].ToString())),
-                Sucursal = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString())),
-                FechaSalida = Convert.ToDateTime(data["fechaSalida"].ToString()),
-                FechaLlegada = Convert.ToDateTime(data["fechaLlegada"].ToString()),
-                EstadoEnvio = int.Parse(data["EstadoEnvio"].ToString()),
+                Venta = new VentaEe() { Id = int.Parse(data["idVenta"].ToString()) },
+                Direccion = new DireccionEe() { Id = int.Parse(data["idDireccion"].ToString()) },
+                Sucursal = new SucursalEe() { Id = int.Parse(data["idSucursal"].ToString()) },
+                FechaSalida = data["fechaSalida"].ToString() != string.Empty ? ToDateTime(data["fechaSalida"].ToString()) : default,
+                FechaLlegada = data["fechaLlegada"].ToString() != string.Empty ? ToDateTime(data["fechaLlegada"].ToString()) : default,
+                Estado = new EstadoEe() { Id = int.Parse(data["idEstadoEnvio"].ToString()) }
             };
+
+            return ee;
         }
 
-        private EnvioDepositoEe CastDtoDeposito(SqlDataReader data)
+        private static EnvioDepositoEe CastDtoDeposito(SqlDataReader data)
         {
             return new EnvioDepositoEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                Venta = _ventaDal.Obtener(int.Parse(data["idVenta"].ToString())),
-                Direccion = _direccionDal.Obtener(int.Parse(data["idDireccion"].ToString())),
-                Deposito = _depositoDal.Obtener(int.Parse(data["idSucursal"].ToString())),
-                FechaSalida = Convert.ToDateTime(data["fechaSalida"].ToString()),
-                FechaLlegada = Convert.ToDateTime(data["fechaLlegada"].ToString()),
-                EstadoEnvio = int.Parse(data["EstadoEnvio"].ToString()),
+                Venta = new VentaEe() { Id = int.Parse(data["idVenta"].ToString()) },
+                Direccion = new DireccionEe() { Id = int.Parse(data["idDireccion"].ToString()) },
+                Deposito = new DepositoEe() { Id = int.Parse(data["idSucursal"].ToString()) },
+                FechaSalida = data["fechaSalida"].ToString() != string.Empty ? ToDateTime(data["fechaSalida"].ToString()) : default,
+                FechaLlegada = data["fechaLlegada"].ToString() != string.Empty ? ToDateTime(data["fechaLlegada"].ToString()) : default,
+                Estado = new EstadoEe() { Id = int.Parse(data["idEstadoEnvio"].ToString()) }
+            };
+        }
+
+        private EnvioSucursalDetalleEe CastDtoSucursalDetalle(SqlDataReader data)
+        {
+            return new EnvioSucursalDetalleEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                VentaDetalle = new VentaDetalleEe() { Id = int.Parse(data["idVentaDetalle"].ToString()) },
+                Sucursal = new SucursalEe() { Id = int.Parse(data["idSucursal"].ToString()) }
+            };
+        }
+
+        private EnvioDepositoDetalleEe CastDtoDepositoDetalle(SqlDataReader data)
+        {
+            return new EnvioDepositoDetalleEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                VentaDetalle = new VentaDetalleEe { Id = int.Parse(data["idVentaDetalle"].ToString()) },
+                Deposito = new DepositoEe { Id = int.Parse(data["idDeposito"].ToString()) }
             };
         }
     }

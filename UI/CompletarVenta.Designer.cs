@@ -45,7 +45,7 @@ namespace UI
             this.cbDirecciones = new MetroFramework.Controls.MetroComboBox();
             this.lblDireccion = new MetroFramework.Controls.MetroLabel();
             this.lblCliente = new MetroFramework.Controls.MetroLabel();
-            this.metroUserControl1 = new MetroFramework.Controls.MetroUserControl();
+            this.btnEnvioLocal = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // cbCuotas
@@ -196,20 +196,22 @@ namespace UI
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente";
             // 
-            // metroUserControl1
+            // btnEnvioLocal
             // 
-            this.metroUserControl1.Location = new System.Drawing.Point(366, 186);
-            this.metroUserControl1.Name = "metroUserControl1";
-            this.metroUserControl1.Size = new System.Drawing.Size(150, 150);
-            this.metroUserControl1.TabIndex = 16;
-            this.metroUserControl1.UseSelectable = true;
+            this.btnEnvioLocal.Location = new System.Drawing.Point(354, 111);
+            this.btnEnvioLocal.Name = "btnEnvioLocal";
+            this.btnEnvioLocal.Size = new System.Drawing.Size(114, 23);
+            this.btnEnvioLocal.TabIndex = 18;
+            this.btnEnvioLocal.Text = "Envio Local";
+            this.btnEnvioLocal.UseSelectable = true;
+            this.btnEnvioLocal.Click += new System.EventHandler(this.btnEnvioLocal_Click);
             // 
             // CompletarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 356);
-            this.Controls.Add(this.metroUserControl1);
+            this.ClientSize = new System.Drawing.Size(501, 356);
+            this.Controls.Add(this.btnEnvioLocal);
             this.Controls.Add(this.cbDirecciones);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.cbMetodoEntrega);
@@ -244,6 +246,6 @@ namespace UI
         private MetroComboBox cbDirecciones;
         private MetroLabel lblDireccion;
         private MetroLabel lblCliente;
-        private MetroUserControl metroUserControl1;
+        private MetroButton btnEnvioLocal;
     }
 }

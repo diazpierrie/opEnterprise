@@ -3,6 +3,7 @@ using EE;
 using Security;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace BLL
@@ -11,12 +12,24 @@ namespace BLL
     {
         private static readonly VentaDal Dal = new VentaDal();
 
-        public static int Crear(VentaEe venta, DireccionEe cbDireccionesSelectedItem, List<ProductoEdificioEe> productos)
+        public static bool Cancelar(VentaEe venta)
+        {
+            return Dal.Cancelar(venta);
+        }
+
+        public static bool ConfirmarPago(PagoEe pago)
+        {
+            Dal.RegistrarPago(pago);
+            return Dal.CambiarEstadoAPagado(pago.Venta);
+        }
+
+        public static int Crear(VentaEe venta, DireccionEe cbDireccionesSelectedItem,
+                            List<ProductoEdificioEe> productos, BindingList<ProductoEdificioEe> productosRetiroEnLocal)
         {
             venta.Id = Dal.Crear(venta);
 
             var edificios = productos.Select(x => x.Edificio).Distinct().ToList();
-            if (cbDireccionesSelectedItem != null)
+            if (cbDireccionesSelectedItem != null && productosRetiroEnLocal.Count != 0)
             {
                 edificios.Remove(Sesion.ObtenerSesion().Sucursal);
             }
@@ -33,9 +46,9 @@ namespace BLL
                                 Venta = venta,
                                 Direccion = cbDireccionesSelectedItem,
                                 Sucursal = (SucursalEe)edificio,
-                                FechaSalida = DateTime.Now,
+                                FechaSalida = new DateTime(),
                                 FechaLlegada = new DateTime(),
-                                EstadoEnvio = 1
+                                Estado = EnvioBll.ObtenerEstado(1)
                             });
                             break;
 
@@ -45,9 +58,9 @@ namespace BLL
                                 Venta = venta,
                                 Direccion = cbDireccionesSelectedItem,
                                 Deposito = (DepositoEe)edificio,
-                                FechaSalida = DateTime.Now,
+                                FechaSalida = new DateTime(),
                                 FechaLlegada = new DateTime(),
-                                EstadoEnvio = 1
+                                Estado = EnvioBll.ObtenerEstado(1)
                             });
                             break;
                     }
@@ -58,34 +71,46 @@ namespace BLL
             {
                 var ventaDetalleId = Dal.CrearDetalle(venta, producto);
 
-                if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
+                switch (producto.Edificio.GetType().Name)
                 {
-                    switch (producto.Edificio.GetType().Name)
-                    {
-                        case "SucursalEe":
+                    case "SucursalEe":
+                        Dal.ActualizarStockSucursal(producto);
+                        if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
+                        {
                             EnvioBll.CrearDetalleDeSucursal(new EnvioSucursalDetalleEe
                             {
                                 VentaDetalle = new VentaDetalleEe()
                                 {
                                     Id = ventaDetalleId
                                 },
-                                Sucursal = (SucursalEe)producto.Edificio,
-                                Cantidad = producto.CantidadAComprar,
+                                Sucursal = (SucursalEe)producto.Edificio
                             });
-                            break;
+                        }
+                        break;
 
-                        case "DepositoEe":
+                    case "DepositoEe":
+                        Dal.ActualizarStockDeposito(producto);
+                        if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
+                        {
                             EnvioBll.CrearDetalleDeDeposito(new EnvioDepositoDetalleEe()
                             {
                                 VentaDetalle = new VentaDetalleEe()
                                 {
                                     Id = ventaDetalleId
                                 },
-                                Deposito = (DepositoEe)producto.Edificio,
-                                Cantidad = producto.CantidadAComprar,
+                                Deposito = (DepositoEe)producto.Edificio
                             });
-                            break;
-                    }
+                        }
+                        break;
+                }
+            }
+
+            if (productosRetiroEnLocal.Count != 0)
+            {
+                foreach (var productoLocal in productosRetiroEnLocal)
+                {
+                    Dal.CrearDetalle(venta, productoLocal);
+                    Dal.ActualizarStockSucursal(productoLocal);
                 }
             }
 
@@ -106,28 +131,34 @@ namespace BLL
             return Dal.Obtener();
         }
 
-        public static List<VentaDetalleEe> ObtenerDetalle(int id)
-        {
-            var meme = Dal.ObtenerDetalle(id);
-
-            foreach (var mem in meme)
-            {
-                mem.Venta = VentaBll.Obtener(mem.Id);
-                mem.Producto = ProductoBll.Obtener(mem.Producto.Id);
-                mem.TotalDetalle = mem.Cantidad * mem.Precio;
-            }
-
-            return meme;
-        }
-
-        public static List<VentaEe> ObtenerVentasDeUsuario(UsuarioEe user)
-        {
-            return Dal.Obtener(user);
-        }
-
         public static List<VentaEe> Obtener(SucursalEe sucursal)
         {
             return Dal.Obtener(sucursal);
+        }
+
+        public static VentaDetalleEe ObtenerDetalle(VentaDetalleEe pDetalle)
+        {
+            var detalle = Dal.ObtenerDetalle(pDetalle.Id);
+
+            detalle.Venta = Obtener(detalle.Id);
+            detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+            detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+
+            return detalle;
+        }
+
+        public static List<VentaDetalleEe> ObtenerDetalles(VentaEe venta)
+        {
+            var detalles = Dal.ObtenerDetalles(venta.Id);
+
+            foreach (var detalle in detalles)
+            {
+                detalle.Venta = Obtener(detalle.Id);
+                detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+                detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+            }
+
+            return detalles;
         }
 
         public static List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
@@ -140,23 +171,9 @@ namespace BLL
             return Dal.Obtener(comprador);
         }
 
-        public static bool ConfirmarPago(PagoEe pago)
+        public static List<VentaEe> ObtenerVentasDeUsuario(UsuarioEe user)
         {
-            Dal.RegistrarPago(pago);
-            return Dal.CambiarEstadoAPagado(pago.Venta);
-        }
-
-        public static int RegistrarPerdida(VentaEe venta, double total, List<VentaDetalleEe> productos)
-        {
-            var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta), Total = total };
-            Dal.RegistrarDetallesPerdida(perdida, productos);
-            Dal.MarcarVentaComoPerdida(venta);
-
-            Dv.ActualizarDv();
-
-            BitacoraManager.AgregarMensajeControl("Perdida registrada: ", venta);
-
-            return perdida.Id;
+            return Dal.Obtener(user);
         }
 
         public static int RegistrarDevolucion(VentaEe venta, List<VentaDetalleEe> productos)
@@ -171,9 +188,17 @@ namespace BLL
             return devolucion.Id;
         }
 
-        public static bool Cancelar(VentaEe venta)
+        public static int RegistrarPerdida(VentaEe venta, double total, List<VentaDetalleEe> productos)
         {
-            return Dal.Cancelar(venta);
+            var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta), Total = total };
+            Dal.RegistrarDetallesPerdida(perdida, productos);
+            Dal.MarcarVentaComoPerdida(venta);
+
+            Dv.ActualizarDv();
+
+            BitacoraManager.AgregarMensajeControl("Perdida registrada: ", venta);
+
+            return perdida.Id;
         }
     }
 }

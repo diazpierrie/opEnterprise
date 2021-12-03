@@ -25,6 +25,7 @@ namespace UI
 
             tcHome.TabPages.Add(tipoEdificio == "Deposito" ? tabDeposito : tabVenta);
             tcHome.TabPages.Add(tabCaja);
+            tcHome.TabPages.Add(tabEnvio);
         }
 
         private void btnBackUp_Click(object sender, EventArgs e)
@@ -124,6 +125,18 @@ namespace UI
         {
             var homeEmpleado = new EmpleadoHome();
             homeEmpleado.Show();
+        }
+
+        private void btnVerEnvios_Click(object sender, EventArgs e)
+        {
+            var buscarEnvio = new BuscarEnvio();
+            buscarEnvio.Show();
+        }
+
+        private void btnConfirmarEnvio_Click(object sender, EventArgs e)
+        {
+            var confirmarEnvio = new ConfirmarEnvio();
+            confirmarEnvio.Show();
         }
     }
 }

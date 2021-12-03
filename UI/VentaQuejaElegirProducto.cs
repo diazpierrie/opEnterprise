@@ -19,7 +19,7 @@ namespace UI
             _venta = venta;
             _motivo = motivo;
             InitializeComponent();
-            var productos = VentaBll.ObtenerDetalle(venta.Id);
+            var productos = VentaBll.ObtenerDetalles(venta);
             gridDetalle.DataSource = productos;
 
             if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)

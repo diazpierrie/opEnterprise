@@ -45,9 +45,30 @@ namespace BLL
             return envio.Id;
         }
 
-        public static List<EnvioSucursalEe> ObtenerDeSucursal()
+        public static List<EnvioSucursalDetalleEe> ObtenerDetalleDeSucursal(EnvioSucursalEe pEnvio)
         {
-            return Dal.ObtenerDeSucursal();
+            var envios = Dal.ObtenerDetalleDeSucursal(pEnvio.Id);
+
+            foreach (var envio in envios)
+            {
+                envio.Sucursal = SucursalBll.Obtener(envio.Sucursal.Id);
+                envio.VentaDetalle = VentaBll.ObtenerDetalle(envio.VentaDetalle);
+            }
+
+            return envios;
+        }
+
+        public static List<EnvioDepositoDetalleEe> ObtenerDetalleDeDeposito(int id)
+        {
+            var envios = Dal.ObtenerDetalleDeDeposito(id);
+
+            foreach (var envio in envios)
+            {
+                envio.Deposito = DepositoBll.Obtener(envio.Deposito.Id);
+                envio.VentaDetalle = VentaBll.ObtenerDetalle(envio.VentaDetalle);
+            }
+
+            return envios;
         }
 
         public static List<EnvioDepositoEe> ObtenerDeDeposito()
@@ -55,19 +76,49 @@ namespace BLL
             return Dal.ObtenerDeDeposito();
         }
 
-        public static EnvioSucursalEe ObtenerDeSucursal(int id)
+        public static List<EnvioSucursalEe> ObtenerDeSucursal(int id)
         {
-            return Dal.ObtenerDeSucursal(id);
+            var envios = Dal.ObtenerDeSucursal(id);
+
+            foreach (var envio in envios)
+            {
+                envio.Sucursal = SucursalBll.Obtener(envio.Sucursal.Id);
+                envio.Venta = VentaBll.Obtener(envio.Venta.Id);
+                envio.Direccion = DireccionBll.Obtener(envio.Direccion.Id);
+                envio.Estado = ObtenerEstado(envio.Estado.Id);
+            }
+
+            return envios;
         }
 
-        public static EnvioDepositoEe ObtenerDeDeposito(int id)
+        public static List<EnvioDepositoEe> ObtenerDeDeposito(int id)
         {
-            return Dal.ObtenerDeDeposito(id);
+            var envios = Dal.ObtenerDeDeposito(id);
+
+            foreach (var envio in envios)
+            {
+                envio.Deposito = DepositoBll.Obtener(envio.Deposito.Id);
+                envio.Venta = VentaBll.Obtener(envio.Venta.Id);
+                envio.Direccion = DireccionBll.Obtener(envio.Direccion.Id);
+                envio.Estado = ObtenerEstado(envio.Estado.Id);
+            }
+
+            return envios;
         }
 
         public static List<TipoEntregaEe> ObtenerTiposEntrega()
         {
             return Dal.ObtenerTiposEntrega();
+        }
+
+        public static List<EstadoEe> ObtenerEstados()
+        {
+            return Dal.ObtenerEstados();
+        }
+
+        public static EstadoEe ObtenerEstado(int id)
+        {
+            return Dal.ObtenerEstado(id);
         }
     }
 }

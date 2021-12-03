@@ -19,7 +19,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Empleado";
+            CambiarTitulo("Crear Empleado");
         }
 
         public DepositoAltaModificacion(DepositoHome homeForm, DepositoEe deposito)
@@ -32,7 +32,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            Text = "Modificar Empleado";
+            CambiarTitulo("Modificar Empleado");
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
@@ -86,6 +86,11 @@ namespace UI
             txtTelefono.Text = _deposito.Telefono;
             txtDireccion.Text = _deposito.Direccion;
             txtCodigoPostal.Text = _deposito.CodigoPostal.ToString();
+        }
+
+        private void CambiarTitulo(string titulo)
+        {
+            Text = titulo;
         }
     }
 }

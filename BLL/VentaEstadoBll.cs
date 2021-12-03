@@ -8,7 +8,7 @@ namespace BLL
     {
         private static readonly VentaEstadoDal Dal = new VentaEstadoDal();
 
-        public static List<VentaEstadoEe> Obtener()
+        public static List<EstadoEe> Obtener()
         {
             return Dal.Obtener();
         }

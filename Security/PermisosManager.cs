@@ -21,11 +21,10 @@ namespace Security
 
         public static List<PermisoEe> ObtenerPatentes(FamiliaEe familiaEe)
         {
-            if (familiaEe.Patentes == null)
-            {
-                familiaEe.Patentes = new List<PermisoEe>();
-                familiaEe.Patentes = ObtenerPorFamilia(familiaEe.Id);
-            }
+            if (familiaEe.Patentes != null) return familiaEe.Patentes;
+
+            familiaEe.Patentes = new List<PermisoEe>();
+            familiaEe.Patentes = ObtenerPorFamilia(familiaEe.Id);
             return familiaEe.Patentes;
         }
 

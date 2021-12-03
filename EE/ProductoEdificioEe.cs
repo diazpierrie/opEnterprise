@@ -4,6 +4,7 @@
     {
         public EntidadFiscalEe Edificio { get; set; }
         public int CantidadAComprar { get; set; }
+        public int CantidadARetirar { get; set; }
         public double TotalProducto { get; set; }
     }
 }

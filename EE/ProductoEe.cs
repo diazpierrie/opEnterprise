@@ -1,5 +1,7 @@
 ﻿using System;
 
+// ReSharper disable NonReadonlyMemberInGetHashCode
+
 namespace EE
 {
     public class ProductoEe : IdentityEe
@@ -17,13 +19,24 @@ namespace EE
             return Nombre;
         }
 
-        public override bool Equals(object obj)
+        protected bool Equals(ProductoEe other)
         {
-            var p = obj as ProductoEe;
-            if (p == null)
-                return false;
+            return Nombre == other.Nombre && Codigo == other.Codigo && FechaCreacion.Equals(other.FechaCreacion) && Cantidad == other.Cantidad && Precio.Equals(other.Precio) && Costo.Equals(other.Costo) && Activo == other.Activo;
+        }
 
-            return this.Id.Equals(p.Id);
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = Nombre != null ? Nombre.GetHashCode() : 0;
+                hashCode = (hashCode * 397) ^ (Codigo != null ? Codigo.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ FechaCreacion.GetHashCode();
+                hashCode = (hashCode * 397) ^ Cantidad;
+                hashCode = (hashCode * 397) ^ Precio.GetHashCode();
+                hashCode = (hashCode * 397) ^ Costo.GetHashCode();
+                hashCode = (hashCode * 397) ^ Activo.GetHashCode();
+                return hashCode;
+            }
         }
     }
 }

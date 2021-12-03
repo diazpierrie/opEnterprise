@@ -1,14 +1,9 @@
-﻿using EE;
-
-namespace UI
+﻿namespace UI
 {
     public partial class DireccionAgregar : UpdatableForm
     {
-        private readonly CompradorEe _comprador;
-
-        public DireccionAgregar(CompradorEe comprador)
+        public DireccionAgregar()
         {
-            _comprador = comprador;
             InitializeComponent();
         }
 

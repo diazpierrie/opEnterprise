@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using BLL;
 using EE;
 
 namespace UI
@@ -23,10 +22,10 @@ namespace UI
             switch (cbQuejas.SelectedIndex)
             {
                 case 0:
-                    new VentaQuejaElegirProducto(_venta, "Perdida");
+                    var unused1 = new VentaQuejaElegirProducto(_venta, "Perdida");
                     break;
                 case 1:
-                    new VentaQuejaElegirProducto(_venta, "Devolucion");
+                    var unused = new VentaQuejaElegirProducto(_venta, "Devolucion");
                     break;
             }
         }

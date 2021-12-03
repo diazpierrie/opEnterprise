@@ -77,7 +77,6 @@ namespace UI
             this.Name = "BorrarIdioma";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

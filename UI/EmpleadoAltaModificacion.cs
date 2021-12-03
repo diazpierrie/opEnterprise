@@ -21,7 +21,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Empleado";
+            CambiarTitulo("Crear Empleado");
         }
 
         public EmpleadoAltaModificacion(EmpleadoHome homeForm, UsuarioEe usuario)
@@ -34,7 +34,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            Text = "Modificar Empleado";
+            CambiarTitulo("Modificar Empleado");
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
@@ -146,6 +146,11 @@ namespace UI
 
             PuestoBll.Obtener(_usuario);
             cbPuesto.SelectedIndex = cbPuesto.FindStringExact(_usuario.Puesto != null ? _usuario.Puesto.Nombre : "");
+        }
+        
+        private void CambiarTitulo(string titulo)
+        {
+            Text = titulo;
         }
     }
 }

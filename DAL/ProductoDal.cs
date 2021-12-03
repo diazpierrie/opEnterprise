@@ -45,7 +45,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = " SELECT p.[id], d.[idDeposito], p.[nombre] ,p.[codigo] ,p.[precio], d.[stock] FROM " +
+                var strQuery = " SELECT p.[id], d.[idDeposito], p.[nombre] ,p.[codigo] ,p.[precio], p.[costo], d.[stock] FROM " +
                                "[dbo].[producto] as p " +
                                "INNER JOIN deposito_producto as d " +
                                "ON d.idProducto = p.id WHERE p.activo = 1";
@@ -82,7 +82,7 @@ namespace DAL
                                      "FROM[dbo].[producto] as p " +
                                      "INNER JOIN sucursal_producto as s " +
                                      "ON s.idProducto = p.id " +
-                                     $"WHERE s.idSucursal = {sucursal.Id} AND activo = 1";
+                                     $"WHERE s.idSucursal = {sucursal.Id} AND activo = 1 AND stock != 0";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -301,6 +301,7 @@ namespace DAL
                 Id = int.Parse(data["id"].ToString()),
                 Nombre = data["nombre"].ToString(),
                 Codigo = data["codigo"].ToString(),
+                Costo = double.Parse(data["costo"].ToString()),
                 Precio = double.Parse(data["precio"].ToString()),
                 Cantidad = int.Parse(data["stock"].ToString()),
                 Edificio = DepositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))

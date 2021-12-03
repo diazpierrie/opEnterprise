@@ -11,7 +11,7 @@ namespace UI
         public VentaVerDetalle(VentaEe venta)
         {
             InitializeComponent();
-            gridDetalle.DataSource = VentaBll.ObtenerDetalle(venta.Id);
+            gridDetalle.DataSource = VentaBll.ObtenerDetalles(venta);
 
             if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
             {
@@ -20,7 +20,7 @@ namespace UI
 
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Venta"].Visible = false;
-            lblTotal.Text = $"Total: ${venta.Total}";
+            lblTotal.Text = $@"Total: ${venta.Total}";
 
             Show();
 

@@ -22,7 +22,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Proveedor";
+            CambiarTitulo("Crear Proveedor");
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm)
@@ -34,7 +34,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Proveedor";
+            CambiarTitulo("Crear Proveedor");
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm, ProveedorEe proveedor)
@@ -47,7 +47,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            Text = "Modificar Proveedor";
+            CambiarTitulo("Modificar Proveedor");
 
             txtNombre.Text = _proveedor.Nombre;
             txtCodigoPostal.Text = _proveedor.CodigoPostal.ToString();
@@ -106,6 +106,11 @@ namespace UI
             AllControls.Add(lblMail);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+        }
+        
+        private void CambiarTitulo(string titulo)
+        {
+            Text = titulo;
         }
 
 

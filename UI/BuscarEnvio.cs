@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BLL;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -81,7 +81,6 @@ namespace UI
             var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
             var envioVerDetalle = new EnvioVerDetalle(envio);
             envioVerDetalle.Show();
-
         }
     }
 }

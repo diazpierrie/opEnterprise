@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using BLL;
@@ -13,7 +12,7 @@ namespace UI
     {
         private readonly RecibirPago _recibirPago;
         private readonly VentaEe _venta;
-        private double _vuelto = 0;
+        private double _vuelto;
 
         public ConfirmarPago(RecibirPago recibirPago, VentaEe venta)
         {
@@ -22,11 +21,24 @@ namespace UI
             InitializeComponent();
             ActualizarGrid();
             lblTotal.Text = $@"Total: ${venta.Total}";
+
+            if (venta.MetodoPago.Nombre != "Efectivo")
+            {
+                lblEfectivoRecibido.Visible = false;
+                txtEfectivo.Visible = false;
+                lblVueltoADar.Visible = false;
+            }
+            else
+            {
+                lblEfectivoRecibido.Visible = true;
+                txtEfectivo.Visible = true;
+                lblVueltoADar.Visible = true;
+            }
         }
 
         private void ActualizarGrid()
         {
-            gridVentaDetalle.DataSource = VentaBll.ObtenerDetalle(_venta.Id);
+            gridVentaDetalle.DataSource = VentaBll.ObtenerDetalles(_venta);
 
             gridVentaDetalle.Columns["id"].Visible = false;
             gridVentaDetalle.Columns["Venta"].Visible = false;
@@ -47,7 +59,7 @@ namespace UI
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
-            if (_vuelto < 0)
+            if (_vuelto <= 0)
             {
                 VentaBll.ConfirmarPago(new PagoEe() { Venta = _venta, MontoCobrado = _venta.Total, Vuelto = _vuelto * -1 });
                 _recibirPago.ActualizarGrid();
@@ -57,8 +69,7 @@ namespace UI
             {
                 MetroMessageBox.Show(this, "Pago incorrecto", "Error");
             }
-
-;        }
+        }
 
         private void txtEfectivo_TextChanged(object sender, EventArgs e)
         {

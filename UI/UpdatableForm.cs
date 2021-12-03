@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using EE;
@@ -28,23 +25,22 @@ namespace UI
             Refresh();
         }
 
-        private void InitializeComponent()
-        {
-            var resources = new ComponentResourceManager(typeof(UpdatableForm));
-            SuspendLayout();
-            // 
-            // UpdatableForm
-            // 
-            ClientSize = new Size(300, 300);
-            Icon = (Icon)resources.GetObject("this.Icon");
-            Name = "UpdatableForm";
-            Load += UpdatableForm_Load;
-            ResumeLayout(false);
+        // private void InitializeComponent()
+        // {
+        //     var resources = new ComponentResourceManager(typeof(UpdatableForm));
+        //     SuspendLayout();
+        //     // 
+        //     // UpdatableForm
+        //     // 
+        //     ClientSize = new Size(300, 300);
+        //     Icon = (Icon) resources.GetObject("this.Icon");
+        //     Name = "UpdatableForm";
+        //     Load += UpdatableForm_Load;
+        //     ResumeLayout(false);
+        // }
 
-        }
-
-        private void UpdatableForm_Load(object sender, EventArgs e)
-        {
-        }
+        // private void UpdatableForm_Load(object sender, EventArgs e)
+        // {
+        // }
     }
 }

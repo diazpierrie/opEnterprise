@@ -22,7 +22,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Direccion";
+            CambiarTitulo("Crear Direccion");
         }
         public DireccionAltaModificacion(ClienteAlta clienteAltaForm)
         {
@@ -33,7 +33,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Crear";
-            Text = "Crear Direccion";
+            CambiarTitulo("Crear Direccion");
         }
 
         public DireccionAltaModificacion(DireccionHome homeForm, DireccionEe direccion)
@@ -46,7 +46,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             btnAccion.Text = "Modificar";
-            Text = "Modificar Direccion";
+            CambiarTitulo("Modificar Direccion");
 
             txtCalle.Text = _direccion.Calle;
             txtLocalidad.Text = _direccion.Localidad;
@@ -117,6 +117,11 @@ namespace UI
             AllControls.Add(lblPais);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+        }
+        
+        private void CambiarTitulo(string titulo)
+        {
+            Text = titulo;
         }
 
 

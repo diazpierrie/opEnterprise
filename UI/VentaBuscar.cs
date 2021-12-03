@@ -17,7 +17,7 @@ namespace UI
             InitializeComponent();
 
             var estados = VentaEstadoBll.Obtener();
-            estados.Add(new VentaEstadoEe { Id = 4, Nombre = "Todos" });
+            estados.Add(new EstadoEe { Id = 4, Nombre = "Todos" });
             cbEstado.DataSource = estados;
             cbEstado.SelectedIndex = 3;
 
@@ -29,7 +29,7 @@ namespace UI
             if (txtUsuario.Text == null &&
                 txtCliente.Text == null) return;
 
-            var ventaEstado = (VentaEstadoEe)cbEstado.SelectedItem;
+            var ventaEstado = (EstadoEe)cbEstado.SelectedItem;
             if (ventaEstado.Nombre == "Todos")
             {
                 gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())

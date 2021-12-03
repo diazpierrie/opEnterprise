@@ -67,7 +67,7 @@
     <Compile Include="PedidoProveedorEe.cs" />
     <Compile Include="PedidoEstadoEe.cs" />
     <Compile Include="CuotaEe.cs" />
-    <Compile Include="VentaEstadoEe.cs" />
+    <Compile Include="EstadoEe.cs" />
     <Compile Include="MetodoPagoEe.cs" />
     <Compile Include="NotificacionEe.cs" />
     <Compile Include="PatenteEe.cs" />

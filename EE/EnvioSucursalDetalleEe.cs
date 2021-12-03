@@ -4,6 +4,10 @@
     {
         public VentaDetalleEe VentaDetalle { get; set; }
         public SucursalEe Sucursal { get; set; }
-        public int Cantidad { get; set; }
+
+        public override string ToString()
+        {
+            return $"{VentaDetalle.Producto.Nombre} - Cantidad: {VentaDetalle.Cantidad} - Total: ${VentaDetalle.TotalDetalle}";
+        }
     }
 }

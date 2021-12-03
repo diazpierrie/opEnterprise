@@ -100,7 +100,6 @@ namespace UI
             this.gridVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridVenta.Size = new System.Drawing.Size(563, 301);
             this.gridVenta.TabIndex = 7;
-            this.gridVenta.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellDoubleClick);
             this.gridVenta.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellValueChanged);
             // 
             // btnModificarVenta

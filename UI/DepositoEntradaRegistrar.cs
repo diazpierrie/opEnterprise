@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace UI
+﻿namespace UI
 {
-    public partial class DepositoEntradaRegistrar : Form
+    public partial class DepositoEntradaRegistrar : UpdatableForm
     {
         public DepositoEntradaRegistrar()
         {
