@@ -307,5 +307,15 @@ namespace DAL
                 Edificio = DepositoDal.Obtener(int.Parse(data["idDeposito"].ToString()))
             };
         }
+        
+        public bool ActualizarStockSucursal(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
+        {
+            //TODO: Actualizar stock de un producto de la sucursal, si no existe, agregarlo a la sucursal
+            var query = new SqlCommand("UPDATE [dbo].[sucursal_producto] SET[stock] = stock + @stock WHERE [idSucursal] = @idSucursal AND [idProducto] = @idProducto", Conn);
+            query.Parameters.AddWithValue("@idSucursal", devolucionEe.Sucursal.Id);
+            query.Parameters.AddWithValue("@idProducto", devolucionEe.Sucursal.Id);
+
+            return ExecuteQuery(query);
+        }
     }
 }

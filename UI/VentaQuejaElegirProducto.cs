@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using EE;
@@ -19,7 +21,7 @@ namespace UI
             _venta = venta;
             _motivo = motivo;
             InitializeComponent();
-            var productos = VentaBll.ObtenerDetalles(venta);
+            var productos = VentaBll.ObtenerDetallesAgrupados(venta);
             gridDetalle.DataSource = productos;
 
             if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
@@ -27,22 +29,21 @@ namespace UI
                 return;
             }
 
-            gridDetalle.Columns["id"].Visible = false;
-            gridDetalle.Columns["Venta"].Visible = false;
+            gridDetalle.Columns["venta"].Visible = false;
+            gridDetalle.Columns["precio"].Visible = false;
+            gridDetalle.Columns["TotalDetalle"].Visible = false;
+            gridDetalle.Columns["Id"].Visible = false;
 
             gridDetalle.Columns["producto"].ReadOnly = true;
             gridDetalle.Columns["costo"].ReadOnly = true;
-            gridDetalle.Columns["precio"].ReadOnly = true;
-
+            
             switch (_motivo)
             {
                 case "Perdida":
-
                     lblTotal.Text = @"Perdida Total: $0";
                     break;
 
                 case "Devolucion":
-
                     lblTotal.Visible = false;
                     break;
             }

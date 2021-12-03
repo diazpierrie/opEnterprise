@@ -161,6 +161,20 @@ namespace BLL
             return detalles;
         }
 
+        public static List<VentaDetalleEe> ObtenerDetallesAgrupados(VentaEe venta)
+        {
+            var detalles = Dal.ObtenerDetallesAgrupados(venta.Id);
+
+            foreach (var detalle in detalles)
+            {
+                detalle.Venta = Obtener(detalle.Id);
+                detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+                detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+            }
+
+            return detalles;
+        }
+
         public static List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
         {
             return Dal.ObtenerPendienteDePago(sucursal);
@@ -180,6 +194,8 @@ namespace BLL
         {
             var devolucion = new DevolucionEe { Id = Dal.RegistrarDevolucion(venta) };
             Dal.RegistrarDetallesDevolucion(devolucion, productos);
+            Dal.RegistrarProductosDevueltos(devolucion, productos);
+            Dal.MarcarVentaComoDevuelta(venta);
 
             Dv.ActualizarDv();
 
@@ -190,7 +206,7 @@ namespace BLL
 
         public static int RegistrarPerdida(VentaEe venta, double total, List<VentaDetalleEe> productos)
         {
-            var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta), Total = total };
+            var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta, total), Total = total };
             Dal.RegistrarDetallesPerdida(perdida, productos);
             Dal.MarcarVentaComoPerdida(venta);
 

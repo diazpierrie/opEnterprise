@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Linq;
 
 namespace DAL
 {
@@ -14,6 +15,7 @@ namespace DAL
         private readonly SucursalDal _sucursalDal = new SucursalDal();
         private readonly UsuarioDal _usuarioDal = new UsuarioDal();
         private readonly VentaEstadoDal _ventaEstado = new VentaEstadoDal();
+        private readonly ProductoDal _producto = new ProductoDal();
 
         public bool ActualizarStockDeposito(ProductoEdificioEe producto)
         {
@@ -98,7 +100,16 @@ namespace DAL
         {
             var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", venta.Id);
-            query.Parameters.AddWithValue("@idEstado", 3);
+            query.Parameters.AddWithValue("@idEstado", 4);
+
+            return ExecuteQuery(query);
+        }
+
+        public bool MarcarVentaComoDevuelta(VentaEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 5);
 
             return ExecuteQuery(query);
         }
@@ -377,6 +388,36 @@ namespace DAL
             }
         }
 
+        public List<VentaDetalleEe> ObtenerDetallesAgrupados(int id)
+        {
+            try
+            {
+                var strQuery = $"SELECT idProducto, costoUnitario, SUM(cantidad) as Cantidad FROM venta_detalle WHERE idVenta = {id} GROUP BY idProducto, costoUnitario";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var detalles = new List<VentaDetalleEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        detalles.Add(CastDtoDetalleAgrupado(data));
+                    }
+                }
+
+                Conn.Close();
+                return detalles;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
         public List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
         {
             try
@@ -470,7 +511,7 @@ namespace DAL
 
             return Insert("pago", columnas.ToArray(), valores.ToArray());
         }
-        public int RegistrarPerdida(VentaEe obj)
+        public int RegistrarPerdida(VentaEe obj, double total)
         {
             var columnas = new List<string> { "idSucursal", "idUsuario", "fecha", "total" };
             var valores = new List<string>
@@ -478,7 +519,7 @@ namespace DAL
                 obj.Sucursal.Id.ToString(),
                 obj.Empleado.Id.ToString(),
                 DateTime.Today.ToString(CultureInfo.InvariantCulture),
-                obj.Total.ToString(CultureInfo.InvariantCulture)
+                total.ToString(CultureInfo.InvariantCulture)
             };
 
             return Insert("perdida", columnas.ToArray(), valores.ToArray());
@@ -511,6 +552,32 @@ namespace DAL
                 Precio = double.Parse(data["precioUnitario"].ToString()),
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
+        }
+
+        private VentaDetalleEe CastDtoDetalleAgrupado(SqlDataReader data)
+        {
+            return new VentaDetalleEe
+            {
+                Producto = new ProductoEe() { Id = int.Parse(data["idProducto"].ToString()) },
+                Costo = double.Parse(data["costoUnitario"].ToString()),
+                Cantidad = int.Parse(data["cantidad"].ToString())
+            };
+        }
+
+        public void RegistrarProductosDevueltos(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
+        {
+            foreach (var producto in productos)
+            {
+                if (_producto.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Id) != null)
+                {
+                    _producto.ActualizarStockSucursal(devolucionEe, productos);
+                }
+                else
+                {
+
+                }
+            }
+
         }
     }
 }

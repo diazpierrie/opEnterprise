@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [openEnterprise]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Database [openEnterprise]    Script Date: 12/3/2021 20:54:03 ******/
 CREATE DATABASE [openEnterprise]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [openEnterprise] SET QUERY_STORE = OFF
 GO
 USE [openEnterprise]
 GO
-/****** Object:  Table [dbo].[bitacora]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[bitacora]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,7 +98,7 @@ CREATE TABLE [dbo].[bitacora](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[comprador]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[comprador]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -119,7 +119,7 @@ CREATE TABLE [dbo].[comprador](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[control]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[control]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,7 +135,7 @@ CREATE TABLE [dbo].[control](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cuota]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[cuota]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -151,7 +151,7 @@ CREATE TABLE [dbo].[cuota](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[deposito]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[deposito]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[deposito_producto]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[deposito_producto]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -186,7 +186,7 @@ CREATE TABLE [dbo].[deposito_producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[devolucion]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[devolucion]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -202,7 +202,7 @@ CREATE TABLE [dbo].[devolucion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[devolucion_detalle]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[devolucion_detalle]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,7 +217,7 @@ CREATE TABLE [dbo].[devolucion_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[direccion]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[direccion]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -237,7 +237,7 @@ CREATE TABLE [dbo].[direccion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[dvv]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[dvv]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,17 +252,17 @@ CREATE TABLE [dbo].[dvv](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_deposito]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[envio_deposito]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[envio_deposito](
-	[id] [int] NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
 	[idVenta] [int] NOT NULL,
 	[idDireccion] [int] NOT NULL,
 	[idDeposito] [int] NOT NULL,
-	[fechaSalida] [datetime] NOT NULL,
+	[fechaSalida] [datetime] NULL,
 	[fechaLlegada] [datetime] NULL,
 	[idEstadoEnvio] [int] NOT NULL,
  CONSTRAINT [PK_envio_deposito] PRIMARY KEY CLUSTERED 
@@ -271,7 +271,22 @@ CREATE TABLE [dbo].[envio_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_sucursal]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[envio_deposito_detalle]    Script Date: 12/3/2021 20:54:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[envio_deposito_detalle](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idVentaDetalle] [int] NOT NULL,
+	[idDeposito] [int] NOT NULL,
+ CONSTRAINT [PK_venta_detalle_deposito] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[envio_sucursal]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -281,7 +296,7 @@ CREATE TABLE [dbo].[envio_sucursal](
 	[idVenta] [int] NOT NULL,
 	[idDireccion] [int] NOT NULL,
 	[idSucursal] [int] NOT NULL,
-	[fechaSalida] [datetime] NOT NULL,
+	[fechaSalida] [datetime] NULL,
 	[fechaLlegada] [datetime] NULL,
 	[idEstadoEnvio] [int] NOT NULL,
  CONSTRAINT [PK_envio_1] PRIMARY KEY CLUSTERED 
@@ -290,7 +305,22 @@ CREATE TABLE [dbo].[envio_sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[estadoEnvio]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[envio_sucursal_detalle]    Script Date: 12/3/2021 20:54:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[envio_sucursal_detalle](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idVentaDetalle] [int] NOT NULL,
+	[idSucursal] [int] NOT NULL,
+ CONSTRAINT [PK_venta_detalle_sucursal] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[estadoEnvio]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -304,7 +334,7 @@ CREATE TABLE [dbo].[estadoEnvio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[familia]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[familia]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +349,7 @@ CREATE TABLE [dbo].[familia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[familia_patente]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[familia_patente]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -334,7 +364,7 @@ CREATE TABLE [dbo].[familia_patente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[idioma]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[idioma]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -349,7 +379,7 @@ CREATE TABLE [dbo].[idioma](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[metodoPago]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[metodoPago]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -363,7 +393,23 @@ CREATE TABLE [dbo].[metodoPago](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[patente]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pago]    Script Date: 12/3/2021 20:54:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[pago](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idVenta] [int] NOT NULL,
+	[montoCobrado] [money] NOT NULL,
+	[vuelto] [money] NOT NULL,
+ CONSTRAINT [PK_pago] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[patente]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -377,7 +423,7 @@ CREATE TABLE [dbo].[patente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_deposito]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pedido_deposito]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -394,7 +440,7 @@ CREATE TABLE [dbo].[pedido_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_deposito_detalle]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pedido_deposito_detalle]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -411,7 +457,7 @@ CREATE TABLE [dbo].[pedido_deposito_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_estado]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pedido_estado]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -425,7 +471,7 @@ CREATE TABLE [dbo].[pedido_estado](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_proveedor]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pedido_proveedor]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -444,7 +490,7 @@ CREATE TABLE [dbo].[pedido_proveedor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_proveedor_detalle]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[pedido_proveedor_detalle]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -461,7 +507,7 @@ CREATE TABLE [dbo].[pedido_proveedor_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[perdida]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[perdida]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -478,7 +524,7 @@ CREATE TABLE [dbo].[perdida](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[perdida_detalle]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[perdida_detalle]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -495,7 +541,7 @@ CREATE TABLE [dbo].[perdida_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[producto]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[producto]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -515,7 +561,7 @@ CREATE TABLE [dbo].[producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[proveedor]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[proveedor]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -535,7 +581,7 @@ CREATE TABLE [dbo].[proveedor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[puesto]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[puesto]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -549,7 +595,22 @@ CREATE TABLE [dbo].[puesto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sector]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[retiro_sucursal]    Script Date: 12/3/2021 20:54:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[retiro_sucursal](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idSucursal] [int] NOT NULL,
+	[idVentaDetalle] [int] NOT NULL,
+ CONSTRAINT [PK_retiro_sucursal] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[sector]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -563,7 +624,7 @@ CREATE TABLE [dbo].[sector](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sucursal]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[sucursal]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -582,7 +643,7 @@ CREATE TABLE [dbo].[sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sucursal_producto]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[sucursal_producto]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -598,21 +659,7 @@ CREATE TABLE [dbo].[sucursal_producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tipoEdificio]    Script Date: 11/23/2021 16:18:18 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[tipoEdificio](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[tipoEdificio] [varchar](50) NOT NULL,
- CONSTRAINT [PK_TipoEdificio] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[tipoEntrega]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[tipoEntrega]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -626,7 +673,7 @@ CREATE TABLE [dbo].[tipoEntrega](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[usuario]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -653,7 +700,7 @@ CREATE TABLE [dbo].[usuario](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario_deposito]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[usuario_deposito]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -668,7 +715,7 @@ CREATE TABLE [dbo].[usuario_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario_sucursal]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[usuario_sucursal]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -683,7 +730,7 @@ CREATE TABLE [dbo].[usuario_sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[venta]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[venta]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -704,7 +751,7 @@ CREATE TABLE [dbo].[venta](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[venta_detalle]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[venta_detalle]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -722,37 +769,7 @@ CREATE TABLE [dbo].[venta_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[venta_detalle_deposito]    Script Date: 11/23/2021 16:18:18 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[venta_detalle_deposito](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[idVentaDetalle] [int] NOT NULL,
-	[idDeposito] [int] NOT NULL,
- CONSTRAINT [PK_venta_detalle_deposito] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[venta_detalle_sucursal]    Script Date: 11/23/2021 16:18:18 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[venta_detalle_sucursal](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[idVentaDetalle] [int] NOT NULL,
-	[idSucursal] [int] NOT NULL,
- CONSTRAINT [PK_venta_detalle_sucursal] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[venta_estado]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Table [dbo].[venta_estado]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1037,6 +1054,272 @@ GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (134, CAST(N'2021-11-19T15:31:49.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
 GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (135, CAST(N'2021-11-19T15:31:55.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (136, CAST(N'2021-11-23T16:33:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (137, CAST(N'2021-11-23T16:33:38.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (138, CAST(N'2021-11-23T16:34:55.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (139, CAST(N'2021-11-23T20:01:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (140, CAST(N'2021-11-23T20:02:03.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (141, CAST(N'2021-11-23T20:05:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (142, CAST(N'2021-11-23T20:05:21.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (143, CAST(N'2021-11-23T20:07:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (144, CAST(N'2021-11-23T20:07:59.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (145, CAST(N'2021-11-23T20:09:05.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (146, CAST(N'2021-11-23T20:09:06.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (147, CAST(N'2021-11-23T20:09:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (148, CAST(N'2021-11-23T20:09:06.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (149, CAST(N'2021-11-23T20:09:06.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (150, CAST(N'2021-11-23T20:09:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (151, CAST(N'2021-11-23T20:10:18.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (152, CAST(N'2021-11-23T20:10:18.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (153, CAST(N'2021-11-23T20:10:46.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (154, CAST(N'2021-11-23T20:10:46.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (155, CAST(N'2021-11-23T20:10:46.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (156, CAST(N'2021-11-23T20:10:46.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (157, CAST(N'2021-11-23T20:12:09.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (158, CAST(N'2021-11-23T20:12:17.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (159, CAST(N'2021-11-23T20:12:17.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (160, CAST(N'2021-11-23T20:17:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (161, CAST(N'2021-11-23T20:17:54.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (162, CAST(N'2021-11-23T20:17:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (163, CAST(N'2021-11-23T20:17:54.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (164, CAST(N'2021-11-23T20:17:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (165, CAST(N'2021-11-23T20:17:57.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (166, CAST(N'2021-11-23T20:17:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (167, CAST(N'2021-11-23T22:26:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (168, CAST(N'2021-11-23T22:26:38.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (169, CAST(N'2021-11-23T22:27:17.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (170, CAST(N'2021-11-23T22:27:18.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (171, CAST(N'2021-11-23T22:28:10.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (172, CAST(N'2021-11-23T22:28:11.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (173, CAST(N'2021-11-23T22:28:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (174, CAST(N'2021-11-23T22:28:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (175, CAST(N'2021-11-23T23:39:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (176, CAST(N'2021-11-23T23:39:03.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (177, CAST(N'2021-11-23T23:39:03.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (178, CAST(N'2021-11-23T23:39:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (179, CAST(N'2021-11-23T23:39:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (180, CAST(N'2021-11-23T23:40:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (181, CAST(N'2021-11-23T23:40:04.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (182, CAST(N'2021-11-23T23:40:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (183, CAST(N'2021-11-23T23:40:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (184, CAST(N'2021-11-23T23:40:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (185, CAST(N'2021-11-24T20:58:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (186, CAST(N'2021-11-24T20:58:13.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (187, CAST(N'2021-11-24T20:58:13.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (188, CAST(N'2021-11-24T20:58:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (189, CAST(N'2021-12-03T16:32:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (190, CAST(N'2021-12-03T16:32:37.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (191, CAST(N'2021-12-03T16:34:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (192, CAST(N'2021-12-03T16:34:32.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (193, CAST(N'2021-12-03T16:49:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (194, CAST(N'2021-12-03T16:49:23.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (195, CAST(N'2021-12-03T16:49:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (196, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (197, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (198, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (199, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (200, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (201, CAST(N'2021-12-03T16:50:24.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (202, CAST(N'2021-12-03T16:52:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (203, CAST(N'2021-12-03T16:53:10.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (204, CAST(N'2021-12-03T16:53:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (205, CAST(N'2021-12-03T16:53:22.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (206, CAST(N'2021-12-03T16:53:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (207, CAST(N'2021-12-03T16:54:29.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (208, CAST(N'2021-12-03T16:57:02.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (209, CAST(N'2021-12-03T16:57:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (210, CAST(N'2021-12-03T17:00:27.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (211, CAST(N'2021-12-03T17:00:27.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (212, CAST(N'2021-12-03T17:02:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (213, CAST(N'2021-12-03T17:02:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (214, CAST(N'2021-12-03T17:11:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (215, CAST(N'2021-12-03T17:11:01.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (216, CAST(N'2021-12-03T17:11:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (217, CAST(N'2021-12-03T17:11:06.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (218, CAST(N'2021-12-03T17:28:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (219, CAST(N'2021-12-03T17:28:37.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (220, CAST(N'2021-12-03T17:28:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (221, CAST(N'2021-12-03T17:28:37.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (222, CAST(N'2021-12-03T17:28:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (223, CAST(N'2021-12-03T17:30:12.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (224, CAST(N'2021-12-03T17:30:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (225, CAST(N'2021-12-03T17:32:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (226, CAST(N'2021-12-03T17:32:24.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (227, CAST(N'2021-12-03T17:32:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (228, CAST(N'2021-12-03T17:32:33.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (229, CAST(N'2021-12-03T17:32:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (230, CAST(N'2021-12-03T18:08:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (231, CAST(N'2021-12-03T18:08:26.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (232, CAST(N'2021-12-03T18:08:26.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (233, CAST(N'2021-12-03T18:08:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (234, CAST(N'2021-12-03T18:08:44.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (235, CAST(N'2021-12-03T18:08:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (236, CAST(N'2021-12-03T18:08:44.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (237, CAST(N'2021-12-03T18:08:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (238, CAST(N'2021-12-03T18:11:24.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (239, CAST(N'2021-12-03T18:11:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (240, CAST(N'2021-12-03T18:11:36.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (241, CAST(N'2021-12-03T18:11:36.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (242, CAST(N'2021-12-03T18:16:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (243, CAST(N'2021-12-03T18:16:20.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (244, CAST(N'2021-12-03T18:16:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (245, CAST(N'2021-12-03T18:16:20.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (246, CAST(N'2021-12-03T18:16:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (247, CAST(N'2021-12-03T18:16:34.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (248, CAST(N'2021-12-03T18:16:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (249, CAST(N'2021-12-03T18:46:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (250, CAST(N'2021-12-03T18:46:28.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (251, CAST(N'2021-12-03T18:46:28.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (252, CAST(N'2021-12-03T18:46:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (253, CAST(N'2021-12-03T18:57:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (254, CAST(N'2021-12-03T18:57:44.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (255, CAST(N'2021-12-03T18:57:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (256, CAST(N'2021-12-03T18:57:44.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (257, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (258, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (259, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (260, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (261, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (262, CAST(N'2021-12-03T18:58:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (263, CAST(N'2021-12-03T19:10:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (264, CAST(N'2021-12-03T19:10:13.000' AS DateTime), N'Envio de Deposito creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"C ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (265, CAST(N'2021-12-03T19:10:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (266, CAST(N'2021-12-03T19:10:13.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (267, CAST(N'2021-12-03T19:41:36.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (268, CAST(N'2021-12-03T19:41:36.000' AS DateTime), N'Perdida registrada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Bloqueado":false,"Permiso":{"Patentes":null,"Id":4,"Nombre":"Admin"},"Sector":{"Puestos":[],"Jefe":null,"Nombre":"Canary","I ...', N'Control', 4)
 GO
 SET IDENTITY_INSERT [dbo].[bitacora] OFF
 GO
@@ -2872,6 +3155,26 @@ INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (2176, 1, N'cou
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (2177, 2, N'country', N'Country')
 GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3170, 1, N'add_to_cart', N'Agregar al Carrito')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3171, 2, N'add_to_cart', N'Add to Cart')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3172, 1, N'empty_cart', N'Vaciar Carrito')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3173, 2, N'empty_cart', N'Empty Cart')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3176, 1, N'add_local_pickup', N'Agregar al Retiro Local')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3178, 2, N'add_local_pickup', N'Add to Local Pickup')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3180, 1, N'remove_local_pickup', N'Remover del Retiro Local')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3181, 2, N'remove_local_pickup', N'Remove from Local Pickup')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3182, 1, N'empty_local_pickup', N'Vaciar Retiro Local')
+GO
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3184, 2, N'empty_local_pickup', N'Empty Local Pickup')
+GO
 SET IDENTITY_INSERT [dbo].[control] OFF
 GO
 SET IDENTITY_INSERT [dbo].[deposito] ON 
@@ -2884,9 +3187,9 @@ SET IDENTITY_INSERT [dbo].[deposito] OFF
 GO
 SET IDENTITY_INSERT [dbo].[deposito_producto] ON 
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (1, 1, 1, 4)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (1, 1, 1, 2)
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (3, 1, 3, 8)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (3, 1, 3, 2)
 GO
 SET IDENTITY_INSERT [dbo].[deposito_producto] OFF
 GO
@@ -2930,11 +3233,169 @@ INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (1, N'usuario', N'-591672
 GO
 SET IDENTITY_INSERT [dbo].[dvv] OFF
 GO
+SET IDENTITY_INSERT [dbo].[envio_deposito] ON 
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (1, 22, 1, 1, CAST(N'2021-11-23T20:09:06.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (2, 23, 1, 1, CAST(N'2021-11-23T20:10:18.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (3, 24, 1, 1, CAST(N'2021-11-23T20:10:46.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (4, 25, 1, 1, CAST(N'2021-11-23T20:17:54.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (5, 32, 1, 1, CAST(N'2021-11-23T23:39:03.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (6, 33, 1, 1, CAST(N'2021-11-23T23:40:04.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (8, 37, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (9, 38, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (10, 39, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (11, 40, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (12, 41, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (13, 42, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (14, 43, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (15, 44, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (16, 45, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (17, 46, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (18, 47, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (19, 50, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (20, 52, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (21, 53, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (22, 54, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_deposito] ([id], [idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (23, 55, 1, 1, NULL, NULL, 1)
+GO
+SET IDENTITY_INSERT [dbo].[envio_deposito] OFF
+GO
+SET IDENTITY_INSERT [dbo].[envio_deposito_detalle] ON 
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (1, 23, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (2, 25, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (3, 30, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (4, 32, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (5, 34, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (6, 36, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (7, 38, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (8, 40, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (9, 42, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (10, 44, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (11, 46, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (12, 49, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (13, 53, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (14, 55, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (15, 56, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (16, 59, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (17, 60, 1)
+GO
+INSERT [dbo].[envio_deposito_detalle] ([id], [idVentaDetalle], [idDeposito]) VALUES (18, 63, 1)
+GO
+SET IDENTITY_INSERT [dbo].[envio_deposito_detalle] OFF
+GO
 SET IDENTITY_INSERT [dbo].[envio_sucursal] ON 
 GO
 INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (4, 17, 1, 1, CAST(N'2021-11-19T15:31:35.000' AS DateTime), NULL, 1)
 GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (5, 18, 1, 1, CAST(N'2021-11-23T16:33:44.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (6, 19, 1, 1, CAST(N'2021-11-23T20:00:53.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (7, 20, 1, 1, CAST(N'2021-11-23T20:05:21.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (8, 21, 1, 1, CAST(N'2021-11-23T20:07:59.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (9, 22, 1, 1, CAST(N'2021-11-23T20:09:05.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (10, 23, 1, 1, CAST(N'2021-11-23T20:10:18.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (11, 24, 1, 1, CAST(N'2021-11-23T20:10:45.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (12, 25, 1, 1, CAST(N'2021-11-23T20:17:54.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (13, 31, 1, 1, CAST(N'2021-11-23T22:28:06.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (14, 32, 1, 1, CAST(N'2021-11-23T23:39:00.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (15, 33, 1, 1, CAST(N'2021-11-23T23:40:04.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (16, 34, 1, 1, CAST(N'2021-11-24T20:58:13.000' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (18, 38, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (19, 39, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (20, 40, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (21, 41, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (22, 46, 1, 1, NULL, NULL, 1)
+GO
 SET IDENTITY_INSERT [dbo].[envio_sucursal] OFF
+GO
+SET IDENTITY_INSERT [dbo].[envio_sucursal_detalle] ON 
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (1, 22, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (2, 24, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (3, 28, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (4, 29, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (5, 31, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (6, 33, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (7, 35, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (8, 37, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (9, 39, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (10, 41, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (11, 43, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (12, 45, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (13, 48, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (14, 52, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (15, 58, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (16, 62, 1)
+GO
+SET IDENTITY_INSERT [dbo].[envio_sucursal_detalle] OFF
 GO
 SET IDENTITY_INSERT [dbo].[estadoEnvio] ON 
 GO
@@ -3062,6 +3523,16 @@ INSERT [dbo].[metodoPago] ([id], [nombre]) VALUES (3, N'Credito')
 GO
 SET IDENTITY_INSERT [dbo].[metodoPago] OFF
 GO
+SET IDENTITY_INSERT [dbo].[pago] ON 
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1, 33, 2938.2900, -61.7100)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (2, 32, 2938.2900, 61.7100)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (3, 10, 343.6600, 0.0000)
+GO
+SET IDENTITY_INSERT [dbo].[pago] OFF
+GO
 SET IDENTITY_INSERT [dbo].[patente] ON 
 GO
 INSERT [dbo].[patente] ([id], [nombre]) VALUES (1, N'EditarPerfil')
@@ -3108,19 +3579,23 @@ INSERT [dbo].[perdida] ([id], [idSucursal], [idUsuario], [fecha], [total]) VALUE
 GO
 INSERT [dbo].[perdida] ([id], [idSucursal], [idUsuario], [fecha], [total]) VALUES (3, 1, 4, CAST(N'2021-11-04T00:00:00.000' AS DateTime), CAST(276751.52 AS Decimal(14, 2)))
 GO
+INSERT [dbo].[perdida] ([id], [idSucursal], [idUsuario], [fecha], [total]) VALUES (4, 1, 4, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2553.98 AS Decimal(14, 2)))
+GO
 SET IDENTITY_INSERT [dbo].[perdida] OFF
 GO
 SET IDENTITY_INSERT [dbo].[perdida_detalle] ON 
 GO
 INSERT [dbo].[perdida_detalle] ([id], [idPerdida], [idProducto], [costoUnitario], [cantidad]) VALUES (3, 3, 3, CAST(400.00 AS Decimal(14, 2)), 14)
 GO
+INSERT [dbo].[perdida_detalle] ([id], [idPerdida], [idProducto], [costoUnitario], [cantidad]) VALUES (4, 4, 3, CAST(400.00 AS Decimal(14, 2)), 1)
+GO
 SET IDENTITY_INSERT [dbo].[perdida_detalle] OFF
 GO
 SET IDENTITY_INSERT [dbo].[producto] ON 
 GO
-INSERT [dbo].[producto] ([id], [nombre], [codigo], [fechaCreacion], [precio], [costo], [dvh], [activo]) VALUES (1, N'Heladera', N'267887', CAST(N'2021-01-01T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)), CAST(300.00 AS Decimal(14, 2)), NULL, 1)
+INSERT [dbo].[producto] ([id], [nombre], [codigo], [fechaCreacion], [precio], [costo], [dvh], [activo]) VALUES (1, N'Heladera', N'267887', CAST(N'2021-01-01T00:00:00.000' AS DateTime), CAST(383.66 AS Decimal(14, 2)), CAST(300.00 AS Decimal(14, 2)), NULL, 1)
 GO
-INSERT [dbo].[producto] ([id], [nombre], [codigo], [fechaCreacion], [precio], [costo], [dvh], [activo]) VALUES (3, N'Lavarropa', N'522654', CAST(N'2021-02-02T00:00:00.000' AS DateTime), CAST(400.27 AS Decimal(14, 2)), CAST(400.00 AS Decimal(14, 2)), NULL, 1)
+INSERT [dbo].[producto] ([id], [nombre], [codigo], [fechaCreacion], [precio], [costo], [dvh], [activo]) VALUES (3, N'Lavarropa', N'522654', CAST(N'2021-02-02T00:00:00.000' AS DateTime), CAST(480.27 AS Decimal(14, 2)), CAST(400.00 AS Decimal(14, 2)), NULL, 1)
 GO
 INSERT [dbo].[producto] ([id], [nombre], [codigo], [fechaCreacion], [precio], [costo], [dvh], [activo]) VALUES (4, N'Cama', N'272829', CAST(N'2021-08-08T00:00:00.000' AS DateTime), CAST(1000.21 AS Decimal(14, 2)), CAST(800.00 AS Decimal(14, 2)), NULL, 1)
 GO
@@ -3170,19 +3645,11 @@ SET IDENTITY_INSERT [dbo].[sucursal] OFF
 GO
 SET IDENTITY_INSERT [dbo].[sucursal_producto] ON 
 GO
-INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (1, 1, 1, 5)
+INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (1, 1, 1, 0)
 GO
-INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (3, 1, 3, 4)
+INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (3, 1, 3, 3)
 GO
 SET IDENTITY_INSERT [dbo].[sucursal_producto] OFF
-GO
-SET IDENTITY_INSERT [dbo].[tipoEdificio] ON 
-GO
-INSERT [dbo].[tipoEdificio] ([id], [tipoEdificio]) VALUES (1, N'Deposito')
-GO
-INSERT [dbo].[tipoEdificio] ([id], [tipoEdificio]) VALUES (2, N'Sucursal')
-GO
-SET IDENTITY_INSERT [dbo].[tipoEdificio] OFF
 GO
 SET IDENTITY_INSERT [dbo].[tipoEntrega] ON 
 GO
@@ -3214,11 +3681,11 @@ SET IDENTITY_INSERT [dbo].[usuario_sucursal] OFF
 GO
 SET IDENTITY_INSERT [dbo].[venta] ON 
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (2, 4, 3, 1, 1, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(2061.96 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (2, 4, 3, 1, 1, 1, 2, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(2061.96 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (3, 4, 3, 1, 2, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(53610.96 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (3, 4, 3, 1, 2, 1, 2, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(53610.96 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (4, 4, 3, 1, 2, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(53610.96 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (4, 4, 3, 1, 2, 1, 3, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(53610.96 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (5, 4, 3, 1, 1, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(12084.71 AS Decimal(14, 2)))
 GO
@@ -3226,7 +3693,7 @@ INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoP
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (7, 4, 2, 1, 1, 1, 3, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(276751.52 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (10, 4, 1, 1, 3, 3, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (10, 4, 1, 1, 3, 3, 2, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (11, 4, 1, 1, 3, 2, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
@@ -3238,9 +3705,85 @@ INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoP
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (15, 4, 1, 1, 3, 2, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (16, 4, 1, 1, 2, 2, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (16, 4, 1, 1, 2, 2, 2, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (17, 4, 1, 1, 3, 2, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (17, 4, 1, 1, 3, 2, 2, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (18, 4, 1, 1, 3, 2, 2, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(3092.94 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (19, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (20, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (21, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (22, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (23, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (24, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (25, 4, 1, 1, 1, 2, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (26, 4, 1, 1, 1, 1, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (27, 4, 1, 1, 1, 1, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (28, 4, 1, 1, 1, 1, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (29, 4, 1, 1, 1, 1, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (30, 4, 1, 1, 1, 1, 1, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (31, 4, 1, 1, 1, 2, 3, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (32, 4, 1, 1, 1, 2, 2, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (33, 4, 1, 1, 1, 2, 2, CAST(N'2021-11-23T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (34, 4, 1, 1, 1, 2, 3, CAST(N'2021-11-24T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (35, 4, 1, 1, 2, 2, 1, CAST(N'2021-11-25T00:00:00.000' AS DateTime), CAST(4920.46 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (36, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (37, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (38, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(5980.35 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (39, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (40, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (41, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (42, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (43, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (44, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (45, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (46, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(3264.77 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (47, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(3264.77 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (48, 4, 1, 1, 1, 1, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(1632.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (49, 4, 1, 1, 1, 1, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(979.43 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (50, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2500.46 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (51, 4, 1, 1, 1, 1, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(760.51 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (52, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(1305.91 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (53, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(1822.39 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (54, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2734.90 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (55, 4, 1, 1, 1, 2, 3, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2553.98 AS Decimal(14, 2)))
 GO
 SET IDENTITY_INSERT [dbo].[venta] OFF
 GO
@@ -3276,21 +3819,119 @@ INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [p
 GO
 INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (17, 17, 1, CAST(343.66 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 1)
 GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (18, 18, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (19, 18, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (20, 22, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (21, 22, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (22, 24, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (23, 24, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (24, 25, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (25, 25, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (26, 29, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (27, 30, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (28, 31, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (29, 32, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (30, 32, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (31, 33, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (32, 33, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (33, 34, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (34, 37, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (35, 39, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (36, 39, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (37, 40, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (38, 40, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (39, 41, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (40, 41, 1, CAST(0.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (41, 42, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (42, 42, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (43, 43, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 5)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (44, 43, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 4)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (45, 45, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (46, 45, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (47, 46, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (48, 47, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (49, 47, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (50, 48, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (51, 49, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (52, 50, 3, CAST(400.00 AS Decimal(14, 2)), CAST(400.27 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (53, 50, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (54, 51, 3, CAST(400.00 AS Decimal(14, 2)), CAST(400.27 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (55, 52, 1, CAST(300.00 AS Decimal(14, 2)), CAST(343.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (56, 53, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (57, 53, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (58, 54, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (59, 54, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (60, 54, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (61, 54, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 3)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (62, 55, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (63, 55, 1, CAST(300.00 AS Decimal(14, 2)), CAST(383.66 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (64, 55, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 4)
+GO
 SET IDENTITY_INSERT [dbo].[venta_detalle] OFF
 GO
 SET IDENTITY_INSERT [dbo].[venta_estado] ON 
 GO
-INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (1, N'Iniciado')
+INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (1, N'Pendiente de Pago')
 GO
-INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (2, N'Envio en progreso')
+INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (2, N'Pagado')
 GO
-INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (3, N'Completado')
+INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (3, N'Cancelado')
+GO
+INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (4, N'Con Perdidas')
+GO
+INSERT [dbo].[venta_estado] ([id], [nombre]) VALUES (5, N'Con Devoluciones')
 GO
 SET IDENTITY_INSERT [dbo].[venta_estado] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IX_producto]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  Index [IX_producto]    Script Date: 12/3/2021 20:54:03 ******/
 CREATE NONCLUSTERED INDEX [IX_producto] ON [dbo].[producto]
 (
 	[codigo] ASC
@@ -3356,6 +3997,16 @@ REFERENCES [dbo].[venta] ([id])
 GO
 ALTER TABLE [dbo].[envio_deposito] CHECK CONSTRAINT [FK_envio_deposito_venta]
 GO
+ALTER TABLE [dbo].[envio_deposito_detalle]  WITH CHECK ADD  CONSTRAINT [FK_venta_detalle_deposito_deposito] FOREIGN KEY([idDeposito])
+REFERENCES [dbo].[deposito] ([id])
+GO
+ALTER TABLE [dbo].[envio_deposito_detalle] CHECK CONSTRAINT [FK_venta_detalle_deposito_deposito]
+GO
+ALTER TABLE [dbo].[envio_deposito_detalle]  WITH CHECK ADD  CONSTRAINT [FK_venta_detalle_deposito_venta_detalle] FOREIGN KEY([idVentaDetalle])
+REFERENCES [dbo].[venta_detalle] ([id])
+GO
+ALTER TABLE [dbo].[envio_deposito_detalle] CHECK CONSTRAINT [FK_venta_detalle_deposito_venta_detalle]
+GO
 ALTER TABLE [dbo].[envio_sucursal]  WITH CHECK ADD  CONSTRAINT [FK_Envio_EstadoEnvio] FOREIGN KEY([idEstadoEnvio])
 REFERENCES [dbo].[estadoEnvio] ([id])
 GO
@@ -3371,6 +4022,16 @@ REFERENCES [dbo].[venta] ([id])
 GO
 ALTER TABLE [dbo].[envio_sucursal] CHECK CONSTRAINT [FK_envio_venta1]
 GO
+ALTER TABLE [dbo].[envio_sucursal_detalle]  WITH CHECK ADD  CONSTRAINT [FK_envio_sucursal_detalle_sucursal] FOREIGN KEY([idSucursal])
+REFERENCES [dbo].[sucursal] ([id])
+GO
+ALTER TABLE [dbo].[envio_sucursal_detalle] CHECK CONSTRAINT [FK_envio_sucursal_detalle_sucursal]
+GO
+ALTER TABLE [dbo].[envio_sucursal_detalle]  WITH CHECK ADD  CONSTRAINT [FK_envio_sucursal_detalle_venta_detalle] FOREIGN KEY([idVentaDetalle])
+REFERENCES [dbo].[venta_detalle] ([id])
+GO
+ALTER TABLE [dbo].[envio_sucursal_detalle] CHECK CONSTRAINT [FK_envio_sucursal_detalle_venta_detalle]
+GO
 ALTER TABLE [dbo].[familia_patente]  WITH CHECK ADD  CONSTRAINT [FK_familia_patente_familia] FOREIGN KEY([idFamilia])
 REFERENCES [dbo].[familia] ([id])
 GO
@@ -3380,6 +4041,11 @@ ALTER TABLE [dbo].[familia_patente]  WITH CHECK ADD  CONSTRAINT [FK_familia_pate
 REFERENCES [dbo].[patente] ([id])
 GO
 ALTER TABLE [dbo].[familia_patente] CHECK CONSTRAINT [FK_familia_patente_patente]
+GO
+ALTER TABLE [dbo].[pago]  WITH CHECK ADD  CONSTRAINT [FK_pago_venta] FOREIGN KEY([idVenta])
+REFERENCES [dbo].[venta] ([id])
+GO
+ALTER TABLE [dbo].[pago] CHECK CONSTRAINT [FK_pago_venta]
 GO
 ALTER TABLE [dbo].[pedido_deposito]  WITH CHECK ADD  CONSTRAINT [FK_pedido_deposito_deposito1] FOREIGN KEY([idDeposito])
 REFERENCES [dbo].[deposito] ([id])
@@ -3456,6 +4122,16 @@ REFERENCES [dbo].[producto] ([id])
 GO
 ALTER TABLE [dbo].[perdida_detalle] CHECK CONSTRAINT [FK_perdida_detalle_producto]
 GO
+ALTER TABLE [dbo].[retiro_sucursal]  WITH CHECK ADD  CONSTRAINT [FK_retiro_sucursal_sucursal] FOREIGN KEY([idSucursal])
+REFERENCES [dbo].[sucursal] ([id])
+GO
+ALTER TABLE [dbo].[retiro_sucursal] CHECK CONSTRAINT [FK_retiro_sucursal_sucursal]
+GO
+ALTER TABLE [dbo].[retiro_sucursal]  WITH CHECK ADD  CONSTRAINT [FK_retiro_sucursal_venta_detalle] FOREIGN KEY([idVentaDetalle])
+REFERENCES [dbo].[venta_detalle] ([id])
+GO
+ALTER TABLE [dbo].[retiro_sucursal] CHECK CONSTRAINT [FK_retiro_sucursal_venta_detalle]
+GO
 ALTER TABLE [dbo].[sucursal_producto]  WITH CHECK ADD  CONSTRAINT [FK_sucursal_producto_producto] FOREIGN KEY([idProducto])
 REFERENCES [dbo].[producto] ([id])
 GO
@@ -3531,17 +4207,7 @@ REFERENCES [dbo].[venta] ([id])
 GO
 ALTER TABLE [dbo].[venta_detalle] CHECK CONSTRAINT [FK_venta_detalle_venta]
 GO
-ALTER TABLE [dbo].[venta_detalle_deposito]  WITH CHECK ADD  CONSTRAINT [FK_venta_detalle_deposito_deposito] FOREIGN KEY([idDeposito])
-REFERENCES [dbo].[deposito] ([id])
-GO
-ALTER TABLE [dbo].[venta_detalle_deposito] CHECK CONSTRAINT [FK_venta_detalle_deposito_deposito]
-GO
-ALTER TABLE [dbo].[venta_detalle_deposito]  WITH CHECK ADD  CONSTRAINT [FK_venta_detalle_deposito_venta_detalle] FOREIGN KEY([idVentaDetalle])
-REFERENCES [dbo].[venta_detalle] ([id])
-GO
-ALTER TABLE [dbo].[venta_detalle_deposito] CHECK CONSTRAINT [FK_venta_detalle_deposito_venta_detalle]
-GO
-/****** Object:  StoredProcedure [dbo].[sp_backup]    Script Date: 11/23/2021 16:18:18 ******/
+/****** Object:  StoredProcedure [dbo].[sp_backup]    Script Date: 12/3/2021 20:54:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
