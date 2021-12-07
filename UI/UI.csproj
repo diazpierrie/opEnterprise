@@ -62,11 +62,11 @@
     <Compile Include="DireccionAgregar.Designer.cs">
       <DependentUpon>DireccionAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarControles.cs">
+    <Compile Include="ControlesGestionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarControles.Designer.cs">
-      <DependentUpon>GestionarControles.cs</DependentUpon>
+    <Compile Include="ControlesGestionar.Designer.cs">
+      <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </Compile>
     <Compile Include="ClienteAlta.cs">
       <SubType>Form</SubType>
@@ -74,17 +74,17 @@
     <Compile Include="ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionarIdioma.cs">
+    <Compile Include="IdiomaGestionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionarIdioma.Designer.cs">
-      <DependentUpon>GestionarIdioma.cs</DependentUpon>
+    <Compile Include="IdiomaGestionar.Designer.cs">
+      <DependentUpon>IdiomaGestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrarIdioma.cs">
+    <Compile Include="IdiomaBorrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrarIdioma.Designer.cs">
-      <DependentUpon>BorrarIdioma.cs</DependentUpon>
+    <Compile Include="IdiomaBorrar.Designer.cs">
+      <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </Compile>
     <Compile Include="DireccionAltaModificacion.cs">
       <SubType>Form</SubType>
@@ -98,11 +98,11 @@
     <Compile Include="DireccionBaja.Designer.cs">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelarVentaConfirmar.cs">
+    <Compile Include="VentaConfirmarCancelacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelarVentaConfirmar.Designer.cs">
-      <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
+    <Compile Include="VentaConfirmarCancelacion.Designer.cs">
+      <DependentUpon>VentaConfirmarCancelacion.cs</DependentUpon>
     </Compile>
     <Compile Include="openEnterpriseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -121,11 +121,11 @@
     <Compile Include="ProveedorBuscar.Designer.cs">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompletarPedido.cs">
+    <Compile Include="PedidoCompletar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompletarPedido.Designer.cs">
-      <DependentUpon>CompletarPedido.cs</DependentUpon>
+    <Compile Include="PedidoCompletar.Designer.cs">
+      <DependentUpon>PedidoCompletar.cs</DependentUpon>
     </Compile>
     <Compile Include="DepositoEntradaRegistrar.cs">
       <SubType>Form</SubType>
@@ -157,29 +157,29 @@
     <Compile Include="ConfirmarPago.Designer.cs">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelarVenta.cs">
+    <Compile Include="VentaCancelar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelarVenta.Designer.cs">
-      <DependentUpon>CancelarVenta.cs</DependentUpon>
+    <Compile Include="VentaCancelar.Designer.cs">
+      <DependentUpon>VentaCancelar.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecibirPago.cs">
+    <Compile Include="PagoRecibir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecibirPago.Designer.cs">
-      <DependentUpon>RecibirPago.cs</DependentUpon>
+    <Compile Include="PagoRecibir.Designer.cs">
+      <DependentUpon>PagoRecibir.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuscarEnvio.cs">
+    <Compile Include="EnvioBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuscarEnvio.Designer.cs">
-      <DependentUpon>BuscarEnvio.cs</DependentUpon>
+    <Compile Include="EnvioBuscar.Designer.cs">
+      <DependentUpon>EnvioBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaElegirQueja.cs">
+    <Compile Include="QuejaElegir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaElegirQueja.Designer.cs">
-      <DependentUpon>VentaElegirQueja.cs</DependentUpon>
+    <Compile Include="QuejaElegir.Designer.cs">
+      <DependentUpon>QuejaElegir.cs</DependentUpon>
     </Compile>
     <Compile Include="DepositoCrearReposicion.cs">
       <SubType>Form</SubType>
@@ -187,11 +187,11 @@
     <Compile Include="DepositoCrearReposicion.Designer.cs">
       <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaQuejaCrear.cs">
+    <Compile Include="QuejaCrear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaQuejaCrear.Designer.cs">
-      <DependentUpon>VentaQuejaCrear.cs</DependentUpon>
+    <Compile Include="QuejaCrear.Designer.cs">
+      <DependentUpon>QuejaCrear.cs</DependentUpon>
     </Compile>
     <Compile Include="VentaBuscar.cs">
       <SubType>Form</SubType>
@@ -205,17 +205,17 @@
     <Compile Include="ClienteBuscar.Designer.cs">
       <DependentUpon>ClienteBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompletarVenta.cs">
+    <Compile Include="VentaCompletar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompletarVenta.Designer.cs">
-      <DependentUpon>CompletarVenta.cs</DependentUpon>
+    <Compile Include="VentaCompletar.Designer.cs">
+      <DependentUpon>VentaCompletar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigurarEdificio.cs">
+    <Compile Include="EdificioConfigurar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfigurarEdificio.Designer.cs">
-      <DependentUpon>ConfigurarEdificio.cs</DependentUpon>
+    <Compile Include="EdificioConfigurar.Designer.cs">
+      <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </Compile>
     <Compile Include="DepositoElegir.cs">
       <SubType>Form</SubType>
@@ -223,11 +223,11 @@
     <Compile Include="DepositoElegir.Designer.cs">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductoAgregar.cs">
+    <Compile Include="VentaProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductoAgregar.Designer.cs">
-      <DependentUpon>ProductoAgregar.cs</DependentUpon>
+    <Compile Include="VentaProductoAgregar.Designer.cs">
+      <DependentUpon>VentaProductoAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="VentaHome.cs">
       <SubType>Form</SubType>
@@ -329,11 +329,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="VentaQuejaElegirProducto.cs">
+    <Compile Include="QuejaElegirProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaQuejaElegirProducto.Designer.cs">
-      <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
+    <Compile Include="QuejaElegirProductos.Designer.cs">
+      <DependentUpon>QuejaElegirProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="EnvioVerDetalle.cs">
       <SubType>Form</SubType>
@@ -347,29 +347,29 @@
     <Compile Include="VentaVerDetalle.Designer.cs">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="VerBitacora.cs">
+    <Compile Include="BitacoraVer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerBitacora.Designer.cs">
-      <DependentUpon>VerBitacora.cs</DependentUpon>
+    <Compile Include="BitacoraVer.Designer.cs">
+      <DependentUpon>BitacoraVer.cs</DependentUpon>
     </Compile>
-    <Compile Include="VerEnvios.cs">
+    <Compile Include="EnviosVer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VerEnvios.Designer.cs">
-      <DependentUpon>VerEnvios.cs</DependentUpon>
+    <Compile Include="EnviosVer.Designer.cs">
+      <DependentUpon>EnviosVer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GestionarControles.resx">
-      <DependentUpon>GestionarControles.cs</DependentUpon>
+    <EmbeddedResource Include="ControlesGestionar.resx">
+      <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionarIdioma.resx">
-      <DependentUpon>GestionarIdioma.cs</DependentUpon>
+    <EmbeddedResource Include="IdiomaGestionar.resx">
+      <DependentUpon>IdiomaGestionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrarIdioma.resx">
-      <DependentUpon>BorrarIdioma.cs</DependentUpon>
+    <EmbeddedResource Include="IdiomaBorrar.resx">
+      <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DireccionAltaModificacion.resx">
       <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>
@@ -377,8 +377,8 @@
     <EmbeddedResource Include="DireccionBaja.resx">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CancelarVentaConfirmar.resx">
-      <DependentUpon>CancelarVentaConfirmar.cs</DependentUpon>
+    <EmbeddedResource Include="VentaConfirmarCancelacion.resx">
+      <DependentUpon>VentaConfirmarCancelacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RetiroLocalAgregar.resx">
       <DependentUpon>RetiroLocalAgregar.cs</DependentUpon>
@@ -386,8 +386,8 @@
     <EmbeddedResource Include="ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompletarPedido.resx">
-      <DependentUpon>CompletarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="PedidoCompletar.resx">
+      <DependentUpon>PedidoCompletar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DireccionHome.resx">
       <DependentUpon>DireccionHome.cs</DependentUpon>
@@ -398,23 +398,23 @@
     <EmbeddedResource Include="ConfirmarPago.resx">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CancelarVenta.resx">
-      <DependentUpon>CancelarVenta.cs</DependentUpon>
+    <EmbeddedResource Include="VentaCancelar.resx">
+      <DependentUpon>VentaCancelar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecibirPago.resx">
-      <DependentUpon>RecibirPago.cs</DependentUpon>
+    <EmbeddedResource Include="PagoRecibir.resx">
+      <DependentUpon>PagoRecibir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuscarEnvio.resx">
-      <DependentUpon>BuscarEnvio.cs</DependentUpon>
+    <EmbeddedResource Include="EnvioBuscar.resx">
+      <DependentUpon>EnvioBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaElegirQueja.resx">
-      <DependentUpon>VentaElegirQueja.cs</DependentUpon>
+    <EmbeddedResource Include="QuejaElegir.resx">
+      <DependentUpon>QuejaElegir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepositoCrearReposicion.resx">
       <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaQuejaCrear.resx">
-      <DependentUpon>VentaQuejaCrear.cs</DependentUpon>
+    <EmbeddedResource Include="QuejaCrear.resx">
+      <DependentUpon>QuejaCrear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaBuscar.resx">
       <DependentUpon>VentaBuscar.cs</DependentUpon>
@@ -422,17 +422,17 @@
     <EmbeddedResource Include="ClienteBuscar.resx">
       <DependentUpon>ClienteBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompletarVenta.resx">
-      <DependentUpon>CompletarVenta.cs</DependentUpon>
+    <EmbeddedResource Include="VentaCompletar.resx">
+      <DependentUpon>VentaCompletar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfigurarEdificio.resx">
-      <DependentUpon>ConfigurarEdificio.cs</DependentUpon>
+    <EmbeddedResource Include="EdificioConfigurar.resx">
+      <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepositoElegir.resx">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductoAgregar.resx">
-      <DependentUpon>ProductoAgregar.cs</DependentUpon>
+    <EmbeddedResource Include="VentaProductoAgregar.resx">
+      <DependentUpon>VentaProductoAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaHome.resx">
       <DependentUpon>VentaHome.cs</DependentUpon>
@@ -493,8 +493,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UpdatableForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaQuejaElegirProducto.resx">
-      <DependentUpon>VentaQuejaElegirProducto.cs</DependentUpon>
+    <EmbeddedResource Include="QuejaElegirProductos.resx">
+      <DependentUpon>QuejaElegirProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnvioVerDetalle.resx">
       <DependentUpon>EnvioVerDetalle.cs</DependentUpon>
@@ -502,11 +502,11 @@
     <EmbeddedResource Include="VentaVerDetalle.resx">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VerBitacora.resx">
-      <DependentUpon>VerBitacora.cs</DependentUpon>
+    <EmbeddedResource Include="BitacoraVer.resx">
+      <DependentUpon>BitacoraVer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VerEnvios.resx">
-      <DependentUpon>VerEnvios.cs</DependentUpon>
+    <EmbeddedResource Include="EnviosVer.resx">
+      <DependentUpon>EnviosVer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="openEnterpriseDataSet.xsc">
       <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>

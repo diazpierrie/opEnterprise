@@ -36,7 +36,7 @@ namespace UI
 
         private void btnBitacora_Click(object sender, EventArgs e)
         {
-            var bt = new VerBitacora();
+            var bt = new BitacoraVer();
             bt.Show();
         }
 
@@ -48,25 +48,25 @@ namespace UI
 
         private void btnCancelarVentaCaja_Click(object sender, EventArgs e)
         {
-            var cancelarVenta = new CancelarVenta();
+            var cancelarVenta = new VentaCancelar();
             cancelarVenta.Show();
         }
 
         private void btnCancelarVentaVenta_Click(object sender, EventArgs e)
         {
-            var cancelarVenta = new CancelarVenta();
+            var cancelarVenta = new VentaCancelar();
             cancelarVenta.Show();
         }
 
         private void btnConfigurarEdificio_Click(object sender, EventArgs e)
         {
-            var configurarEdificio = new ConfigurarEdificio(this);
+            var configurarEdificio = new EdificioConfigurar(this);
             configurarEdificio.Show();
         }
 
         private void btnCrearQueja_Click(object sender, EventArgs e)
         {
-            var crearQueja = new VentaQuejaCrear();
+            var crearQueja = new QuejaCrear();
             crearQueja.Show();
         }
 
@@ -84,7 +84,7 @@ namespace UI
 
         private void btnIdioma_Click(object sender, EventArgs e)
         {
-            var gestionarIdioma = new GestionarIdioma();
+            var gestionarIdioma = new IdiomaGestionar();
             gestionarIdioma.Show();
         }
 
@@ -106,7 +106,7 @@ namespace UI
 
         private void btnRecibirPago_Click(object sender, EventArgs e)
         {
-            var recibirPago = new RecibirPago();
+            var recibirPago = new PagoRecibir();
             recibirPago.Show();
         }
 
@@ -129,7 +129,7 @@ namespace UI
 
         private void btnVerEnvios_Click(object sender, EventArgs e)
         {
-            var buscarEnvio = new BuscarEnvio();
+            var buscarEnvio = new EnvioBuscar();
             buscarEnvio.Show();
         }
 

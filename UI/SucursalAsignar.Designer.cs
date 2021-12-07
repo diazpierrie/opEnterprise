@@ -210,7 +210,7 @@ namespace UI
             this.Controls.Add(this.gridAsignarSucursal);
             this.Controls.Add(this.btnAsignarSucursal);
             this.Name = "SucursalAsignar";
-            this.Text = "AsignarSucursal";
+            this.Text = "Asignar Sucursal";
             this.Load += new System.EventHandler(this.AsignarSucursal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridAsignarSucursal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDesasignarSucursal)).EndInit();

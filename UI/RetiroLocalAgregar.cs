@@ -11,18 +11,18 @@ namespace UI
 {
     public partial class RetiroLocalAgregar : UpdatableForm
     {
-        private readonly CompletarVenta _completarVenta;
+        private readonly VentaCompletar _ventaCompletar;
 
-        public RetiroLocalAgregar(CompletarVenta completarVenta)
+        public RetiroLocalAgregar(VentaCompletar ventaCompletar)
         {
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
-            _completarVenta = completarVenta;
+            _ventaCompletar = ventaCompletar;
         }
 
         private void ActualizarGrids()
         {
-            gridProductosAComprar.DataSource = _completarVenta.Ventahome.ProductosAAsignar.Where(x => Equals(x.Edificio, Sesion.ObtenerSesion().Sucursal)).ToList();
+            gridProductosAComprar.DataSource = _ventaCompletar.Ventahome.ProductosAAsignar.Where(x => Equals(x.Edificio, Sesion.ObtenerSesion().Sucursal)).ToList();
 
             gridProductosAComprar.Columns["id"].Visible = false;
             gridProductosAComprar.Columns["codigo"].Visible = false;
@@ -42,7 +42,7 @@ namespace UI
             gridProductosAComprar.Columns["CantidadAComprar"].ReadOnly = true;
             gridProductosAComprar.Columns["CantidadARetirar"].ReadOnly = false;
 
-            gridProductosRetiro.DataSource = _completarVenta.ProductosRetiroLocal;
+            gridProductosRetiro.DataSource = _ventaCompletar.ProductosRetiroLocal;
             gridProductosRetiro.Columns["id"].Visible = false;
             gridProductosRetiro.Columns["activo"].Visible = false;
             gridProductosRetiro.Columns["codigo"].Visible = false;
@@ -82,14 +82,14 @@ namespace UI
                     productoNuevo.CantidadARetirar = (int)selectedRow.Cells["CantidadARetirar"].Value;
                 }
 
-                var productoAgregado = _completarVenta.ProductosRetiroLocal.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id));
+                var productoAgregado = _ventaCompletar.ProductosRetiroLocal.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id));
                 if (productoAgregado != null)
                 {
                     productoAgregado.CantidadARetirar += productoNuevo.CantidadARetirar;
                 }
                 else
                 {
-                    _completarVenta.ProductosRetiroLocal.Add(productoNuevo);
+                    _ventaCompletar.ProductosRetiroLocal.Add(productoNuevo);
                 }
 
                 productoRow.CantidadAComprar -= productoNuevo.CantidadARetirar;
@@ -100,7 +100,7 @@ namespace UI
                 gridProductosRetiro.RefreshEdit();
 
                 if (productoRow.CantidadAComprar != 0) continue;
-                _completarVenta.Ventahome.ProductosAAsignar.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
+                _ventaCompletar.Ventahome.ProductosAAsignar.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
                 ActualizarGrids();
             }
         }
@@ -123,38 +123,38 @@ namespace UI
                 productoNuevo.CantidadAComprar = producto.CantidadARetirar;
                 productoNuevo.CantidadARetirar = 0;
 
-                if (_completarVenta.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)) != null)
+                if (_ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)) != null)
                 {
-                    _completarVenta.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)).CantidadAComprar += productoNuevo.CantidadAComprar;
+                    _ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)).CantidadAComprar += productoNuevo.CantidadAComprar;
                 }
                 else
                 {
-                    _completarVenta.Ventahome.ProductosAAsignar.Add(productoNuevo);
+                    _ventaCompletar.Ventahome.ProductosAAsignar.Add(productoNuevo);
                 }
-                _completarVenta.ProductosRetiroLocal.Remove(producto);
+                _ventaCompletar.ProductosRetiroLocal.Remove(producto);
                 ActualizarGrids();
             }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            foreach (var producto in _completarVenta.Ventahome.ProductosAAsignar)
+            foreach (var producto in _ventaCompletar.Ventahome.ProductosAAsignar)
             {
                 var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
                 productoNuevo.CantidadAComprar = producto.CantidadARetirar;
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_completarVenta.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                if (_ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
                 {
-                    _completarVenta.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    _ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                 }
                 else
                 {
-                    _completarVenta.Ventahome.ProductosAAsignar.Add(productoNuevo);
+                    _ventaCompletar.Ventahome.ProductosAAsignar.Add(productoNuevo);
                 }
             }
-            _completarVenta.ProductosRetiroLocal.Clear();
+            _ventaCompletar.ProductosRetiroLocal.Clear();
             ActualizarGrids();
             Close();
         }

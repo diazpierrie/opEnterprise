@@ -53,13 +53,13 @@ namespace UI
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
-            var completarVenta = new CompletarVenta(this);
+            var completarVenta = new VentaCompletar(this);
             completarVenta.Show();
         }
 
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
-            var agregarProducto = new ProductoAgregar(this);
+            var agregarProducto = new VentaProductoAgregar(this);
             agregarProducto.Show();
         }
 

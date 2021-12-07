@@ -4,6 +4,7 @@ using Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 
 namespace BLL
@@ -164,14 +165,26 @@ namespace BLL
         public static List<VentaDetalleEe> ObtenerDetallesAgrupados(VentaEe venta)
         {
             var detalles = Dal.ObtenerDetallesAgrupados(venta.Id);
+            var devoluciones = Dal.ObtenerDevolucionesAgrupadas(venta.Id);
+            var perdidas = Dal.ObtenerPerdidasAgrupadas(venta.Id);
+
 
             foreach (var detalle in detalles)
             {
                 detalle.Venta = Obtener(detalle.Id);
                 detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
                 detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                }
+                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                }
             }
 
+            detalles.RemoveAll(x => x.Cantidad == 0);
             return detalles;
         }
 
@@ -195,7 +208,28 @@ namespace BLL
             var devolucion = new DevolucionEe { Id = Dal.RegistrarDevolucion(venta) };
             Dal.RegistrarDetallesDevolucion(devolucion, productos);
             Dal.RegistrarProductosDevueltos(devolucion, productos);
-            Dal.MarcarVentaComoDevuelta(venta);
+            if (VerificarDevolucionEntera(venta))
+            {
+                Dal.MarcarVentaDevuelta(venta);
+            }
+            else
+            {
+                if (VerificarPerdidaYDevolucionEntera(venta))
+                {
+                    Dal.MarcarVentaDevueltoConPerdidas(venta);
+                }
+                else
+                {
+                    if (venta.Estado.Id == 4)
+                    {
+                        Dal.MarcarVentaConPerdidasYDevoluciones(venta);
+                    }
+                    else
+                    {
+                        Dal.MarcarVentaConDevoluciones(venta);
+                    }
+                }
+            }
 
             Dv.ActualizarDv();
 
@@ -208,13 +242,110 @@ namespace BLL
         {
             var perdida = new PerdidaEe { Id = Dal.RegistrarPerdida(venta, total), Total = total };
             Dal.RegistrarDetallesPerdida(perdida, productos);
-            Dal.MarcarVentaComoPerdida(venta);
-
+            if (VerificarPerdidaEntera(venta))
+            {
+                Dal.MarcarVentaComoPerdida(venta);
+            }
+            else
+            {
+                if (VerificarPerdidaYDevolucionEntera(venta))
+                {
+                    Dal.MarcarVentaDevueltoConPerdidas(venta);
+                }
+                else
+                {
+                    if (venta.Estado.Id == 4)
+                    {
+                        Dal.MarcarVentaConPerdidasYDevoluciones(venta);
+                    }
+                    else
+                    {
+                        Dal.MarcarVentaComoPerdida(venta);
+                    }
+                }
+            }
+            
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Perdida registrada: ", venta);
 
             return perdida.Id;
+        }
+
+        private static bool VerificarDevolucionEntera(VentaEe venta)
+        {
+            var detalles = Dal.ObtenerDetallesAgrupados(venta.Id);
+            var devoluciones = Dal.ObtenerDevolucionesAgrupadas(venta.Id);
+
+            foreach (var detalle in detalles)
+            {
+                detalle.Venta = Obtener(detalle.Id);
+                detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+                detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+
+                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    if (detalle.Cantidad != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private static bool VerificarPerdidaEntera(VentaEe venta)
+        {
+            var detalles = Dal.ObtenerDetallesAgrupados(venta.Id);
+            var perdidas = Dal.ObtenerPerdidasAgrupadas(venta.Id);
+
+            foreach (var detalle in detalles)
+            {
+                detalle.Venta = Obtener(detalle.Id);
+                detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+                detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+
+                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    if (detalle.Cantidad != 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private static bool VerificarPerdidaYDevolucionEntera(VentaEe venta)
+        {
+            var detalles = Dal.ObtenerDetallesAgrupados(venta.Id);
+            var perdidas = Dal.ObtenerPerdidasAgrupadas(venta.Id);
+            var devoluciones = Dal.ObtenerDevolucionesAgrupadas(venta.Id);
+
+            foreach (var detalle in detalles)
+            {
+                detalle.Venta = Obtener(detalle.Id);
+                detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
+                detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
+
+                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                }
+
+                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                {
+                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                }
+
+                if (detalle.Cantidad != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

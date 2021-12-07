@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class VentaBuscar
+    partial class QuejaCrear
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@ namespace UI
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.btnCerrar = new MetroFramework.Controls.MetroButton();
             this.gridClientes = new MetroFramework.Controls.MetroGrid();
+            this.btnElegirVenta = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,11 +217,23 @@ namespace UI
             this.gridClientes.TabIndex = 0;
             this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
             // 
-            // VentaBuscar
+            // btnElegirVenta
+            // 
+            this.btnElegirVenta.Location = new System.Drawing.Point(629, 264);
+            this.btnElegirVenta.Name = "btnElegirVenta";
+            this.btnElegirVenta.Size = new System.Drawing.Size(157, 23);
+            this.btnElegirVenta.TabIndex = 49;
+            this.btnElegirVenta.Tag = "choose_sale";
+            this.btnElegirVenta.Text = "Elegir Venta";
+            this.btnElegirVenta.UseSelectable = true;
+            this.btnElegirVenta.Click += new System.EventHandler(this.btnElegirVenta_Click);
+            // 
+            // VentaQuejaCrear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 459);
+            this.Controls.Add(this.btnElegirVenta);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.btnBuscar);
@@ -230,8 +243,8 @@ namespace UI
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridClientes);
-            this.Name = "VentaBuscar";
-            this.Text = "Buscar Venta ";
+            this.Name = "QuejaCrear";
+            this.Text = "Elegir Venta";
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,5 +262,6 @@ namespace UI
         private MetroTextBox txtUsuario;
         private MetroComboBox cbEstado;
         private MetroLabel lblEstado;
+        private MetroButton btnElegirVenta;
     }
 }

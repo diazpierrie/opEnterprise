@@ -145,7 +145,7 @@ namespace UI
             this.Controls.Add(this.btnModificarVenta);
             this.Controls.Add(this.btnAgregarProducto);
             this.Name = "VentaHome";
-            this.Text = "VentaHome";
+            this.Text = "Ventas";
             this.Load += new System.EventHandler(this.VentaHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridVenta)).EndInit();
             this.ResumeLayout(false);

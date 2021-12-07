@@ -10,9 +10,9 @@ namespace UI
     public partial class ClienteBuscar : UpdatableForm
     {
         private List<CompradorEe> _dataTable;
-        private readonly CompletarVenta _fatherform;
+        private readonly VentaCompletar _fatherform;
 
-        public ClienteBuscar(CompletarVenta fatherform)
+        public ClienteBuscar(VentaCompletar fatherform)
         {
             _fatherform = fatherform;
             InitializeComponent();

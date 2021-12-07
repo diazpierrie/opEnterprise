@@ -10,13 +10,13 @@ namespace UI
 {
     public partial class ConfirmarPago : UpdatableForm
     {
-        private readonly RecibirPago _recibirPago;
+        private readonly PagoRecibir _pagoRecibir;
         private readonly VentaEe _venta;
         private double _vuelto;
 
-        public ConfirmarPago(RecibirPago recibirPago, VentaEe venta)
+        public ConfirmarPago(PagoRecibir pagoRecibir, VentaEe venta)
         {
-            _recibirPago = recibirPago;
+            _pagoRecibir = pagoRecibir;
             _venta = venta;
             InitializeComponent();
             ActualizarGrid();
@@ -62,7 +62,7 @@ namespace UI
             if (_vuelto <= 0)
             {
                 VentaBll.ConfirmarPago(new PagoEe() { Venta = _venta, MontoCobrado = _venta.Total, Vuelto = _vuelto * -1 });
-                _recibirPago.ActualizarGrid();
+                _pagoRecibir.ActualizarGrid();
                 Close();
             }
             else

@@ -81,7 +81,7 @@ namespace UI
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
-            var completarVenta = new CompletarPedido(this);
+            var completarVenta = new PedidoCompletar(this);
             completarVenta.Show();
         }
     }

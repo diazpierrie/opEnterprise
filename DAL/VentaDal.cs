@@ -12,11 +12,10 @@ namespace DAL
     {
         private readonly CompradorDal _compradorDal = new CompradorDal();
         private readonly MetodoPagoDal _metodoPago = new MetodoPagoDal();
+        private readonly ProductoDal _producto = new ProductoDal();
         private readonly SucursalDal _sucursalDal = new SucursalDal();
         private readonly UsuarioDal _usuarioDal = new UsuarioDal();
         private readonly VentaEstadoDal _ventaEstado = new VentaEstadoDal();
-        private readonly ProductoDal _producto = new ProductoDal();
-
         public bool ActualizarStockDeposito(ProductoEdificioEe producto)
         {
             var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = @stock WHERE [idDeposito] = @idDeposito AND [idProducto] = @idProducto", Conn);
@@ -105,11 +104,37 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        public bool MarcarVentaComoDevuelta(VentaEe venta)
+        public bool MarcarVentaConDevoluciones(VentaEe venta)
         {
             var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", venta.Id);
-            query.Parameters.AddWithValue("@idEstado", 5);
+            query.Parameters.AddWithValue("@idEstado", venta.Estado.Id == 4 ? 8 : 5);
+
+            return ExecuteQuery(query);
+        }
+
+        public bool MarcarVentaConPerdidasYDevoluciones(VentaEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 8);
+
+            return ExecuteQuery(query);
+        }
+        public bool MarcarVentaDevuelta(VentaEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 6);
+
+            return ExecuteQuery(query);
+        }
+
+        public bool MarcarVentaDevueltoConPerdidas(VentaEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 9);
 
             return ExecuteQuery(query);
         }
@@ -392,7 +417,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT idProducto, costoUnitario, SUM(cantidad) as Cantidad FROM venta_detalle WHERE idVenta = {id} GROUP BY idProducto, costoUnitario";
+                var strQuery = $"SELECT vd.idProducto, costoUnitario, SUM(vd.cantidad) AS Cantidad FROM venta_detalle as vd WHERE vd.idVenta = {id} AND cantidad != 0 GROUP BY vd.idProducto, costoUnitario";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -405,6 +430,36 @@ namespace DAL
                     while (data.Read())
                     {
                         detalles.Add(CastDtoDetalleAgrupado(data));
+                    }
+                }
+
+                Conn.Close();
+                return detalles;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<VentaDetalleEe> ObtenerDevolucionesAgrupadas(int id)
+        {
+            try
+            {
+                var strQuery = $"SELECT dd.idProducto, SUM(dd.cantidad) AS Cantidad FROM  devolucion_detalle as dd, (SELECT id FROM devolucion WHERE idVenta = {id}) as d WHERE dd.idDevolucion = d.id GROUP BY dd.idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var detalles = new List<VentaDetalleEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        detalles.Add(CastDtoDevolucionOPerdidaAgrupada(data));
                     }
                 }
 
@@ -457,15 +512,46 @@ namespace DAL
                 return null;
             }
         }
+        public List<VentaDetalleEe> ObtenerPerdidasAgrupadas(int id)
+        {
+            try
+            {
+                var strQuery = $"SELECT pd.idProducto, SUM(pd.cantidad) AS Cantidad FROM  perdida_detalle as pd, (SELECT id FROM perdida WHERE idVenta = {id}) as d WHERE pd.idPerdida = d.id GROUP BY pd.idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var detalles = new List<VentaDetalleEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        detalles.Add(CastDtoDevolucionOPerdidaAgrupada(data));
+                    }
+                }
+
+                Conn.Close();
+                return detalles;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
         public int RegistrarDetallesDevolucion(DevolucionEe devolucion, List<VentaDetalleEe> productos)
         {
-            var columnas = new List<string> { "idDevolucion", "cantidad" };
+            var columnas = new List<string> { "idDevolucion", "idProducto", "cantidad" };
             var valores = new List<string[]>();
             foreach (var producto in productos)
             {
                 string[] value =
                 {
                     devolucion.Id.ToString(),
+                    producto.Producto.Id.ToString(),
                     producto.Cantidad.ToString()
                 };
                 valores.Add(value);
@@ -493,10 +579,11 @@ namespace DAL
 
         public int RegistrarDevolucion(VentaEe obj)
         {
-            var columnas = new List<string> { "idSucursal", "idUsuario", "fecha" };
+            var columnas = new List<string> { "idSucursal", "idVenta", "idUsuario", "fecha" };
             var valores = new List<string>
             {
                 obj.Sucursal.Id.ToString(),
+                obj.Id.ToString(),
                 obj.Empleado.Id.ToString(),
                 DateTime.Today.ToString(CultureInfo.InvariantCulture)
             };
@@ -513,10 +600,11 @@ namespace DAL
         }
         public int RegistrarPerdida(VentaEe obj, double total)
         {
-            var columnas = new List<string> { "idSucursal", "idUsuario", "fecha", "total" };
+            var columnas = new List<string> { "idSucursal", "idVenta", "idUsuario", "fecha", "total" };
             var valores = new List<string>
             {
                 obj.Sucursal.Id.ToString(),
+                obj.Id.ToString(),
                 obj.Empleado.Id.ToString(),
                 DateTime.Today.ToString(CultureInfo.InvariantCulture),
                 total.ToString(CultureInfo.InvariantCulture)
@@ -524,6 +612,152 @@ namespace DAL
 
             return Insert("perdida", columnas.ToArray(), valores.ToArray());
         }
+        public void RegistrarProductosDevueltos(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
+        {
+            foreach (var producto in productos)
+            {
+                if (_producto.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                {
+                    _producto.ActualizarStockSucursal(Sesion.ObtenerSesion().Sucursal, producto);
+                }
+                else
+                {
+                    _producto.AgregarProductoSucursal(Sesion.ObtenerSesion().Sucursal, producto);
+                }
+            }
+
+        }
+
+        public bool VerificarDevolucionEntera(VentaEe venta)
+        {
+            try
+            {
+                var strQuery =
+                    $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(dd.cantidad) AS Cantidad " +
+                    $"FROM venta_detalle as vd " +
+                    $"LEFT OUTER JOIN devolucion_detalle as dd ON vd.idProducto = dd.idProducto, " +
+                    $"(SELECT id FROM devolucion WHERE idVenta = {venta.Id}) as d " +
+                    $"WHERE dd.idDevolucion = d.id AND vd.idVenta = {venta.Id} " +
+                    $"GROUP BY vd.idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        if (int.Parse(data["cantidad"].ToString()) == 0) continue;
+                        Conn.Close();
+                        return false;
+                    }
+                }
+                else
+                {
+                    Conn.Close();
+                    return false;
+                }
+
+                Conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+
+        }
+
+        public bool VerificarPerdidaEntera(VentaEe venta)
+        {
+            try
+            {
+                var strQuery = $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(pd.cantidad) AS Cantidad " +
+                               $"FROM venta_detalle as vd " +
+                               $"LEFT OUTER JOIN perdida_detalle as pd ON vd.idProducto = pd.idProducto, " +
+                               $"(SELECT id FROM perdida WHERE idVenta = {venta.Id}) as d " +
+                               $"WHERE pd.idPerdida = d.id AND vd.idVenta = {venta.Id} " +
+                               $"GROUP BY vd.idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        if (int.Parse(data["cantidad"].ToString()) != 0)
+                        {
+                            Conn.Close();
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    Conn.Close();
+                    return false;
+                }
+
+                Conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+
+        }
+
+        public bool VerificarPerdidaYDevolucionEntera(VentaEe venta)
+        {
+            try
+            {
+                var strQuery = $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(pd.cantidad) - SUM(dd.cantidad) AS Cantidad " +
+                               $"FROM venta_detalle as vd " +
+                               $"LEFT OUTER JOIN perdida_detalle as pd ON vd.idProducto = pd.idProducto " +
+                               $"LEFT OUTER JOIN devolucion_detalle as dd ON vd.idProducto = dd.idProducto, " +
+                               $"(SELECT id FROM perdida WHERE idVenta = {venta.Id}) as p, " +
+                               $"(SELECT id FROM devolucion WHERE idVenta = {venta.Id}) as d " +
+                               $"WHERE pd.idPerdida = p.id AND dd.idDevolucion = d.id AND vd.idVenta = {venta.Id} GROUP BY vd.idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        if (int.Parse(data["cantidad"].ToString()) == 0) continue;
+                        Conn.Close();
+                        return false;
+                    }
+                }
+                else
+                {
+                    Conn.Close();
+                    return false;
+                }
+
+                Conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return false;
+            }
+
+        }
+
         private VentaEe CastDto(SqlDataReader data)
         {
             return new VentaEe
@@ -564,20 +798,13 @@ namespace DAL
             };
         }
 
-        public void RegistrarProductosDevueltos(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
+        private VentaDetalleEe CastDtoDevolucionOPerdidaAgrupada(SqlDataReader data)
         {
-            foreach (var producto in productos)
+            return new VentaDetalleEe
             {
-                if (_producto.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Id) != null)
-                {
-                    _producto.ActualizarStockSucursal(devolucionEe, productos);
-                }
-                else
-                {
-
-                }
-            }
-
+                Producto = new ProductoEe() { Id = int.Parse(data["idProducto"].ToString()) },
+                Cantidad = int.Parse(data["cantidad"].ToString())
+            };
         }
     }
 }

@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class VentaVerDetalle
+    partial class QuejaElegirProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -36,8 +36,9 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridDetalle = new MetroFramework.Controls.MetroGrid();
-            this.btnCerrar = new MetroFramework.Controls.MetroButton();
+            this.btnElegir = new MetroFramework.Controls.MetroButton();
             this.lblTotal = new MetroFramework.Controls.MetroLabel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,17 +84,20 @@ namespace UI
             this.gridDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDetalle.Size = new System.Drawing.Size(475, 334);
             this.gridDetalle.TabIndex = 0;
+            this.gridDetalle.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.gridDetalle_CellBeginEdit);
+            this.gridDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDetalle_CellEndEdit);
+            this.gridDetalle.SelectionChanged += new System.EventHandler(this.gridDetalle_SelectionChanged);
             // 
-            // btnCerrar
+            // btnElegir
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(399, 404);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(99, 23);
-            this.btnCerrar.TabIndex = 1;
-            this.btnCerrar.Tag = "close";
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnElegir.Location = new System.Drawing.Point(399, 404);
+            this.btnElegir.Name = "btnElegir";
+            this.btnElegir.Size = new System.Drawing.Size(99, 23);
+            this.btnElegir.TabIndex = 1;
+            this.btnElegir.Tag = "choose";
+            this.btnElegir.Text = "Elegir";
+            this.btnElegir.UseSelectable = true;
+            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
             // 
             // lblTotal
             // 
@@ -106,16 +110,28 @@ namespace UI
             this.lblTotal.TabIndex = 2;
             this.lblTotal.Text = "Total: ";
             // 
-            // VentaVerDetalle
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(294, 404);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(99, 23);
+            this.metroButton1.TabIndex = 3;
+            this.metroButton1.Tag = "close";
+            this.metroButton1.Text = "Cerrar";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // QuejaElegirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 454);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnElegir);
             this.Controls.Add(this.gridDetalle);
-            this.Name = "VentaVerDetalle";
-            this.Text = "Ver Detalle";
+            this.Name = "QuejaElegirProductos";
+            this.Text = "Elegir Productos";
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -125,7 +141,8 @@ namespace UI
         #endregion
 
         private MetroGrid gridDetalle;
-        private MetroButton btnCerrar;
+        private MetroButton btnElegir;
         private MetroLabel lblTotal;
+        private MetroButton metroButton1;
     }
 }

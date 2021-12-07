@@ -9,8 +9,8 @@ namespace UI
     public partial class ProveedorBuscar : UpdatableForm
     {
         private List<ProveedorEe> _dataTable;
-        private readonly CompletarPedido _fatherform;
-        public ProveedorBuscar(CompletarPedido fatherform)
+        private readonly PedidoCompletar _fatherform;
+        public ProveedorBuscar(PedidoCompletar fatherform)
         {
             _fatherform = fatherform;
             InitializeComponent();

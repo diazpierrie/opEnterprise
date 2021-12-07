@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class VentaBuscar
+    partial class EnvioBuscar
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@ namespace UI
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.btnCerrar = new MetroFramework.Controls.MetroButton();
             this.gridClientes = new MetroFramework.Controls.MetroGrid();
+            this.btnVerDetalle = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,7 +176,7 @@ namespace UI
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.AllowUserToResizeRows = false;
             this.gridClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -216,11 +217,23 @@ namespace UI
             this.gridClientes.TabIndex = 0;
             this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
             // 
-            // VentaBuscar
+            // btnVerDetalle
+            // 
+            this.btnVerDetalle.Location = new System.Drawing.Point(629, 252);
+            this.btnVerDetalle.Name = "btnVerDetalle";
+            this.btnVerDetalle.Size = new System.Drawing.Size(157, 23);
+            this.btnVerDetalle.TabIndex = 49;
+            this.btnVerDetalle.Tag = "see_detail";
+            this.btnVerDetalle.Text = "Ver Detalle";
+            this.btnVerDetalle.UseSelectable = true;
+            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
+            // 
+            // BuscarEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 459);
+            this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.btnBuscar);
@@ -230,8 +243,8 @@ namespace UI
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridClientes);
-            this.Name = "VentaBuscar";
-            this.Text = "Buscar Venta ";
+            this.Name = "EnvioBuscar";
+            this.Text = "Venta Buscar";
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,5 +262,6 @@ namespace UI
         private MetroTextBox txtUsuario;
         private MetroComboBox cbEstado;
         private MetroLabel lblEstado;
+        private MetroButton btnVerDetalle;
     }
 }
