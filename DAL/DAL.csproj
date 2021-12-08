@@ -51,11 +51,6 @@
   <ItemGroup>
     <Compile Include="BackupDal.cs" />
     <Compile Include="BitacoraDal.cs" />
-    <Compile Include="openEnterpriseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PedidoProveedorDal.cs" />
     <Compile Include="PedidoEstadoDal.cs" />
     <Compile Include="DireccionDal.cs" />
@@ -111,17 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="openEnterpriseDataSet.xsc">
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="openEnterpriseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>openEnterpriseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="openEnterpriseDataSet.xss">
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

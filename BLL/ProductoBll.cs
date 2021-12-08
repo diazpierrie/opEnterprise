@@ -50,6 +50,11 @@ namespace BLL
             return _dal.Obtener(id);
         }
 
+        public static List<ProductoEe> ObtenerActivos()
+        {
+            return _dal.ObtenerActivos();
+        }
+
         //public static List<SucursalEe> ObtenerSucursalesDeUsuario(UsuarioEe user)
         //{
         //    return _dal.Obtener(user);

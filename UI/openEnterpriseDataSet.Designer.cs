@@ -1464,7 +1464,7 @@ namespace UI {
             this.Relations.Add(this.relationFK_envio_deposito_direccion);
             this.relationFK_envio_deposito_EstadoEnvio = new global::System.Data.DataRelation("FK_envio_deposito_EstadoEnvio", new global::System.Data.DataColumn[] {
                         this.tableestadoEnvio.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableenvio_deposito.idEstadoEnvioColumn}, false);
+                        this.tableenvio_deposito.idEstadoColumn}, false);
             this.Relations.Add(this.relationFK_envio_deposito_EstadoEnvio);
             this.relationFK_envio_deposito_venta = new global::System.Data.DataRelation("FK_envio_deposito_venta", new global::System.Data.DataColumn[] {
                         this.tableventa.idColumn}, new global::System.Data.DataColumn[] {
@@ -1480,7 +1480,7 @@ namespace UI {
             this.Relations.Add(this.relationFK_venta_detalle_deposito_venta_detalle);
             this.relationFK_Envio_EstadoEnvio = new global::System.Data.DataRelation("FK_Envio_EstadoEnvio", new global::System.Data.DataColumn[] {
                         this.tableestadoEnvio.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableenvio_sucursal.idEstadoEnvioColumn}, false);
+                        this.tableenvio_sucursal.idEstadoColumn}, false);
             this.Relations.Add(this.relationFK_Envio_EstadoEnvio);
             this.relationFK_envio_sucursal_sucursal = new global::System.Data.DataRelation("FK_envio_sucursal_sucursal", new global::System.Data.DataColumn[] {
                         this.tablesucursal.idColumn}, new global::System.Data.DataColumn[] {
@@ -5367,7 +5367,7 @@ namespace UI {
             
             private global::System.Data.DataColumn columnfechaLlegada;
             
-            private global::System.Data.DataColumn columnidEstadoEnvio;
+            private global::System.Data.DataColumn columnidEstado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5452,9 +5452,9 @@ namespace UI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idEstadoEnvioColumn {
+            public global::System.Data.DataColumn idEstadoColumn {
                 get {
-                    return this.columnidEstadoEnvio;
+                    return this.columnidEstado;
                 }
             }
             
@@ -5552,7 +5552,7 @@ namespace UI {
                 this.columnidDeposito = base.Columns["idDeposito"];
                 this.columnfechaSalida = base.Columns["fechaSalida"];
                 this.columnfechaLlegada = base.Columns["fechaLlegada"];
-                this.columnidEstadoEnvio = base.Columns["idEstadoEnvio"];
+                this.columnidEstado = base.Columns["idEstado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5570,8 +5570,8 @@ namespace UI {
                 base.Columns.Add(this.columnfechaSalida);
                 this.columnfechaLlegada = new global::System.Data.DataColumn("fechaLlegada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaLlegada);
-                this.columnidEstadoEnvio = new global::System.Data.DataColumn("idEstadoEnvio", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidEstadoEnvio);
+                this.columnidEstado = new global::System.Data.DataColumn("idEstado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidEstado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -5584,7 +5584,7 @@ namespace UI {
                 this.columnidDireccion.AllowDBNull = false;
                 this.columnidDeposito.AllowDBNull = false;
                 this.columnfechaSalida.AllowDBNull = false;
-                this.columnidEstadoEnvio.AllowDBNull = false;
+                this.columnidEstado.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6043,7 +6043,7 @@ namespace UI {
             
             private global::System.Data.DataColumn columnfechaLlegada;
             
-            private global::System.Data.DataColumn columnidEstadoEnvio;
+            private global::System.Data.DataColumn columnidEstado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6128,9 +6128,9 @@ namespace UI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idEstadoEnvioColumn {
+            public global::System.Data.DataColumn idEstadoColumn {
                 get {
-                    return this.columnidEstadoEnvio;
+                    return this.columnidEstado;
                 }
             }
             
@@ -6225,7 +6225,7 @@ namespace UI {
                 this.columnidSucursal = base.Columns["idSucursal"];
                 this.columnfechaSalida = base.Columns["fechaSalida"];
                 this.columnfechaLlegada = base.Columns["fechaLlegada"];
-                this.columnidEstadoEnvio = base.Columns["idEstadoEnvio"];
+                this.columnidEstado = base.Columns["idEstado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6243,8 +6243,8 @@ namespace UI {
                 base.Columns.Add(this.columnfechaSalida);
                 this.columnfechaLlegada = new global::System.Data.DataColumn("fechaLlegada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaLlegada);
-                this.columnidEstadoEnvio = new global::System.Data.DataColumn("idEstadoEnvio", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidEstadoEnvio);
+                this.columnidEstado = new global::System.Data.DataColumn("idEstado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidEstado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -6257,7 +6257,7 @@ namespace UI {
                 this.columnidDireccion.AllowDBNull = false;
                 this.columnidSucursal.AllowDBNull = false;
                 this.columnfechaSalida.AllowDBNull = false;
-                this.columnidEstadoEnvio.AllowDBNull = false;
+                this.columnidEstado.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16681,12 +16681,12 @@ namespace UI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int idEstadoEnvio {
+            public int idEstado {
                 get {
-                    return ((int)(this[this.tableenvio_deposito.idEstadoEnvioColumn]));
+                    return ((int)(this[this.tableenvio_deposito.idEstadoColumn]));
                 }
                 set {
-                    this[this.tableenvio_deposito.idEstadoEnvioColumn] = value;
+                    this[this.tableenvio_deposito.idEstadoColumn] = value;
                 }
             }
             
@@ -16915,12 +16915,12 @@ namespace UI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int idEstadoEnvio {
+            public int idEstado {
                 get {
-                    return ((int)(this[this.tableenvio_sucursal.idEstadoEnvioColumn]));
+                    return ((int)(this[this.tableenvio_sucursal.idEstadoColumn]));
                 }
                 set {
-                    this[this.tableenvio_sucursal.idEstadoEnvioColumn] = value;
+                    this[this.tableenvio_sucursal.idEstadoColumn] = value;
                 }
             }
             
@@ -24993,11 +24993,11 @@ SELECT id, idComprador, calle, localidad, provincia, pais, codigoPostal, activo 
             tableMapping.ColumnMappings.Add("idDeposito", "idDeposito");
             tableMapping.ColumnMappings.Add("fechaSalida", "fechaSalida");
             tableMapping.ColumnMappings.Add("fechaLlegada", "fechaLlegada");
-            tableMapping.ColumnMappings.Add("idEstadoEnvio", "idEstadoEnvio");
+            tableMapping.ColumnMappings.Add("idEstado", "idEstado");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[envio_deposito] WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idDeposito] = @Original_idDeposito) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstadoEnvio] = @Original_idEstadoEnvio))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[envio_deposito] WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idDeposito] = @Original_idDeposito) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstado] = @Original_idEstado))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -25006,29 +25006,29 @@ SELECT id, idComprador, calle, localidad, provincia, pais, codigoPostal, activo 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaLlegada", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[envio_deposito] ([idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (@idVenta, @idDireccion, @idDeposito, @fechaSalida, @fechaLlegada, @idEstadoEnvio);
-SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_deposito WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[envio_deposito] ([idVenta], [idDireccion], [idDeposito], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (@idVenta, @idDireccion, @idDeposito, @fechaSalida, @fechaLlegada, @idEstado);
+SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado FROM envio_deposito WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDeposito", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDeposito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[envio_deposito] SET [idVenta] = @idVenta, [idDireccion] = @idDireccion, [idDeposito] = @idDeposito, [fechaSalida] = @fechaSalida, [fechaLlegada] = @fechaLlegada, [idEstadoEnvio] = @idEstadoEnvio WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idDeposito] = @Original_idDeposito) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstadoEnvio] = @Original_idEstadoEnvio));
-SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_deposito WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[envio_deposito] SET [idVenta] = @idVenta, [idDireccion] = @idDireccion, [idDeposito] = @idDeposito, [fechaSalida] = @fechaSalida, [fechaLlegada] = @fechaLlegada, [idEstado] = @idEstado WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idDeposito] = @Original_idDeposito) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstado] = @Original_idEstado));
+SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado FROM envio_deposito WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDeposito", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDeposito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -25036,7 +25036,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaLlegada", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -25053,8 +25053,8 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoE" +
-                "nvio FROM dbo.envio_deposito";
+            this._commandCollection[0].CommandText = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado " +
+                "FROM dbo.envio_deposito";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -25115,7 +25115,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio) {
+        public virtual int Delete(int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_idVenta));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_idDireccion));
@@ -25129,7 +25129,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_idEstadoEnvio));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_idEstado));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25150,7 +25150,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio) {
+        public virtual int Insert(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(idVenta));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(idDireccion));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(idDeposito));
@@ -25161,7 +25161,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idEstadoEnvio));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idEstado));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25182,7 +25182,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio, int id) {
+        public virtual int Update(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado, int id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(idVenta));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(idDireccion));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(idDeposito));
@@ -25193,7 +25193,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idEstadoEnvio));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idEstado));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_idVenta));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_idDireccion));
@@ -25207,7 +25207,7 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_idEstadoEnvio));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_idEstado));
             this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25229,8 +25229,8 @@ SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio) {
-            return this.Update(idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstadoEnvio, Original_id, Original_idVenta, Original_idDireccion, Original_idDeposito, Original_fechaSalida, Original_fechaLlegada, Original_idEstadoEnvio, Original_id);
+        public virtual int Update(int idVenta, int idDireccion, int idDeposito, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idDeposito, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado) {
+            return this.Update(idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado, Original_id, Original_idVenta, Original_idDireccion, Original_idDeposito, Original_fechaSalida, Original_fechaLlegada, Original_idEstado, Original_id);
         }
     }
     
@@ -25679,11 +25679,11 @@ SELECT id, idVentaDetalle, idDeposito, cantidad FROM envio_deposito_detalle WHER
             tableMapping.ColumnMappings.Add("idSucursal", "idSucursal");
             tableMapping.ColumnMappings.Add("fechaSalida", "fechaSalida");
             tableMapping.ColumnMappings.Add("fechaLlegada", "fechaLlegada");
-            tableMapping.ColumnMappings.Add("idEstadoEnvio", "idEstadoEnvio");
+            tableMapping.ColumnMappings.Add("idEstado", "idEstado");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[envio_sucursal] WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idSucursal] = @Original_idSucursal) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstadoEnvio] = @Original_idEstadoEnvio))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[envio_sucursal] WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idSucursal] = @Original_idSucursal) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstado] = @Original_idEstado))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -25692,29 +25692,29 @@ SELECT id, idVentaDetalle, idDeposito, cantidad FROM envio_deposito_detalle WHER
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaLlegada", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[envio_sucursal] ([idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstadoEnvio]) VALUES (@idVenta, @idDireccion, @idSucursal, @fechaSalida, @fechaLlegada, @idEstadoEnvio);
-SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_sucursal WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[envio_sucursal] ([idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (@idVenta, @idDireccion, @idSucursal, @fechaSalida, @fechaLlegada, @idEstado);
+SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado FROM envio_sucursal WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSucursal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSucursal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[envio_sucursal] SET [idVenta] = @idVenta, [idDireccion] = @idDireccion, [idSucursal] = @idSucursal, [fechaSalida] = @fechaSalida, [fechaLlegada] = @fechaLlegada, [idEstadoEnvio] = @idEstadoEnvio WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idSucursal] = @Original_idSucursal) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstadoEnvio] = @Original_idEstadoEnvio));
-SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoEnvio FROM envio_sucursal WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[envio_sucursal] SET [idVenta] = @idVenta, [idDireccion] = @idDireccion, [idSucursal] = @idSucursal, [fechaSalida] = @fechaSalida, [fechaLlegada] = @fechaLlegada, [idEstado] = @idEstado WHERE (([id] = @Original_id) AND ([idVenta] = @Original_idVenta) AND ([idDireccion] = @Original_idDireccion) AND ([idSucursal] = @Original_idSucursal) AND ([fechaSalida] = @Original_fechaSalida) AND ((@IsNull_fechaLlegada = 1 AND [fechaLlegada] IS NULL) OR ([fechaLlegada] = @Original_fechaLlegada)) AND ([idEstado] = @Original_idEstado));
+SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado FROM envio_sucursal WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSucursal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idSucursal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idVenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idVenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idDireccion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idDireccion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -25722,7 +25722,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaSalida", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSalida", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaLlegada", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaLlegada", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaLlegada", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstadoEnvio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstadoEnvio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEstado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEstado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -25739,8 +25739,8 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoE" +
-                "nvio FROM dbo.envio_sucursal";
+            this._commandCollection[0].CommandText = "SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado " +
+                "FROM dbo.envio_sucursal";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -25801,7 +25801,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio) {
+        public virtual int Delete(int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_idVenta));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_idDireccion));
@@ -25815,7 +25815,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_idEstadoEnvio));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_idEstado));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25836,7 +25836,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio) {
+        public virtual int Insert(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(idVenta));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(idDireccion));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(idSucursal));
@@ -25847,7 +25847,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idEstadoEnvio));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(idEstado));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25868,7 +25868,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio, int id) {
+        public virtual int Update(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado, int id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(idVenta));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(idDireccion));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(idSucursal));
@@ -25879,7 +25879,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idEstadoEnvio));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(idEstado));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_idVenta));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_idDireccion));
@@ -25893,7 +25893,7 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_idEstadoEnvio));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_idEstado));
             this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25915,8 +25915,8 @@ SELECT id, idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstadoEnvio, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstadoEnvio) {
-            return this.Update(idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstadoEnvio, Original_id, Original_idVenta, Original_idDireccion, Original_idSucursal, Original_fechaSalida, Original_fechaLlegada, Original_idEstadoEnvio, Original_id);
+        public virtual int Update(int idVenta, int idDireccion, int idSucursal, System.DateTime fechaSalida, global::System.Nullable<global::System.DateTime> fechaLlegada, int idEstado, int Original_id, int Original_idVenta, int Original_idDireccion, int Original_idSucursal, System.DateTime Original_fechaSalida, global::System.Nullable<global::System.DateTime> Original_fechaLlegada, int Original_idEstado) {
+            return this.Update(idVenta, idDireccion, idSucursal, fechaSalida, fechaLlegada, idEstado, Original_id, Original_idVenta, Original_idDireccion, Original_idSucursal, Original_fechaSalida, Original_fechaLlegada, Original_idEstado, Original_id);
         }
     }
     

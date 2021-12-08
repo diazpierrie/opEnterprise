@@ -136,7 +136,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombre, fechaCreacion, precio, costo " +
+                var strQuery = "SELECT id, nombre, codigo, fechaCreacion, precio, costo " +
                                      "FROM producto WHERE activo = 1";
 
                 if (name != null)
@@ -238,6 +238,7 @@ namespace DAL
                 return null;
             }
         }
+
         private static ProductoEe CastDto(SqlDataReader data)
         {
             return new ProductoEe

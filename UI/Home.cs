@@ -26,6 +26,7 @@ namespace UI
             tcHome.TabPages.Add(tipoEdificio == "Deposito" ? tabDeposito : tabVenta);
             tcHome.TabPages.Add(tabCaja);
             tcHome.TabPages.Add(tabEnvio);
+            tcHome.TabPages.Add(tabDeposito);
         }
 
         private void btnBackUp_Click(object sender, EventArgs e)
@@ -41,6 +42,12 @@ namespace UI
         }
 
         private void btnBuscarVenta_Click(object sender, EventArgs e)
+        {
+            var buscarVenta = new VentaBuscar();
+            buscarVenta.Show();
+        }
+
+        private void btnBuscarVentaCaja_Click(object sender, EventArgs e)
         {
             var buscarVenta = new VentaBuscar();
             buscarVenta.Show();
@@ -62,6 +69,12 @@ namespace UI
         {
             var configurarEdificio = new EdificioConfigurar(this);
             configurarEdificio.Show();
+        }
+
+        private void btnConfirmarEnvio_Click(object sender, EventArgs e)
+        {
+            var confirmarEnvio = new EnvioGestion();
+            confirmarEnvio.Show();
         }
 
         private void btnCrearQueja_Click(object sender, EventArgs e)
@@ -133,10 +146,10 @@ namespace UI
             buscarEnvio.Show();
         }
 
-        private void btnConfirmarEnvio_Click(object sender, EventArgs e)
+        private void btnRealizarPedido_Click(object sender, EventArgs e)
         {
-            var confirmarEnvio = new ConfirmarEnvio();
-            confirmarEnvio.Show();
+            var realizarPedido = new DepositoPedidoHome();
+            realizarPedido.Show();
         }
     }
 }

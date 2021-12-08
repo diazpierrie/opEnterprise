@@ -1,5 +1,6 @@
 ﻿using BLL;
 using EE;
+using MetroFramework;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,11 +9,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class EnvioBuscar : UpdatableForm
+    public partial class EnvioGestion : UpdatableForm
     {
         private List<EnvioSucursalEe> _dataTable;
 
-        public EnvioBuscar()
+        public EnvioGestion()
         {
             InitializeComponent();
 
@@ -75,12 +76,50 @@ namespace UI
             envioVerDetalle.Show();
         }
 
-        private void btnVerDetalle_Click(object sender, EventArgs e)
+        private void btnDespacharEnvio_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
-            var envioVerDetalle = new EnvioVerDetalle(envio);
-            envioVerDetalle.Show();
+
+            if (envio.FechaSalida == default)
+            {
+                var respuesta = MetroMessageBox.Show(this, "¿Esta seguro que desea despachar el envio?", "Despacho de productos",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta != DialogResult.Yes) return;
+                EnvioBll.ConfirmarDespachoSucursal(envio);
+                ActualizarGrid();
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "El envio ya fue despachado", "Envio ya despachado");
+            }
+        }
+
+        private void btnConfirmarRecepcion_Click(object sender, EventArgs e)
+        {
+            if (gridClientes.SelectedRows.Count <= 0) return;
+            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            if (envio.FechaSalida != default)
+            {
+                if (envio.FechaLlegada == default)
+                {
+                    var respuesta = MetroMessageBox.Show(this, "¿Esta seguro que desea confirmar la recepcion del envio?", "Confirmacion de recepcion",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (respuesta != DialogResult.Yes) return;
+                    EnvioBll.ConfirmarRecepcionEnvio(envio);
+                    ActualizarGrid();
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El envio ya fue recibido", "Envio ya recibido");
+                }
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "El envio debe ser despachado primero", "Envio sin despachar");
+            }
         }
     }
 }

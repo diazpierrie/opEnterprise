@@ -17,9 +17,9 @@ namespace UI
             InitializeComponent();
 
             var estados = VentaEstadoBll.Obtener();
-            estados.Add(new EstadoEe { Id = 4, Nombre = "Todos" });
+            estados.Add(new EstadoEe { Id = 9, Nombre = "Todos" });
             cbEstado.DataSource = estados;
-            cbEstado.SelectedIndex = 3;
+            cbEstado.SelectedIndex = 9;
 
             ActualizarGrid();
         }

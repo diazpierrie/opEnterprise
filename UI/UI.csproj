@@ -50,12 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmarEnvio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfirmarEnvio.Designer.cs">
-      <DependentUpon>ConfirmarEnvio.cs</DependentUpon>
-    </Compile>
     <Compile Include="DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +67,18 @@
     </Compile>
     <Compile Include="ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoConfirmarRecepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoConfirmarRecepcion.Designer.cs">
+      <DependentUpon>DepositoConfirmarRecepcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnvioGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnvioGestion.Designer.cs">
+      <DependentUpon>EnvioGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="IdiomaGestionar.cs">
       <SubType>Form</SubType>
@@ -97,6 +103,12 @@
     </Compile>
     <Compile Include="DireccionBaja.Designer.cs">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmarAccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmarAccion.Designer.cs">
+      <DependentUpon>ConfirmarAccion.cs</DependentUpon>
     </Compile>
     <Compile Include="VentaConfirmarCancelacion.cs">
       <SubType>Form</SubType>
@@ -222,6 +234,18 @@
     </Compile>
     <Compile Include="DepositoElegir.Designer.cs">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoPedidoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoPedidoHome.Designer.cs">
+      <DependentUpon>DepositoPedidoHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepositoProductoAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepositoProductoAgregar.Designer.cs">
+      <DependentUpon>DepositoProductoAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="VentaProductoAgregar.cs">
       <SubType>Form</SubType>
@@ -365,6 +389,12 @@
     <EmbeddedResource Include="ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepositoConfirmarRecepcion.resx">
+      <DependentUpon>DepositoConfirmarRecepcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnvioGestion.resx">
+      <DependentUpon>EnvioGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdiomaGestionar.resx">
       <DependentUpon>IdiomaGestionar.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DireccionBaja.resx">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmarAccion.resx">
+      <DependentUpon>ConfirmarAccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaConfirmarCancelacion.resx">
       <DependentUpon>VentaConfirmarCancelacion.cs</DependentUpon>
@@ -430,6 +463,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DepositoElegir.resx">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoPedidoHome.resx">
+      <DependentUpon>DepositoPedidoHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositoProductoAgregar.resx">
+      <DependentUpon>DepositoProductoAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentaProductoAgregar.resx">
       <DependentUpon>VentaProductoAgregar.cs</DependentUpon>

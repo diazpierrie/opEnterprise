@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class EnvioBuscar
+    partial class DepositoConfirmarRecepcion
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.lblEstado = new MetroFramework.Controls.MetroLabel();
             this.cbEstado = new MetroFramework.Controls.MetroComboBox();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
@@ -44,14 +45,25 @@ namespace UI
             this.txtUsuario = new MetroFramework.Controls.MetroTextBox();
             this.btnCerrar = new MetroFramework.Controls.MetroButton();
             this.gridClientes = new MetroFramework.Controls.MetroGrid();
-            this.btnVerDetalle = new MetroFramework.Controls.MetroButton();
+            this.btnConfirmarRecepcion = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnDespacharEnvio
+            // 
+            this.btnDespacharEnvio.Location = new System.Drawing.Point(750, 268);
+            this.btnDespacharEnvio.Name = "btnDespacharEnvio";
+            this.btnDespacharEnvio.Size = new System.Drawing.Size(157, 23);
+            this.btnDespacharEnvio.TabIndex = 49;
+            this.btnDespacharEnvio.Tag = "dispatch_delivery";
+            this.btnDespacharEnvio.Text = "Despachar Envio";
+            this.btnDespacharEnvio.UseSelectable = true;
+            this.btnDespacharEnvio.Click += new System.EventHandler(this.btnDespacharEnvio_Click);
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(575, 154);
+            this.lblEstado.Location = new System.Drawing.Point(696, 126);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(48, 19);
             this.lblEstado.TabIndex = 48;
@@ -62,7 +74,7 @@ namespace UI
             // 
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.ItemHeight = 23;
-            this.cbEstado.Location = new System.Drawing.Point(629, 149);
+            this.cbEstado.Location = new System.Drawing.Point(750, 121);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(159, 29);
             this.cbEstado.TabIndex = 47;
@@ -70,7 +82,7 @@ namespace UI
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(630, 210);
+            this.btnBuscar.Location = new System.Drawing.Point(751, 182);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
             this.btnBuscar.TabIndex = 45;
@@ -82,7 +94,7 @@ namespace UI
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(574, 123);
+            this.lblCliente.Location = new System.Drawing.Point(695, 94);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(49, 19);
             this.lblCliente.TabIndex = 38;
@@ -104,7 +116,7 @@ namespace UI
             this.txtCliente.CustomButton.UseSelectable = true;
             this.txtCliente.CustomButton.Visible = false;
             this.txtCliente.Lines = new string[0];
-            this.txtCliente.Location = new System.Drawing.Point(629, 120);
+            this.txtCliente.Location = new System.Drawing.Point(750, 92);
             this.txtCliente.MaxLength = 32767;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PasswordChar = '\0';
@@ -122,7 +134,7 @@ namespace UI
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(571, 95);
+            this.lblUsuario.Location = new System.Drawing.Point(691, 66);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 19);
             this.lblUsuario.TabIndex = 36;
@@ -144,7 +156,7 @@ namespace UI
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[0];
-            this.txtUsuario.Location = new System.Drawing.Point(630, 91);
+            this.txtUsuario.Location = new System.Drawing.Point(751, 63);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -161,7 +173,7 @@ namespace UI
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(630, 413);
+            this.btnCerrar.Location = new System.Drawing.Point(750, 469);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(157, 23);
             this.btnCerrar.TabIndex = 12;
@@ -199,7 +211,7 @@ namespace UI
             this.gridClientes.EnableHeadersVisualStyles = false;
             this.gridClientes.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridClientes.Location = new System.Drawing.Point(24, 64);
+            this.gridClientes.Location = new System.Drawing.Point(24, 63);
             this.gridClientes.Name = "gridClientes";
             this.gridClientes.ReadOnly = true;
             this.gridClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -213,27 +225,28 @@ namespace UI
             this.gridClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClientes.Size = new System.Drawing.Size(511, 372);
+            this.gridClientes.Size = new System.Drawing.Size(667, 429);
             this.gridClientes.TabIndex = 0;
             this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
             // 
-            // btnVerDetalle
+            // btnConfirmarRecepcion
             // 
-            this.btnVerDetalle.Location = new System.Drawing.Point(629, 252);
-            this.btnVerDetalle.Name = "btnVerDetalle";
-            this.btnVerDetalle.Size = new System.Drawing.Size(157, 23);
-            this.btnVerDetalle.TabIndex = 49;
-            this.btnVerDetalle.Tag = "see_detail";
-            this.btnVerDetalle.Text = "Ver Detalle";
-            this.btnVerDetalle.UseSelectable = true;
-            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
+            this.btnConfirmarRecepcion.Location = new System.Drawing.Point(750, 297);
+            this.btnConfirmarRecepcion.Name = "btnConfirmarRecepcion";
+            this.btnConfirmarRecepcion.Size = new System.Drawing.Size(157, 23);
+            this.btnConfirmarRecepcion.TabIndex = 50;
+            this.btnConfirmarRecepcion.Tag = "confirm_reception";
+            this.btnConfirmarRecepcion.Text = "Confirmar Recepcion";
+            this.btnConfirmarRecepcion.UseSelectable = true;
+            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.btnConfirmarRecepcion_Click);
             // 
-            // EnvioBuscar
+            // DepositoConfirmarRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 459);
-            this.Controls.Add(this.btnVerDetalle);
+            this.ClientSize = new System.Drawing.Size(932, 515);
+            this.Controls.Add(this.btnConfirmarRecepcion);
+            this.Controls.Add(this.btnDespacharEnvio);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.btnBuscar);
@@ -243,8 +256,8 @@ namespace UI
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridClientes);
-            this.Name = "EnvioBuscar";
-            this.Text = "Ver Envios";
+            this.Name = "DepositoConfirmarRecepcion";
+            this.Text = "Gestion de Recepciones";
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,6 +275,7 @@ namespace UI
         private MetroTextBox txtUsuario;
         private MetroComboBox cbEstado;
         private MetroLabel lblEstado;
-        private MetroButton btnVerDetalle;
+        private MetroButton btnDespacharEnvio;
+        private MetroButton btnConfirmarRecepcion;
     }
 }

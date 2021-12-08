@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class VentaConfirmarCancelacion
+    partial class ConfirmarAccion
     {
         /// <summary>
         /// Required designer variable.

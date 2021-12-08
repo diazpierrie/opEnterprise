@@ -24,8 +24,8 @@ namespace UI
             if (txtUsuario.Text == null &&
                 txtCliente.Text == null) return;
 
-            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                              && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower()) &&
+                                                            x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
 
             gridVentas.Refresh();
         }

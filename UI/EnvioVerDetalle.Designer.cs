@@ -102,7 +102,7 @@ namespace UI
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridDetalle);
             this.Name = "EnvioVerDetalle";
-            this.Text = "VentaVerDetalle";
+            this.Text = "Detalle del Envio";
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).EndInit();
             this.ResumeLayout(false);
 

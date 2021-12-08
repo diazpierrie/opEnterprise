@@ -12,6 +12,7 @@ namespace EE
         public int Cantidad { get; set; }
         public double Precio { get; set; }
         public double Costo { get; set; }
+        public double TotalProducto { get; set; }
         public bool Activo { get; set; }
 
         public override string ToString()

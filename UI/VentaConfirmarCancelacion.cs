@@ -14,7 +14,6 @@ namespace UI
             InitializeComponent();
             _ventaCancelarForm = ventaCancelarForm;
             Venta = venta;
-            lblPregunta.Text = $@"¿Está seguro que desea cancelar la venta realizada por {Venta.Empleado}?";
         }
 
         private void btnSi_Click(object sender, EventArgs e)

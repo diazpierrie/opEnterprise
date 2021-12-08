@@ -30,6 +30,7 @@ namespace UI
             gridVenta.Columns["activo"].Visible = false;
             gridVenta.Columns["cantidad"].Visible = false;
             gridVenta.Columns["Costo"].Visible = false;
+            gridVenta.Columns["CantidadARetirar"].Visible = false;
 
             gridVenta.Columns["nombre"].DisplayIndex = 0;
             gridVenta.Columns["Edificio"].DisplayIndex = 1;
@@ -37,6 +38,9 @@ namespace UI
             gridVenta.Columns["precio"].DisplayIndex = 3;
             gridVenta.Columns["CantidadAComprar"].DisplayIndex = 4;
             gridVenta.Columns["TotalProducto"].DisplayIndex = 5;
+
+            gridVenta.Columns["CantidadAComprar"].HeaderText = "Cantidad";
+            gridVenta.Columns["TotalProducto"].HeaderText = "Total del Producto";
 
             Total = ProductosAAsignar.Sum(producto => producto.CantidadAComprar * producto.Precio);
             lblTotal.Text = $@"Total: ${Total}";
@@ -63,7 +67,7 @@ namespace UI
             agregarProducto.Show();
         }
 
-        private void btnModificarVenta_Click(object sender, EventArgs e)
+        private void btnRemoverProductos_Click(object sender, EventArgs e)
         {
             if (gridVenta.SelectedRows.Count == 0) return;
 
