@@ -9,7 +9,7 @@ namespace BLL
     {
         private static readonly PedidoProveedorDal Dal = new PedidoProveedorDal();
 
-        public static int Crear(PedidoProveedorEe pedido, List<ProductoEdificioEe> productos)
+        public static int Crear(PedidoProveedorEe pedido, List<ProductoEe> productos)
         {
             pedido.Id = Dal.Crear(pedido);
             Dal.CrearDetalle(pedido, productos);

@@ -8,14 +8,22 @@ namespace UI
 {
     public partial class ProveedorBuscar : UpdatableForm
     {
+        //public PedidoCompletar Fatherform { get; }
         private List<ProveedorEe> _dataTable;
-        private readonly PedidoCompletar _fatherform;
-        public ProveedorBuscar(PedidoCompletar fatherform)
+        private readonly DepositoCompletarPedido _fatherform;
+        public ProveedorBuscar(DepositoCompletarPedido fatherform)
         {
             _fatherform = fatherform;
             InitializeComponent();
             ActualizarGrid();
         }
+
+        //public ProveedorBuscar(PedidoCompletar fatherform)
+        //{
+        //    Fatherform = fatherform;
+        //    InitializeComponent();
+        //    ActualizarGrid();
+        //}
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {

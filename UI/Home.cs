@@ -16,14 +16,14 @@ namespace UI
 
         public void ActualizarTabs()
         {
-            var tipoEdificio = Settings.Default.TipoEdificio;
+            var unused = Settings.Default.TipoEdificio;
             tcHome.TabPages.Clear();
             if (Sesion.ObtenerSesion().Usuario.Puesto.Id == 7)
             {
                 tcHome.TabPages.Add(tabAdmin);
             }
 
-            tcHome.TabPages.Add(tipoEdificio == "Deposito" ? tabDeposito : tabVenta);
+            tcHome.TabPages.Add(tabVenta);
             tcHome.TabPages.Add(tabCaja);
             tcHome.TabPages.Add(tabEnvio);
             tcHome.TabPages.Add(tabDeposito);
@@ -85,7 +85,7 @@ namespace UI
 
         private void btnCrearReposicion_Click(object sender, EventArgs e)
         {
-            var crearReposicion = new DepositoCrearReposicion();
+            var crearReposicion = new DepositoPedidoHome();
             crearReposicion.Show();
         }
 
@@ -109,6 +109,12 @@ namespace UI
         {
             var proveedorHome = new ProveedorHome();
             proveedorHome.Show();
+        }
+
+        private void btnRealizarPedido_Click(object sender, EventArgs e)
+        {
+            var realizarPedido = new DepositoPedidoHome();
+            realizarPedido.Show();
         }
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
@@ -145,11 +151,10 @@ namespace UI
             var buscarEnvio = new EnvioBuscar();
             buscarEnvio.Show();
         }
-
-        private void btnRealizarPedido_Click(object sender, EventArgs e)
+        private void btnVerInventario_Click(object sender, EventArgs e)
         {
-            var realizarPedido = new DepositoPedidoHome();
-            realizarPedido.Show();
+            var verInventario = new DepositoVerInventario();
+            verInventario.Show();
         }
     }
 }

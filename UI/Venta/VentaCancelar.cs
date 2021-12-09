@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
+using MetroFramework;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -68,8 +69,12 @@ namespace UI
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            var confirmarPago = new VentaConfirmarCancelacion(this, venta);
-            confirmarPago.Show();
+            var respuesta = MetroMessageBox.Show(this, "Esta seguro que desea cancelar la venta?",
+                "Cancelacion de venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta != DialogResult.Yes) return;
+            VentaBll.Cancelar(venta);
+            ActualizarGrid();
         }
     }
 }

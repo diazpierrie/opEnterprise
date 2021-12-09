@@ -136,7 +136,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombre, codigo, fechaCreacion, precio, costo " +
+                var strQuery = "SELECT id, nombre, fechaCreacion, precio, costo " +
                                      "FROM producto WHERE activo = 1";
 
                 if (name != null)
@@ -159,6 +159,39 @@ namespace DAL
                     while (data.Read())
                     {
                         sucus.Add(CastDto(data));
+                    }
+                }
+
+                Conn.Close();
+                return sucus;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<ProductoEdificioEe> ObtenerDeposito(DepositoEe deposito)
+        {
+            try
+            {
+                var strQuery = "SELECT p.[id], s.idDeposito, p.[nombre] ,p.[codigo] ,p.[precio], p.[costo], s.[stock] " +
+                               "FROM [dbo].[producto] as p " +
+                               "INNER JOIN deposito_producto as s ON s.idProducto = p.id " +
+                               $"WHERE s.idDeposito = {deposito.Id} AND activo = 1";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var sucus = new List<ProductoEdificioEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        sucus.Add(CastDtoDeposito(data));
                     }
                 }
 

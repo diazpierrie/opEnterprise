@@ -214,7 +214,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT [id],[descripcion] FROM [dbo].[estadoEnvio] WHERE id = {id}";
+                var strQuery = $"SELECT [id],[descripcion] FROM [dbo].[cEstadoEnvio] WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -248,7 +248,7 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT [id],[descripcion] FROM [dbo].[estadoEnvio]";
+                const string strQuery = "SELECT [id],[descripcion] FROM [dbo].[cEstadoEnvio]";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -281,7 +281,7 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT id, descripcion FROM [dbo].[tipoEntrega] ";
+                const string strQuery = "SELECT id, descripcion FROM [dbo].[cTipoEntrega] ";
 
                 var query = new SqlCommand(strQuery, Conn);
 

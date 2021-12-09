@@ -17,14 +17,6 @@ namespace BLL
             Dv.ActualizarDv();
         }
 
-        public static void Eliminar(SucursalEe sucursal)
-        {
-            _dal.Borrar(sucursal.Id);
-            Dv.ActualizarDv();
-
-            BitacoraManager.AgregarMensajeControl("Sucursal Eliminado ", sucursal);
-        }
-
         public static int Crear(SucursalEe sucursal)
         {
             //if (_dal.ObtenerSucursalPorCalle(sucursal.Nombre) != null)
@@ -40,11 +32,13 @@ namespace BLL
             return sucursal.Id;
         }
 
-        public static List<ProductoEdificioEe> ObtenerPorSucursal(SucursalEe sucursal)
+        public static void Eliminar(SucursalEe sucursal)
         {
-            return _dal.ObtenerPorSucursal(sucursal);
-        }
+            _dal.Borrar(sucursal.Id);
+            Dv.ActualizarDv();
 
+            BitacoraManager.AgregarMensajeControl("Sucursal Eliminado ", sucursal);
+        }
         public static ProductoEe Obtener(int id)
         {
             return _dal.Obtener(id);
@@ -55,6 +49,20 @@ namespace BLL
             return _dal.ObtenerActivos();
         }
 
+        public static List<ProductoEdificioEe> ObtenerDeposito(DepositoEe deposito)
+        {
+            return _dal.ObtenerDeposito(deposito);
+        }
+
+        public static List<ProductoEe> ObtenerPorNombre(string name = null)
+        {
+            return name == null ? null : _dal.ObtenerActivos(name);
+        }
+
+        public static List<ProductoEdificioEe> ObtenerPorSucursal(SucursalEe sucursal)
+        {
+            return _dal.ObtenerPorSucursal(sucursal);
+        }
         //public static List<SucursalEe> ObtenerSucursalesDeUsuario(UsuarioEe user)
         //{
         //    return _dal.Obtener(user);
@@ -76,12 +84,6 @@ namespace BLL
         //{
         //    return _dal.DesasignarEmpleadoConSucursal(user, depo);
         //}
-
-        public static List<ProductoEe> ObtenerPorNombre(string name = null)
-        {
-            return name == null ? null : _dal.ObtenerActivos(name);
-        }
-
         public static IList<ProductoEdificioEe> ObtenerTodosDeposito()
         {
             return _dal.ObtenerTodosDeposito();

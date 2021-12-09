@@ -51,6 +51,8 @@ namespace UI
             this.btnBuscarVenta = new MetroFramework.Controls.MetroButton();
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
             this.tabDeposito = new MetroFramework.Controls.MetroTabPage();
+            this.btnVerInventario = new MetroFramework.Controls.MetroButton();
+            this.btnRealizarPedido = new MetroFramework.Controls.MetroButton();
             this.btnPenalizarProveedor = new MetroFramework.Controls.MetroButton();
             this.btnCrearReposicion = new MetroFramework.Controls.MetroButton();
             this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
@@ -61,7 +63,7 @@ namespace UI
             this.tabEnvio = new MetroFramework.Controls.MetroTabPage();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
-            this.btnRealizarPedido = new MetroFramework.Controls.MetroButton();
+            this.btnGestionarDespachos = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -270,6 +272,8 @@ namespace UI
             // 
             // tabDeposito
             // 
+            this.tabDeposito.Controls.Add(this.btnGestionarDespachos);
+            this.tabDeposito.Controls.Add(this.btnVerInventario);
             this.tabDeposito.Controls.Add(this.btnRealizarPedido);
             this.tabDeposito.Controls.Add(this.btnPenalizarProveedor);
             this.tabDeposito.Controls.Add(this.btnCrearReposicion);
@@ -285,6 +289,26 @@ namespace UI
             this.tabDeposito.VerticalScrollbarBarColor = true;
             this.tabDeposito.VerticalScrollbarHighlightOnWheel = false;
             this.tabDeposito.VerticalScrollbarSize = 10;
+            // 
+            // btnVerInventario
+            // 
+            this.btnVerInventario.Location = new System.Drawing.Point(156, 19);
+            this.btnVerInventario.Name = "btnVerInventario";
+            this.btnVerInventario.Size = new System.Drawing.Size(143, 39);
+            this.btnVerInventario.TabIndex = 9;
+            this.btnVerInventario.Text = "Ver Inventario";
+            this.btnVerInventario.UseSelectable = true;
+            this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
+            // 
+            // btnRealizarPedido
+            // 
+            this.btnRealizarPedido.Location = new System.Drawing.Point(7, 19);
+            this.btnRealizarPedido.Name = "btnRealizarPedido";
+            this.btnRealizarPedido.Size = new System.Drawing.Size(143, 39);
+            this.btnRealizarPedido.TabIndex = 8;
+            this.btnRealizarPedido.Text = "Realizar Pedido";
+            this.btnRealizarPedido.UseSelectable = true;
+            this.btnRealizarPedido.Click += new System.EventHandler(this.btnRealizarPedido_Click);
             // 
             // btnPenalizarProveedor
             // 
@@ -399,15 +423,14 @@ namespace UI
             this.btnVerEnvios.UseSelectable = true;
             this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
             // 
-            // btnRealizarPedido
+            // btnGestionarDespachos
             // 
-            this.btnRealizarPedido.Location = new System.Drawing.Point(7, 19);
-            this.btnRealizarPedido.Name = "btnRealizarPedido";
-            this.btnRealizarPedido.Size = new System.Drawing.Size(143, 39);
-            this.btnRealizarPedido.TabIndex = 8;
-            this.btnRealizarPedido.Text = "Realizar Pedido";
-            this.btnRealizarPedido.UseSelectable = true;
-            this.btnRealizarPedido.Click += new System.EventHandler(this.btnRealizarPedido_Click);
+            this.btnGestionarDespachos.Location = new System.Drawing.Point(156, 64);
+            this.btnGestionarDespachos.Name = "btnGestionarDespachos";
+            this.btnGestionarDespachos.Size = new System.Drawing.Size(143, 39);
+            this.btnGestionarDespachos.TabIndex = 10;
+            this.btnGestionarDespachos.Text = "Gestionar Despachos";
+            this.btnGestionarDespachos.UseSelectable = true;
             // 
             // Home
             // 
@@ -460,5 +483,7 @@ namespace UI
         private MetroButton btnCancelarVentaVenta;
         private MetroButton btnBuscarVentaCaja;
         private MetroButton btnRealizarPedido;
+        private MetroButton btnVerInventario;
+        private MetroButton btnGestionarDespachos;
     }
 }

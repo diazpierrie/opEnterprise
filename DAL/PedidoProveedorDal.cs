@@ -258,16 +258,15 @@ namespace DAL
             return Insert("pedido_proveedor", columnas.ToArray(), valores.ToArray());
         }
 
-        public int CrearDetalle(PedidoProveedorEe venta, List<ProductoEdificioEe> productos)
+        public int CrearDetalle(PedidoProveedorEe pedido, List<ProductoEe> productos)
         {
-            var columnas = new List<string> { "idUsuario", "idProducto", "costoUnitario", "precioUnitario", "cantidad" };
+            var columnas = new List<string> { "idPedidoProveedor", "idProducto", "cantidad" };
             var valores = new List<string[]>();
             foreach (var producto in productos)
             {
                 string[] value =
                 {
-                    venta.Id.ToString(), producto.Id.ToString(), producto.Costo.ToString(CultureInfo.InvariantCulture),
-                    producto.Precio.ToString(CultureInfo.InvariantCulture), producto.Cantidad.ToString()
+                    pedido.Id.ToString(), producto.Id.ToString(), producto.Cantidad.ToString()
                 };
                 valores.Add(value);
             }
@@ -292,7 +291,8 @@ namespace DAL
                 Proveedor = _proveedorDal.Obtener(int.Parse(data["idComprador"].ToString())),
                 Deposito = _depositoDal.Obtener(int.Parse(data["idSucursal"].ToString())),
                 Estado = _pedidoEstadoDal.Obtener(int.Parse(data["idEstado"].ToString())),
-                Fecha = DateTime.Parse(data["fecha"].ToString()),
+                FechaPedido = DateTime.Parse(data["fechaPedido"].ToString()),
+                FechaRecepcion = DateTime.Parse(data["FechaRecepcion"].ToString()),
                 Total = double.Parse(data["total"].ToString())
             };
         }
@@ -306,7 +306,6 @@ namespace DAL
                 //Producto = new ProductoEe(){Id = int.Parse(data["idProducto"].ToString()) },
                 Pedido = Obtener(int.Parse(data["idPedidoProveedor"].ToString())),
                 Producto = _productoDal.Obtener(int.Parse(data["idProducto"].ToString())),
-                Costo = double.Parse(data["costoUnitario"].ToString()),
                 Cantidad = int.Parse(data["cantidad"].ToString())
             };
         }

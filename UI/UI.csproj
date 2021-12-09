@@ -50,267 +50,250 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DireccionAgregar.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DireccionAgregar.Designer.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.Designer.cs">
       <DependentUpon>DireccionAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlesGestionar.cs">
+    <Compile Include="Servicios\ControlesGestionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ControlesGestionar.Designer.cs">
+    <Compile Include="Servicios\ControlesGestionar.Designer.cs">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClienteAlta.cs">
+    <Compile Include="Venta\Cliente\ClienteAlta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClienteAlta.Designer.cs">
+    <Compile Include="Venta\Cliente\ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoConfirmarRecepcion.cs">
+    <Compile Include="Deposito\DepositoConfirmarRecepcion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoConfirmarRecepcion.Designer.cs">
+    <Compile Include="Deposito\DepositoConfirmarRecepcion.Designer.cs">
       <DependentUpon>DepositoConfirmarRecepcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnvioGestion.cs">
+    <Compile Include="Envio\EnvioGestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnvioGestion.Designer.cs">
+    <Compile Include="Envio\EnvioGestion.Designer.cs">
       <DependentUpon>EnvioGestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="IdiomaGestionar.cs">
+    <Compile Include="Servicios\IdiomaGestionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IdiomaGestionar.Designer.cs">
+    <Compile Include="Servicios\IdiomaGestionar.Designer.cs">
       <DependentUpon>IdiomaGestionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="IdiomaBorrar.cs">
+    <Compile Include="Servicios\IdiomaBorrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IdiomaBorrar.Designer.cs">
+    <Compile Include="Servicios\IdiomaBorrar.Designer.cs">
       <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DireccionAltaModificacion.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DireccionAltaModificacion.Designer.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionAltaModificacion.Designer.cs">
       <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DireccionBaja.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionBaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DireccionBaja.Designer.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionBaja.Designer.cs">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmarAccion.cs">
+    <Compile Include="Deposito\DepositoCompletarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmarAccion.Designer.cs">
-      <DependentUpon>ConfirmarAccion.cs</DependentUpon>
+    <Compile Include="Deposito\DepositoCompletarPedido.Designer.cs">
+      <DependentUpon>DepositoCompletarPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaConfirmarCancelacion.cs">
+    <Compile Include="Deposito\DepositoVerInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaConfirmarCancelacion.Designer.cs">
-      <DependentUpon>VentaConfirmarCancelacion.cs</DependentUpon>
+    <Compile Include="Deposito\DepositoVerInventario.Designer.cs">
+      <DependentUpon>DepositoVerInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="openEnterpriseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="RetiroLocalAgregar.cs">
+    <Compile Include="Venta\RetiroLocalAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RetiroLocalAgregar.Designer.cs">
+    <Compile Include="Venta\RetiroLocalAgregar.Designer.cs">
       <DependentUpon>RetiroLocalAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorBuscar.cs">
+    <Compile Include="Proveedor\ProveedorBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorBuscar.Designer.cs">
+    <Compile Include="Proveedor\ProveedorBuscar.Designer.cs">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="PedidoCompletar.cs">
+    <Compile Include="Deposito\DepositoEntradaRegistrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PedidoCompletar.Designer.cs">
-      <DependentUpon>PedidoCompletar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DepositoEntradaRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DepositoEntradaRegistrar.Designer.cs">
+    <Compile Include="Deposito\DepositoEntradaRegistrar.Designer.cs">
       <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DireccionHome.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DireccionHome.Designer.cs">
+    <Compile Include="Venta\Cliente\Direccion\DireccionHome.Designer.cs">
       <DependentUpon>DireccionHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorRestaurar.cs">
+    <Compile Include="Proveedor\ProveedorRestaurar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorRestaurar.Designer.cs">
+    <Compile Include="Proveedor\ProveedorRestaurar.Designer.cs">
       <DependentUpon>ProveedorRestaurar.cs</DependentUpon>
     </Compile>
-    <Compile Include="RealizarBackup.cs">
+    <Compile Include="Servicios\RealizarBackup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RealizarBackup.Designer.cs">
+    <Compile Include="Servicios\RealizarBackup.Designer.cs">
       <DependentUpon>RealizarBackup.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmarPago.cs">
+    <Compile Include="Caja\ConfirmarPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmarPago.Designer.cs">
+    <Compile Include="Caja\ConfirmarPago.Designer.cs">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaCancelar.cs">
+    <Compile Include="Venta\VentaCancelar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaCancelar.Designer.cs">
+    <Compile Include="Venta\VentaCancelar.Designer.cs">
       <DependentUpon>VentaCancelar.cs</DependentUpon>
     </Compile>
-    <Compile Include="PagoRecibir.cs">
+    <Compile Include="Caja\PagoRecibir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PagoRecibir.Designer.cs">
+    <Compile Include="Caja\PagoRecibir.Designer.cs">
       <DependentUpon>PagoRecibir.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnvioBuscar.cs">
+    <Compile Include="Envio\EnvioBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnvioBuscar.Designer.cs">
+    <Compile Include="Envio\EnvioBuscar.Designer.cs">
       <DependentUpon>EnvioBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuejaElegir.cs">
+    <Compile Include="Venta\Queja\QuejaElegir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuejaElegir.Designer.cs">
+    <Compile Include="Venta\Queja\QuejaElegir.Designer.cs">
       <DependentUpon>QuejaElegir.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoCrearReposicion.cs">
+    <Compile Include="Venta\Queja\QuejaCrear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoCrearReposicion.Designer.cs">
-      <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QuejaCrear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QuejaCrear.Designer.cs">
+    <Compile Include="Venta\Queja\QuejaCrear.Designer.cs">
       <DependentUpon>QuejaCrear.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaBuscar.cs">
+    <Compile Include="Venta\VentaBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaBuscar.Designer.cs">
+    <Compile Include="Venta\VentaBuscar.Designer.cs">
       <DependentUpon>VentaBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClienteBuscar.cs">
+    <Compile Include="Venta\Cliente\ClienteBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClienteBuscar.Designer.cs">
+    <Compile Include="Venta\Cliente\ClienteBuscar.Designer.cs">
       <DependentUpon>ClienteBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaCompletar.cs">
+    <Compile Include="Venta\VentaCompletar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaCompletar.Designer.cs">
+    <Compile Include="Venta\VentaCompletar.Designer.cs">
       <DependentUpon>VentaCompletar.cs</DependentUpon>
     </Compile>
-    <Compile Include="EdificioConfigurar.cs">
+    <Compile Include="Admin\EdificioConfigurar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EdificioConfigurar.Designer.cs">
+    <Compile Include="Admin\EdificioConfigurar.Designer.cs">
       <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoElegir.cs">
+    <Compile Include="Deposito\DepositoElegir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoElegir.Designer.cs">
+    <Compile Include="Deposito\DepositoElegir.Designer.cs">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoPedidoHome.cs">
+    <Compile Include="Deposito\DepositoPedidoHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoPedidoHome.Designer.cs">
+    <Compile Include="Deposito\DepositoPedidoHome.Designer.cs">
       <DependentUpon>DepositoPedidoHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoProductoAgregar.cs">
+    <Compile Include="Deposito\DepositoProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoProductoAgregar.Designer.cs">
+    <Compile Include="Deposito\DepositoProductoAgregar.Designer.cs">
       <DependentUpon>DepositoProductoAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaProductoAgregar.cs">
+    <Compile Include="Venta\VentaProductoAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaProductoAgregar.Designer.cs">
+    <Compile Include="Venta\VentaProductoAgregar.Designer.cs">
       <DependentUpon>VentaProductoAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaHome.cs">
+    <Compile Include="Venta\VentaHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaHome.Designer.cs">
+    <Compile Include="Venta\VentaHome.Designer.cs">
       <DependentUpon>VentaHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="SucursalAsignar.cs">
+    <Compile Include="Admin\SucursalAsignar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SucursalAsignar.Designer.cs">
+    <Compile Include="Admin\SucursalAsignar.Designer.cs">
       <DependentUpon>SucursalAsignar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoAsignar.cs">
+    <Compile Include="Deposito\DepositoAsignar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoAsignar.Designer.cs">
+    <Compile Include="Deposito\DepositoAsignar.Designer.cs">
       <DependentUpon>DepositoAsignar.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmpleadoAltaModificacion.cs">
+    <Compile Include="Admin\EmpleadoAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmpleadoAltaModificacion.Designer.cs">
+    <Compile Include="Admin\EmpleadoAltaModificacion.Designer.cs">
       <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoAltaModificacion.cs">
+    <Compile Include="Deposito\DepositoAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoAltaModificacion.Designer.cs">
+    <Compile Include="Deposito\DepositoAltaModificacion.Designer.cs">
       <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoBaja.cs">
+    <Compile Include="Deposito\DepositoBaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoBaja.Designer.cs">
+    <Compile Include="Deposito\DepositoBaja.Designer.cs">
       <DependentUpon>DepositoBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmpleadoBaja.cs">
+    <Compile Include="Admin\EmpleadoBaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmpleadoBaja.Designer.cs">
+    <Compile Include="Admin\EmpleadoBaja.Designer.cs">
       <DependentUpon>EmpleadoBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepositoHome.cs">
+    <Compile Include="Deposito\DepositoHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DepositoHome.Designer.cs">
+    <Compile Include="Deposito\DepositoHome.Designer.cs">
       <DependentUpon>DepositoHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmpleadoHome.cs">
+    <Compile Include="Admin\EmpleadoHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmpleadoHome.Designer.cs">
+    <Compile Include="Admin\EmpleadoHome.Designer.cs">
       <DependentUpon>EmpleadoHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorDV.cs">
+    <Compile Include="Servicios\ErrorDV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ErrorDV.Designer.cs">
+    <Compile Include="Servicios\ErrorDV.Designer.cs">
       <DependentUpon>ErrorDV.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
@@ -319,30 +302,30 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Servicios\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Servicios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProveedorAltaModificacion.cs">
+    <Compile Include="Proveedor\ProveedorAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorAltaModificacion.Designer.cs">
+    <Compile Include="Proveedor\ProveedorAltaModificacion.Designer.cs">
       <DependentUpon>ProveedorAltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorBaja.cs">
+    <Compile Include="Proveedor\ProveedorBaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorBaja.Designer.cs">
+    <Compile Include="Proveedor\ProveedorBaja.Designer.cs">
       <DependentUpon>ProveedorBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorHome.cs">
+    <Compile Include="Proveedor\ProveedorHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProveedorHome.Designer.cs">
+    <Compile Include="Proveedor\ProveedorHome.Designer.cs">
       <DependentUpon>ProveedorHome.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdatableForm.cs">
@@ -353,160 +336,155 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdatableForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="QuejaElegirProductos.cs">
+    <Compile Include="Venta\Queja\QuejaElegirProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuejaElegirProductos.Designer.cs">
+    <Compile Include="Venta\Queja\QuejaElegirProductos.Designer.cs">
       <DependentUpon>QuejaElegirProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnvioVerDetalle.cs">
+    <Compile Include="Envio\EnvioVerDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnvioVerDetalle.Designer.cs">
+    <Compile Include="Envio\EnvioVerDetalle.Designer.cs">
       <DependentUpon>EnvioVerDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentaVerDetalle.cs">
+    <Compile Include="Venta\VentaVerDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentaVerDetalle.Designer.cs">
+    <Compile Include="Venta\VentaVerDetalle.Designer.cs">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="BitacoraVer.cs">
+    <Compile Include="Servicios\BitacoraVer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BitacoraVer.Designer.cs">
+    <Compile Include="Servicios\BitacoraVer.Designer.cs">
       <DependentUpon>BitacoraVer.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnviosVer.cs">
+    <Compile Include="Envio\EnviosVer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnviosVer.Designer.cs">
+    <Compile Include="Envio\EnviosVer.Designer.cs">
       <DependentUpon>EnviosVer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ControlesGestionar.resx">
+    <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClienteAlta.resx">
+    <EmbeddedResource Include="Venta\Cliente\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoConfirmarRecepcion.resx">
+    <EmbeddedResource Include="Deposito\DepositoConfirmarRecepcion.resx">
       <DependentUpon>DepositoConfirmarRecepcion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnvioGestion.resx">
+    <EmbeddedResource Include="Envio\EnvioGestion.resx">
       <DependentUpon>EnvioGestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IdiomaGestionar.resx">
+    <EmbeddedResource Include="Servicios\IdiomaGestionar.resx">
       <DependentUpon>IdiomaGestionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IdiomaBorrar.resx">
+    <EmbeddedResource Include="Servicios\IdiomaBorrar.resx">
       <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DireccionAltaModificacion.resx">
+    <EmbeddedResource Include="Venta\Cliente\Direccion\DireccionAltaModificacion.resx">
       <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DireccionBaja.resx">
+    <EmbeddedResource Include="Venta\Cliente\Direccion\DireccionBaja.resx">
       <DependentUpon>DireccionBaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmarAccion.resx">
-      <DependentUpon>ConfirmarAccion.cs</DependentUpon>
+    <EmbeddedResource Include="Deposito\DepositoCompletarPedido.resx">
+      <DependentUpon>DepositoCompletarPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaConfirmarCancelacion.resx">
-      <DependentUpon>VentaConfirmarCancelacion.cs</DependentUpon>
+    <EmbeddedResource Include="Deposito\DepositoVerInventario.resx">
+      <DependentUpon>DepositoVerInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RetiroLocalAgregar.resx">
+    <EmbeddedResource Include="Venta\RetiroLocalAgregar.resx">
       <DependentUpon>RetiroLocalAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorBuscar.resx">
+    <EmbeddedResource Include="Proveedor\ProveedorBuscar.resx">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PedidoCompletar.resx">
-      <DependentUpon>PedidoCompletar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DireccionHome.resx">
+    <EmbeddedResource Include="Venta\Cliente\Direccion\DireccionHome.resx">
       <DependentUpon>DireccionHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorRestaurar.resx">
+    <EmbeddedResource Include="Proveedor\ProveedorRestaurar.resx">
       <DependentUpon>ProveedorRestaurar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmarPago.resx">
+    <EmbeddedResource Include="Caja\ConfirmarPago.resx">
       <DependentUpon>ConfirmarPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaCancelar.resx">
+    <EmbeddedResource Include="Venta\VentaCancelar.resx">
       <DependentUpon>VentaCancelar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PagoRecibir.resx">
+    <EmbeddedResource Include="Caja\PagoRecibir.resx">
       <DependentUpon>PagoRecibir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnvioBuscar.resx">
+    <EmbeddedResource Include="Envio\EnvioBuscar.resx">
       <DependentUpon>EnvioBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuejaElegir.resx">
+    <EmbeddedResource Include="Venta\Queja\QuejaElegir.resx">
       <DependentUpon>QuejaElegir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoCrearReposicion.resx">
-      <DependentUpon>DepositoCrearReposicion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QuejaCrear.resx">
+    <EmbeddedResource Include="Venta\Queja\QuejaCrear.resx">
       <DependentUpon>QuejaCrear.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaBuscar.resx">
+    <EmbeddedResource Include="Venta\VentaBuscar.resx">
       <DependentUpon>VentaBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClienteBuscar.resx">
+    <EmbeddedResource Include="Venta\Cliente\ClienteBuscar.resx">
       <DependentUpon>ClienteBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaCompletar.resx">
+    <EmbeddedResource Include="Venta\VentaCompletar.resx">
       <DependentUpon>VentaCompletar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EdificioConfigurar.resx">
+    <EmbeddedResource Include="Admin\EdificioConfigurar.resx">
       <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoElegir.resx">
+    <EmbeddedResource Include="Deposito\DepositoElegir.resx">
       <DependentUpon>DepositoElegir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoPedidoHome.resx">
+    <EmbeddedResource Include="Deposito\DepositoPedidoHome.resx">
       <DependentUpon>DepositoPedidoHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoProductoAgregar.resx">
+    <EmbeddedResource Include="Deposito\DepositoProductoAgregar.resx">
       <DependentUpon>DepositoProductoAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaProductoAgregar.resx">
+    <EmbeddedResource Include="Venta\VentaProductoAgregar.resx">
       <DependentUpon>VentaProductoAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaHome.resx">
+    <EmbeddedResource Include="Venta\VentaHome.resx">
       <DependentUpon>VentaHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SucursalAsignar.resx">
+    <EmbeddedResource Include="Admin\SucursalAsignar.resx">
       <DependentUpon>SucursalAsignar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoAsignar.resx">
+    <EmbeddedResource Include="Deposito\DepositoAsignar.resx">
       <DependentUpon>DepositoAsignar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmpleadoAltaModificacion.resx">
+    <EmbeddedResource Include="Admin\EmpleadoAltaModificacion.resx">
       <DependentUpon>EmpleadoAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoAltaModificacion.resx">
+    <EmbeddedResource Include="Deposito\DepositoAltaModificacion.resx">
       <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoBaja.resx">
+    <EmbeddedResource Include="Deposito\DepositoBaja.resx">
       <DependentUpon>DepositoBaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmpleadoBaja.resx">
+    <EmbeddedResource Include="Admin\EmpleadoBaja.resx">
       <DependentUpon>EmpleadoBaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepositoHome.resx">
+    <EmbeddedResource Include="Deposito\DepositoHome.resx">
       <DependentUpon>DepositoHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmpleadoHome.resx">
+    <EmbeddedResource Include="Admin\EmpleadoHome.resx">
       <DependentUpon>EmpleadoHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ErrorDV.resx">
+    <EmbeddedResource Include="Servicios\ErrorDV.resx">
       <DependentUpon>ErrorDV.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Servicios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -518,13 +496,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ProveedorAltaModificacion.resx">
+    <EmbeddedResource Include="Proveedor\ProveedorAltaModificacion.resx">
       <DependentUpon>ProveedorAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorBaja.resx">
+    <EmbeddedResource Include="Proveedor\ProveedorBaja.resx">
       <DependentUpon>ProveedorBaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorHome.resx">
+    <EmbeddedResource Include="Proveedor\ProveedorHome.resx">
       <DependentUpon>ProveedorHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatableForm.resx">
@@ -532,32 +510,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UpdatableForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuejaElegirProductos.resx">
+    <EmbeddedResource Include="Venta\Queja\QuejaElegirProductos.resx">
       <DependentUpon>QuejaElegirProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnvioVerDetalle.resx">
+    <EmbeddedResource Include="Envio\EnvioVerDetalle.resx">
       <DependentUpon>EnvioVerDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentaVerDetalle.resx">
+    <EmbeddedResource Include="Venta\VentaVerDetalle.resx">
       <DependentUpon>VentaVerDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BitacoraVer.resx">
+    <EmbeddedResource Include="Servicios\BitacoraVer.resx">
       <DependentUpon>BitacoraVer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnviosVer.resx">
+    <EmbeddedResource Include="Envio\EnviosVer.resx">
       <DependentUpon>EnviosVer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="openEnterpriseDataSet.xsc">
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="openEnterpriseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>openEnterpriseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="openEnterpriseDataSet.xss">
-      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -605,5 +572,6 @@
   <ItemGroup>
     <None Include="Resources\%24this.Icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

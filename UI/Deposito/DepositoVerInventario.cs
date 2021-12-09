@@ -1,0 +1,63 @@
+﻿using BLL;
+using EE;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+
+// ReSharper disable PossibleNullReferenceException
+
+namespace UI
+{
+    public partial class DepositoVerInventario : UpdatableForm
+    {
+        private List<ProductoEdificioEe> _dataTable;
+
+        public DepositoVerInventario()
+        {
+            InitializeComponent();
+            ActualizarGrid();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == null &&
+                txtCodigo.Text == null) return;
+
+            gridInventario.DataSource = _dataTable.FindAll(x => x.Nombre.ToLower().Contains(txtNombre.Text.ToLower()) &&
+                                                                              x.Codigo.ToLower().Contains(txtCodigo.Text.ToLower()));
+
+            gridInventario.Refresh();
+        }
+
+        public void ActualizarGrid()
+        { //TODO: Agregar fechas de cuando se envio y se recibio el pedido
+            _dataTable = ProductoBll.ObtenerDeposito(Sesion.ObtenerSesion().Deposito);
+            gridInventario.DataSource = _dataTable;
+
+            gridInventario.Columns["id"].Visible = false;
+            gridInventario.Columns["activo"].Visible = false;
+            gridInventario.Columns["edificio"].Visible = false;
+            gridInventario.Columns["cantidadacomprar"].Visible = false;
+            gridInventario.Columns["cantidadaretirar"].Visible = false;
+            gridInventario.Columns["fechacreacion"].Visible = false;
+            gridInventario.Columns["totalproducto"].Visible = false;
+
+            gridInventario.Columns["nombre"].DisplayIndex = 0;
+            gridInventario.Columns["codigo"].DisplayIndex = 1;
+            gridInventario.Columns["costo"].DisplayIndex = 2;
+            gridInventario.Columns["precio"].DisplayIndex = 3;
+            gridInventario.Columns["cantidad"].DisplayIndex = 4;
+
+            var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
+            format.CurrencySymbol = "$";
+
+            gridInventario.Columns["costo"].DefaultCellStyle.FormatProvider = format;
+            gridInventario.Columns["costo"].DefaultCellStyle.Format = "c";
+            gridInventario.Columns["precio"].DefaultCellStyle.FormatProvider = format;
+            gridInventario.Columns["precio"].DefaultCellStyle.Format = "c";
+
+
+            gridInventario.Refresh();
+        }
+    }
+}

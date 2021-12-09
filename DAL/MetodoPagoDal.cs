@@ -11,7 +11,7 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT id, nombre FROM metodoPago ";
+                const string strQuery = "SELECT id, nombre FROM cMetodoPago ";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -41,7 +41,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT id, nombre FROM metodoPago WHERE id = {id}";
+                var strQuery = $"SELECT id, nombre FROM cMetodoPago WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 

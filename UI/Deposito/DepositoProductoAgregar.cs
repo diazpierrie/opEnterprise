@@ -13,20 +13,20 @@ namespace UI
 {
     public partial class DepositoProductoAgregar : UpdatableForm
     {
-        private readonly DepositoPedidoHome _ventaHome;
+        private readonly DepositoPedidoHome _depositoPedidoHome;
 
         public DepositoProductoAgregar(DepositoPedidoHome homeForm)
         {
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
-            _ventaHome = homeForm;
+            _depositoPedidoHome = homeForm;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (_ventaHome.ProductosAAsignar.Count == 0) Close();
+            if (_depositoPedidoHome.ProductosAAsignar.Count == 0) Close();
 
-            _ventaHome.ProductosAAsignar.Clear();
+            _depositoPedidoHome.ProductosAAsignar.Clear();
             ActualizarGrids();
             Close();
         }
@@ -52,7 +52,7 @@ namespace UI
 
                 productoNuevo.TotalProducto = productoNuevo.Cantidad * productoNuevo.Costo;
 
-                var productoAgregado = _ventaHome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id));
+                var productoAgregado = _depositoPedidoHome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id));
                 if (productoAgregado != null)
                 {
                     productoAgregado.Cantidad += productoNuevo.Cantidad;
@@ -60,7 +60,7 @@ namespace UI
                 }
                 else
                 {
-                    _ventaHome.ProductosAAsignar.Add(productoNuevo);
+                    _depositoPedidoHome.ProductosAAsignar.Add(productoNuevo);
                 }
 
                 gridProductos.Refresh();
@@ -78,16 +78,15 @@ namespace UI
             {
                 var selectedRow = gridProductosAAgregar.SelectedRows[index];
                 var producto = (ProductoEe)selectedRow.DataBoundItem;
-                var productoNuevo = (ProductoEe)producto.Clone();
 
-                _ventaHome.ProductosAAsignar.Remove(producto);
+                _depositoPedidoHome.ProductosAAsignar.Remove(producto);
                 ActualizarGrids();
             }
         }
 
         private void ActualizarGrids()
         {
-            gridProductos.DataSource = ProductoBll.ObtenerActivos();
+            gridProductos.DataSource = _depositoPedidoHome.ProductosProveedor;
             gridProductos.Columns["id"].Visible = false;
             gridProductos.Columns["codigo"].Visible = false;
             gridProductos.Columns["activo"].Visible = false;
@@ -103,7 +102,7 @@ namespace UI
             gridProductos.Columns["costo"].ReadOnly = true;
             gridProductos.Columns["cantidad"].ReadOnly = false;
 
-            gridProductosAAgregar.DataSource = _ventaHome.ProductosAAsignar;
+            gridProductosAAgregar.DataSource = _depositoPedidoHome.ProductosAAsignar;
             gridProductosAAgregar.Columns["id"].Visible = false;
             gridProductosAAgregar.Columns["activo"].Visible = false;
             gridProductosAAgregar.Columns["codigo"].Visible = false;
@@ -149,7 +148,7 @@ namespace UI
 
         private void btnAsignarProductos_Click(object sender, EventArgs e)
         {
-            _ventaHome.ActualizarGrid();
+            _depositoPedidoHome.ActualizarGrid();
             Close();
         }
 
@@ -169,8 +168,7 @@ namespace UI
 
         private void gridProductos_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            int value;
-            if (int.TryParse(gridProductos.CurrentCell.EditedFormattedValue.ToString(), out value))
+            if (int.TryParse(gridProductos.CurrentCell.EditedFormattedValue.ToString(), out _))
             {
                 gridProductos.CurrentCell.Value = 0;
             }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using BLL;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -15,6 +15,7 @@ namespace UI
         public readonly BindingList<ProductoEe> ProductosAAsignar = new BindingList<ProductoEe>();
         public BindingList<ProductoEe> ProductosProveedor;
         public double Total;
+
         public DepositoPedidoHome()
         {
             InitializeComponent();
@@ -51,15 +52,15 @@ namespace UI
             gridPedido.Columns["costo"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnCompletarVenta_Click(object sender, EventArgs e)
-        {
-            //var completarVenta = new VentaCompletar(this);
-            //completarVenta.Show();
-        }
-
-        private void btnCrearVenta_Click(object sender, EventArgs e)
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
             var agregarProducto = new DepositoProductoAgregar(this);
+            agregarProducto.Show();
+        }
+
+        private void btnCompletarPedido_Click(object sender, EventArgs e)
+        {
+            var agregarProducto = new DepositoCompletarPedido(this);
             agregarProducto.Show();
         }
 
@@ -81,10 +82,10 @@ namespace UI
         {
             ProductosProveedor = new BindingList<ProductoEe>(ProductoBll.ObtenerActivos());
         }
+
         private void VentaHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
         }
     }
-
 }
