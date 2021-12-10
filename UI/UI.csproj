@@ -50,6 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deposito\DepositoEntradaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\DepositoEntradaRegistrar.Designer.cs">
+      <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\DepositoVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\DepositoVerDetalle.Designer.cs">
+      <DependentUpon>DepositoVerDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito\DepositoElegirProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito\DepositoElegirProductos.Designer.cs">
+      <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\ProveedorPenalizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\ProveedorPenalizar.Designer.cs">
+      <DependentUpon>ProveedorPenalizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,12 +151,6 @@
     </Compile>
     <Compile Include="Proveedor\ProveedorBuscar.Designer.cs">
       <DependentUpon>ProveedorBuscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Deposito\DepositoEntradaRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deposito\DepositoEntradaRegistrar.Designer.cs">
-      <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionHome.cs">
       <SubType>Form</SubType>
@@ -366,6 +384,18 @@
     <Compile Include="Envio\EnviosVer.Designer.cs">
       <DependentUpon>EnviosVer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Deposito\DepositoEntradaRegistrar.resx">
+      <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\DepositoVerDetalle.resx">
+      <DependentUpon>DepositoVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito\DepositoElegirProductos.resx">
+      <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\ProveedorPenalizar.resx">
+      <DependentUpon>ProveedorPenalizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>

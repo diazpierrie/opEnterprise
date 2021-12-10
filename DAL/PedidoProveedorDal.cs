@@ -8,11 +8,75 @@ namespace DAL
 {
     public class PedidoProveedorDal : ConnectionDal
     {
-        private readonly UsuarioDal _usuarioDal = new UsuarioDal();
-        private readonly ProveedorDal _proveedorDal = new ProveedorDal();
         private readonly DepositoDal _depositoDal = new DepositoDal();
         private readonly PedidoEstadoDal _pedidoEstadoDal = new PedidoEstadoDal();
         private readonly ProductoDal _productoDal = new ProductoDal();
+        private readonly ProveedorDal _proveedorDal = new ProveedorDal();
+        private readonly UsuarioDal _usuarioDal = new UsuarioDal();
+
+        public void Actualizar(ProductoEe sucu)
+        {
+        }
+
+        public bool ActualizarStockDeposito(DepositoEe deposito, PedidoProveedorDetalleEe producto)
+        {
+            var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = stock + @stock WHERE idDeposito = @idDeposito AND idProducto = @idProducto", Conn);
+            query.Parameters.AddWithValue("@idDeposito", deposito.Id);
+            query.Parameters.AddWithValue("@idProducto", producto.Id);
+            query.Parameters.AddWithValue("@stock", producto.Cantidad);
+
+            return ExecuteQuery(query);
+        }
+
+        public int AgregarProductoDeposito(DepositoEe deposito, PedidoProveedorDetalleEe producto)
+        {
+            var columnas = new List<string> { "idDeposito", "idProducto", "stock" };
+            var valores = new List<string> { deposito.Id.ToString(), producto.Producto.Id.ToString(), producto.Cantidad.ToString() };
+
+            return Insert("deposito_producto", columnas.ToArray(), valores.ToArray());
+        }
+
+        public bool ConfirmarRecepcionPedido(PedidoProveedorEe pedido)
+        {
+            var query = new SqlCommand("UPDATE [dbo].[pedido_proveedor] SET [fechaRecepcion] = @fechaRecepcion, [idEstado] = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", pedido.Id);
+            query.Parameters.AddWithValue("@fechaRecepcion", DateTime.Now);
+            query.Parameters.AddWithValue("@idEstado", 2);
+
+            return ExecuteQuery(query);
+        }
+
+        public int Crear(PedidoProveedorEe obj)
+        {
+            var columnas = new List<string> { "idUsuario", "idProveedor", "idDeposito", "idEstado", "fecha", "total" };
+            var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Proveedor.Id.ToString(), obj.Deposito.Id.ToString(), obj.Estado.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
+
+            return Insert("pedido_proveedor", columnas.ToArray(), valores.ToArray());
+        }
+
+        public int CrearDetalle(PedidoProveedorEe pedido, List<ProductoEe> productos)
+        {
+            var columnas = new List<string> { "idPedidoProveedor", "idProducto", "cantidad" };
+            var valores = new List<string[]>();
+            foreach (var producto in productos)
+            {
+                string[] value =
+                {
+                    pedido.Id.ToString(), producto.Id.ToString(), producto.Cantidad.ToString()
+                };
+                valores.Add(value);
+            }
+            return Insert("pedido_proveedor_detalle", columnas.ToArray(), valores);
+        }
+
+        public bool MarcarVentaComoPerdida(PedidoProveedorEe venta)
+        {
+            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
+            query.Parameters.AddWithValue("@id", venta.Id);
+            query.Parameters.AddWithValue("@idEstado", 3);
+
+            return ExecuteQuery(query);
+        }
 
         public PedidoProveedorEe Obtener(int id)
         {
@@ -57,15 +121,15 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idUsuario," +
-                               " idComprador," +
-                               " idSucursal," +
-                               " idMetodoPago," +
-                               " idEstado," +
-                               " total," +
-                               " fecha FROM venta";
+                var strQuery = "SELECT [id] ," +
+                                     "[idUsuario] ," +
+                                     "[idProveedor] ," +
+                                     "[idDeposito] ," +
+                                     "[fechaPedido] ," +
+                                     "[fechaRecepcion] ," +
+                                     "[total] ," +
+                                     "[idEstado] " +
+                                     "FROM [dbo].[pedido_proveedor]";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -83,123 +147,6 @@ namespace DAL
 
                 Conn.Close();
                 return ventas;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
-        public List<PedidoProveedorEe> Obtener(UsuarioEe user)
-        {
-            try
-            {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idUsuario," +
-                               " idComprador," +
-                               " idSucursal," +
-                               " idMetodoPago," +
-                               " idEstado," +
-                               " total," +
-                               " fecha FROM venta" +
-                               $" WHERE v.idUsuario = {user.Id}";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var ventas = new List<PedidoProveedorEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        ventas.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-                return ventas;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
-        public List<PedidoProveedorEe> Obtener(CompradorEe comprador)
-        {
-            try
-            {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idUsuario," +
-                               " idComprador," +
-                               " idSucursal," +
-                               " idMetodoPago," +
-                               " idEstado," +
-                               " total," +
-                               " fecha FROM venta" +
-                               $" WHERE v.idUsuario = {comprador.Id}";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var sucus = new List<PedidoProveedorEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        sucus.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-                return sucus;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
-        public List<PedidoProveedorEe> Obtener(SucursalEe sucursal)
-        {
-            try
-            {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idUsuario," +
-                               " idComprador," +
-                               " idSucursal," +
-                               " idMetodoPago," +
-                               " idEstado," +
-                               " total," +
-                               " fecha FROM venta" +
-                               $" WHERE idSucursal = {sucursal.Id}";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var sucus = new List<PedidoProveedorEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        sucus.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-                return sucus;
             }
             catch (Exception e)
             {
@@ -212,15 +159,12 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idVenta," +
-                               " idProducto," +
-                               " costoUnitario," +
-                               " precioUnitario," +
-                               " cantidad" +
-                               " FROM venta_detalle" +
-                               $" WHERE idVenta = {id}";
+                var strQuery = "SELECT [id] ," +
+                               "[idPedidoProveedor] ," +
+                               "[idProducto] ," +
+                               "[cantidad] " +
+                               "FROM [dbo].[pedido_proveedor_detalle]" +
+                               $"WHERE idPedidoProveedor = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -246,40 +190,89 @@ namespace DAL
             }
         }
 
-        public void Actualizar(ProductoEe sucu)
+        public List<PedidoProveedorEe> ObtenerIniciados()
         {
-        }
-
-        public int Crear(PedidoProveedorEe obj)
-        {
-            var columnas = new List<string> { "idUsuario", "idProveedor", "idDeposito", "idEstado", "fecha", "total" };
-            var valores = new List<string> { obj.Empleado.Id.ToString(), obj.Proveedor.Id.ToString(), obj.Deposito.Id.ToString(), obj.Estado.Id.ToString(), DateTime.Today.ToString(CultureInfo.InvariantCulture), obj.Total.ToString(CultureInfo.InvariantCulture) };
-
-            return Insert("pedido_proveedor", columnas.ToArray(), valores.ToArray());
-        }
-
-        public int CrearDetalle(PedidoProveedorEe pedido, List<ProductoEe> productos)
-        {
-            var columnas = new List<string> { "idPedidoProveedor", "idProducto", "cantidad" };
-            var valores = new List<string[]>();
-            foreach (var producto in productos)
+            try
             {
-                string[] value =
+                var strQuery = "SELECT [id] ," +
+                               "[idUsuario] ," +
+                               "[idProveedor] ," +
+                               "[idDeposito] ," +
+                               "[fechaPedido] ," +
+                               "[fechaRecepcion] ," +
+                               "[total] ," +
+                               "[idEstado] " +
+                               "FROM [dbo].[pedido_proveedor] " +
+                               "WHERE idEstado = 1";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var ventas = new List<PedidoProveedorEe>();
+
+                if (data.HasRows)
                 {
-                    pedido.Id.ToString(), producto.Id.ToString(), producto.Cantidad.ToString()
-                };
-                valores.Add(value);
+                    while (data.Read())
+                    {
+                        ventas.Add(CastDto(data));
+                    }
+                }
+
+                Conn.Close();
+                return ventas;
             }
-            return Insert("pedido_proveedor_detalle", columnas.ToArray(), valores);
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
         }
 
-        public bool MarcarVentaComoPerdida(PedidoProveedorEe venta)
+        public List<StockDepositoEe> ObtenerPorDeposito(DepositoEe deposito)
         {
-            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
-            query.Parameters.AddWithValue("@id", venta.Id);
-            query.Parameters.AddWithValue("@idEstado", 3);
+            try
+            {
+                var strQuery = $@"SELECT [id] ,[idDeposito] ,[idProducto] ,[stock] FROM [openEnterprise].[dbo].[deposito_producto] WHERE idDeposito = {deposito.Id}";
 
-            return ExecuteQuery(query);
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var stock = new List<StockDepositoEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        stock.Add(CastDtoStockDeposito(data));
+                    }
+                }
+
+                Conn.Close();
+                return stock;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        private StockDepositoEe CastDtoStockDeposito(SqlDataReader data)
+        {
+            return new StockDepositoEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Sucursal = new SucursalEe(){ Id = int.Parse(data["idDeposito"].ToString()) },
+                Producto = new ProductoEe(){ Id = int.Parse(data["idProducto"].ToString()) },
+                Cantidad = int.Parse(data["stock"].ToString()),
+            };
+        }
+
+        public void RegistrarEntrada(List<PedidoProveedorDetalleEe> productosSeleccionados)
+        {
+            throw new NotImplementedException();
         }
 
         private PedidoProveedorEe CastDto(SqlDataReader data)
@@ -288,11 +281,11 @@ namespace DAL
             {
                 Id = int.Parse(data["id"].ToString()),
                 Empleado = _usuarioDal.Obtener(int.Parse(data["idUsuario"].ToString())),
-                Proveedor = _proveedorDal.Obtener(int.Parse(data["idComprador"].ToString())),
-                Deposito = _depositoDal.Obtener(int.Parse(data["idSucursal"].ToString())),
+                Proveedor = _proveedorDal.Obtener(int.Parse(data["idProveedor"].ToString())),
+                Deposito = _depositoDal.Obtener(int.Parse(data["idDeposito"].ToString())),
                 Estado = _pedidoEstadoDal.Obtener(int.Parse(data["idEstado"].ToString())),
-                FechaPedido = DateTime.Parse(data["fechaPedido"].ToString()),
-                FechaRecepcion = DateTime.Parse(data["FechaRecepcion"].ToString()),
+                FechaPedido = data["FechaPedido"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaPedido"].ToString()) : default,
+                FechaRecepcion = data["FechaRecepcion"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaRecepcion"].ToString()) : default,
                 Total = double.Parse(data["total"].ToString())
             };
         }
@@ -302,8 +295,6 @@ namespace DAL
             return new PedidoProveedorDetalleEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                //Venta = new PedidoEe(){Id = int.Parse(data["idVenta"].ToString()) },
-                //Producto = new ProductoEe(){Id = int.Parse(data["idProducto"].ToString()) },
                 Pedido = Obtener(int.Parse(data["idPedidoProveedor"].ToString())),
                 Producto = _productoDal.Obtener(int.Parse(data["idProducto"].ToString())),
                 Cantidad = int.Parse(data["cantidad"].ToString())

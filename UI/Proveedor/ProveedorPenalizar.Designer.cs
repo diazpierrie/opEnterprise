@@ -1,0 +1,91 @@
+﻿
+using System.ComponentModel;
+using MetroFramework.Controls;
+
+namespace UI
+{
+    partial class ProveedorPenalizar
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.cbMotivos = new MetroFramework.Controls.MetroComboBox();
+            this.lblQueja = new MetroFramework.Controls.MetroLabel();
+            this.btnAsignarQueja = new MetroFramework.Controls.MetroButton();
+            this.SuspendLayout();
+            // 
+            // cbQuejas
+            // 
+            this.cbMotivos.FormattingEnabled = true;
+            this.cbMotivos.ItemHeight = 23;
+            this.cbMotivos.Location = new System.Drawing.Point(156, 87);
+            this.cbMotivos.Name = "cbMotivos";
+            this.cbMotivos.Size = new System.Drawing.Size(226, 29);
+            this.cbMotivos.TabIndex = 0;
+            this.cbMotivos.UseSelectable = true;
+            // 
+            // lblQueja
+            // 
+            this.lblQueja.AutoSize = true;
+            this.lblQueja.Location = new System.Drawing.Point(106, 92);
+            this.lblQueja.Name = "lblQueja";
+            this.lblQueja.Size = new System.Drawing.Size(44, 19);
+            this.lblQueja.TabIndex = 1;
+            this.lblQueja.Text = "Queja";
+            // 
+            // btnAsignarQueja
+            // 
+            this.btnAsignarQueja.Location = new System.Drawing.Point(248, 122);
+            this.btnAsignarQueja.Name = "btnAsignarQueja";
+            this.btnAsignarQueja.Size = new System.Drawing.Size(134, 23);
+            this.btnAsignarQueja.TabIndex = 2;
+            this.btnAsignarQueja.Tag = "assign_complaint";
+            this.btnAsignarQueja.Text = "Asignar Queja";
+            this.btnAsignarQueja.UseSelectable = true;
+            this.btnAsignarQueja.Click += new System.EventHandler(this.btnAsignarQueja_Click);
+            // 
+            // VentaElegirQueja
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(405, 200);
+            this.Controls.Add(this.btnAsignarQueja);
+            this.Controls.Add(this.lblQueja);
+            this.Controls.Add(this.cbMotivos);
+            this.Name = "QuejaElegir";
+            this.Text = "VentaElegirQueja";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private MetroComboBox cbMotivos;
+        private MetroLabel lblQueja;
+        private MetroButton btnAsignarQueja;
+    }
+}

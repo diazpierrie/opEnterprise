@@ -1,6 +1,6 @@
 ﻿namespace EE
 {
-    public class StockSucursalEe : IdentityEe
+    public class StockDepositoEe : IdentityEe
     {
         public SucursalEe Sucursal { get; set; }
         public ProductoEe Producto { get; set; }

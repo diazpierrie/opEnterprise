@@ -2,12 +2,22 @@
 using EE;
 using Security;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
     public static class PedidoProveedorBll
     {
         private static readonly PedidoProveedorDal Dal = new PedidoProveedorDal();
+
+        public static void ConfirmarRecepcionPedido(PedidoProveedorEe pedido)
+        {
+            Dal.ConfirmarRecepcionPedido(pedido);
+
+            Dv.ActualizarDv();
+
+            BitacoraManager.AgregarMensajeControl("Pedido creado: ", pedido);
+        }
 
         public static int Crear(PedidoProveedorEe pedido, List<ProductoEe> productos)
         {
@@ -26,29 +36,36 @@ namespace BLL
             return Dal.Obtener(id);
         }
 
-        public static List<PedidoProveedorEe> Obtener()
+        public static IEnumerable<PedidoProveedorEe> Obtener()
         {
             return Dal.Obtener();
         }
 
-        public static List<PedidoProveedorDetalleEe> ObtenerDetalle(int id)
+        public static List<PedidoProveedorDetalleEe> ObtenerDetalle(PedidoProveedorEe proveedor)
         {
-            return Dal.ObtenerDetalle(id);
+            return Dal.ObtenerDetalle(proveedor.Id);
         }
 
-        public static List<PedidoProveedorEe> ObtenerPedidosDeUsuario(UsuarioEe user)
+        public static List<PedidoProveedorEe> ObtenerIniciados()
         {
-            return Dal.Obtener(user);
+            return Dal.ObtenerIniciados();
         }
 
-        public static List<PedidoProveedorEe> Obtener(SucursalEe sucursal)
+        public static void RegistrarEntrada(PedidoProveedorEe pedido, List<PedidoProveedorDetalleEe> productos)
         {
-            return Dal.Obtener(sucursal);
-        }
+            ConfirmarRecepcionPedido(pedido);
 
-        public static List<PedidoProveedorEe> ObtenerPedidosDeCliente(CompradorEe comprador)
-        {
-            return Dal.Obtener(comprador);
+            foreach (var producto in productos)
+            {
+                if (Dal.ObtenerPorDeposito(Sesion.ObtenerSesion().Deposito).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                {
+                    Dal.ActualizarStockDeposito(Sesion.ObtenerSesion().Deposito, producto);
+                }
+                else
+                {
+                    Dal.AgregarProductoDeposito(Sesion.ObtenerSesion().Deposito, producto);
+                }
+            }
         }
     }
 }

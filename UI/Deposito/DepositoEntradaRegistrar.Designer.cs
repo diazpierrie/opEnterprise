@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel;
+using MetroFramework.Controls;
 
 namespace UI
 {
@@ -31,12 +32,210 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnConfirmarRecepcion = new MetroFramework.Controls.MetroButton();
+            this.btnBuscar = new MetroFramework.Controls.MetroButton();
+            this.lblProveedor = new MetroFramework.Controls.MetroLabel();
+            this.txtProveedor = new MetroFramework.Controls.MetroTextBox();
+            this.lblEmpleado = new MetroFramework.Controls.MetroLabel();
+            this.txtEmpleado = new MetroFramework.Controls.MetroTextBox();
+            this.btnCerrar = new MetroFramework.Controls.MetroButton();
+            this.gridPedidos = new MetroFramework.Controls.MetroGrid();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPedidos)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnConfirmarRecepcion
+            // 
+            this.btnConfirmarRecepcion.Location = new System.Drawing.Point(752, 257);
+            this.btnConfirmarRecepcion.Name = "btnConfirmarRecepcion";
+            this.btnConfirmarRecepcion.Size = new System.Drawing.Size(157, 23);
+            this.btnConfirmarRecepcion.TabIndex = 50;
+            this.btnConfirmarRecepcion.Tag = "confirm_reception";
+            this.btnConfirmarRecepcion.Text = "Confirmar Recepcion";
+            this.btnConfirmarRecepcion.UseSelectable = true;
+            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.btnConfirmarRecepcion_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(752, 121);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(157, 23);
+            this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.Tag = "search";
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseSelectable = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblProveedor
+            // 
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(677, 93);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(71, 19);
+            this.lblProveedor.TabIndex = 38;
+            this.lblProveedor.Tag = "vendor";
+            this.lblProveedor.Text = "Proveedor";
+            // 
+            // txtProveedor
+            // 
+            // 
+            // 
+            // 
+            this.txtProveedor.CustomButton.Image = null;
+            this.txtProveedor.CustomButton.Location = new System.Drawing.Point(137, 1);
+            this.txtProveedor.CustomButton.Name = "";
+            this.txtProveedor.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtProveedor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtProveedor.CustomButton.TabIndex = 1;
+            this.txtProveedor.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtProveedor.CustomButton.UseSelectable = true;
+            this.txtProveedor.CustomButton.Visible = false;
+            this.txtProveedor.Lines = new string[0];
+            this.txtProveedor.Location = new System.Drawing.Point(750, 92);
+            this.txtProveedor.MaxLength = 32767;
+            this.txtProveedor.Name = "txtProveedor";
+            this.txtProveedor.PasswordChar = '\0';
+            this.txtProveedor.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtProveedor.SelectedText = "";
+            this.txtProveedor.SelectionLength = 0;
+            this.txtProveedor.SelectionStart = 0;
+            this.txtProveedor.ShortcutsEnabled = true;
+            this.txtProveedor.Size = new System.Drawing.Size(159, 23);
+            this.txtProveedor.TabIndex = 37;
+            this.txtProveedor.UseSelectable = true;
+            this.txtProveedor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtProveedor.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblEmpleado
+            // 
+            this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Location = new System.Drawing.Point(677, 67);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(69, 19);
+            this.lblEmpleado.TabIndex = 36;
+            this.lblEmpleado.Tag = "employee";
+            this.lblEmpleado.Text = "Empleado";
+            // 
+            // txtEmpleado
+            // 
+            // 
+            // 
+            // 
+            this.txtEmpleado.CustomButton.Image = null;
+            this.txtEmpleado.CustomButton.Location = new System.Drawing.Point(136, 1);
+            this.txtEmpleado.CustomButton.Name = "";
+            this.txtEmpleado.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtEmpleado.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtEmpleado.CustomButton.TabIndex = 1;
+            this.txtEmpleado.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtEmpleado.CustomButton.UseSelectable = true;
+            this.txtEmpleado.CustomButton.Visible = false;
+            this.txtEmpleado.Lines = new string[0];
+            this.txtEmpleado.Location = new System.Drawing.Point(751, 63);
+            this.txtEmpleado.MaxLength = 32767;
+            this.txtEmpleado.Name = "txtEmpleado";
+            this.txtEmpleado.PasswordChar = '\0';
+            this.txtEmpleado.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEmpleado.SelectedText = "";
+            this.txtEmpleado.SelectionLength = 0;
+            this.txtEmpleado.SelectionStart = 0;
+            this.txtEmpleado.ShortcutsEnabled = true;
+            this.txtEmpleado.Size = new System.Drawing.Size(158, 23);
+            this.txtEmpleado.TabIndex = 35;
+            this.txtEmpleado.UseSelectable = true;
+            this.txtEmpleado.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtEmpleado.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(750, 469);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(157, 23);
+            this.btnCerrar.TabIndex = 12;
+            this.btnCerrar.Tag = "close";
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseSelectable = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // gridClientes
+            // 
+            this.gridPedidos.AllowUserToAddRows = false;
+            this.gridPedidos.AllowUserToDeleteRows = false;
+            this.gridPedidos.AllowUserToResizeRows = false;
+            this.gridPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gridPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridPedidos.EnableHeadersVisualStyles = false;
+            this.gridPedidos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gridPedidos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridPedidos.Location = new System.Drawing.Point(24, 63);
+            this.gridPedidos.Name = "gridPedidos";
+            this.gridPedidos.ReadOnly = true;
+            this.gridPedidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPedidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridPedidos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridPedidos.Size = new System.Drawing.Size(647, 429);
+            this.gridPedidos.TabIndex = 0;
+            this.gridPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClientes_CellDoubleClick);
+            // 
+            // DepositoEntradaRegistrar
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "DepositoEntradaRegistrar";
+            this.ClientSize = new System.Drawing.Size(932, 515);
+            this.Controls.Add(this.btnConfirmarRecepcion);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.lblProveedor);
+            this.Controls.Add(this.txtProveedor);
+            this.Controls.Add(this.lblEmpleado);
+            this.Controls.Add(this.txtEmpleado);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.gridPedidos);
+            this.Name = "DepositoEntradaRegistrar";
+            this.Text = "Recepcion de Pedidos";
+            ((System.ComponentModel.ISupportInitialize)(this.gridPedidos)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private MetroGrid gridPedidos;
+        private MetroButton btnCerrar;
+        private MetroButton btnBuscar;
+        private MetroLabel lblProveedor;
+        private MetroTextBox txtProveedor;
+        private MetroLabel lblEmpleado;
+        private MetroTextBox txtEmpleado;
+        private MetroButton btnConfirmarRecepcion;
     }
 }

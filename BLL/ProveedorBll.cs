@@ -18,14 +18,6 @@ namespace BLL
             Dv.ActualizarDv();
         }
 
-        public static void Eliminar(ProveedorEe proveedor)
-        {
-            _dal.Eliminar(proveedor.Id);
-            Dv.ActualizarDv();
-
-            BitacoraManager.AgregarMensajeControl("Proveedor eliminado ", proveedor);
-        }
-
         public static int Crear(ProveedorEe proveedor)
         {
             proveedor.Id = _dal.Crear(proveedor);
@@ -36,6 +28,13 @@ namespace BLL
             return proveedor.Id;
         }
 
+        public static void Eliminar(ProveedorEe proveedor)
+        {
+            _dal.Eliminar(proveedor.Id);
+            Dv.ActualizarDv();
+
+            BitacoraManager.AgregarMensajeControl("Proveedor eliminado ", proveedor);
+        }
         public static List<ProveedorEe> Obtener(string name = null)
         {
             return _dal.Obtener(name);
@@ -44,6 +43,16 @@ namespace BLL
         public static ProveedorEe Obtener(int id)
         {
             return _dal.Obtener(id);
+        }
+
+        public static List<PenalizacionMotivoEe> ObtenerMotivosPenalizacion()
+        {
+            return _dal.ObtenerMotivosPenalizacion();
+        }
+
+        public static int Penalizar(ProveedorEe proveedor, int idMotivo)
+        {
+            return _dal.Penalizar(proveedor, idMotivo);
         }
 
         public static bool Restaurar(ProveedorEe proveedorAntes, ProveedorEe proveedorDespues)

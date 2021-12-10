@@ -63,7 +63,6 @@ namespace UI
             this.tabEnvio = new MetroFramework.Controls.MetroTabPage();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
-            this.btnGestionarDespachos = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -272,7 +271,6 @@ namespace UI
             // 
             // tabDeposito
             // 
-            this.tabDeposito.Controls.Add(this.btnGestionarDespachos);
             this.tabDeposito.Controls.Add(this.btnVerInventario);
             this.tabDeposito.Controls.Add(this.btnRealizarPedido);
             this.tabDeposito.Controls.Add(this.btnPenalizarProveedor);
@@ -423,15 +421,6 @@ namespace UI
             this.btnVerEnvios.UseSelectable = true;
             this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
             // 
-            // btnGestionarDespachos
-            // 
-            this.btnGestionarDespachos.Location = new System.Drawing.Point(156, 64);
-            this.btnGestionarDespachos.Name = "btnGestionarDespachos";
-            this.btnGestionarDespachos.Size = new System.Drawing.Size(143, 39);
-            this.btnGestionarDespachos.TabIndex = 10;
-            this.btnGestionarDespachos.Text = "Gestionar Despachos";
-            this.btnGestionarDespachos.UseSelectable = true;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,6 +473,5 @@ namespace UI
         private MetroButton btnBuscarVentaCaja;
         private MetroButton btnRealizarPedido;
         private MetroButton btnVerInventario;
-        private MetroButton btnGestionarDespachos;
     }
 }

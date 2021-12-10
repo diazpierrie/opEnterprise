@@ -40,6 +40,7 @@ namespace UI
             this.btnBorrarProveedor = new MetroFramework.Controls.MetroButton();
             this.gridProveedor = new MetroFramework.Controls.MetroGrid();
             this.btnRestaurarProveedor = new MetroFramework.Controls.MetroButton();
+            this.btnPenalizarProveedor = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,11 +132,22 @@ namespace UI
             this.btnRestaurarProveedor.UseSelectable = true;
             this.btnRestaurarProveedor.Click += new System.EventHandler(this.btnRestaurarProveedor_Click);
             // 
+            // btnPenalizarProveedor
+            // 
+            this.btnPenalizarProveedor.Location = new System.Drawing.Point(611, 251);
+            this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
+            this.btnPenalizarProveedor.Size = new System.Drawing.Size(136, 41);
+            this.btnPenalizarProveedor.TabIndex = 5;
+            this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
+            this.btnPenalizarProveedor.UseSelectable = true;
+            this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
+            // 
             // ProveedorHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 387);
+            this.Controls.Add(this.btnPenalizarProveedor);
             this.Controls.Add(this.btnRestaurarProveedor);
             this.Controls.Add(this.gridProveedor);
             this.Controls.Add(this.btnBorrarProveedor);
@@ -156,5 +168,6 @@ namespace UI
         private MetroButton btnBorrarProveedor;
         private MetroGrid gridProveedor;
         private MetroButton btnRestaurarProveedor;
+        private MetroButton btnPenalizarProveedor;
     }
 }

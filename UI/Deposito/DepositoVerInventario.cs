@@ -30,7 +30,7 @@ namespace UI
         }
 
         public void ActualizarGrid()
-        { //TODO: Agregar fechas de cuando se envio y se recibio el pedido
+        { 
             _dataTable = ProductoBll.ObtenerDeposito(Sesion.ObtenerSesion().Deposito);
             gridInventario.DataSource = _dataTable;
 
@@ -55,7 +55,6 @@ namespace UI
             gridInventario.Columns["costo"].DefaultCellStyle.Format = "c";
             gridInventario.Columns["precio"].DefaultCellStyle.FormatProvider = format;
             gridInventario.Columns["precio"].DefaultCellStyle.Format = "c";
-
 
             gridInventario.Refresh();
         }

@@ -56,11 +56,13 @@
     <Compile Include="IdiomaEe.cs" />
     <Compile Include="IIUpdatable.cs" />
     <Compile Include="PagoEe.cs" />
+    <Compile Include="PenalizacionMotivoEe.cs" />
     <Compile Include="PedidoProveedorDetalleEe.cs" />
     <Compile Include="DevolucionEe.cs" />
     <Compile Include="ControlEe.cs" />
     <Compile Include="DireccionEe.cs" />
     <Compile Include="ProductoEdificioEe.cs" />
+    <Compile Include="StockDepositoEe.cs" />
     <Compile Include="TipoEntregaEe.cs" />
     <Compile Include="EnvioDepositoDetalleEe.cs" />
     <Compile Include="VentaDetalleEe.cs" />

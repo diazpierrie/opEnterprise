@@ -12,10 +12,10 @@ namespace DAL
     {
         private readonly CompradorDal _compradorDal = new CompradorDal();
         private readonly MetodoPagoDal _metodoPago = new MetodoPagoDal();
-        private readonly ProductoDal _producto = new ProductoDal();
+        private readonly ProductoDal _productoDal = new ProductoDal();
         private readonly SucursalDal _sucursalDal = new SucursalDal();
         private readonly UsuarioDal _usuarioDal = new UsuarioDal();
-        private readonly VentaEstadoDal _ventaEstado = new VentaEstadoDal();
+        private readonly VentaEstadoDal _ventaEstadoDal = new VentaEstadoDal();
         public bool ActualizarStockDeposito(ProductoEdificioEe producto)
         {
             var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = @stock WHERE [idDeposito] = @idDeposito AND [idProducto] = @idProducto", Conn);
@@ -616,13 +616,13 @@ namespace DAL
         {
             foreach (var producto in productos)
             {
-                if (_producto.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                if (_productoDal.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
                 {
-                    _producto.ActualizarStockSucursal(Sesion.ObtenerSesion().Sucursal, producto);
+                    _productoDal.ActualizarStockSucursal(Sesion.ObtenerSesion().Sucursal, producto);
                 }
                 else
                 {
-                    _producto.AgregarProductoSucursal(Sesion.ObtenerSesion().Sucursal, producto);
+                    _productoDal.AgregarProductoSucursal(Sesion.ObtenerSesion().Sucursal, producto);
                 }
             }
 
@@ -767,7 +767,7 @@ namespace DAL
                 Comprador = _compradorDal.Obtener(int.Parse(data["idComprador"].ToString())),
                 Sucursal = _sucursalDal.Obtener(int.Parse(data["idSucursal"].ToString())),
                 MetodoPago = _metodoPago.Obtener(int.Parse(data["idMetodoPago"].ToString())),
-                Estado = _ventaEstado.Obtener(int.Parse(data["idEstado"].ToString())),
+                Estado = _ventaEstadoDal.Obtener(int.Parse(data["idEstado"].ToString())),
                 Fecha = DateTime.Parse(data["fecha"].ToString()),
                 Total = double.Parse(data["total"].ToString())
             };
