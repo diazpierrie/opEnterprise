@@ -35,6 +35,7 @@ namespace BLL
 
             BitacoraManager.AgregarMensajeControl("Proveedor eliminado ", proveedor);
         }
+
         public static List<ProveedorEe> Obtener(string name = null)
         {
             return _dal.Obtener(name);
@@ -48,6 +49,11 @@ namespace BLL
         public static List<PenalizacionMotivoEe> ObtenerMotivosPenalizacion()
         {
             return _dal.ObtenerMotivosPenalizacion();
+        }
+
+        public static List<PenalizacionProveedorEe> ObtenerPenalizaciones(ProveedorEe selectedProveedor)
+        {
+            return _dal.ObtenerPenalizaciones(selectedProveedor);
         }
 
         public static int Penalizar(ProveedorEe proveedor, int idMotivo)

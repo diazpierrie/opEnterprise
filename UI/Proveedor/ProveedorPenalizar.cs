@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using BLL;
+﻿using BLL;
 using EE;
 using MetroFramework;
+using System;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -10,35 +10,35 @@ namespace UI
     {
         private readonly ProveedorEe _proveedor;
         private readonly ProveedorHome _proveedorHome;
-        private readonly List<PenalizacionMotivoEe> _motivos;
 
         public ProveedorPenalizar(ProveedorHome proveedorHome, ProveedorEe proveedor)
         {
             _proveedor = proveedor;
             _proveedorHome = proveedorHome;
             InitializeComponent();
-            _motivos = ProveedorBll.ObtenerMotivosPenalizacion();
-            cbMotivos.DataSource = _motivos;
+            var motivos = ProveedorBll.ObtenerMotivosPenalizacion();
+            cbMotivos.DataSource = motivos;
         }
 
-        public void ActualizarEstadoVentas()
+        private void ActualizarEstadoVentas()
         {
             _proveedorHome.ActualizarGrid();
         }
-        
+
         private void btnAsignarQueja_Click(object sender, EventArgs e)
         {
-            switch (cbMotivos.SelectedIndex)
-            { //TODO: Terminar penalizacion de proveedor
-                case 0:
-                    var unused1 = new QuejaElegirProductos(_proveedor, "Perdida", this);
-                    break;
-                case 1:
-                    var unused = new QuejaElegirProductos(_proveedor, "Devolucion", this);
-                    break;
+            var response = MetroMessageBox.Show(this, $"¿Está seguro que desea penalizar a {_proveedor.Nombre}? \n Motivo: {cbMotivos.Text}",
+                "Confirmacion de penalizacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (response != DialogResult.Yes) return;
+
+            if (ProveedorBll.Penalizar(_proveedor, cbMotivos.SelectedIndex) != 0)
+            {
+                MetroMessageBox.Show(this, "Proveedor penalizado con exito", "Exito", MessageBoxButtons.OK,
+                    MessageBoxIcon.Question);
+
+                ActualizarEstadoVentas();
+                Close();
             }
         }
-
-        
     }
 }

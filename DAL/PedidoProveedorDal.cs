@@ -190,6 +190,39 @@ namespace DAL
             }
         }
 
+        public List<PedidoProveedorDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
+        {
+            {
+                try
+                {
+                    var strQuery =
+                        $"SELECT [idProducto], [cantidad] FROM [dbo].[pedido_proveedor_detalle] WHERE[idPedidoProveedor] = {proveedor.Id} AND cantidad != 0 GROUP BY idProducto";
+
+                    var query = new SqlCommand(strQuery, Conn);
+
+                    Conn.Open();
+                    var data = query.ExecuteReader();
+                    var detalles = new List<PedidoProveedorDetalleEe>();
+
+                    if (data.HasRows)
+                    {
+                        while (data.Read())
+                        {
+                            detalles.Add(CastDtoPedidoDetalleProveedor(data));
+                        }
+                    }
+
+                    Conn.Close();
+                    return detalles;
+                }
+                catch (Exception e)
+                {
+                    ErrorManagerDal.AgregarMensaje(e.ToString());
+                    return null;
+                }
+            }
+        }
+
         public List<PedidoProveedorEe> ObtenerIniciados()
         {
             try
@@ -259,17 +292,6 @@ namespace DAL
             }
         }
 
-        private StockDepositoEe CastDtoStockDeposito(SqlDataReader data)
-        {
-            return new StockDepositoEe
-            {
-                Id = int.Parse(data["id"].ToString()),
-                Sucursal = new SucursalEe(){ Id = int.Parse(data["idDeposito"].ToString()) },
-                Producto = new ProductoEe(){ Id = int.Parse(data["idProducto"].ToString()) },
-                Cantidad = int.Parse(data["stock"].ToString()),
-            };
-        }
-
         public void RegistrarEntrada(List<PedidoProveedorDetalleEe> productosSeleccionados)
         {
             throw new NotImplementedException();
@@ -298,6 +320,26 @@ namespace DAL
                 Pedido = Obtener(int.Parse(data["idPedidoProveedor"].ToString())),
                 Producto = _productoDal.Obtener(int.Parse(data["idProducto"].ToString())),
                 Cantidad = int.Parse(data["cantidad"].ToString())
+            };
+        }
+
+        private PedidoProveedorDetalleEe CastDtoPedidoDetalleProveedor(SqlDataReader data)
+        {
+            return new PedidoProveedorDetalleEe
+            {
+                Producto = new ProductoEe() { Id = int.Parse(data["idProducto"].ToString()) },
+                Cantidad = int.Parse(data["stock"].ToString()),
+            };
+        }
+
+        private StockDepositoEe CastDtoStockDeposito(SqlDataReader data)
+        {
+            return new StockDepositoEe
+            {
+                Id = int.Parse(data["id"].ToString()),
+                Sucursal = new SucursalEe() { Id = int.Parse(data["idDeposito"].ToString()) },
+                Producto = new ProductoEe() { Id = int.Parse(data["idProducto"].ToString()) },
+                Cantidad = int.Parse(data["stock"].ToString()),
             };
         }
     }

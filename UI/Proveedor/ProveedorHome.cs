@@ -1,6 +1,7 @@
 ﻿using BLL;
 using System;
 using System.Windows.Forms;
+using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -12,6 +13,17 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        public ProveedorHome(string button)
+        {
+            InitializeComponent();
+            if (button != "Penalizar Proveedor") return;
+            btnCrearProveedor.Visible = false;
+            btnModificarProveedor.Visible = false;
+            btnBorrarProveedor.Visible = false;
+            btnRestaurarProveedor.Visible = false;
+        }
+
 
         public void ActualizarGrid()
         {
@@ -97,6 +109,18 @@ namespace UI
         private void ProveedorHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
+        }
+
+        private void btnVerPenalizaciones_Click(object sender, EventArgs e)
+        {
+            if (gridProveedor.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            var selectedProveedor = (ProveedorEe) gridProveedor.SelectedRows[0].DataBoundItem;
+            var proveedorVerPenalizaciones = new ProveedorVerPenalizaciones(selectedProveedor);
+            proveedorVerPenalizaciones.Show();
         }
     }
 }

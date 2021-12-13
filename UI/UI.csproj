@@ -68,6 +68,12 @@
     <Compile Include="Deposito\DepositoElegirProductos.Designer.cs">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proveedor\ProveedorVerPenalizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\ProveedorVerPenalizaciones.Designer.cs">
+      <DependentUpon>ProveedorVerPenalizaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor\ProveedorPenalizar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,12 +384,6 @@
     <Compile Include="Servicios\BitacoraVer.Designer.cs">
       <DependentUpon>BitacoraVer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Envio\EnviosVer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Envio\EnviosVer.Designer.cs">
-      <DependentUpon>EnviosVer.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Deposito\DepositoEntradaRegistrar.resx">
       <DependentUpon>DepositoEntradaRegistrar.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +392,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Deposito\DepositoElegirProductos.resx">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\ProveedorVerPenalizaciones.resx">
+      <DependentUpon>ProveedorVerPenalizaciones.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\ProveedorPenalizar.resx">
       <DependentUpon>ProveedorPenalizar.cs</DependentUpon>
@@ -551,9 +555,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\BitacoraVer.resx">
       <DependentUpon>BitacoraVer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Envio\EnviosVer.resx">
-      <DependentUpon>EnviosVer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -6,6 +6,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.Application;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
@@ -18,8 +20,8 @@ namespace UI
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            EnableVisualStyles();
+            SetCompatibleTextRenderingDefault(false);
 
             // Check DB installation
             if (ConfigurationManager.AppSettings["database"] == "false" && !CheckDatabaseExists("openEnterprise"))
@@ -35,7 +37,7 @@ namespace UI
                 }
             }
 
-            Application.Run(new Login());
+            Run(new Login());
         }
 
         private static List<Control> GetAllControls(Control container, List<Control> list)

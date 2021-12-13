@@ -8,6 +8,27 @@ namespace DAL
 {
     public class ProveedorDal : ConnectionDal
     {
+        private static PenalizacionMotivoEe CastDtoPenalizacionMotivo(SqlDataReader data)
+        {
+            var result = new PenalizacionMotivoEe
+            {
+                Id = Convert.ToInt32(data["id"]),
+                Descripcion = data["Descripcion"].ToString(),
+            };
+
+            return result;
+        }
+
+        private static PenalizacionProveedorEe CastDtoPenalizacionProveedor(SqlDataReader data)
+        {
+            var result = new PenalizacionProveedorEe
+            {
+                Descripcion = data["Descripcion"].ToString(),
+                Fecha = Convert.ToDateTime(data["fecha"].ToString())
+        };
+
+            return result;
+        }
         public bool Actualizar(ProveedorEe proveedor)
         {
             var query = new SqlCommand("UPDATE proveedor SET nombre = @nombre, direccion = @direccion, mail = @mail, codigoPostal = @codigoPostal, telefono = @telefono WHERE id = @id", Conn);
@@ -32,17 +53,6 @@ namespace DAL
                 Mail = data["mail"].ToString(),
                 Telefono = data["telefono"].ToString(),
                 CantidadErrores = int.Parse(data["cantidadErrores"].ToString())
-            };
-
-            return result;
-        }
-
-        public static PenalizacionMotivoEe CastDtoPenalizacion(SqlDataReader data)
-        {
-            var result = new PenalizacionMotivoEe
-            {
-                Id = Convert.ToInt32(data["id"]),
-                Descripcion = data["Descripcion"].ToString(),
             };
 
             return result;
@@ -168,12 +178,47 @@ namespace DAL
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                List<PenalizacionMotivoEe> motivosPenalizacion = null;
+                var motivosPenalizacion = new List<PenalizacionMotivoEe>();
 
                 if (data.HasRows)
                 {
-                    data.Read();
-                    motivosPenalizacion.Add(CastDtoPenalizacion(data));
+                    while (data.Read())
+                    {
+                        motivosPenalizacion.Add(CastDtoPenalizacionMotivo(data));
+                    }
+                }
+
+                Conn.Close();
+                return motivosPenalizacion;
+            }
+            catch (Exception e)
+            {
+                Conn.Close();
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<PenalizacionProveedorEe> ObtenerPenalizaciones(ProveedorEe selectedProveedor)
+        {
+            try
+            {
+                var strQuery = "SELECT cm.descripcion, pp.[fecha] FROM[openEnterprise].[dbo].[proveedor_penalizacion] as pp " +
+                                     "INNER JOIN cMotivoPenalizacion as cm ON cm.id = pp.idMotivo " +
+                                     $"WHERE idProveedor = {selectedProveedor.Id}";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var motivosPenalizacion = new List<PenalizacionProveedorEe>();
+
+                if (data.HasRows)
+                {
+                    while (data.Read())
+                    {
+                        motivosPenalizacion.Add(CastDtoPenalizacionProveedor(data));
+                    }
                 }
 
                 Conn.Close();

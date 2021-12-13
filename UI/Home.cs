@@ -103,6 +103,8 @@ namespace UI
 
         private void btnPenalizarProveedor_Click(object sender, EventArgs e)
         {
+            var proveedorHome = new ProveedorHome("Penalizar Proveedor");
+            proveedorHome.Show();
         }
 
         private void btnProveedor_Click_1(object sender, EventArgs e)

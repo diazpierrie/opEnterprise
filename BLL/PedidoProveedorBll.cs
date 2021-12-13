@@ -46,6 +46,11 @@ namespace BLL
             return Dal.ObtenerDetalle(proveedor.Id);
         }
 
+        public static List<PedidoProveedorDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
+        {
+            return Dal.ObtenerDetallesAgrupados(proveedor);
+        }
+
         public static List<PedidoProveedorEe> ObtenerIniciados()
         {
             return Dal.ObtenerIniciados();
