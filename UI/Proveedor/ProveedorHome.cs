@@ -1,7 +1,7 @@
 ﻿using BLL;
+using EE;
 using System;
 using System.Windows.Forms;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -22,8 +22,14 @@ namespace UI
             btnModificarProveedor.Visible = false;
             btnBorrarProveedor.Visible = false;
             btnRestaurarProveedor.Visible = false;
+            Text = button;
         }
 
+        public sealed override string Text
+        {
+            get => base.Text;
+            set => base.Text = value;
+        }
 
         public void ActualizarGrid()
         {
@@ -93,6 +99,18 @@ namespace UI
             new ProveedorRestaurar(this, selectedProveedor);
         }
 
+        private void btnVerPenalizaciones_Click(object sender, EventArgs e)
+        {
+            if (gridProveedor.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            var selectedProveedor = (ProveedorEe)gridProveedor.SelectedRows[0].DataBoundItem;
+            var proveedorVerPenalizaciones = new ProveedorVerPenalizaciones(selectedProveedor);
+            proveedorVerPenalizaciones.Show();
+        }
+
         private void gridProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
@@ -109,18 +127,6 @@ namespace UI
         private void ProveedorHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
-        }
-
-        private void btnVerPenalizaciones_Click(object sender, EventArgs e)
-        {
-            if (gridProveedor.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            var selectedProveedor = (ProveedorEe) gridProveedor.SelectedRows[0].DataBoundItem;
-            var proveedorVerPenalizaciones = new ProveedorVerPenalizaciones(selectedProveedor);
-            proveedorVerPenalizaciones.Show();
         }
     }
 }

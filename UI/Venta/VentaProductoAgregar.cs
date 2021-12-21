@@ -23,138 +23,6 @@ namespace UI
             rbSucursal.Checked = true;
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            if (_ventaHome.ProductosAAsignar.Count == 0) Close();
-
-            foreach (var producto in _ventaHome.ProductosAAsignar)
-            {
-                var productoNuevo = (ProductoEdificioEe)producto.Clone();
-
-                productoNuevo.Cantidad = producto.CantidadAComprar;
-                productoNuevo.CantidadAComprar = 0;
-
-                if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
-                {
-                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
-                    {
-                        _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
-                    }
-                    else
-                    {
-                        _ventaHome.ProductosSucursal.Add(productoNuevo);
-                    }
-                }
-                else
-                {
-                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
-                    {
-                        _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
-                    }
-                    else
-                    {
-                        _ventaHome.ProductosDeposito.Add(productoNuevo);
-                    }
-                }
-            }
-            _ventaHome.ProductosAAsignar.Clear();
-            ActualizarGrids();
-            Close();
-        }
-
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
-        {
-            if (gridProductos.SelectedRows.Count == 0) return;
-
-            for (var index = 0; index < gridProductos.SelectedRows.Count; index++)
-            {
-                var selectedRow = gridProductos.SelectedRows[index];
-                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
-                var productoNuevo = (ProductoEdificioEe)producto.Clone();
-
-                if ((int)selectedRow.Cells["CantidadAComprar"].Value == 0 || selectedRow.Cells["CantidadAComprar"].Value == null)
-                {
-                    productoNuevo.CantidadAComprar = 1;
-                }
-                else
-                {
-                    productoNuevo.CantidadAComprar = (int)selectedRow.Cells["CantidadAComprar"].Value;
-                }
-
-                productoNuevo.TotalProducto = productoNuevo.CantidadAComprar * productoNuevo.Precio;
-
-                var productoAgregado = _ventaHome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio));
-                if (productoAgregado != null)
-                {
-                    productoAgregado.CantidadAComprar += productoNuevo.CantidadAComprar;
-                    productoAgregado.TotalProducto = productoAgregado.CantidadAComprar * productoNuevo.Precio;
-                }
-                else
-                {
-                    _ventaHome.ProductosAAsignar.Add(productoNuevo);
-                }
-
-                producto.Cantidad -= productoNuevo.CantidadAComprar;
-                if (producto.Cantidad == 0)
-                {
-                    if (rbDeposito.Checked)
-                    {
-                        _ventaHome.ProductosDeposito.Remove((ProductoEdificioEe) selectedRow.DataBoundItem);
-                    }
-                    else
-                    {
-                        _ventaHome.ProductosSucursal.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
-                    }
-
-                    ActualizarGrids();
-                }
-                gridProductos.Refresh();
-                gridProductos.RefreshEdit();
-                gridProductosAAgregar.Refresh();
-                gridProductosAAgregar.RefreshEdit();
-            }
-        }
-
-        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
-        {
-            if (gridProductosAAgregar.SelectedRows.Count == 0) return;
-
-            for (var index = 0; index < gridProductosAAgregar.SelectedRows.Count; index++)
-            {
-                var selectedRow = gridProductosAAgregar.SelectedRows[index];
-                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
-                var productoNuevo = (ProductoEdificioEe)producto.Clone();
-
-                productoNuevo.Cantidad = producto.CantidadAComprar;
-                productoNuevo.CantidadAComprar = 0;
-
-                if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
-                {
-                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
-                    {
-                        _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
-                    }
-                    else
-                    {
-                        _ventaHome.ProductosSucursal.Add(productoNuevo);
-                    } 
-                }
-                else
-                {
-                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
-                    {
-                        _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
-                    }
-                    else
-                    {
-                        _ventaHome.ProductosDeposito.Add(productoNuevo);
-                    }
-                }
-                _ventaHome.ProductosAAsignar.Remove(producto);
-                ActualizarGrids();
-            }
-        }
-
         private void ActualizarGrids()
         {
 
@@ -215,34 +83,146 @@ namespace UI
             gridProductos.Columns["precio"].DefaultCellStyle.Format = "c";
         }
 
-        private void ProductoAgregar_Load(object sender, EventArgs e)
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            AllControls = Program.GetAllControls(this);
+            if (gridProductos.SelectedRows.Count == 0) return;
 
-            ActualizarGrids();
-
-            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
-        }
-
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
+            for (var index = 0; index < gridProductos.SelectedRows.Count; index++)
             {
-                gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
+                var selectedRow = gridProductos.SelectedRows[index];
+                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
+
+                if ((int)selectedRow.Cells["CantidadAComprar"].Value == 0 || selectedRow.Cells["CantidadAComprar"].Value == null)
+                {
+                    productoNuevo.CantidadAComprar = 1;
+                }
+                else
+                {
+                    productoNuevo.CantidadAComprar = (int)selectedRow.Cells["CantidadAComprar"].Value;
+                }
+
+                productoNuevo.TotalProducto = productoNuevo.CantidadAComprar * productoNuevo.Precio;
+
+                var productoAgregado = _ventaHome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio));
+                if (productoAgregado != null)
+                {
+                    productoAgregado.CantidadAComprar += productoNuevo.CantidadAComprar;
+                    productoAgregado.TotalProducto = productoAgregado.CantidadAComprar * productoNuevo.Precio;
+                }
+                else
+                {
+                    _ventaHome.ProductosAAsignar.Add(productoNuevo);
+                }
+
+                producto.Cantidad -= productoNuevo.CantidadAComprar;
+                if (producto.Cantidad == 0)
+                {
+                    if (rbDeposito.Checked)
+                    {
+                        _ventaHome.ProductosDeposito.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
+                    }
+                    else
+                    {
+                        _ventaHome.ProductosSucursal.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
+                    }
+
+                    ActualizarGrids();
+                }
+                gridProductos.Refresh();
+                gridProductos.RefreshEdit();
+                gridProductosAAgregar.Refresh();
+                gridProductosAAgregar.RefreshEdit();
             }
         }
 
         private void btnAsignarProductos_Click(object sender, EventArgs e)
         {
-            _ventaHome.ActualizarGrid(); 
+            _ventaHome.ActualizarGrid();
             Close();
         }
 
-        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
         {
-            gridProductos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            gridProductos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            gridProductos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            if (gridProductosAAgregar.SelectedRows.Count == 0) return;
+
+            for (var index = 0; index < gridProductosAAgregar.SelectedRows.Count; index++)
+            {
+                var selectedRow = gridProductosAAgregar.SelectedRows[index];
+                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
+
+                productoNuevo.Cantidad = producto.CantidadAComprar;
+                productoNuevo.CantidadAComprar = 0;
+
+                if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
+                {
+                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    {
+                        _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    }
+                    else
+                    {
+                        _ventaHome.ProductosSucursal.Add(productoNuevo);
+                    }
+                }
+                else
+                {
+                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    {
+                        _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    }
+                    else
+                    {
+                        _ventaHome.ProductosDeposito.Add(productoNuevo);
+                    }
+                }
+                _ventaHome.ProductosAAsignar.Remove(producto);
+                ActualizarGrids();
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            if (_ventaHome.ProductosAAsignar.Count == 0) Close();
+
+            foreach (var producto in _ventaHome.ProductosAAsignar)
+            {
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
+
+                productoNuevo.Cantidad = producto.CantidadAComprar;
+                productoNuevo.CantidadAComprar = 0;
+
+                if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
+                {
+                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    {
+                        _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    }
+                    else
+                    {
+                        _ventaHome.ProductosSucursal.Add(productoNuevo);
+                    }
+                }
+                else
+                {
+                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    {
+                        _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    }
+                    else
+                    {
+                        _ventaHome.ProductosDeposito.Add(productoNuevo);
+                    }
+                }
+            }
+            _ventaHome.ProductosAAsignar.Clear();
+            ActualizarGrids();
+            Close();
+        }
+        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarGrids();
         }
 
         private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -259,6 +239,22 @@ namespace UI
             }
         }
 
+        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            gridProductos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            gridProductos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            gridProductos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void ProductoAgregar_Load(object sender, EventArgs e)
+        {
+            AllControls = Program.GetAllControls(this);
+
+            ActualizarGrids();
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+        }
+
         private void rbSucursal_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarGrids();
@@ -266,9 +262,12 @@ namespace UI
             cbDepositos.Visible = !rbSucursal.Checked;
         }
 
-        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            ActualizarGrids();
+            if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
+            {
+                gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
+            }
         }
     }
 }

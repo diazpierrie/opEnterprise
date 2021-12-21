@@ -11,7 +11,7 @@ namespace UI
 {
     public partial class DepositoConfirmarRecepcion : UpdatableForm
     {
-        private List<EnvioSucursalEe> _dataTable;
+        private List<EnvioEe> _dataTable;
 
         public DepositoConfirmarRecepcion()
         {
@@ -71,7 +71,7 @@ namespace UI
         private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
             var envioVerDetalle = new EnvioVerDetalle(envio);
             envioVerDetalle.Show();
         }
@@ -79,7 +79,7 @@ namespace UI
         private void btnDespacharEnvio_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
 
             if (envio.FechaSalida == default)
             {
@@ -99,7 +99,7 @@ namespace UI
         private void btnConfirmarRecepcion_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
             if (envio.FechaSalida != default)
             {
                 if (envio.FechaLlegada == default)

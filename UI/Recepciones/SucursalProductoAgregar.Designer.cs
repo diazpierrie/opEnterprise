@@ -4,7 +4,7 @@ using MetroFramework.Controls;
 
 namespace UI
 {
-    partial class VentaProductoAgregar
+    partial class SucursalProductoAgregar
     {
         /// <summary>
         /// Required designer variable.
@@ -47,8 +47,7 @@ namespace UI
             this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
             this.btnAgregarProductos = new MetroFramework.Controls.MetroButton();
-            this.rbSucursal = new MetroFramework.Controls.MetroRadioButton();
-            this.rbDeposito = new MetroFramework.Controls.MetroRadioButton();
+            this.lblDeposito = new System.Windows.Forms.Label();
             this.cbDepositos = new MetroFramework.Controls.MetroComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductosAAgregar)).BeginInit();
@@ -103,6 +102,7 @@ namespace UI
             this.gridProductos.TabIndex = 17;
             this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellEndEdit);
             this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProductos_DataBindingComplete);
+            this.gridProductos.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridProductos_DataError);
             // 
             // btnAgregarProducto
             // 
@@ -274,46 +274,33 @@ namespace UI
             this.btnAgregarProductos.UseSelectable = true;
             this.btnAgregarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
             // 
-            // rbSucursal
+            // lblDeposito
             // 
-            this.rbSucursal.AutoSize = true;
-            this.rbSucursal.Location = new System.Drawing.Point(23, 463);
-            this.rbSucursal.Name = "rbSucursal";
-            this.rbSucursal.Size = new System.Drawing.Size(67, 15);
-            this.rbSucursal.TabIndex = 25;
-            this.rbSucursal.Text = "Sucursal";
-            this.rbSucursal.UseSelectable = true;
-            this.rbSucursal.CheckedChanged += new System.EventHandler(this.rbSucursal_CheckedChanged);
-            // 
-            // rbDeposito
-            // 
-            this.rbDeposito.AutoSize = true;
-            this.rbDeposito.Location = new System.Drawing.Point(96, 463);
-            this.rbDeposito.Name = "rbDeposito";
-            this.rbDeposito.Size = new System.Drawing.Size(70, 15);
-            this.rbDeposito.TabIndex = 26;
-            this.rbDeposito.Text = "Deposito";
-            this.rbDeposito.UseSelectable = true;
+            this.lblDeposito.AutoSize = true;
+            this.lblDeposito.Location = new System.Drawing.Point(23, 463);
+            this.lblDeposito.Name = "lblDeposito";
+            this.lblDeposito.Size = new System.Drawing.Size(49, 13);
+            this.lblDeposito.TabIndex = 29;
+            this.lblDeposito.Text = "Deposito";
             // 
             // cbDepositos
             // 
             this.cbDepositos.FormattingEnabled = true;
             this.cbDepositos.ItemHeight = 23;
-            this.cbDepositos.Location = new System.Drawing.Point(173, 456);
+            this.cbDepositos.Location = new System.Drawing.Point(93, 456);
             this.cbDepositos.Name = "cbDepositos";
-            this.cbDepositos.Size = new System.Drawing.Size(317, 29);
-            this.cbDepositos.TabIndex = 27;
+            this.cbDepositos.Size = new System.Drawing.Size(397, 29);
+            this.cbDepositos.TabIndex = 30;
             this.cbDepositos.UseSelectable = true;
             this.cbDepositos.SelectedIndexChanged += new System.EventHandler(this.cbDepositos_SelectedIndexChanged);
             // 
-            // VentaProductoAgregar
+            // SucursalProductoAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 508);
             this.Controls.Add(this.cbDepositos);
-            this.Controls.Add(this.rbDeposito);
-            this.Controls.Add(this.rbSucursal);
+            this.Controls.Add(this.lblDeposito);
             this.Controls.Add(this.btnAgregarProductos);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblProductosAAgregar);
@@ -323,7 +310,7 @@ namespace UI
             this.Controls.Add(this.btnRemoverProducto);
             this.Controls.Add(this.gridProductos);
             this.Controls.Add(this.btnAgregarProducto);
-            this.Name = "VentaProductoAgregar";
+            this.Name = "SucursalProductoAgregar";
             this.Resizable = false;
             this.Text = "Agregar Productos";
             this.Load += new System.EventHandler(this.ProductoAgregar_Load);
@@ -344,8 +331,7 @@ namespace UI
         private MetroLabel lblProductosAAgregar;
         private MetroTextBox txtBuscar;
         private MetroButton btnAgregarProductos;
-        private MetroRadioButton rbSucursal;
-        private MetroRadioButton rbDeposito;
+        private System.Windows.Forms.Label lblDeposito;
         private MetroComboBox cbDepositos;
     }
 }

@@ -80,6 +80,36 @@
     <Compile Include="Proveedor\ProveedorPenalizar.Designer.cs">
       <DependentUpon>ProveedorPenalizar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recepciones\SucursalVerDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepciones\SucursalVerDetalle.Designer.cs">
+      <DependentUpon>SucursalVerDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recepciones\SucursalElegirProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepciones\SucursalElegirProductos.Designer.cs">
+      <DependentUpon>SucursalElegirProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recepciones\SucursalEntradaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepciones\SucursalEntradaRegistrar.Designer.cs">
+      <DependentUpon>SucursalEntradaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recepciones\SucursalProductoAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepciones\SucursalProductoAgregar.Designer.cs">
+      <DependentUpon>SucursalProductoAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recepciones\SucursalPedidoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepciones\SucursalPedidoHome.Designer.cs">
+      <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +429,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\ProveedorPenalizar.resx">
       <DependentUpon>ProveedorPenalizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepciones\SucursalVerDetalle.resx">
+      <DependentUpon>SucursalVerDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepciones\SucursalElegirProductos.resx">
+      <DependentUpon>SucursalElegirProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepciones\SucursalEntradaRegistrar.resx">
+      <DependentUpon>SucursalEntradaRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepciones\SucursalProductoAgregar.resx">
+      <DependentUpon>SucursalProductoAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepciones\SucursalPedidoHome.resx">
+      <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>

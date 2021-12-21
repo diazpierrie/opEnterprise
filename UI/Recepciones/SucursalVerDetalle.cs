@@ -6,12 +6,12 @@ using EE;
 
 namespace UI
 {
-    public partial class EnvioVerDetalle : UpdatableForm
+    public partial class SucursalVerDetalle : UpdatableForm
     {
-        public EnvioVerDetalle(EnvioEe envio)
+        public SucursalVerDetalle(PedidoDepositoEe pedido)
         {
             InitializeComponent();
-            gridDetalle.DataSource = EnvioBll.ObtenerDetalleDeSucursal(envio);
+            gridDetalle.DataSource = PedidoDepositoBll.ObtenerDetalle(pedido);
 
             if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
             {
@@ -19,7 +19,7 @@ namespace UI
             }
 
             gridDetalle.Columns["id"].Visible = false;
-            gridDetalle.Columns["Sucursal"].Visible = false;
+            gridDetalle.Columns["Pedido"].Visible = false;
 
             Show();
         }

@@ -41,11 +41,11 @@ namespace BLL
                     switch (edificio.GetType().Name)
                     {
                         case "SucursalEe":
-                            EnvioBll.CrearDeSucursal(new EnvioSucursalEe
+                            EnvioBll.CrearDeSucursal(new EnvioEe
                             {
                                 Venta = venta,
                                 Direccion = cbDireccionesSelectedItem,
-                                Sucursal = (SucursalEe)edificio,
+                                Edificio = (SucursalEe)edificio,
                                 FechaSalida = new DateTime(),
                                 FechaLlegada = new DateTime(),
                                 Estado = EnvioBll.ObtenerEstado(1)
@@ -53,11 +53,11 @@ namespace BLL
                             break;
 
                         case "DepositoEe":
-                            EnvioBll.CrearDeDeposito(new EnvioDepositoEe
+                            EnvioBll.CrearDeDeposito(new EnvioEe
                             {
                                 Venta = venta,
                                 Direccion = cbDireccionesSelectedItem,
-                                Deposito = (DepositoEe)edificio,
+                                Edificio = (DepositoEe)edificio,
                                 FechaSalida = new DateTime(),
                                 FechaLlegada = new DateTime(),
                                 Estado = EnvioBll.ObtenerEstado(1)
@@ -77,13 +77,13 @@ namespace BLL
                         Dal.ActualizarStockSucursal(producto);
                         if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
                         {
-                            EnvioBll.CrearDetalleDeSucursal(new EnvioSucursalDetalleEe
+                            EnvioBll.CrearDetalleDeSucursal(new EnvioDetalleEe
                             {
                                 VentaDetalle = new VentaDetalleEe()
                                 {
                                     Id = ventaDetalleId
                                 },
-                                Sucursal = (SucursalEe)producto.Edificio
+                                Edificio = (SucursalEe)producto.Edificio
                             });
                         }
                         break;
@@ -92,13 +92,13 @@ namespace BLL
                         Dal.ActualizarStockDeposito(producto);
                         if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
                         {
-                            EnvioBll.CrearDetalleDeDeposito(new EnvioDepositoDetalleEe()
+                            EnvioBll.CrearDetalleDeDeposito(new EnvioDetalleEe()
                             {
                                 VentaDetalle = new VentaDetalleEe()
                                 {
                                     Id = ventaDetalleId
                                 },
-                                Deposito = (DepositoEe)producto.Edificio
+                                Edificio = (DepositoEe)producto.Edificio
                             });
                         }
                         break;

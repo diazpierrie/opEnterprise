@@ -4,6 +4,7 @@ using MetroFramework;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using UI.Properties;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -11,7 +12,7 @@ namespace UI
 {
     public partial class EnvioGestion : UpdatableForm
     {
-        private List<EnvioSucursalEe> _dataTable;
+        private List<EnvioEe> _dataTable;
 
         public EnvioGestion()
         {
@@ -48,7 +49,16 @@ namespace UI
 
         public void ActualizarGrid()
         {
-            _dataTable = EnvioBll.ObtenerDeSucursal(Sesion.ObtenerSesion().Sucursal.Id);
+            switch (Settings.Default.TipoEdificio)
+            {
+                case "Deposito":
+                    _dataTable = EnvioBll.ObtenerDeDeposito(Sesion.ObtenerSesion().Deposito.Id);
+                    break;
+                case "Sucursal":
+                    _dataTable = EnvioBll.ObtenerDeSucursal(Sesion.ObtenerSesion().Sucursal.Id);
+                    break;
+            }
+
             gridClientes.DataSource = _dataTable;
 
             gridClientes.Columns["id"].Visible = false;
@@ -71,7 +81,7 @@ namespace UI
         private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
             var envioVerDetalle = new EnvioVerDetalle(envio);
             envioVerDetalle.Show();
         }
@@ -79,7 +89,7 @@ namespace UI
         private void btnDespacharEnvio_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
 
             if (envio.FechaSalida == default)
             {
@@ -92,14 +102,14 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, "El envio ya fue despachado", "Envio ya despachado");
+                MetroMessageBox.Show(this, "El envio ya fue despachado", "Envio ya despachado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnConfirmarRecepcion_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioSucursalEe)gridClientes.SelectedRows[0].DataBoundItem;
+            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
             if (envio.FechaSalida != default)
             {
                 if (envio.FechaLlegada == default)
@@ -113,12 +123,12 @@ namespace UI
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "El envio ya fue recibido", "Envio ya recibido");
+                    MetroMessageBox.Show(this, "El envio ya fue recibido", "Envio ya recibido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MetroMessageBox.Show(this, "El envio debe ser despachado primero", "Envio sin despachar");
+                MetroMessageBox.Show(this, "El envio debe ser despachado primero", "Envio sin despachar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

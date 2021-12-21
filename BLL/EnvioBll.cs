@@ -9,19 +9,19 @@ namespace BLL
     {
         private static readonly EnvioDal Dal = new EnvioDal();
 
-        public static void ConfirmarDespachoSucursal(EnvioSucursalEe envio)
+        public static void ConfirmarDespachoSucursal(EnvioEe envio)
         {
             Dal.ConfirmarDespachoSucursal(envio);
             Dv.ActualizarDv();
         }
 
-        public static void ConfirmarRecepcionEnvio(EnvioSucursalEe envio)
+        public static void ConfirmarRecepcionEnvio(EnvioEe envio)
         {
             Dal.ConfirmarRecepcionEnvio(envio);
             Dv.ActualizarDv();
         }
 
-        public static int CrearDeDeposito(EnvioDepositoEe envio)
+        public static int CrearDeDeposito(EnvioEe envio)
         {
             envio.Id = Dal.CrearDeDeposito(envio);
             Dv.ActualizarDv();
@@ -31,7 +31,7 @@ namespace BLL
             return envio.Id;
         }
 
-        public static int CrearDeSucursal(EnvioSucursalEe envio)
+        public static int CrearDeSucursal(EnvioEe envio)
         {
             envio.Id = Dal.CrearDeSucursal(envio);
             Dv.ActualizarDv();
@@ -40,7 +40,7 @@ namespace BLL
 
             return envio.Id;
         }
-        public static int CrearDetalleDeDeposito(EnvioDepositoDetalleEe envio)
+        public static int CrearDetalleDeDeposito(EnvioDetalleEe envio)
         {
             envio.Id = Dal.CrearDetalleDeDeposito(envio);
             Dv.ActualizarDv();
@@ -48,25 +48,25 @@ namespace BLL
             return envio.Id;
         }
 
-        public static int CrearDetalleDeSucursal(EnvioSucursalDetalleEe envio)
+        public static int CrearDetalleDeSucursal(EnvioDetalleEe envio)
         {
             envio.Id = Dal.CrearDetalleDeSucursal(envio);
             Dv.ActualizarDv();
 
             return envio.Id;
         }
-        public static List<EnvioDepositoEe> ObtenerDeDeposito()
+        public static List<EnvioEe> ObtenerDeDeposito()
         {
             return Dal.ObtenerDeDeposito();
         }
 
-        public static List<EnvioDepositoEe> ObtenerDeDeposito(int id)
+        public static List<EnvioEe> ObtenerDeDeposito(int id)
         {
             var envios = Dal.ObtenerDeDeposito(id);
 
             foreach (var envio in envios)
             {
-                envio.Deposito = DepositoBll.Obtener(envio.Deposito.Id);
+                envio.Edificio = DepositoBll.Obtener(envio.Edificio.Id);
                 envio.Venta = VentaBll.Obtener(envio.Venta.Id);
                 envio.Direccion = DireccionBll.Obtener(envio.Direccion.Id);
                 envio.Estado = ObtenerEstado(envio.Estado.Id);
@@ -75,13 +75,13 @@ namespace BLL
             return envios;
         }
 
-        public static List<EnvioSucursalEe> ObtenerDeSucursal(int id)
+        public static List<EnvioEe> ObtenerDeSucursal(int id)
         {
             var envios = Dal.ObtenerDeSucursal(id);
 
             foreach (var envio in envios)
             {
-                envio.Sucursal = SucursalBll.Obtener(envio.Sucursal.Id);
+                envio.Edificio = SucursalBll.Obtener(envio.Edificio.Id);
                 envio.Venta = VentaBll.Obtener(envio.Venta.Id);
                 envio.Direccion = DireccionBll.Obtener(envio.Direccion.Id);
                 envio.Estado = ObtenerEstado(envio.Estado.Id);
@@ -90,26 +90,26 @@ namespace BLL
             return envios;
         }
 
-        public static List<EnvioDepositoDetalleEe> ObtenerDetalleDeDeposito(int id)
+        public static List<EnvioDetalleEe> ObtenerDetalleDeDeposito(int id)
         {
             var envios = Dal.ObtenerDetalleDeDeposito(id);
 
             foreach (var envio in envios)
             {
-                envio.Deposito = DepositoBll.Obtener(envio.Deposito.Id);
+                envio.Edificio = DepositoBll.Obtener(envio.Edificio.Id);
                 envio.VentaDetalle = VentaBll.ObtenerDetalle(envio.VentaDetalle);
             }
 
             return envios;
         }
 
-        public static List<EnvioSucursalDetalleEe> ObtenerDetalleDeSucursal(EnvioSucursalEe pEnvio)
+        public static List<EnvioDetalleEe> ObtenerDetalleDeSucursal(EnvioEe pEnvio)
         {
             var envios = Dal.ObtenerDetalleDeSucursal(pEnvio.Id);
 
             foreach (var envio in envios)
             {
-                envio.Sucursal = SucursalBll.Obtener(envio.Sucursal.Id);
+                envio.Edificio = SucursalBll.Obtener(envio.Edificio.Id);
                 envio.VentaDetalle = VentaBll.ObtenerDetalle(envio.VentaDetalle);
             }
 

@@ -83,12 +83,6 @@ namespace UI
             crearQueja.Show();
         }
 
-        private void btnCrearReposicion_Click(object sender, EventArgs e)
-        {
-            var crearReposicion = new DepositoPedidoHome();
-            crearReposicion.Show();
-        }
-
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
             var empleadoHome = new EmpleadoHome();
@@ -157,6 +151,18 @@ namespace UI
         {
             var verInventario = new DepositoVerInventario();
             verInventario.Show();
+        }
+
+        private void btnRealizarPedidoDeposito_Click(object sender, EventArgs e)
+        {
+            var sucursalPedidoHome = new SucursalPedidoHome();
+            sucursalPedidoHome.Show();
+        }
+
+        private void btnRecepcionarPedidoDeposito_Click(object sender, EventArgs e)
+        {
+            var sucursalEntradaRegistrar = new SucursalEntradaRegistrar();
+            sucursalEntradaRegistrar.Show();
         }
     }
 }

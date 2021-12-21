@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CompradorBll.cs" />
     <Compile Include="DepositoBll.cs" />
+    <Compile Include="PedidoDepositoBll.cs" />
     <Compile Include="PedidoProveedorBll.cs" />
     <Compile Include="PedidoEstadoBll.cs" />
     <Compile Include="DireccionBll.cs" />

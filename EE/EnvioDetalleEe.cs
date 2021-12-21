@@ -1,9 +1,9 @@
 ﻿namespace EE
 {
-    public class EnvioDepositoDetalleEe : IdentityEe
+    public class EnvioDetalleEe : IdentityEe
     {
         public VentaDetalleEe VentaDetalle { get; set; }
-        public DepositoEe Deposito { get; set; }
+        public EntidadFiscalEe Edificio { get; set; }
 
         public override string ToString()
         {

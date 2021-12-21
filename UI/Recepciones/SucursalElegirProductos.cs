@@ -9,18 +9,18 @@ using MetroFramework;
 
 namespace UI
 {
-    public partial class DepositoElegirProductos : UpdatableForm
+    public partial class SucursalElegirProductos : UpdatableForm
     {
-        private readonly List<PedidoProveedorDetalleEe> _productosSeleccionados;
-        private readonly PedidoProveedorEe _pedido;
-        private readonly DepositoEntradaRegistrar _depositoEntradaRegistrar;
+        private readonly List<PedidoDepositoDetalleEe> _productosSeleccionados;
+        private readonly PedidoDepositoEe _pedido;
+        private readonly SucursalEntradaRegistrar _depositoEntradaRegistrar;
 
-        public DepositoElegirProductos(PedidoProveedorEe pedido, DepositoEntradaRegistrar depositoEntradaRegistrar)
+        public SucursalElegirProductos(PedidoDepositoEe pedido, SucursalEntradaRegistrar depositoEntradaRegistrar)
         {
             _pedido = pedido;
             _depositoEntradaRegistrar = depositoEntradaRegistrar;
             InitializeComponent();
-            _productosSeleccionados = PedidoProveedorBll.ObtenerDetalle(pedido);
+            _productosSeleccionados = PedidoDepositoBll.ObtenerDetalle(pedido);
             gridDetalle.DataSource = _productosSeleccionados;
 
 
@@ -35,6 +35,8 @@ namespace UI
             gridDetalle.Columns["producto"].ReadOnly = true;
             gridDetalle.Columns["cantidad"].ReadOnly = true;
             gridDetalle.Columns["CantidadAIngresar"].ReadOnly = false;
+
+            gridDetalle.Columns["CantidadAIngresar"].HeaderText = "Cantidad a Ingresar";
 
             Show();
         }
@@ -51,31 +53,16 @@ namespace UI
                 MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (respuesta == DialogResult.Yes)
             {
-                PedidoProveedorBll.RegistrarEntrada(_pedido, _productosSeleccionados);
+                PedidoDepositoBll.RegistrarEntrada(_pedido, _productosSeleccionados);
                 _depositoEntradaRegistrar.ActualizarGrid();
-                ProveedorBll.Penalizar(_pedido.Proveedor, 1); //Productos faltantes
-
-                foreach (var producto in _productosSeleccionados)
-                {
-                    if (producto.Cantidad == producto.CantidadAIngresar) continue;
-
-                    respuesta = MetroMessageBox.Show(this,
-                    "Se detectaron productos faltantes, ¿desea penalizar al proveedor?", "Productos faltantes",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (respuesta == DialogResult.Yes)
-                    {
-                        ProveedorBll.Penalizar(_pedido.Proveedor, 1); //Productos faltantes
-                    }
-                    break;
-                }
             }
             Close();
         }
 
         private void gridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            var row = (PedidoProveedorDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
-            if (gridDetalle.CurrentCell.Value != null && (int) gridDetalle.CurrentCell.Value < 0) 
+            var row = (PedidoDepositoDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
+            if (gridDetalle.CurrentCell.Value != null && (int) gridDetalle.CurrentCell.Value <= 0) 
             {
                 MetroMessageBox.Show(this, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridDetalle.CurrentCell.Value = row.Cantidad;

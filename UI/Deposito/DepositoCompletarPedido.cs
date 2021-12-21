@@ -2,6 +2,8 @@
 using EE;
 using System;
 using System.Linq;
+using System.Windows.Forms;
+using MetroFramework;
 using static EE.Sesion;
 
 namespace UI
@@ -33,6 +35,11 @@ namespace UI
 
         private void btnCompletarPedido_Click(object sender, EventArgs e)
         {
+            var respuesta = MetroMessageBox.Show(this, $"¿Está seguro que desea realizar el pedido al proveedor {_proveedor.Nombre}?",
+                "Confirmacion de pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (respuesta != DialogResult.Yes) return;
+
             var pedidoNuevo = new PedidoProveedorEe
             {
                 Empleado = ObtenerSesion().Usuario,
@@ -43,8 +50,10 @@ namespace UI
                 Total = _total
             };
 
-            PedidoProveedorBll.Crear(pedidoNuevo, DepositoPedidoHome.ProductosAAsignar.ToList());
+            if (PedidoProveedorBll.Crear(pedidoNuevo, DepositoPedidoHome.ProductosAAsignar.ToList()) == 0) return;
 
+            MetroMessageBox.Show(this, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
+                MessageBoxIcon.Question);
             DepositoPedidoHome.Close();
             Close();
         }

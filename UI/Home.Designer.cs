@@ -52,15 +52,16 @@ namespace UI
             this.btnRealizarVenta = new MetroFramework.Controls.MetroButton();
             this.tabDeposito = new MetroFramework.Controls.MetroTabPage();
             this.btnVerInventario = new MetroFramework.Controls.MetroButton();
-            this.btnRealizarPedido = new MetroFramework.Controls.MetroButton();
+            this.btnRealizarPedidoProveedor = new MetroFramework.Controls.MetroButton();
             this.btnPenalizarProveedor = new MetroFramework.Controls.MetroButton();
-            this.btnCrearReposicion = new MetroFramework.Controls.MetroButton();
             this.btnRegistrarEntrada = new MetroFramework.Controls.MetroButton();
             this.tabCaja = new MetroFramework.Controls.MetroTabPage();
             this.btnBuscarVentaCaja = new MetroFramework.Controls.MetroButton();
             this.btnCancelarVentaCaja = new MetroFramework.Controls.MetroButton();
             this.btnRecibirPago = new MetroFramework.Controls.MetroButton();
             this.tabEnvio = new MetroFramework.Controls.MetroTabPage();
+            this.btnRecepcionarPedidoDeposito = new MetroFramework.Controls.MetroButton();
+            this.btnRealizarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
             this.tcHome.SuspendLayout();
@@ -83,7 +84,7 @@ namespace UI
             this.tcHome.Controls.Add(this.tabEnvio);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 2;
+            this.tcHome.SelectedIndex = 4;
             this.tcHome.Size = new System.Drawing.Size(776, 384);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
@@ -272,9 +273,8 @@ namespace UI
             // tabDeposito
             // 
             this.tabDeposito.Controls.Add(this.btnVerInventario);
-            this.tabDeposito.Controls.Add(this.btnRealizarPedido);
+            this.tabDeposito.Controls.Add(this.btnRealizarPedidoProveedor);
             this.tabDeposito.Controls.Add(this.btnPenalizarProveedor);
-            this.tabDeposito.Controls.Add(this.btnCrearReposicion);
             this.tabDeposito.Controls.Add(this.btnRegistrarEntrada);
             this.tabDeposito.HorizontalScrollbarBarColor = true;
             this.tabDeposito.HorizontalScrollbarHighlightOnWheel = false;
@@ -290,51 +290,41 @@ namespace UI
             // 
             // btnVerInventario
             // 
-            this.btnVerInventario.Location = new System.Drawing.Point(156, 19);
+            this.btnVerInventario.Location = new System.Drawing.Point(7, 154);
             this.btnVerInventario.Name = "btnVerInventario";
-            this.btnVerInventario.Size = new System.Drawing.Size(143, 39);
+            this.btnVerInventario.Size = new System.Drawing.Size(174, 39);
             this.btnVerInventario.TabIndex = 9;
             this.btnVerInventario.Text = "Ver Inventario";
             this.btnVerInventario.UseSelectable = true;
             this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
             // 
-            // btnRealizarPedido
+            // btnRealizarPedidoProveedor
             // 
-            this.btnRealizarPedido.Location = new System.Drawing.Point(7, 19);
-            this.btnRealizarPedido.Name = "btnRealizarPedido";
-            this.btnRealizarPedido.Size = new System.Drawing.Size(143, 39);
-            this.btnRealizarPedido.TabIndex = 8;
-            this.btnRealizarPedido.Text = "Realizar Pedido";
-            this.btnRealizarPedido.UseSelectable = true;
-            this.btnRealizarPedido.Click += new System.EventHandler(this.btnRealizarPedido_Click);
+            this.btnRealizarPedidoProveedor.Location = new System.Drawing.Point(7, 19);
+            this.btnRealizarPedidoProveedor.Name = "btnRealizarPedidoProveedor";
+            this.btnRealizarPedidoProveedor.Size = new System.Drawing.Size(174, 39);
+            this.btnRealizarPedidoProveedor.TabIndex = 8;
+            this.btnRealizarPedidoProveedor.Text = "Realizar Pedido Proveedor";
+            this.btnRealizarPedidoProveedor.UseSelectable = true;
+            this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.btnRealizarPedido_Click);
             // 
             // btnPenalizarProveedor
             // 
-            this.btnPenalizarProveedor.Location = new System.Drawing.Point(7, 154);
+            this.btnPenalizarProveedor.Location = new System.Drawing.Point(7, 109);
             this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
-            this.btnPenalizarProveedor.Size = new System.Drawing.Size(143, 39);
+            this.btnPenalizarProveedor.Size = new System.Drawing.Size(174, 39);
             this.btnPenalizarProveedor.TabIndex = 7;
             this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
             this.btnPenalizarProveedor.UseSelectable = true;
             this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
             // 
-            // btnCrearReposicion
-            // 
-            this.btnCrearReposicion.Location = new System.Drawing.Point(7, 109);
-            this.btnCrearReposicion.Name = "btnCrearReposicion";
-            this.btnCrearReposicion.Size = new System.Drawing.Size(143, 39);
-            this.btnCrearReposicion.TabIndex = 6;
-            this.btnCrearReposicion.Text = "Crear Reposicion";
-            this.btnCrearReposicion.UseSelectable = true;
-            this.btnCrearReposicion.Click += new System.EventHandler(this.btnCrearReposicion_Click);
-            // 
             // btnRegistrarEntrada
             // 
             this.btnRegistrarEntrada.Location = new System.Drawing.Point(7, 64);
             this.btnRegistrarEntrada.Name = "btnRegistrarEntrada";
-            this.btnRegistrarEntrada.Size = new System.Drawing.Size(143, 39);
+            this.btnRegistrarEntrada.Size = new System.Drawing.Size(174, 39);
             this.btnRegistrarEntrada.TabIndex = 5;
-            this.btnRegistrarEntrada.Text = "Registrar Entrada";
+            this.btnRegistrarEntrada.Text = "Registrar Entrada de Productos";
             this.btnRegistrarEntrada.UseSelectable = true;
             this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
             // 
@@ -387,6 +377,8 @@ namespace UI
             // 
             // tabEnvio
             // 
+            this.tabEnvio.Controls.Add(this.btnRecepcionarPedidoDeposito);
+            this.tabEnvio.Controls.Add(this.btnRealizarPedidoDeposito);
             this.tabEnvio.Controls.Add(this.btnDespacharEnvio);
             this.tabEnvio.Controls.Add(this.btnVerEnvios);
             this.tabEnvio.HorizontalScrollbarBarColor = true;
@@ -396,10 +388,30 @@ namespace UI
             this.tabEnvio.Name = "tabEnvio";
             this.tabEnvio.Size = new System.Drawing.Size(768, 339);
             this.tabEnvio.TabIndex = 4;
-            this.tabEnvio.Text = "Envios";
+            this.tabEnvio.Text = "Envios y Recepciones";
             this.tabEnvio.VerticalScrollbarBarColor = true;
             this.tabEnvio.VerticalScrollbarHighlightOnWheel = false;
             this.tabEnvio.VerticalScrollbarSize = 10;
+            // 
+            // btnRecepcionarPedidoDeposito
+            // 
+            this.btnRecepcionarPedidoDeposito.Location = new System.Drawing.Point(115, 54);
+            this.btnRecepcionarPedidoDeposito.Name = "btnRecepcionarPedidoDeposito";
+            this.btnRecepcionarPedidoDeposito.Size = new System.Drawing.Size(175, 31);
+            this.btnRecepcionarPedidoDeposito.TabIndex = 5;
+            this.btnRecepcionarPedidoDeposito.Text = "Recepcionar Pedido Deposito";
+            this.btnRecepcionarPedidoDeposito.UseSelectable = true;
+            this.btnRecepcionarPedidoDeposito.Click += new System.EventHandler(this.btnRecepcionarPedidoDeposito_Click);
+            // 
+            // btnRealizarPedidoDeposito
+            // 
+            this.btnRealizarPedidoDeposito.Location = new System.Drawing.Point(7, 125);
+            this.btnRealizarPedidoDeposito.Name = "btnRealizarPedidoDeposito";
+            this.btnRealizarPedidoDeposito.Size = new System.Drawing.Size(141, 31);
+            this.btnRealizarPedidoDeposito.TabIndex = 4;
+            this.btnRealizarPedidoDeposito.Text = "Realizar Pedido Deposito";
+            this.btnRealizarPedidoDeposito.UseSelectable = true;
+            this.btnRealizarPedidoDeposito.Click += new System.EventHandler(this.btnRealizarPedidoDeposito_Click);
             // 
             // btnDespacharEnvio
             // 
@@ -455,7 +467,6 @@ namespace UI
         private MetroButton btnBuscarVenta;
         private MetroButton btnCrearQueja;
         private MetroButton btnPenalizarProveedor;
-        private MetroFramework.Controls.MetroButton btnCrearReposicion;
         private MetroFramework.Controls.MetroButton btnRegistrarEntrada;
         private GroupBox groupBox1;
         private MetroButton btnEmpleado;
@@ -471,7 +482,9 @@ namespace UI
         private MetroButton btnCancelarVentaCaja;
         private MetroButton btnCancelarVentaVenta;
         private MetroButton btnBuscarVentaCaja;
-        private MetroButton btnRealizarPedido;
+        private MetroButton btnRealizarPedidoProveedor;
         private MetroButton btnVerInventario;
+        private MetroButton btnRecepcionarPedidoDeposito;
+        private MetroButton btnRealizarPedidoDeposito;
     }
 }

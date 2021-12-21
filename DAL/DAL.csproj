@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BackupDal.cs" />
     <Compile Include="BitacoraDal.cs" />
+    <Compile Include="PedidoDepositoDal.cs" />
     <Compile Include="PedidoProveedorDal.cs" />
     <Compile Include="PedidoEstadoDal.cs" />
     <Compile Include="DireccionDal.cs" />
