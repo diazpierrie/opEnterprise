@@ -82,7 +82,6 @@
     <Compile Include="PerdidaEe.cs" />
     <Compile Include="RenovacionDepositoEe.cs" />
     <Compile Include="ReposicionEe.cs" />
-    <Compile Include="SectorEe.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="SucursalEe.cs" />
     <Compile Include="UsuarioEe.cs" />

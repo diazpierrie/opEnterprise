@@ -22,18 +22,18 @@ namespace DAL
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var tiposSector = new List<PuestoEe>();
+                var puestos = new List<PuestoEe>();
 
                 if (data.HasRows)
                 {
                     while (data.Read())
                     {
-                        tiposSector.Add(CastDto(data));
+                        puestos.Add(CastDto(data));
                     }
                 }
 
                 Conn.Close();
-                return tiposSector;
+                return puestos;
             }
             catch (Exception e)
             {

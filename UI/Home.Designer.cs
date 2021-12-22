@@ -38,7 +38,6 @@ namespace UI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnEmpleado = new MetroFramework.Controls.MetroButton();
             this.btnProveedor = new MetroFramework.Controls.MetroButton();
-            this.btnUsuario = new MetroFramework.Controls.MetroButton();
             this.gbConfiguracion = new System.Windows.Forms.GroupBox();
             this.btnIdioma = new MetroFramework.Controls.MetroButton();
             this.btnBackUp = new MetroFramework.Controls.MetroButton();
@@ -64,6 +63,8 @@ namespace UI
             this.btnRealizarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
+            this.cbIdiomas = new MetroFramework.Controls.MetroComboBox();
+            this.lblIdioma = new System.Windows.Forms.Label();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,8 +85,8 @@ namespace UI
             this.tcHome.Controls.Add(this.tabEnvio);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 4;
-            this.tcHome.Size = new System.Drawing.Size(776, 384);
+            this.tcHome.SelectedIndex = 1;
+            this.tcHome.Size = new System.Drawing.Size(776, 346);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
             // 
@@ -98,7 +99,7 @@ namespace UI
             this.tabAdmin.HorizontalScrollbarSize = 10;
             this.tabAdmin.Location = new System.Drawing.Point(4, 41);
             this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Size = new System.Drawing.Size(768, 339);
+            this.tabAdmin.Size = new System.Drawing.Size(768, 301);
             this.tabAdmin.TabIndex = 0;
             this.tabAdmin.Text = "Admin";
             this.tabAdmin.VerticalScrollbarBarColor = true;
@@ -109,7 +110,6 @@ namespace UI
             // 
             this.groupBox1.Controls.Add(this.btnEmpleado);
             this.groupBox1.Controls.Add(this.btnProveedor);
-            this.groupBox1.Controls.Add(this.btnUsuario);
             this.groupBox1.Location = new System.Drawing.Point(398, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(374, 213);
@@ -123,6 +123,7 @@ namespace UI
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Size = new System.Drawing.Size(136, 23);
             this.btnEmpleado.TabIndex = 4;
+            this.btnEmpleado.Tag = "employee";
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.UseSelectable = true;
             this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click_1);
@@ -133,19 +134,10 @@ namespace UI
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(136, 23);
             this.btnProveedor.TabIndex = 3;
+            this.btnProveedor.Tag = "vendor";
             this.btnProveedor.Text = "Proveedor";
             this.btnProveedor.UseSelectable = true;
             this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click_1);
-            // 
-            // btnUsuario
-            // 
-            this.btnUsuario.Location = new System.Drawing.Point(6, 77);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(136, 23);
-            this.btnUsuario.TabIndex = 5;
-            this.btnUsuario.Text = "Usuario";
-            this.btnUsuario.UseSelectable = true;
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // gbConfiguracion
             // 
@@ -167,6 +159,7 @@ namespace UI
             this.btnIdioma.Name = "btnIdioma";
             this.btnIdioma.Size = new System.Drawing.Size(136, 23);
             this.btnIdioma.TabIndex = 8;
+            this.btnIdioma.Tag = "language";
             this.btnIdioma.Text = "Idiomas";
             this.btnIdioma.UseSelectable = true;
             this.btnIdioma.Click += new System.EventHandler(this.btnIdioma_Click);
@@ -198,6 +191,7 @@ namespace UI
             this.btnBitacora.Name = "btnBitacora";
             this.btnBitacora.Size = new System.Drawing.Size(136, 23);
             this.btnBitacora.TabIndex = 4;
+            this.btnBitacora.Tag = "bitacore";
             this.btnBitacora.Text = "Bitacora";
             this.btnBitacora.UseSelectable = true;
             this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
@@ -208,6 +202,7 @@ namespace UI
             this.btnConfigurarEdificio.Name = "btnConfigurarEdificio";
             this.btnConfigurarEdificio.Size = new System.Drawing.Size(136, 23);
             this.btnConfigurarEdificio.TabIndex = 3;
+            this.btnConfigurarEdificio.Tag = "building";
             this.btnConfigurarEdificio.Text = "Edificio";
             this.btnConfigurarEdificio.UseSelectable = true;
             this.btnConfigurarEdificio.Click += new System.EventHandler(this.btnConfigurarEdificio_Click);
@@ -223,7 +218,7 @@ namespace UI
             this.tabVenta.HorizontalScrollbarSize = 10;
             this.tabVenta.Location = new System.Drawing.Point(4, 41);
             this.tabVenta.Name = "tabVenta";
-            this.tabVenta.Size = new System.Drawing.Size(768, 339);
+            this.tabVenta.Size = new System.Drawing.Size(768, 301);
             this.tabVenta.TabIndex = 1;
             this.tabVenta.Text = "Ventas";
             this.tabVenta.VerticalScrollbarBarColor = true;
@@ -232,40 +227,44 @@ namespace UI
             // 
             // btnCancelarVentaVenta
             // 
-            this.btnCancelarVentaVenta.Location = new System.Drawing.Point(350, 21);
+            this.btnCancelarVentaVenta.Location = new System.Drawing.Point(3, 119);
             this.btnCancelarVentaVenta.Name = "btnCancelarVentaVenta";
-            this.btnCancelarVentaVenta.Size = new System.Drawing.Size(114, 39);
+            this.btnCancelarVentaVenta.Size = new System.Drawing.Size(188, 24);
             this.btnCancelarVentaVenta.TabIndex = 5;
+            this.btnCancelarVentaVenta.Tag = "cancel_sale";
             this.btnCancelarVentaVenta.Text = "Cancelar Venta";
             this.btnCancelarVentaVenta.UseSelectable = true;
             this.btnCancelarVentaVenta.Click += new System.EventHandler(this.btnCancelarVentaVenta_Click);
             // 
             // btnCrearQueja
             // 
-            this.btnCrearQueja.Location = new System.Drawing.Point(241, 21);
+            this.btnCrearQueja.Location = new System.Drawing.Point(3, 89);
             this.btnCrearQueja.Name = "btnCrearQueja";
-            this.btnCrearQueja.Size = new System.Drawing.Size(103, 39);
+            this.btnCrearQueja.Size = new System.Drawing.Size(188, 24);
             this.btnCrearQueja.TabIndex = 4;
+            this.btnCrearQueja.Tag = "create_complaint";
             this.btnCrearQueja.Text = "Crear Queja";
             this.btnCrearQueja.UseSelectable = true;
             this.btnCrearQueja.Click += new System.EventHandler(this.btnCrearQueja_Click);
             // 
             // btnBuscarVenta
             // 
-            this.btnBuscarVenta.Location = new System.Drawing.Point(132, 21);
+            this.btnBuscarVenta.Location = new System.Drawing.Point(3, 59);
             this.btnBuscarVenta.Name = "btnBuscarVenta";
-            this.btnBuscarVenta.Size = new System.Drawing.Size(103, 39);
+            this.btnBuscarVenta.Size = new System.Drawing.Size(188, 24);
             this.btnBuscarVenta.TabIndex = 3;
+            this.btnBuscarVenta.Tag = "search_sale";
             this.btnBuscarVenta.Text = "Buscar Venta";
             this.btnBuscarVenta.UseSelectable = true;
             this.btnBuscarVenta.Click += new System.EventHandler(this.btnBuscarVenta_Click);
             // 
             // btnRealizarVenta
             // 
-            this.btnRealizarVenta.Location = new System.Drawing.Point(23, 21);
+            this.btnRealizarVenta.Location = new System.Drawing.Point(3, 29);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
-            this.btnRealizarVenta.Size = new System.Drawing.Size(103, 39);
+            this.btnRealizarVenta.Size = new System.Drawing.Size(188, 24);
             this.btnRealizarVenta.TabIndex = 2;
+            this.btnRealizarVenta.Tag = "make_sale";
             this.btnRealizarVenta.Text = "Realizar Venta";
             this.btnRealizarVenta.UseSelectable = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
@@ -281,7 +280,7 @@ namespace UI
             this.tabDeposito.HorizontalScrollbarSize = 10;
             this.tabDeposito.Location = new System.Drawing.Point(4, 41);
             this.tabDeposito.Name = "tabDeposito";
-            this.tabDeposito.Size = new System.Drawing.Size(768, 339);
+            this.tabDeposito.Size = new System.Drawing.Size(768, 301);
             this.tabDeposito.TabIndex = 2;
             this.tabDeposito.Text = "Deposito";
             this.tabDeposito.VerticalScrollbarBarColor = true;
@@ -290,40 +289,44 @@ namespace UI
             // 
             // btnVerInventario
             // 
-            this.btnVerInventario.Location = new System.Drawing.Point(7, 154);
+            this.btnVerInventario.Location = new System.Drawing.Point(7, 119);
             this.btnVerInventario.Name = "btnVerInventario";
-            this.btnVerInventario.Size = new System.Drawing.Size(174, 39);
+            this.btnVerInventario.Size = new System.Drawing.Size(188, 24);
             this.btnVerInventario.TabIndex = 9;
+            this.btnVerInventario.Tag = "check_inventory";
             this.btnVerInventario.Text = "Ver Inventario";
             this.btnVerInventario.UseSelectable = true;
             this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
             // 
             // btnRealizarPedidoProveedor
             // 
-            this.btnRealizarPedidoProveedor.Location = new System.Drawing.Point(7, 19);
+            this.btnRealizarPedidoProveedor.Location = new System.Drawing.Point(7, 29);
             this.btnRealizarPedidoProveedor.Name = "btnRealizarPedidoProveedor";
-            this.btnRealizarPedidoProveedor.Size = new System.Drawing.Size(174, 39);
+            this.btnRealizarPedidoProveedor.Size = new System.Drawing.Size(188, 24);
             this.btnRealizarPedidoProveedor.TabIndex = 8;
+            this.btnRealizarPedidoProveedor.Tag = "make_order_vendor";
             this.btnRealizarPedidoProveedor.Text = "Realizar Pedido Proveedor";
             this.btnRealizarPedidoProveedor.UseSelectable = true;
             this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.btnRealizarPedido_Click);
             // 
             // btnPenalizarProveedor
             // 
-            this.btnPenalizarProveedor.Location = new System.Drawing.Point(7, 109);
+            this.btnPenalizarProveedor.Location = new System.Drawing.Point(7, 89);
             this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
-            this.btnPenalizarProveedor.Size = new System.Drawing.Size(174, 39);
+            this.btnPenalizarProveedor.Size = new System.Drawing.Size(188, 24);
             this.btnPenalizarProveedor.TabIndex = 7;
+            this.btnPenalizarProveedor.Tag = "penalize_vendor";
             this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
             this.btnPenalizarProveedor.UseSelectable = true;
             this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
             // 
             // btnRegistrarEntrada
             // 
-            this.btnRegistrarEntrada.Location = new System.Drawing.Point(7, 64);
+            this.btnRegistrarEntrada.Location = new System.Drawing.Point(7, 59);
             this.btnRegistrarEntrada.Name = "btnRegistrarEntrada";
-            this.btnRegistrarEntrada.Size = new System.Drawing.Size(174, 39);
+            this.btnRegistrarEntrada.Size = new System.Drawing.Size(188, 24);
             this.btnRegistrarEntrada.TabIndex = 5;
+            this.btnRegistrarEntrada.Tag = "register_products_entry";
             this.btnRegistrarEntrada.Text = "Registrar Entrada de Productos";
             this.btnRegistrarEntrada.UseSelectable = true;
             this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
@@ -338,7 +341,7 @@ namespace UI
             this.tabCaja.HorizontalScrollbarSize = 10;
             this.tabCaja.Location = new System.Drawing.Point(4, 41);
             this.tabCaja.Name = "tabCaja";
-            this.tabCaja.Size = new System.Drawing.Size(768, 339);
+            this.tabCaja.Size = new System.Drawing.Size(768, 301);
             this.tabCaja.TabIndex = 3;
             this.tabCaja.Text = "Caja";
             this.tabCaja.VerticalScrollbarBarColor = true;
@@ -351,6 +354,7 @@ namespace UI
             this.btnBuscarVentaCaja.Name = "btnBuscarVentaCaja";
             this.btnBuscarVentaCaja.Size = new System.Drawing.Size(136, 23);
             this.btnBuscarVentaCaja.TabIndex = 4;
+            this.btnBuscarVentaCaja.Tag = "search_sale";
             this.btnBuscarVentaCaja.Text = "Buscar Venta";
             this.btnBuscarVentaCaja.UseSelectable = true;
             this.btnBuscarVentaCaja.Click += new System.EventHandler(this.btnBuscarVentaCaja_Click);
@@ -361,6 +365,7 @@ namespace UI
             this.btnCancelarVentaCaja.Name = "btnCancelarVentaCaja";
             this.btnCancelarVentaCaja.Size = new System.Drawing.Size(136, 24);
             this.btnCancelarVentaCaja.TabIndex = 3;
+            this.btnCancelarVentaCaja.Tag = "cancel_sale";
             this.btnCancelarVentaCaja.Text = "Cancelar Venta";
             this.btnCancelarVentaCaja.UseSelectable = true;
             this.btnCancelarVentaCaja.Click += new System.EventHandler(this.btnCancelarVentaCaja_Click);
@@ -371,6 +376,7 @@ namespace UI
             this.btnRecibirPago.Name = "btnRecibirPago";
             this.btnRecibirPago.Size = new System.Drawing.Size(136, 24);
             this.btnRecibirPago.TabIndex = 2;
+            this.btnRecibirPago.Tag = "receive_payment";
             this.btnRecibirPago.Text = "Recibir Pago";
             this.btnRecibirPago.UseSelectable = true;
             this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
@@ -386,7 +392,7 @@ namespace UI
             this.tabEnvio.HorizontalScrollbarSize = 10;
             this.tabEnvio.Location = new System.Drawing.Point(4, 41);
             this.tabEnvio.Name = "tabEnvio";
-            this.tabEnvio.Size = new System.Drawing.Size(768, 339);
+            this.tabEnvio.Size = new System.Drawing.Size(768, 301);
             this.tabEnvio.TabIndex = 4;
             this.tabEnvio.Text = "Envios y Recepciones";
             this.tabEnvio.VerticalScrollbarBarColor = true;
@@ -395,52 +401,80 @@ namespace UI
             // 
             // btnRecepcionarPedidoDeposito
             // 
-            this.btnRecepcionarPedidoDeposito.Location = new System.Drawing.Point(115, 54);
+            this.btnRecepcionarPedidoDeposito.Location = new System.Drawing.Point(7, 89);
             this.btnRecepcionarPedidoDeposito.Name = "btnRecepcionarPedidoDeposito";
-            this.btnRecepcionarPedidoDeposito.Size = new System.Drawing.Size(175, 31);
+            this.btnRecepcionarPedidoDeposito.Size = new System.Drawing.Size(177, 24);
             this.btnRecepcionarPedidoDeposito.TabIndex = 5;
+            this.btnRecepcionarPedidoDeposito.Tag = "receive_order_deposit";
             this.btnRecepcionarPedidoDeposito.Text = "Recepcionar Pedido Deposito";
             this.btnRecepcionarPedidoDeposito.UseSelectable = true;
             this.btnRecepcionarPedidoDeposito.Click += new System.EventHandler(this.btnRecepcionarPedidoDeposito_Click);
             // 
             // btnRealizarPedidoDeposito
             // 
-            this.btnRealizarPedidoDeposito.Location = new System.Drawing.Point(7, 125);
+            this.btnRealizarPedidoDeposito.Location = new System.Drawing.Point(7, 119);
             this.btnRealizarPedidoDeposito.Name = "btnRealizarPedidoDeposito";
-            this.btnRealizarPedidoDeposito.Size = new System.Drawing.Size(141, 31);
+            this.btnRealizarPedidoDeposito.Size = new System.Drawing.Size(177, 24);
             this.btnRealizarPedidoDeposito.TabIndex = 4;
+            this.btnRealizarPedidoDeposito.Tag = "make_order_deposit";
             this.btnRealizarPedidoDeposito.Text = "Realizar Pedido Deposito";
             this.btnRealizarPedidoDeposito.UseSelectable = true;
             this.btnRealizarPedidoDeposito.Click += new System.EventHandler(this.btnRealizarPedidoDeposito_Click);
             // 
             // btnDespacharEnvio
             // 
-            this.btnDespacharEnvio.Location = new System.Drawing.Point(115, 17);
+            this.btnDespacharEnvio.Location = new System.Drawing.Point(7, 59);
             this.btnDespacharEnvio.Name = "btnDespacharEnvio";
-            this.btnDespacharEnvio.Size = new System.Drawing.Size(110, 31);
+            this.btnDespacharEnvio.Size = new System.Drawing.Size(177, 24);
             this.btnDespacharEnvio.TabIndex = 3;
+            this.btnDespacharEnvio.Tag = "dispatch_delivery";
             this.btnDespacharEnvio.Text = "Despachar Envio";
             this.btnDespacharEnvio.UseSelectable = true;
             this.btnDespacharEnvio.Click += new System.EventHandler(this.btnConfirmarEnvio_Click);
             // 
             // btnVerEnvios
             // 
-            this.btnVerEnvios.Location = new System.Drawing.Point(7, 17);
+            this.btnVerEnvios.Location = new System.Drawing.Point(7, 29);
             this.btnVerEnvios.Name = "btnVerEnvios";
-            this.btnVerEnvios.Size = new System.Drawing.Size(90, 31);
+            this.btnVerEnvios.Size = new System.Drawing.Size(177, 24);
             this.btnVerEnvios.TabIndex = 2;
+            this.btnVerEnvios.Tag = "check_deliveries";
             this.btnVerEnvios.Text = "Ver Envios";
             this.btnVerEnvios.UseSelectable = true;
             this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
+            // 
+            // cbIdiomas
+            // 
+            this.cbIdiomas.FormattingEnabled = true;
+            this.cbIdiomas.ItemHeight = 23;
+            this.cbIdiomas.Location = new System.Drawing.Point(101, 406);
+            this.cbIdiomas.Name = "cbIdiomas";
+            this.cbIdiomas.Size = new System.Drawing.Size(223, 29);
+            this.cbIdiomas.TabIndex = 4;
+            this.cbIdiomas.UseSelectable = true;
+            this.cbIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbIdiomas_SelectedIndexChanged);
+            // 
+            // lblIdioma
+            // 
+            this.lblIdioma.AutoSize = true;
+            this.lblIdioma.Location = new System.Drawing.Point(13, 414);
+            this.lblIdioma.Name = "lblIdioma";
+            this.lblIdioma.Size = new System.Drawing.Size(38, 13);
+            this.lblIdioma.TabIndex = 5;
+            this.lblIdioma.Tag = "language";
+            this.lblIdioma.Text = "Idioma";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblIdioma);
+            this.Controls.Add(this.cbIdiomas);
             this.Controls.Add(this.tcHome);
             this.Name = "Home";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.tcHome.ResumeLayout(false);
             this.tabAdmin.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -450,6 +484,7 @@ namespace UI
             this.tabCaja.ResumeLayout(false);
             this.tabEnvio.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -473,7 +508,6 @@ namespace UI
         private MetroButton btnProveedor;
         private GroupBox gbConfiguracion;
         private MetroButton btnRestaurarDv;
-        private MetroButton btnUsuario;
         private MetroButton btnBitacora;
         private MetroButton btnBackUp;
         private MetroButton btnIdioma;
@@ -486,5 +520,7 @@ namespace UI
         private MetroButton btnVerInventario;
         private MetroButton btnRecepcionarPedidoDeposito;
         private MetroButton btnRealizarPedidoDeposito;
+        private MetroComboBox cbIdiomas;
+        private Label lblIdioma;
     }
 }

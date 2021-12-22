@@ -11,7 +11,7 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT id, nombre FROM cMetodoPago ";
+                string strQuery = $"SELECT cm.id, ctrl.texto as Nombre FROM [dbo].cMetodoPago as cm INNER JOIN control as ctrl on cm.nombre = ctrl.tag WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} ";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -41,7 +41,10 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT id, nombre FROM cMetodoPago WHERE id = {id}";
+                var strQuery = $"SELECT cm.id, ctrl.texto as Nombre " +
+                               $"FROM [dbo].cMetodoPago as cm " +
+                               $"INNER JOIN control as ctrl on cm.nombre = ctrl.tag" +
+                               $" WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} AND cm.id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 

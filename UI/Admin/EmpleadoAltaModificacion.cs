@@ -20,8 +20,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Empleado");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create_employee"]);
         }
 
         public EmpleadoAltaModificacion(EmpleadoHome homeForm, UsuarioEe usuario)
@@ -33,8 +33,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Modificar";
-            CambiarTitulo("Modificar Empleado");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify_employee"]);
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
@@ -50,7 +50,6 @@ namespace UI
                     Telefono = txtTelefono.Text,
                     NombreUsuario = txtUsername.Text,
                     Permiso = new FamiliaEe { Id = int.Parse(cbPermiso.SelectedValue.ToString()) },
-                    Sector = new SectorEe { Id = int.Parse(cbSector.SelectedValue.ToString()) },
                     Puesto = new PuestoEe { Id = int.Parse(cbPuesto.SelectedValue.ToString()) }
                 };
                 UsuarioBll.Crear(usuario);
@@ -64,7 +63,6 @@ namespace UI
                 _usuario.Telefono = txtTelefono.Text;
                 _usuario.NombreUsuario = txtUsername.Text;
                 _usuario.Permiso = new FamiliaEe { Id = int.Parse(cbPermiso.SelectedValue.ToString()) };
-                _usuario.Sector = new SectorEe { Id = int.Parse(cbSector.SelectedValue.ToString()) };
                 _usuario.Puesto = new PuestoEe { Id = int.Parse(cbPuesto.SelectedValue.ToString()) };
                 UsuarioBll.Actualizar(_usuario);
             }
@@ -81,6 +79,8 @@ namespace UI
             AllControls.Add(lblNombre);
             AllControls.Add(lblUsername);
             AllControls.Add(lblRol);
+            AllControls.Add(lblDNI);
+            AllControls.Add(lblTelefono);
             AllControls.Add(lblPuesto);
 
             if (_usuario.Id == 0)
@@ -92,18 +92,9 @@ namespace UI
 
             CargarFamilias();
             CargarPuestos();
-            CargarSectores();
             CargarDetalleUsuario();
         }
 
-        private void CargarSectores()
-        {
-            cbSector.DisplayMember = "Value";
-            cbSector.ValueMember = "Key";
-
-            var sectores = SectorManager.Obtener().ToDictionary(ee => ee.Id, ee => ee.Nombre);
-            cbSector.DataSource = new BindingSource(sectores, null);
-        }
 
         private void CargarFamilias()
         {
@@ -140,10 +131,7 @@ namespace UI
 
             PermisosManager.ObtenerFamilia(_usuario);
             cbPermiso.SelectedIndex = cbPermiso.FindStringExact(_usuario.Permiso != null ? _usuario.Permiso.Nombre : "");
-
-            SectorManager.Obtener(_usuario);
-            cbSector.Text = _usuario.Sector != null ? _usuario.Sector.Nombre : "";
-
+            
             PuestoBll.Obtener(_usuario);
             cbPuesto.SelectedIndex = cbPuesto.FindStringExact(_usuario.Puesto != null ? _usuario.Puesto.Nombre : "");
         }

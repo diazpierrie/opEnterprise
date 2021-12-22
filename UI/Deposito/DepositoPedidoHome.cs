@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -19,6 +20,12 @@ namespace UI
         public DepositoPedidoHome()
         {
             InitializeComponent();
+
+            AllControls = Program.GetAllControls(this);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
             TraerProductos();
         }
 
@@ -36,11 +43,13 @@ namespace UI
             gridPedido.Columns["cantidad"].DisplayIndex = 2;
             gridPedido.Columns["TotalProducto"].DisplayIndex = 3;
 
-            gridPedido.Columns["Cantidad"].HeaderText = "Cantidad a Comprar";
-            gridPedido.Columns["TotalProducto"].HeaderText = "Total del Producto";
+            gridPedido.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridPedido.Columns["costo"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["cost"];
+            gridPedido.Columns["Cantidad"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"];
+            gridPedido.Columns["TotalProducto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_product"];
 
             Total = ProductosAAsignar.Sum(producto => producto.Cantidad * producto.Costo);
-            lblTotal.Text = $@"Total: ${Total}";
+            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + @": $" + Total;
 
             gridPedido.Refresh();
 

@@ -17,7 +17,14 @@ namespace UI
         public VentaProductoAgregar(VentaHome homeForm)
         {
             InitializeComponent();
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblProductos);
+            AllControls.Add(lblProductosAAgregar);
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
             _ventaHome = homeForm;
             cbDepositos.DataSource = DepositoBll.ObtenerActivos();
             rbSucursal.Checked = true;
@@ -43,13 +50,17 @@ namespace UI
             gridProductos.Columns["costo"].Visible = false;
             gridProductos.Columns["TotalProducto"].Visible = false;
 
-            gridProductos.Columns["cantidad"].HeaderText = "Stock";
-
             gridProductos.Columns["nombre"].DisplayIndex = 0;
             gridProductos.Columns["Edificio"].DisplayIndex = 1;
             gridProductos.Columns["precio"].DisplayIndex = 2;
             gridProductos.Columns["cantidad"].DisplayIndex = 3;
             gridProductos.Columns["CantidadAComprar"].DisplayIndex = 4;
+
+            gridProductos.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"]; 
+            gridProductos.Columns["Edificio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["building"]; 
+            gridProductos.Columns["precio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["price"]; 
+            gridProductos.Columns["cantidad"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["stock"]; 
+            gridProductos.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"]; 
 
             gridProductos.Columns["nombre"].ReadOnly = true;
             gridProductos.Columns["precio"].ReadOnly = true;
@@ -64,12 +75,19 @@ namespace UI
             gridProductosAAgregar.Columns["fechaCreacion"].Visible = false;
             gridProductosAAgregar.Columns["cantidad"].Visible = false;
             gridProductosAAgregar.Columns["costo"].Visible = false;
+            gridProductosAAgregar.Columns["cantidadaretirar"].Visible = false;
 
             gridProductosAAgregar.Columns["nombre"].DisplayIndex = 0;
             gridProductosAAgregar.Columns["Edificio"].DisplayIndex = 1;
             gridProductosAAgregar.Columns["precio"].DisplayIndex = 2;
             gridProductosAAgregar.Columns["CantidadAComprar"].DisplayIndex = 3;
             gridProductosAAgregar.Columns["TotalProducto"].DisplayIndex = 4;
+
+            gridProductosAAgregar.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridProductosAAgregar.Columns["Edificio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["building"];
+            gridProductosAAgregar.Columns["precio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["price"];
+            gridProductosAAgregar.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"];
+            gridProductosAAgregar.Columns["TotalProducto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_product"];
 
             var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
             format.CurrencySymbol = "$";

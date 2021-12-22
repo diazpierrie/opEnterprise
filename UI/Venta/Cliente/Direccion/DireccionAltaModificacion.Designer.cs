@@ -235,6 +235,7 @@ namespace UI
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
             this.btnAccion.TabIndex = 45;
+            this.btnAccion.Tag = "create";
             this.btnAccion.Text = "Crear";
             this.btnAccion.UseSelectable = true;
             this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);

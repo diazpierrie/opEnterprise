@@ -21,8 +21,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Proveedor");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"]);
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm)
@@ -33,8 +33,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Proveedor");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"]);
         }
 
         public ProveedorAltaModificacion(ProveedorHome homeForm, ProveedorEe proveedor)
@@ -46,8 +46,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Modificar";
-            CambiarTitulo("Modificar Proveedor");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"]; ;
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"]);
 
             txtNombre.Text = _proveedor.Nombre;
             txtCodigoPostal.Text = _proveedor.CodigoPostal.ToString();

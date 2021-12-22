@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using EE;
+using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -17,11 +18,20 @@ namespace UI
         {
             InitializeComponent();
 
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblCliente);
+            AllControls.Add(lblEstado);
+            AllControls.Add(lblUsuario);
+
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
             var estados = VentaEstadoBll.Obtener().Where(x => x.Id != 3 &&
                                                               x.Id != 6 && 
                                                               x.Id != 7 && 
                                                               x.Id != 9).ToList();
-            estados.Add(new EstadoEe { Id = 10, Nombre = "Todos" });
+            estados.Add(new EstadoEe { Id = 10, Nombre = Sesion.ObtenerSesion().Idioma.Textos["all"] });
             cbEstado.DataSource = estados;
             cbEstado.SelectedIndex = 5;
 
@@ -34,7 +44,7 @@ namespace UI
                 txtCliente.Text == null) return;
 
             var ventaEstado = (EstadoEe)cbEstado.SelectedItem;
-            if (ventaEstado.Nombre == "Todos")
+            if (ventaEstado.Nombre == Sesion.ObtenerSesion().Idioma.Textos["all"])
             {
                 gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
                                                                   && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
@@ -66,6 +76,12 @@ namespace UI
             gridClientes.Columns["metodoPago"].DisplayIndex = 2;
             gridClientes.Columns["estado"].DisplayIndex = 3;
             gridClientes.Columns["total"].DisplayIndex = 4;
+
+            gridClientes.Columns["empleado"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["employee"];
+            gridClientes.Columns["comprador"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["client"];
+            gridClientes.Columns["metodoPago"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["payment_method"];
+            gridClientes.Columns["estado"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["status"];
+            gridClientes.Columns["total"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total"];
 
             gridClientes.Refresh();
         }

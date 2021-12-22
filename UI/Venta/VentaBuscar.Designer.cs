@@ -54,7 +54,7 @@ namespace UI
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(48, 19);
             this.lblEstado.TabIndex = 48;
-            this.lblEstado.Tag = "";
+            this.lblEstado.Tag = "status";
             this.lblEstado.Text = "Estado";
             // 
             // cbEstado
@@ -231,6 +231,7 @@ namespace UI
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridClientes);
             this.Name = "VentaBuscar";
+            this.Tag = "search_sale";
             this.Text = "Buscar Venta ";
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).EndInit();
             this.ResumeLayout(false);

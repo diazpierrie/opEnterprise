@@ -9,7 +9,6 @@ namespace DAL
     public class UsuarioDal : ConnectionDal
     {
         private static readonly FamiliaDal DalFamilia = new FamiliaDal();
-        private static readonly SectorDal DalSector = new SectorDal();
         private static readonly PuestoDal DalPuesto = new PuestoDal();
 
         public UsuarioEe Login(string username, string password)
@@ -102,7 +101,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector FROM usuario WHERE nombreUsuario = @username AND activo = 1", Conn);
+                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto FROM usuario WHERE nombreUsuario = @username AND activo = 1", Conn);
                 query.Parameters.AddWithValue("@username", username);
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -154,7 +153,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre,  apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
+                var strQuery = "SELECT id, nombreUsuario, nombre,  apellido, mail, dni, telefono, idFamilia, idPuesto " +
                                "FROM usuario";
 
                 if (name != null)
@@ -191,7 +190,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto " +
                                      "FROM usuario WHERE activo = 1";
 
                 if (name != null)
@@ -231,7 +230,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto, idSector " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto " +
                                $"FROM usuario WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -259,7 +258,7 @@ namespace DAL
         public bool Actualizar(UsuarioEe user)
         {
             var query = new SqlCommand("UPDATE usuario SET nombreUsuario = @nombreUsuario, nombre = @nombre, apellido = @apellido, mail = @mail, dni = @dni, " +
-                                             "telefono = @telefono, idPuesto = @idPuesto, idSector = @idSector WHERE id = @id", Conn);
+                                             "telefono = @telefono, idPuesto = @idPuesto WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", user.Id);
             query.Parameters.AddWithValue("@mail", user.Mail);
             query.Parameters.AddWithValue("@nombre", user.Nombre);
@@ -268,7 +267,6 @@ namespace DAL
             query.Parameters.AddWithValue("@dni", user.Dni);
             query.Parameters.AddWithValue("@telefono", user.Telefono);
             query.Parameters.AddWithValue("@idPuesto", user.Puesto.Id);
-            query.Parameters.AddWithValue("@idSector", user.Sector.Id);
 
             return ExecuteQuery(query);
         }
@@ -323,12 +321,6 @@ namespace DAL
                 values.Add(us.Puesto.Id.ToString());
             }
 
-            if (us.Sector != null)
-            {
-                columns.Add("idSector");
-                values.Add(us.Sector.Id.ToString());
-            }
-
             return Insert("usuario", columns.ToArray(), values.ToArray());
         }
 
@@ -354,7 +346,6 @@ namespace DAL
                 Telefono = data["telefono"].ToString(),
                 Permiso = DalFamilia.Obtener(int.Parse(data["idFamilia"].ToString())),
                 Puesto = DalPuesto.Obtener(new UsuarioEe { Id = int.Parse(data["id"].ToString()) }),
-                Sector = DalSector.Obtener(int.Parse(data["idSector"].ToString()))
             };
 
             return result;

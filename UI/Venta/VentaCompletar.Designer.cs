@@ -65,6 +65,7 @@ namespace UI
             this.lblCuotas.Name = "lblCuotas";
             this.lblCuotas.Size = new System.Drawing.Size(49, 19);
             this.lblCuotas.TabIndex = 9;
+            this.lblCuotas.Tag = "installments";
             this.lblCuotas.Text = "Cuotas";
             // 
             // btnRealizarVenta
@@ -73,6 +74,7 @@ namespace UI
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
             this.btnRealizarVenta.TabIndex = 8;
+            this.btnRealizarVenta.Tag = "finish_sale";
             this.btnRealizarVenta.Text = "Completar Venta";
             this.btnRealizarVenta.UseSelectable = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
@@ -94,6 +96,7 @@ namespace UI
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(114, 23);
             this.btnBuscarCliente.TabIndex = 6;
+            this.btnBuscarCliente.Tag = "search_client";
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.UseSelectable = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
@@ -105,6 +108,7 @@ namespace UI
             this.lblMetodoPago.Name = "lblMetodoPago";
             this.lblMetodoPago.Size = new System.Drawing.Size(109, 19);
             this.lblMetodoPago.TabIndex = 2;
+            this.lblMetodoPago.Tag = "payment_method";
             this.lblMetodoPago.Text = "Metodo de Pago";
             // 
             // txtCliente
@@ -166,6 +170,7 @@ namespace UI
             this.lblMetodoEntrega.Name = "lblMetodoEntrega";
             this.lblMetodoEntrega.Size = new System.Drawing.Size(54, 19);
             this.lblMetodoEntrega.TabIndex = 12;
+            this.lblMetodoEntrega.Tag = "delivery";
             this.lblMetodoEntrega.Text = "Entrega";
             // 
             // cbDirecciones
@@ -185,6 +190,7 @@ namespace UI
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(63, 19);
             this.lblDireccion.TabIndex = 14;
+            this.lblDireccion.Tag = "address";
             this.lblDireccion.Text = "Direccion";
             // 
             // lblCliente
@@ -194,6 +200,7 @@ namespace UI
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(49, 19);
             this.lblCliente.TabIndex = 0;
+            this.lblCliente.Tag = "client";
             this.lblCliente.Text = "Cliente";
             // 
             // btnEnvioLocal
@@ -202,6 +209,7 @@ namespace UI
             this.btnEnvioLocal.Name = "btnEnvioLocal";
             this.btnEnvioLocal.Size = new System.Drawing.Size(114, 23);
             this.btnEnvioLocal.TabIndex = 18;
+            this.btnEnvioLocal.Tag = "branch_delivery";
             this.btnEnvioLocal.Text = "Envio Local";
             this.btnEnvioLocal.UseSelectable = true;
             this.btnEnvioLocal.Click += new System.EventHandler(this.btnEnvioLocal_Click);

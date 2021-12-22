@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using BLL;
 using EE;
+using MetroFramework;
+using Security;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
@@ -11,8 +14,11 @@ namespace UI
         public EmpleadoHome()
         {
             InitializeComponent();
-        }
+            AllControls = Program.GetAllControls(this);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+        }
         private void btnCrearEmpleado_Click(object sender, EventArgs e)
         {
             var crearEmpleado = new EmpleadoAltaModificacion(this);
@@ -39,10 +45,13 @@ namespace UI
                 return;
             }
 
-            var selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
-            var selectedEmpleado = UsuarioBll.Obtener(selectedItem);
-            var provBaja = new EmpleadoBaja(this, selectedEmpleado);
-            provBaja.Show();
+            var selectedEmpleado = (UsuarioEe) gridEmpleado.SelectedRows[0].DataBoundItem;
+            var response = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["employee"].ToLower() + " " + selectedEmpleado.NombreCompleto + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (response != DialogResult.Yes) return;
+
+            UsuarioBll.Eliminar(selectedEmpleado);
+            ActualizarGrid();
+
         }
 
         private void EmpleadoHome_Load(object sender, EventArgs e)
@@ -74,7 +83,17 @@ namespace UI
             gridEmpleado.Columns["telefono"].DisplayIndex = 5;
             gridEmpleado.Columns["permiso"].DisplayIndex = 6;
             gridEmpleado.Columns["puesto"].DisplayIndex = 7;
-            gridEmpleado.Columns["sector"].DisplayIndex = 8;
+            gridEmpleado.Columns["bloqueado"].DisplayIndex = 8;
+
+            gridEmpleado.Columns["nombreUsuario"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["username"];
+            gridEmpleado.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridEmpleado.Columns["apellido"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["lastname"];
+            gridEmpleado.Columns["dni"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["dni"];
+            gridEmpleado.Columns["mail"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["mail"];
+            gridEmpleado.Columns["telefono"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["telephone"];
+            gridEmpleado.Columns["permiso"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["role"];
+            gridEmpleado.Columns["puesto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["job"];
+            gridEmpleado.Columns["bloqueado"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["blocked"];
 
             ActualizarBtnAsignarText();
         }
@@ -118,7 +137,7 @@ namespace UI
                     sucuAssign.Show();
                     break;
                 default:
-                    btnAsignar.Text = "Asignar";
+                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}";
                     btnAsignar.Enabled = false;
                     break;
             }
@@ -134,21 +153,22 @@ namespace UI
             ActualizarBtnAsignarText();
         }
 
-        public void ActualizarBtnAsignarText()
+        private void ActualizarBtnAsignarText()
         {
             var puesto = (PuestoEe)gridEmpleado.SelectedRows[0].Cells["puesto"].Value;
             switch (puesto.Id)
             {
                 case 1:
-                    btnAsignar.Text = "Asignar Deposito";
+                    btnAsignar.Text =
+                        $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["deposit"]}";
                     btnAsignar.Enabled = true;
                     break;
                 case 2:
-                    btnAsignar.Text = "Asignar Sucursal";
+                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["branch"]}";
                     btnAsignar.Enabled = true;
                     break;
                 default:
-                    btnAsignar.Text = "Asignar";
+                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}"; 
                     btnAsignar.Enabled = false;
                     break;
             }

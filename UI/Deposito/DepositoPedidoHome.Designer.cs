@@ -122,6 +122,7 @@ namespace UI
             this.btnAgregarProductos.Name = "btnAgregarProductos";
             this.btnAgregarProductos.Size = new System.Drawing.Size(136, 41);
             this.btnAgregarProductos.TabIndex = 4;
+            this.btnAgregarProductos.Tag = "add_products";
             this.btnAgregarProductos.Text = "Agregar Productos";
             this.btnAgregarProductos.UseSelectable = true;
             this.btnAgregarProductos.Click += new System.EventHandler(this.btnAgregarProductos_Click);
@@ -133,7 +134,7 @@ namespace UI
             this.btnCompletarPedido.Name = "btnCompletarPedido";
             this.btnCompletarPedido.Size = new System.Drawing.Size(136, 41);
             this.btnCompletarPedido.TabIndex = 10;
-            this.btnCompletarPedido.Tag = "finish_request";
+            this.btnCompletarPedido.Tag = "finish_order";
             this.btnCompletarPedido.Text = "Completar Pedido";
             this.btnCompletarPedido.UseSelectable = true;
             this.btnCompletarPedido.Click += new System.EventHandler(this.btnCompletarPedido_Click);
@@ -152,6 +153,7 @@ namespace UI
             this.MinimizeBox = false;
             this.Name = "DepositoPedidoHome";
             this.Resizable = false;
+            this.Tag = "make_order_vendor";
             this.Text = "Realizar Pedido";
             this.Load += new System.EventHandler(this.VentaHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridPedido)).EndInit();

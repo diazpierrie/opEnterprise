@@ -16,7 +16,12 @@ namespace UI
         public RetiroLocalAgregar(VentaCompletar ventaCompletar)
         {
             InitializeComponent();
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblProductos);
+            AllControls.Add(lblProductosAAgregar);
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
             _ventaCompletar = ventaCompletar;
         }
 
@@ -38,6 +43,10 @@ namespace UI
             gridProductosAComprar.Columns["CantidadAComprar"].DisplayIndex = 1;
             gridProductosAComprar.Columns["CantidadARetirar"].DisplayIndex = 2;
 
+            gridProductosAComprar.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridProductosAComprar.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"];
+            gridProductosAComprar.Columns["CantidadARetirar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_takeaway"];
+
             gridProductosAComprar.Columns["nombre"].ReadOnly = true;
             gridProductosAComprar.Columns["CantidadAComprar"].ReadOnly = true;
             gridProductosAComprar.Columns["CantidadARetirar"].ReadOnly = false;
@@ -56,6 +65,9 @@ namespace UI
 
             gridProductosRetiro.Columns["nombre"].DisplayIndex = 0;
             gridProductosRetiro.Columns["CantidadARetirar"].DisplayIndex = 1;
+
+            gridProductosRetiro.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridProductosRetiro.Columns["CantidadARetirar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_takeaway"];
 
             gridProductosAComprar.Refresh();
             gridProductosAComprar.RefreshEdit();

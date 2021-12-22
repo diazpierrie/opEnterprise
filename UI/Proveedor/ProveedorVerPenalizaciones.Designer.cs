@@ -102,6 +102,7 @@ namespace UI
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gridDetalle);
             this.Name = "ProveedorVerPenalizaciones";
+            this.Tag = "check_penalizations";
             this.Text = "Ver Penalizaciones";
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).EndInit();
             this.ResumeLayout(false);

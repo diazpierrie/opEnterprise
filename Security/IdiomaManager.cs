@@ -39,7 +39,12 @@ namespace Security
 
         public static List<IdiomaEe> Obtener()
         {
-            return _dao.Obtener();
+            return _dao.ObtenerActivos();
+        }
+
+        public static List<IdiomaEe> ObtenerCompletos()
+        {
+            return _dao.ObtenerCompletos();
         }
 
         public static List<IdiomaEe> Obtener(int id)

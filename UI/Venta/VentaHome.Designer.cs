@@ -36,13 +36,24 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnCompletarVenta = new MetroFramework.Controls.MetroButton();
             this.lblTotal = new System.Windows.Forms.Label();
             this.gridVenta = new MetroFramework.Controls.MetroGrid();
             this.btnRemoverProductos = new MetroFramework.Controls.MetroButton();
             this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
-            this.btnCompletarVenta = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridVenta)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnCompletarVenta
+            // 
+            this.btnCompletarVenta.Location = new System.Drawing.Point(711, 168);
+            this.btnCompletarVenta.Name = "btnCompletarVenta";
+            this.btnCompletarVenta.Size = new System.Drawing.Size(136, 41);
+            this.btnCompletarVenta.TabIndex = 10;
+            this.btnCompletarVenta.Tag = "finish_sale";
+            this.btnCompletarVenta.Text = "Completar Venta";
+            this.btnCompletarVenta.UseSelectable = true;
+            this.btnCompletarVenta.Click += new System.EventHandler(this.btnCompletarVenta_Click);
             // 
             // lblTotal
             // 
@@ -52,6 +63,7 @@ namespace UI
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(67, 25);
             this.lblTotal.TabIndex = 9;
+            this.lblTotal.Tag = "total";
             this.lblTotal.Text = "Total: ";
             // 
             // gridVenta
@@ -119,20 +131,10 @@ namespace UI
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(136, 41);
             this.btnAgregarProducto.TabIndex = 4;
+            this.btnAgregarProducto.Tag = "add_products";
             this.btnAgregarProducto.Text = "Agregar Productos";
             this.btnAgregarProducto.UseSelectable = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnCrearVenta_Click);
-            // 
-            // btnCompletarVenta
-            // 
-            this.btnCompletarVenta.Location = new System.Drawing.Point(711, 168);
-            this.btnCompletarVenta.Name = "btnCompletarVenta";
-            this.btnCompletarVenta.Size = new System.Drawing.Size(136, 41);
-            this.btnCompletarVenta.TabIndex = 10;
-            this.btnCompletarVenta.Tag = "remove_product";
-            this.btnCompletarVenta.Text = "Completar Venta";
-            this.btnCompletarVenta.UseSelectable = true;
-            this.btnCompletarVenta.Click += new System.EventHandler(this.btnCompletarVenta_Click);
             // 
             // VentaHome
             // 
@@ -145,6 +147,7 @@ namespace UI
             this.Controls.Add(this.btnRemoverProductos);
             this.Controls.Add(this.btnAgregarProducto);
             this.Name = "VentaHome";
+            this.Tag = "make_sale";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.VentaHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridVenta)).EndInit();

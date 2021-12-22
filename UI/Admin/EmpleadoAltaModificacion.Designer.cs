@@ -46,10 +46,8 @@ namespace UI
             this.txtUsername = new MetroFramework.Controls.MetroTextBox();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
             this.cbPermiso = new MetroFramework.Controls.MetroComboBox();
-            this.cbSector = new MetroFramework.Controls.MetroComboBox();
             this.lblRol = new MetroFramework.Controls.MetroLabel();
             this.cbPuesto = new MetroFramework.Controls.MetroComboBox();
-            this.lblSector = new MetroFramework.Controls.MetroLabel();
             this.lblPuesto = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
@@ -101,7 +99,7 @@ namespace UI
             // 
             // btnAccion
             // 
-            this.btnAccion.Location = new System.Drawing.Point(271, 376);
+            this.btnAccion.Location = new System.Drawing.Point(271, 310);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
             this.btnAccion.TabIndex = 56;
@@ -349,16 +347,6 @@ namespace UI
             this.cbPermiso.TabIndex = 61;
             this.cbPermiso.UseSelectable = true;
             // 
-            // cbSector
-            // 
-            this.cbSector.FormattingEnabled = true;
-            this.cbSector.ItemHeight = 23;
-            this.cbSector.Location = new System.Drawing.Point(166, 310);
-            this.cbSector.Name = "cbSector";
-            this.cbSector.Size = new System.Drawing.Size(189, 29);
-            this.cbSector.TabIndex = 62;
-            this.cbSector.UseSelectable = true;
-            // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
@@ -379,15 +367,6 @@ namespace UI
             this.cbPuesto.TabIndex = 64;
             this.cbPuesto.UseSelectable = true;
             // 
-            // lblSector
-            // 
-            this.lblSector.AutoSize = true;
-            this.lblSector.Location = new System.Drawing.Point(104, 316);
-            this.lblSector.Name = "lblSector";
-            this.lblSector.Size = new System.Drawing.Size(46, 19);
-            this.lblSector.TabIndex = 65;
-            this.lblSector.Text = "Sector";
-            // 
             // lblPuesto
             // 
             this.lblPuesto.AutoSize = true;
@@ -395,18 +374,17 @@ namespace UI
             this.lblPuesto.Name = "lblPuesto";
             this.lblPuesto.Size = new System.Drawing.Size(48, 19);
             this.lblPuesto.TabIndex = 66;
+            this.lblPuesto.Tag = "job";
             this.lblPuesto.Text = "Puesto";
             // 
             // EmpleadoAltaModificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 431);
+            this.ClientSize = new System.Drawing.Size(408, 357);
             this.Controls.Add(this.lblPuesto);
-            this.Controls.Add(this.lblSector);
             this.Controls.Add(this.cbPuesto);
             this.Controls.Add(this.lblRol);
-            this.Controls.Add(this.cbSector);
             this.Controls.Add(this.cbPermiso);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
@@ -445,10 +423,8 @@ namespace UI
         private MetroTextBox txtUsername;
         private MetroLabel lblUsername;
         private MetroComboBox cbPermiso;
-        private MetroComboBox cbSector;
         private MetroLabel lblRol;
         private MetroComboBox cbPuesto;
-        private MetroLabel lblSector;
         private MetroLabel lblPuesto;
     }
 }

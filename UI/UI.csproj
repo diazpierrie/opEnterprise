@@ -326,12 +326,6 @@
     <Compile Include="Deposito\DepositoBaja.Designer.cs">
       <DependentUpon>DepositoBaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EmpleadoBaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\EmpleadoBaja.Designer.cs">
-      <DependentUpon>EmpleadoBaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Deposito\DepositoHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,9 +540,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Deposito\DepositoBaja.resx">
       <DependentUpon>DepositoBaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\EmpleadoBaja.resx">
-      <DependentUpon>EmpleadoBaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deposito\DepositoHome.resx">
       <DependentUpon>DepositoHome.cs</DependentUpon>

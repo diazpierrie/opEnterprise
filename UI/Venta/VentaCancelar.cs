@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using MetroFramework;
+using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -17,6 +18,14 @@ namespace UI
         public VentaCancelar()
         {
             InitializeComponent();
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblCliente);
+            AllControls.Add(lblUsuario);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
             ActualizarGrid();
         }
 
@@ -26,12 +35,12 @@ namespace UI
                 txtCliente.Text == null) return;
 
             gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower()) &&
-                                                            x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+                                                                  x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
 
             gridVentas.Refresh();
-        }
+        }   
 
-        public void ActualizarGrid()
+        private void ActualizarGrid()
         {
             _dataTable = VentaBll.ObtenerPendienteDePago(Sesion.ObtenerSesion().Sucursal);
             gridVentas.DataSource = _dataTable;
@@ -45,6 +54,12 @@ namespace UI
             gridVentas.Columns["metodoPago"].DisplayIndex = 2;
             gridVentas.Columns["estado"].DisplayIndex = 3;
             gridVentas.Columns["total"].DisplayIndex = 4;
+
+            gridVentas.Columns["empleado"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["employee"];
+            gridVentas.Columns["comprador"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["client"];
+            gridVentas.Columns["metodoPago"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["payment_method"];
+            gridVentas.Columns["estado"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["status"];
+            gridVentas.Columns["total"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total"];
 
             var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
             format.CurrencySymbol = "$";
@@ -69,8 +84,8 @@ namespace UI
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            var respuesta = MetroMessageBox.Show(this, "Esta seguro que desea cancelar la venta?",
-                "Cancelacion de venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var respuesta = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_cancel_sale"],
+                Sesion.ObtenerSesion().Idioma.Textos["confirmation"], MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta != DialogResult.Yes) return;
             VentaBll.Cancelar(venta);

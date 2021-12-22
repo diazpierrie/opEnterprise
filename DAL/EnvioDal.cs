@@ -281,7 +281,9 @@ namespace DAL
         {
             try
             {
-                const string strQuery = "SELECT id, descripcion FROM [dbo].[cTipoEntrega] ";
+                string strQuery = "SELECT ct.id, ctrl.texto as Descripcion FROM [dbo].[cTipoEntrega] as ct " +
+                                        "INNER JOIN control as ctrl on ct.descripcion = ctrl.tag " +
+                                        $"WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -310,19 +312,6 @@ namespace DAL
                 return null;
             }
         }
-        //public bool Actualizar(EnvioEe sucu)
-        //{
-        //    var query = new SqlCommand("UPDATE Sucursal SET nombre = @nombre, direccion = @direccion, mail = @mail, codigoPostal = @codigoPostal, telefono = @telefono " +
-        //                                     "WHERE id = @id", Conn);
-        //    query.Parameters.AddWithValue("@id", sucu.Id);
-        //    query.Parameters.AddWithValue("@mail", sucu.Mail);
-        //    query.Parameters.AddWithValue("@nombre", sucu.Nombre);
-        //    query.Parameters.AddWithValue("@telefono", sucu.Telefono);
-        //    query.Parameters.AddWithValue("@codigoPostal", sucu.CodigoPostal);
-        //    query.Parameters.AddWithValue("@direccion", sucu.Direccion);
-
-        //    return ExecuteQuery(query);
-        //}
 
         private static EnvioEe CastDtoDeposito(SqlDataReader data)
         {

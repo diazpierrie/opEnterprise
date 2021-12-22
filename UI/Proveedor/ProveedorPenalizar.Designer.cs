@@ -49,12 +49,13 @@ namespace UI
             // 
             // lblQueja
             // 
-            this.lblQueja.AutoSize = true;
-            this.lblQueja.Location = new System.Drawing.Point(46, 100);
+            this.lblQueja.Location = new System.Drawing.Point(1, 95);
             this.lblQueja.Name = "lblQueja";
-            this.lblQueja.Size = new System.Drawing.Size(44, 19);
+            this.lblQueja.Size = new System.Drawing.Size(89, 29);
             this.lblQueja.TabIndex = 1;
+            this.lblQueja.Tag = "complaint";
             this.lblQueja.Text = "Queja";
+            this.lblQueja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnAsignarQueja
             // 
@@ -76,9 +77,9 @@ namespace UI
             this.Controls.Add(this.lblQueja);
             this.Controls.Add(this.cbMotivos);
             this.Name = "ProveedorPenalizar";
+            this.Tag = "penalize_vendor";
             this.Text = "Penalizar Proveedor";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

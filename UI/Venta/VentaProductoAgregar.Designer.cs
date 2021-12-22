@@ -38,191 +38,70 @@ namespace UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gridProductos = new MetroFramework.Controls.MetroGrid();
-            this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
+            this.cbDepositos = new MetroFramework.Controls.MetroComboBox();
+            this.rbDeposito = new MetroFramework.Controls.MetroRadioButton();
+            this.rbSucursal = new MetroFramework.Controls.MetroRadioButton();
+            this.btnAgregarProductos = new MetroFramework.Controls.MetroButton();
+            this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
+            this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
+            this.lblProductos = new MetroFramework.Controls.MetroLabel();
             this.gridProductosAAgregar = new MetroFramework.Controls.MetroGrid();
             this.btnQuitarProductos = new MetroFramework.Controls.MetroButton();
             this.btnRemoverProducto = new MetroFramework.Controls.MetroButton();
-            this.lblProductos = new MetroFramework.Controls.MetroLabel();
-            this.lblProductosAAgregar = new MetroFramework.Controls.MetroLabel();
-            this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
-            this.btnAgregarProductos = new MetroFramework.Controls.MetroButton();
-            this.rbSucursal = new MetroFramework.Controls.MetroRadioButton();
-            this.rbDeposito = new MetroFramework.Controls.MetroRadioButton();
-            this.cbDepositos = new MetroFramework.Controls.MetroComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
+            this.gridProductos = new MetroFramework.Controls.MetroGrid();
+            this.btnAgregarProducto = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductosAAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridProductos
+            // cbDepositos
             // 
-            this.gridProductos.AllowUserToAddRows = false;
-            this.gridProductos.AllowUserToDeleteRows = false;
-            this.gridProductos.AllowUserToResizeRows = false;
-            this.gridProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cbDepositos.FormattingEnabled = true;
+            this.cbDepositos.ItemHeight = 23;
+            this.cbDepositos.Location = new System.Drawing.Point(173, 456);
+            this.cbDepositos.Name = "cbDepositos";
+            this.cbDepositos.Size = new System.Drawing.Size(317, 29);
+            this.cbDepositos.TabIndex = 27;
+            this.cbDepositos.UseSelectable = true;
+            this.cbDepositos.SelectedIndexChanged += new System.EventHandler(this.cbDepositos_SelectedIndexChanged);
+            // 
+            // rbDeposito
+            // 
+            this.rbDeposito.AutoSize = true;
+            this.rbDeposito.Location = new System.Drawing.Point(96, 463);
+            this.rbDeposito.Name = "rbDeposito";
+            this.rbDeposito.Size = new System.Drawing.Size(70, 15);
+            this.rbDeposito.TabIndex = 26;
+            this.rbDeposito.Tag = "deposit";
+            this.rbDeposito.Text = "Deposito";
+            this.rbDeposito.UseSelectable = true;
+            // 
+            // rbSucursal
+            // 
+            this.rbSucursal.AutoSize = true;
+            this.rbSucursal.Location = new System.Drawing.Point(23, 463);
+            this.rbSucursal.Name = "rbSucursal";
+            this.rbSucursal.Size = new System.Drawing.Size(67, 15);
+            this.rbSucursal.TabIndex = 25;
+            this.rbSucursal.Tag = "branch";
+            this.rbSucursal.Text = "Sucursal";
+            this.rbSucursal.UseSelectable = true;
+            this.rbSucursal.CheckedChanged += new System.EventHandler(this.rbSucursal_CheckedChanged);
+            // 
+            // btnAgregarProductos
+            // 
+            this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.gridProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gridProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridProductos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridProductos.EnableHeadersVisualStyles = false;
-            this.gridProductos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.gridProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductos.Location = new System.Drawing.Point(23, 95);
-            this.gridProductos.Name = "gridProductos";
-            this.gridProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.gridProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductos.Size = new System.Drawing.Size(467, 343);
-            this.gridProductos.TabIndex = 17;
-            this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellEndEdit);
-            this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProductos_DataBindingComplete);
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(495, 191);
-            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(30, 56);
-            this.btnAgregarProducto.TabIndex = 14;
-            this.btnAgregarProducto.Tag = "";
-            this.btnAgregarProducto.Text = ">";
-            this.btnAgregarProducto.UseSelectable = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // gridProductosAAgregar
-            // 
-            this.gridProductosAAgregar.AllowUserToAddRows = false;
-            this.gridProductosAAgregar.AllowUserToDeleteRows = false;
-            this.gridProductosAAgregar.AllowUserToResizeRows = false;
-            this.gridProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridProductosAAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductosAAgregar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.gridProductosAAgregar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gridProductosAAgregar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProductosAAgregar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridProductosAAgregar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridProductosAAgregar.DefaultCellStyle = dataGridViewCellStyle5;
-            this.gridProductosAAgregar.EnableHeadersVisualStyles = false;
-            this.gridProductosAAgregar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.gridProductosAAgregar.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProductosAAgregar.Location = new System.Drawing.Point(530, 95);
-            this.gridProductosAAgregar.Name = "gridProductosAAgregar";
-            this.gridProductosAAgregar.ReadOnly = true;
-            this.gridProductosAAgregar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProductosAAgregar.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.gridProductosAAgregar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridProductosAAgregar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductosAAgregar.Size = new System.Drawing.Size(467, 343);
-            this.gridProductosAAgregar.TabIndex = 20;
-            // 
-            // btnQuitarProductos
-            // 
-            this.btnQuitarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitarProductos.Location = new System.Drawing.Point(859, 443);
-            this.btnQuitarProductos.Margin = new System.Windows.Forms.Padding(2);
-            this.btnQuitarProductos.Name = "btnQuitarProductos";
-            this.btnQuitarProductos.Size = new System.Drawing.Size(117, 23);
-            this.btnQuitarProductos.TabIndex = 19;
-            this.btnQuitarProductos.Tag = "empty_cart";
-            this.btnQuitarProductos.Text = "Vaciar Carrito";
-            this.btnQuitarProductos.UseSelectable = true;
-            this.btnQuitarProductos.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnRemoverProducto
-            // 
-            this.btnRemoverProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoverProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnRemoverProducto.Location = new System.Drawing.Point(495, 264);
-            this.btnRemoverProducto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRemoverProducto.Name = "btnRemoverProducto";
-            this.btnRemoverProducto.Size = new System.Drawing.Size(30, 56);
-            this.btnRemoverProducto.TabIndex = 18;
-            this.btnRemoverProducto.Tag = "";
-            this.btnRemoverProducto.Text = "<";
-            this.btnRemoverProducto.UseSelectable = true;
-            this.btnRemoverProducto.Click += new System.EventHandler(this.btnbtnRemoverProducto_Click);
-            // 
-            // lblProductos
-            // 
-            this.lblProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProductos.AutoSize = true;
-            this.lblProductos.Location = new System.Drawing.Point(24, 73);
-            this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(68, 19);
-            this.lblProductos.TabIndex = 21;
-            this.lblProductos.Tag = "products";
-            this.lblProductos.Text = "Productos";
-            // 
-            // lblProductosAAgregar
-            // 
-            this.lblProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProductosAAgregar.AutoSize = true;
-            this.lblProductosAAgregar.Location = new System.Drawing.Point(530, 73);
-            this.lblProductosAAgregar.Name = "lblProductosAAgregar";
-            this.lblProductosAAgregar.Size = new System.Drawing.Size(130, 19);
-            this.lblProductosAAgregar.TabIndex = 22;
-            this.lblProductosAAgregar.Tag = "products_to_add";
-            this.lblProductosAAgregar.Text = "Productos a agregar";
+            this.btnAgregarProductos.Location = new System.Drawing.Point(732, 443);
+            this.btnAgregarProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarProductos.Name = "btnAgregarProductos";
+            this.btnAgregarProductos.Size = new System.Drawing.Size(123, 23);
+            this.btnAgregarProductos.TabIndex = 24;
+            this.btnAgregarProductos.Tag = "add_to_cart";
+            this.btnAgregarProductos.Text = "Agregar al Carrito";
+            this.btnAgregarProductos.UseSelectable = true;
+            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
             // 
             // txtBuscar
             // 
@@ -259,52 +138,175 @@ namespace UI
             this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             // 
-            // btnAgregarProductos
+            // lblProductosAAgregar
             // 
-            this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarProductos.Location = new System.Drawing.Point(732, 443);
-            this.btnAgregarProductos.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAgregarProductos.Name = "btnAgregarProductos";
-            this.btnAgregarProductos.Size = new System.Drawing.Size(123, 23);
-            this.btnAgregarProductos.TabIndex = 24;
-            this.btnAgregarProductos.Tag = "add_to_cart";
-            this.btnAgregarProductos.Text = "Agregar al Carrito";
-            this.btnAgregarProductos.UseSelectable = true;
-            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
+            this.lblProductosAAgregar.AutoSize = true;
+            this.lblProductosAAgregar.Location = new System.Drawing.Point(530, 73);
+            this.lblProductosAAgregar.Name = "lblProductosAAgregar";
+            this.lblProductosAAgregar.Size = new System.Drawing.Size(130, 19);
+            this.lblProductosAAgregar.TabIndex = 22;
+            this.lblProductosAAgregar.Tag = "products_to_add";
+            this.lblProductosAAgregar.Text = "Productos a agregar";
             // 
-            // rbSucursal
+            // lblProductos
             // 
-            this.rbSucursal.AutoSize = true;
-            this.rbSucursal.Location = new System.Drawing.Point(23, 463);
-            this.rbSucursal.Name = "rbSucursal";
-            this.rbSucursal.Size = new System.Drawing.Size(67, 15);
-            this.rbSucursal.TabIndex = 25;
-            this.rbSucursal.Text = "Sucursal";
-            this.rbSucursal.UseSelectable = true;
-            this.rbSucursal.CheckedChanged += new System.EventHandler(this.rbSucursal_CheckedChanged);
+            this.lblProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Location = new System.Drawing.Point(24, 73);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(68, 19);
+            this.lblProductos.TabIndex = 21;
+            this.lblProductos.Tag = "products";
+            this.lblProductos.Text = "Productos";
             // 
-            // rbDeposito
+            // gridProductosAAgregar
             // 
-            this.rbDeposito.AutoSize = true;
-            this.rbDeposito.Location = new System.Drawing.Point(96, 463);
-            this.rbDeposito.Name = "rbDeposito";
-            this.rbDeposito.Size = new System.Drawing.Size(70, 15);
-            this.rbDeposito.TabIndex = 26;
-            this.rbDeposito.Text = "Deposito";
-            this.rbDeposito.UseSelectable = true;
+            this.gridProductosAAgregar.AllowUserToAddRows = false;
+            this.gridProductosAAgregar.AllowUserToDeleteRows = false;
+            this.gridProductosAAgregar.AllowUserToResizeRows = false;
+            this.gridProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridProductosAAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridProductosAAgregar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridProductosAAgregar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gridProductosAAgregar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProductosAAgregar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridProductosAAgregar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridProductosAAgregar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridProductosAAgregar.EnableHeadersVisualStyles = false;
+            this.gridProductosAAgregar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gridProductosAAgregar.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridProductosAAgregar.Location = new System.Drawing.Point(530, 95);
+            this.gridProductosAAgregar.Name = "gridProductosAAgregar";
+            this.gridProductosAAgregar.ReadOnly = true;
+            this.gridProductosAAgregar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProductosAAgregar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridProductosAAgregar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridProductosAAgregar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProductosAAgregar.Size = new System.Drawing.Size(467, 343);
+            this.gridProductosAAgregar.TabIndex = 20;
             // 
-            // cbDepositos
+            // btnQuitarProductos
             // 
-            this.cbDepositos.FormattingEnabled = true;
-            this.cbDepositos.ItemHeight = 23;
-            this.cbDepositos.Location = new System.Drawing.Point(173, 456);
-            this.cbDepositos.Name = "cbDepositos";
-            this.cbDepositos.Size = new System.Drawing.Size(317, 29);
-            this.cbDepositos.TabIndex = 27;
-            this.cbDepositos.UseSelectable = true;
-            this.cbDepositos.SelectedIndexChanged += new System.EventHandler(this.cbDepositos_SelectedIndexChanged);
+            this.btnQuitarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarProductos.Location = new System.Drawing.Point(859, 443);
+            this.btnQuitarProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnQuitarProductos.Name = "btnQuitarProductos";
+            this.btnQuitarProductos.Size = new System.Drawing.Size(117, 23);
+            this.btnQuitarProductos.TabIndex = 19;
+            this.btnQuitarProductos.Tag = "empty_cart";
+            this.btnQuitarProductos.Text = "Vaciar Carrito";
+            this.btnQuitarProductos.UseSelectable = true;
+            this.btnQuitarProductos.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnRemoverProducto
+            // 
+            this.btnRemoverProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoverProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnRemoverProducto.Location = new System.Drawing.Point(495, 264);
+            this.btnRemoverProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoverProducto.Name = "btnRemoverProducto";
+            this.btnRemoverProducto.Size = new System.Drawing.Size(30, 56);
+            this.btnRemoverProducto.TabIndex = 18;
+            this.btnRemoverProducto.Tag = "";
+            this.btnRemoverProducto.Text = "<";
+            this.btnRemoverProducto.UseSelectable = true;
+            this.btnRemoverProducto.Click += new System.EventHandler(this.btnbtnRemoverProducto_Click);
+            // 
+            // gridProductos
+            // 
+            this.gridProductos.AllowUserToAddRows = false;
+            this.gridProductos.AllowUserToDeleteRows = false;
+            this.gridProductos.AllowUserToResizeRows = false;
+            this.gridProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gridProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridProductos.DefaultCellStyle = dataGridViewCellStyle5;
+            this.gridProductos.EnableHeadersVisualStyles = false;
+            this.gridProductos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gridProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridProductos.Location = new System.Drawing.Point(23, 95);
+            this.gridProductos.Name = "gridProductos";
+            this.gridProductos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.gridProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProductos.Size = new System.Drawing.Size(467, 343);
+            this.gridProductos.TabIndex = 17;
+            this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellEndEdit);
+            this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProductos_DataBindingComplete);
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(495, 191);
+            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(30, 56);
+            this.btnAgregarProducto.TabIndex = 14;
+            this.btnAgregarProducto.Tag = "";
+            this.btnAgregarProducto.Text = ">";
+            this.btnAgregarProducto.UseSelectable = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // VentaProductoAgregar
             // 
@@ -325,10 +327,11 @@ namespace UI
             this.Controls.Add(this.btnAgregarProducto);
             this.Name = "VentaProductoAgregar";
             this.Resizable = false;
+            this.Tag = "add_products";
             this.Text = "Agregar Productos";
             this.Load += new System.EventHandler(this.ProductoAgregar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductosAAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

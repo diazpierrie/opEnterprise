@@ -180,11 +180,28 @@ namespace UI
             Close();
         }
 
+        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarGrids();
+        }
+
         private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (gridProductos.CurrentCell.Value == null || (int)gridProductos.CurrentCell.Value > 0) return;
 
-            gridProductos.CurrentCell.Value = 0;
+            var row = (ProductoEdificioEe)gridProductos.Rows[e.RowIndex].DataBoundItem;
+            if (gridProductos.CurrentCell.Value != null && (int)gridProductos.CurrentCell.Value <= 0)
+            {
+                MetroMessageBox.Show(this, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                gridProductos.CurrentCell.Value = row.Cantidad;
+                return;
+            }
+
+            if ((int)gridProductos.CurrentCell.Value > row.Cantidad)
+            {
+                MetroMessageBox.Show(this, "Ingrese un valor positivo igual o menor a la cantidad a entrar",
+                    "Cantidad excedida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                gridProductos.CurrentCell.Value = row.Cantidad;
+            }
         }
 
         private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -222,12 +239,6 @@ namespace UI
                 gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
             }
         }
-
-        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ActualizarGrids();
-        }
-
         //private void gridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         //{
         //    var row = (PedidoProveedorDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;

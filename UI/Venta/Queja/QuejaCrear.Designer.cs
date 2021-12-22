@@ -55,7 +55,7 @@ namespace UI
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(48, 19);
             this.lblEstado.TabIndex = 48;
-            this.lblEstado.Tag = "";
+            this.lblEstado.Tag = "status";
             this.lblEstado.Text = "Estado";
             // 
             // cbEstado
@@ -228,7 +228,7 @@ namespace UI
             this.btnElegirVenta.UseSelectable = true;
             this.btnElegirVenta.Click += new System.EventHandler(this.btnElegirVenta_Click);
             // 
-            // VentaQuejaCrear
+            // QuejaCrear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

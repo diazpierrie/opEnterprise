@@ -172,7 +172,11 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT [id] ,[descripcion] FROM [openEnterprise].[dbo].[cMotivoPenalizacion]";
+                var strQuery = "SELECT cm.id, ctrl.texto as descripcion " +
+                               "FROM cMotivoPenalizacion as cm " +
+                               "INNER JOIN control as ctrl ON cm.descripcion = ctrl.tag " + 
+                               $"WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} " +
+                               "ORDER BY id";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -203,9 +207,11 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT cm.descripcion, pp.[fecha] FROM[openEnterprise].[dbo].[proveedor_penalizacion] as pp " +
-                                     "INNER JOIN cMotivoPenalizacion as cm ON cm.id = pp.idMotivo " +
-                                     $"WHERE idProveedor = {selectedProveedor.Id}";
+                var strQuery = "SELECT ctrl.texto as descripcion, pp.[fecha] FROM " +
+                               "[openEnterprise].[dbo].[proveedor_penalizacion] as pp " +
+                               "INNER JOIN cMotivoPenalizacion as cm ON cm.id = pp.idMotivo " +
+                               "INNER JOIN control as ctrl ON cm.descripcion = ctrl.tag " +
+                               $"WHERE idProveedor = {selectedProveedor.Id} AND ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 

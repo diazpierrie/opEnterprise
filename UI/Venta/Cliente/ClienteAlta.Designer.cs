@@ -58,6 +58,7 @@ namespace UI
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
             this.btnAccion.TabIndex = 75;
+            this.btnAccion.Tag = "create";
             this.btnAccion.Text = "Crear";
             this.btnAccion.UseSelectable = true;
             this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
@@ -311,6 +312,7 @@ namespace UI
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(84, 23);
             this.btnCerrar.TabIndex = 92;
+            this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -322,7 +324,7 @@ namespace UI
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(117, 19);
             this.lblDireccion.TabIndex = 93;
-            this.lblDireccion.Tag = "telephone";
+            this.lblDireccion.Tag = "address";
             this.lblDireccion.Text = "Direccion";
             this.lblDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblDireccion.WrapToLine = true;
@@ -334,6 +336,7 @@ namespace UI
             this.btnAgregarDireccion.Name = "btnAgregarDireccion";
             this.btnAgregarDireccion.Size = new System.Drawing.Size(115, 23);
             this.btnAgregarDireccion.TabIndex = 94;
+            this.btnAgregarDireccion.Tag = "add_address";
             this.btnAgregarDireccion.Text = "Agregar Direccion";
             this.btnAgregarDireccion.UseSelectable = true;
             this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
@@ -394,6 +397,7 @@ namespace UI
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.btnAccion);
             this.Name = "ClienteAlta";
+            this.Tag = "create_client";
             this.Text = "ClienteAlta";
             this.ResumeLayout(false);
 

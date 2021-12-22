@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using EE;
+using MetroFramework;
+using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -20,6 +22,14 @@ namespace UI
         {
             InitializeComponent();
             TraerProductos();
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblTotal);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+            lblTotal.Text += @": ";
+
         }
 
         public void ActualizarGrid()
@@ -39,8 +49,12 @@ namespace UI
             gridVenta.Columns["CantidadAComprar"].DisplayIndex = 4;
             gridVenta.Columns["TotalProducto"].DisplayIndex = 5;
 
-            gridVenta.Columns["CantidadAComprar"].HeaderText = "Cantidad";
-            gridVenta.Columns["TotalProducto"].HeaderText = "Total del Producto";
+            gridVenta.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridVenta.Columns["Edificio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["building"];
+            gridVenta.Columns["codigo"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["code"];
+            gridVenta.Columns["precio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["price"];
+            gridVenta.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"];
+            gridVenta.Columns["TotalProducto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_product"];
 
             Total = ProductosAAsignar.Sum(producto => producto.CantidadAComprar * producto.Precio);
             lblTotal.Text = $@"Total: ${Total}";
@@ -57,8 +71,16 @@ namespace UI
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
-            var completarVenta = new VentaCompletar(this);
-            completarVenta.Show();
+            if (ProductosAAsignar.Count != 0)
+            {
+                var completarVenta = new VentaCompletar(this);
+                completarVenta.Show();
+            }
+            else
+            {
+                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["please_add_products"],
+                    Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCrearVenta_Click(object sender, EventArgs e)

@@ -60,11 +60,43 @@ namespace DAL
             }
         }
 
-        public List<IdiomaEe> Obtener()
+        public List<IdiomaEe> ObtenerActivos()
         {
             try
             {
                 var query = new SqlCommand("SELECT id, nombre FROM idioma i WHERE activo = 1", Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+
+                var result = new List<IdiomaEe>();
+                while (data.Read())
+                {
+                    result.Add(CastDto(data));
+                }
+                Conn.Close();
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return null;
+            }
+        }
+
+        public List<IdiomaEe> ObtenerCompletos()
+        {
+            try
+            {
+                var query = new SqlCommand("SELECT id, nombre " +
+                                           "FROM idioma i " +
+                                           "WHERE activo = 1 " +
+                                           "EXCEPT " +
+                                           "SELECT distinct i.id, i.nombre " +
+                                           "FROM idioma as i " +
+                                           "INNER JOIN control as c ON i.id = c.idIdioma " +
+                                           "WHERE i.activo = 1 AND c.texto = ''", Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -220,14 +252,6 @@ namespace DAL
 
             return ExecuteQuery(query);
         }
-
-        //public bool EliminarControlesIdioma(int idiomaId)
-        //{
-        //    var query = new SqlCommand("DELETE FROM control WHERE idIdioma = @id", Conn);
-        //    query.Parameters.AddWithValue("@id", idiomaId);
-
-        //    return ExecuteQuery(query);
-        //}
 
         public bool ActualizarIdioma(IdiomaEe idioma, string nombreNuevo)
         {

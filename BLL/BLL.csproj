@@ -55,7 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorBll.cs" />
     <Compile Include="PuestoBll.cs" />
-    <Compile Include="SectorBll.cs" />
     <Compile Include="MetodoPagoBll.cs" />
     <Compile Include="SucursalBll.cs" />
     <Compile Include="UsuarioBll.cs" />

@@ -4,7 +4,7 @@
     {
         public override string ToString()
         {
-            return "Sucursal " + Nombre;
+            return Sesion.ObtenerSesion().Idioma.Textos["branch"] + " " + Nombre;
         }
     }
 }

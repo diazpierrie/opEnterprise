@@ -4,7 +4,7 @@
     {
         public override string ToString()
         {
-            return "Deposito " + Nombre;
+            return Sesion.ObtenerSesion().Idioma.Textos["deposit"] + " " + Nombre;
         }
     }
 }

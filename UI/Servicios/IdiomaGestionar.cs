@@ -14,6 +14,8 @@ namespace UI
 
         private void GestionarIdioma_Load(object sender, EventArgs e)
         {
+            AllControls = Program.GetAllControls(this);
+            
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
             cbLenguajes.DisplayMember = "Text";

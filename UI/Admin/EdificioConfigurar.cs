@@ -1,6 +1,7 @@
 ﻿using BLL;
 using EE;
 using System;
+using Security;
 using UI.Properties;
 
 namespace UI
@@ -8,12 +9,13 @@ namespace UI
     public partial class EdificioConfigurar : UpdatableForm
     {
         private readonly Home _homeForm;
-        private readonly string[] _tipoEdificioStrings = { "Deposito", "Sucursal" };
+        private readonly string[] _tipoEdificioStrings = { Sesion.ObtenerSesion().Idioma.Textos["deposit"], Sesion.ObtenerSesion().Idioma.Textos["branch"] };
 
         public EdificioConfigurar(Home homeForm)
         {
             _homeForm = homeForm;
             InitializeComponent();
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             cbTipoEdificio.DataSource = _tipoEdificioStrings;
             CargarEdificios();
@@ -57,18 +59,27 @@ namespace UI
             Settings.Default["IdEdificio"] = edificioSeleccionado.Id;
             Settings.Default.Save();
 
-            if (ReferenceEquals(Settings.Default["TipoEdificio"], "Deposito"))
+            if (ReferenceEquals(Settings.Default["TipoEdificio"], Sesion.ObtenerSesion().Idioma.Textos["deposit"]))
             {
                 Sesion.ObtenerSesion().Deposito = DepositoBll.Obtener(edificioSeleccionado.Id);
                 Sesion.ObtenerSesion().Sucursal = null;
             }
-            else if (ReferenceEquals(Settings.Default["TipoEdificio"], "Sucursal"))
+            else if (ReferenceEquals(Settings.Default["TipoEdificio"], Sesion.ObtenerSesion().Idioma.Textos["branch"]))
             {
                 Sesion.ObtenerSesion().Deposito = null;
                 Sesion.ObtenerSesion().Sucursal = SucursalBll.Obtener(edificioSeleccionado.Id);
             }
 
             _homeForm.ActualizarTabs();
+        }
+
+        private void EdificioConfigurar_Load(object sender, EventArgs e)
+        {
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblEdificio);
+            AllControls.Add(lblEdificioTipo);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
     }
 }

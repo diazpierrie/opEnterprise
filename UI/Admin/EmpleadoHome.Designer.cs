@@ -49,6 +49,7 @@ namespace UI
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(136, 41);
             this.btnAsignar.TabIndex = 8;
+            this.btnAsignar.Tag = "assign";
             this.btnAsignar.Text = "Asignar";
             this.btnAsignar.UseSelectable = true;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
@@ -108,6 +109,7 @@ namespace UI
             this.btnBorrarEmpleado.Name = "btnBorrarEmpleado";
             this.btnBorrarEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnBorrarEmpleado.TabIndex = 6;
+            this.btnBorrarEmpleado.Tag = "delete_employee";
             this.btnBorrarEmpleado.Text = "Borrar Empleado";
             this.btnBorrarEmpleado.UseSelectable = true;
             this.btnBorrarEmpleado.Click += new System.EventHandler(this.btnBorrarEmpleado_Click);
@@ -118,6 +120,7 @@ namespace UI
             this.btnModificarEmpleado.Name = "btnModificarEmpleado";
             this.btnModificarEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnModificarEmpleado.TabIndex = 5;
+            this.btnModificarEmpleado.Tag = "modify_employee";
             this.btnModificarEmpleado.Text = "Modificar Empleado";
             this.btnModificarEmpleado.UseSelectable = true;
             this.btnModificarEmpleado.Click += new System.EventHandler(this.btnModificarEmpleado_Click);
@@ -128,6 +131,7 @@ namespace UI
             this.btnCrearEmpleado.Name = "btnCrearEmpleado";
             this.btnCrearEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnCrearEmpleado.TabIndex = 4;
+            this.btnCrearEmpleado.Tag = "create_employee";
             this.btnCrearEmpleado.Text = "Crear Empleado";
             this.btnCrearEmpleado.UseSelectable = true;
             this.btnCrearEmpleado.Click += new System.EventHandler(this.btnCrearEmpleado_Click);
@@ -143,7 +147,8 @@ namespace UI
             this.Controls.Add(this.btnModificarEmpleado);
             this.Controls.Add(this.btnCrearEmpleado);
             this.Name = "EmpleadoHome";
-            this.Text = "EmpleadoHome";
+            this.Tag = "manage_employees";
+            this.Text = "Gestionar Empleados";
             this.Load += new System.EventHandler(this.EmpleadoHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridEmpleado)).EndInit();
             this.ResumeLayout(false);

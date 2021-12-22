@@ -17,7 +17,7 @@ namespace UI
             var dict = Enum.GetValues(typeof(Tipo))
                 .Cast<Tipo>()
                 .ToDictionary(t => (int)t, t => t.ToString());
-            dict.Add(4, "Todos");
+            dict.Add(4, Sesion.ObtenerSesion().Idioma.Textos["all"]);
             cbTipo.DataSource = dict.ToList();
             cbTipo.DisplayMember = "Value";
             cbTipo.SelectedIndex = 4;
@@ -51,7 +51,7 @@ namespace UI
             gridBitacora.Columns.Add("Tipo", Sesion.ObtenerSesion().Idioma.Textos["type"]);
             gridBitacora.Columns.Add("Nombre de usuario", Sesion.ObtenerSesion().Idioma.Textos["username"]);
 
-            var filter = cbTipo.Text == "Todos" ? null : cbTipo.Text;
+            var filter = cbTipo.Text == Sesion.ObtenerSesion().Idioma.Textos["all"] ? null : cbTipo.Text;
 
             var mensajes = BitacoraManager.Obtener(dateFrom.Value, dateTo.Value, filter);
 

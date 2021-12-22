@@ -1,5 +1,6 @@
 ﻿using BLL;
 using EE;
+using Security;
 using System;
 using System.Collections.Generic;
 
@@ -9,14 +10,55 @@ namespace UI
 {
     public partial class ClienteBuscar : UpdatableForm
     {
-        private List<CompradorEe> _dataTable;
         private readonly VentaCompletar _fatherform;
+        private List<CompradorEe> _dataTable;
 
         public ClienteBuscar(VentaCompletar fatherform)
         {
             _fatherform = fatherform;
             InitializeComponent();
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblApellido);
+            AllControls.Add(lblDni);
+            AllControls.Add(lblMail);
+            AllControls.Add(lblNombre);
+            AllControls.Add(lblTelefono);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
             ActualizarGrid();
+        }
+
+        public void ActualizarGrid()
+        {
+            _dataTable = CompradorBll.Obtener();
+            gridClientes.DataSource = _dataTable;
+
+            gridClientes.Columns["id"].Visible = false;
+            gridClientes.Columns["activo"].Visible = false;
+            gridClientes.Columns["fechaCreacion"].Visible = false;
+
+            gridClientes.Columns["nombre"].DisplayIndex = 0;
+            gridClientes.Columns["apellido"].DisplayIndex = 1;
+            gridClientes.Columns["mail"].DisplayIndex = 2;
+            gridClientes.Columns["dni"].DisplayIndex = 3;
+            gridClientes.Columns["telefono"].DisplayIndex = 4;
+
+            gridClientes.Columns["nombre"].HeaderText= Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridClientes.Columns["apellido"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["lastname"];
+            gridClientes.Columns["mail"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["mail"];
+            gridClientes.Columns["dni"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["dni"];
+            gridClientes.Columns["telefono"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["telephone"];
+
+            gridClientes.Refresh();
+        }
+
+        private void btnAltaCliente_Click(object sender, EventArgs e)
+        {
+            var altaCliente = new ClienteAlta(this);
+            altaCliente.Show();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -39,30 +81,6 @@ namespace UI
         {
             _fatherform.AsignarCliente(_dataTable[gridClientes.SelectedRows[0].Index]);
             Close();
-        }
-
-        private void btnAltaCliente_Click(object sender, EventArgs e)
-        {
-            var altaCliente = new ClienteAlta(this);
-            altaCliente.Show();
-        }
-
-        public void ActualizarGrid()
-        {
-            _dataTable = CompradorBll.Obtener();
-            gridClientes.DataSource = _dataTable;
-
-            gridClientes.Columns["id"].Visible = false;
-            gridClientes.Columns["activo"].Visible = false;
-            gridClientes.Columns["fechaCreacion"].Visible = false;
-
-            gridClientes.Columns["nombre"].DisplayIndex = 0;
-            gridClientes.Columns["apellido"].DisplayIndex = 1;
-            gridClientes.Columns["mail"].DisplayIndex = 2;
-            gridClientes.Columns["dni"].DisplayIndex = 3;
-            gridClientes.Columns["telefono"].DisplayIndex = 4;
-
-            gridClientes.Refresh();
         }
     }
 }

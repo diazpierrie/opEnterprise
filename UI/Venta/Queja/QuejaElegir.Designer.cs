@@ -54,6 +54,7 @@ namespace UI
             this.lblQueja.Name = "lblQueja";
             this.lblQueja.Size = new System.Drawing.Size(44, 19);
             this.lblQueja.TabIndex = 1;
+            this.lblQueja.Tag = "complaint";
             this.lblQueja.Text = "Queja";
             // 
             // btnAsignarQueja
@@ -67,7 +68,7 @@ namespace UI
             this.btnAsignarQueja.UseSelectable = true;
             this.btnAsignarQueja.Click += new System.EventHandler(this.btnAsignarQueja_Click);
             // 
-            // VentaElegirQueja
+            // QuejaElegir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,6 +77,7 @@ namespace UI
             this.Controls.Add(this.lblQueja);
             this.Controls.Add(this.cbQuejas);
             this.Name = "QuejaElegir";
+            this.Tag = "choose_complaint";
             this.Text = "VentaElegirQueja";
             this.ResumeLayout(false);
             this.PerformLayout();

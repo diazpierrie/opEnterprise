@@ -32,9 +32,9 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridProveedor = new MetroFramework.Controls.MetroGrid();
             this.btnCrearProveedor = new MetroFramework.Controls.MetroButton();
             this.btnModificarProveedor = new MetroFramework.Controls.MetroButton();
@@ -56,23 +56,23 @@ namespace UI
             this.gridProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridProveedor.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridProveedor.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridProveedor.EnableHeadersVisualStyles = false;
             this.gridProveedor.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -81,14 +81,14 @@ namespace UI
             this.gridProveedor.Name = "gridProveedor";
             this.gridProveedor.ReadOnly = true;
             this.gridProveedor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProveedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridProveedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProveedor.Size = new System.Drawing.Size(730, 436);
@@ -101,6 +101,7 @@ namespace UI
             this.btnCrearProveedor.Name = "btnCrearProveedor";
             this.btnCrearProveedor.Size = new System.Drawing.Size(136, 41);
             this.btnCrearProveedor.TabIndex = 0;
+            this.btnCrearProveedor.Tag = "create_vendor";
             this.btnCrearProveedor.Text = "Crear Proveedor";
             this.btnCrearProveedor.UseSelectable = true;
             this.btnCrearProveedor.Click += new System.EventHandler(this.btnCrearProveedor_Click);
@@ -111,6 +112,7 @@ namespace UI
             this.btnModificarProveedor.Name = "btnModificarProveedor";
             this.btnModificarProveedor.Size = new System.Drawing.Size(136, 41);
             this.btnModificarProveedor.TabIndex = 1;
+            this.btnModificarProveedor.Tag = "modify_vendor";
             this.btnModificarProveedor.Text = "Modificar Proveedor";
             this.btnModificarProveedor.UseSelectable = true;
             this.btnModificarProveedor.Click += new System.EventHandler(this.btnModificarProveedor_Click);
@@ -121,6 +123,7 @@ namespace UI
             this.btnBorrarProveedor.Name = "btnBorrarProveedor";
             this.btnBorrarProveedor.Size = new System.Drawing.Size(136, 41);
             this.btnBorrarProveedor.TabIndex = 2;
+            this.btnBorrarProveedor.Tag = "delete_vendor";
             this.btnBorrarProveedor.Text = "Borrar Proveedor";
             this.btnBorrarProveedor.UseSelectable = true;
             this.btnBorrarProveedor.Click += new System.EventHandler(this.btnBorrarProveedor_Click);
@@ -131,6 +134,7 @@ namespace UI
             this.btnRestaurarProveedor.Name = "btnRestaurarProveedor";
             this.btnRestaurarProveedor.Size = new System.Drawing.Size(136, 41);
             this.btnRestaurarProveedor.TabIndex = 4;
+            this.btnRestaurarProveedor.Tag = "restore_vendor";
             this.btnRestaurarProveedor.Text = "Restaurar Proveedor";
             this.btnRestaurarProveedor.UseSelectable = true;
             this.btnRestaurarProveedor.Click += new System.EventHandler(this.btnRestaurarProveedor_Click);
@@ -141,6 +145,7 @@ namespace UI
             this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
             this.btnPenalizarProveedor.Size = new System.Drawing.Size(136, 41);
             this.btnPenalizarProveedor.TabIndex = 5;
+            this.btnPenalizarProveedor.Tag = "penalize_vendor";
             this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
             this.btnPenalizarProveedor.UseSelectable = true;
             this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
@@ -165,6 +170,7 @@ namespace UI
             this.btnVerPenalizaciones.Name = "btnVerPenalizaciones";
             this.btnVerPenalizaciones.Size = new System.Drawing.Size(136, 41);
             this.btnVerPenalizaciones.TabIndex = 6;
+            this.btnVerPenalizaciones.Tag = "check_penalizations";
             this.btnVerPenalizaciones.Text = "Ver Penalizaciones";
             this.btnVerPenalizaciones.UseSelectable = true;
             this.btnVerPenalizaciones.Click += new System.EventHandler(this.btnVerPenalizaciones_Click);
@@ -177,6 +183,7 @@ namespace UI
             this.Controls.Add(this.flpProveedorHome);
             this.Controls.Add(this.gridProveedor);
             this.Name = "ProveedorHome";
+            this.Tag = "manage_vendors";
             this.Text = "ProveedorHome";
             this.Load += new System.EventHandler(this.ProveedorHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).EndInit();

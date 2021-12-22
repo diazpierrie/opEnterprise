@@ -1,19 +1,32 @@
 ﻿using BLL;
 using EE;
 using System;
+using Security;
 
 namespace UI
 {
     public partial class ClienteAlta : UpdatableForm
     {
         private readonly ClienteBuscar _clienteBuscar;
-        private readonly string[] _esSocioStrings = { "No", "Si" };
+        private readonly string[] _esSocioStrings = { Sesion.ObtenerSesion().Idioma.Textos["no"], Sesion.ObtenerSesion().Idioma.Textos["yes"] };
         public DireccionEe Direccion = new DireccionEe();
 
         public ClienteAlta(ClienteBuscar clienteBuscar)
         {
             _clienteBuscar = clienteBuscar;
             InitializeComponent();
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblApellido);
+            AllControls.Add(lblDireccion);
+            AllControls.Add(lblMail);
+            AllControls.Add(lblNombre);
+            AllControls.Add(lblTelefono);
+            AllControls.Add(lblDNI);
+            AllControls.Add(lblEsSocio);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
             cbEsSocio.DataSource = _esSocioStrings;
         }
 

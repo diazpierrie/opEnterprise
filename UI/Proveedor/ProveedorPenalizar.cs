@@ -2,7 +2,9 @@
 using EE;
 using MetroFramework;
 using System;
+using System.Linq;
 using System.Windows.Forms;
+using Security;
 
 namespace UI
 {
@@ -16,8 +18,18 @@ namespace UI
             _proveedor = proveedor;
             _proveedorHome = proveedorHome;
             InitializeComponent();
-            var motivos = ProveedorBll.ObtenerMotivosPenalizacion();
-            cbMotivos.DataSource = motivos;
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblQueja);
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
+            cbMotivos.DisplayMember = "Value";
+            cbMotivos.ValueMember = "Key";
+
+            var motivos = ProveedorBll.ObtenerMotivosPenalizacion().ToDictionary(ee => ee.Id, ee => ee.Descripcion);
+            cbMotivos.DataSource = new BindingSource(motivos, null);
         }
 
         private void ActualizarEstadoVentas()
@@ -27,18 +39,17 @@ namespace UI
 
         private void btnAsignarQueja_Click(object sender, EventArgs e)
         {
-            var response = MetroMessageBox.Show(this, $"¿Está seguro que desea penalizar a {_proveedor.Nombre}? \n Motivo: {cbMotivos.Text}",
-                "Confirmacion de penalizacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var response = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_penalize"] + " " +  _proveedor.Nombre + "?" + "\n" + Sesion.ObtenerSesion().Idioma.Textos["motive"] + ": " + cbMotivos.Text,
+                Sesion.ObtenerSesion().Idioma.Textos["confirm_penalization"], MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (response != DialogResult.Yes) return;
 
-            if (ProveedorBll.Penalizar(_proveedor, cbMotivos.SelectedIndex) != 0)
-            {
-                MetroMessageBox.Show(this, "Proveedor penalizado con exito", "Exito", MessageBoxButtons.OK,
-                    MessageBoxIcon.Question);
+            if (ProveedorBll.Penalizar(_proveedor, (int) cbMotivos.SelectedValue) == 0) return;
 
-                ActualizarEstadoVentas();
-                Close();
-            }
+            MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["success_penalization"], Sesion.ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK,
+                MessageBoxIcon.Question);
+
+            ActualizarEstadoVentas();
+            Close();
         }
     }
 }

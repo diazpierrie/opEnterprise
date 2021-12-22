@@ -19,10 +19,18 @@ namespace UI
 
             _crear = true;
             InitializeComponent();
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblNombre);
+            AllControls.Add(lblCodigoPostal);
+            AllControls.Add(lblLocalidad);
+            AllControls.Add(lblPais);
+            AllControls.Add(lblProvincia);
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Direccion");
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["address"]);
         }
         public DireccionAltaModificacion(ClienteAlta clienteAltaForm)
         {
@@ -32,8 +40,9 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Direccion");
+
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["address"]);
         }
 
         public DireccionAltaModificacion(DireccionHome homeForm, DireccionEe direccion)
@@ -45,8 +54,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Modificar";
-            CambiarTitulo("Modificar Direccion");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["address"]);
 
             txtCalle.Text = _direccion.Calle;
             txtLocalidad.Text = _direccion.Localidad;
