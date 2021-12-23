@@ -2,7 +2,6 @@
 using EE;
 using Security;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BLL
 {
@@ -13,11 +12,6 @@ namespace BLL
         public static List<PuestoEe> Obtener()
         {
             return Dao.Obtener();
-        }
-
-        public static PuestoEe Obtener(int id)
-        {
-            return Dao.Obtener(id).ElementAt(0);
         }
 
         public static void Crear(PuestoEe puesto)

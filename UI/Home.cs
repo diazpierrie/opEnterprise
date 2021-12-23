@@ -21,7 +21,6 @@ namespace UI
             InitializeComponent();
             CargarPermisos();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
-
         }
 
         public void CargarPermisos()
@@ -62,6 +61,12 @@ namespace UI
                 tcHome.DisableTab(tabEnviosRecepciones);
             }
 
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Ayuda a = new Ayuda();
+            a.Show();
         }
 
         private void btnBackUp_Click(object sender, EventArgs e)
@@ -130,6 +135,21 @@ namespace UI
             empleadoHome.Show();
         }
 
+        private void btnExportReport_Click(object sender, EventArgs e)
+        {
+            var exportData = new SaveFileDialog
+            {
+                Filter = "PDF(*.pdf)|*.pdf",
+                Title = "Save PDF file",
+                InitialDirectory = Directory.GetCurrentDirectory() + "\\..\\..\\..\\",
+            };
+
+            if (exportData.ShowDialog() == DialogResult.OK)
+            {
+                Process.Start(UsuarioManager.ExportPdf(exportData.FileName));
+            }
+        }
+
         private void btnFamilia_Click(object sender, EventArgs e)
         {
             var gestionarFamilia = new GestionarFamilia();
@@ -145,6 +165,12 @@ namespace UI
         private void btnPenalizarProveedor_Click(object sender, EventArgs e)
         {
             var proveedorHome = new ProveedorHome(Sesion.ObtenerSesion().Idioma.Textos["penalize_vendor"]);
+            proveedorHome.Show();
+        }
+
+        private void btnProducto_Click(object sender, EventArgs e)
+        {
+            var proveedorHome = new ProductoHome();
             proveedorHome.Show();
         }
 
@@ -250,28 +276,6 @@ namespace UI
             cbIdiomas.SelectedValue = Sesion.ObtenerSesion().Idioma.Id;
             _langLoaded = true;
         }
-
-        private void btnExportReport_Click(object sender, EventArgs e)
-        {
-            var exportData = new SaveFileDialog
-            {
-                Filter = "PDF(*.pdf)|*.pdf",
-                Title = "Save PDF file",
-                InitialDirectory = Directory.GetCurrentDirectory() + "\\..\\..\\..\\",
-            };
-
-            if (exportData.ShowDialog() == DialogResult.OK)
-            {
-                Process.Start(UsuarioManager.ExportPdf(exportData.FileName));
-            }
-        }
-
-        private void btnAyuda_Click(object sender, EventArgs e)
-        {
-            Ayuda a = new Ayuda();
-            a.Show();
-        }
-
         private void pbLogout_Click(object sender, EventArgs e)
         {
             if (SesionManager.CerrarSesion())

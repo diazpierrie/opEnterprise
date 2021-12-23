@@ -40,11 +40,6 @@ namespace BLL
             return direccion.Id;
         }
 
-        public static List<DireccionEe> ObtenerActivos(string name = null)
-        {
-            return Dal.ObtenerActivos(name);
-        }
-
         public static DireccionEe Obtener(int id)
         {
             return Dal.Obtener(id);

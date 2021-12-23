@@ -34,6 +34,10 @@ namespace UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            this.pbLogout = new System.Windows.Forms.PictureBox();
+            this.btnAyuda = new MetroFramework.Controls.MetroButton();
+            this.lblIdioma = new System.Windows.Forms.Label();
+            this.cbIdiomas = new MetroFramework.Controls.MetroComboBox();
             this.tcHome = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +55,7 @@ namespace UI
             this.btnBitacora = new MetroFramework.Controls.MetroButton();
             this.btnConfigurarEdificio = new MetroFramework.Controls.MetroButton();
             this.tabSucursal = new MetroFramework.Controls.MetroTabPage();
+            this.btnVerQuejas = new MetroFramework.Controls.MetroButton();
             this.btnCancelarVentaVenta = new MetroFramework.Controls.MetroButton();
             this.btnCrearQueja = new MetroFramework.Controls.MetroButton();
             this.btnBuscarVenta = new MetroFramework.Controls.MetroButton();
@@ -69,10 +74,8 @@ namespace UI
             this.btnRealizarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
-            this.cbIdiomas = new MetroFramework.Controls.MetroComboBox();
-            this.lblIdioma = new System.Windows.Forms.Label();
-            this.btnAyuda = new MetroFramework.Controls.MetroButton();
-            this.pbLogout = new System.Windows.Forms.PictureBox();
+            this.btnProducto = new MetroFramework.Controls.MetroButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,8 +84,52 @@ namespace UI
             this.tabDeposito.SuspendLayout();
             this.tabCaja.SuspendLayout();
             this.tabEnviosRecepciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pbLogout
+            // 
+            this.pbLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLogout.BackgroundImage")));
+            this.pbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLogout.InitialImage = null;
+            this.pbLogout.Location = new System.Drawing.Point(752, 23);
+            this.pbLogout.Name = "pbLogout";
+            this.pbLogout.Size = new System.Drawing.Size(25, 25);
+            this.pbLogout.TabIndex = 10;
+            this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Location = new System.Drawing.Point(641, 406);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(136, 23);
+            this.btnAyuda.TabIndex = 9;
+            this.btnAyuda.Tag = "help";
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseSelectable = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // lblIdioma
+            // 
+            this.lblIdioma.Location = new System.Drawing.Point(-1, 406);
+            this.lblIdioma.Name = "lblIdioma";
+            this.lblIdioma.Size = new System.Drawing.Size(105, 29);
+            this.lblIdioma.TabIndex = 5;
+            this.lblIdioma.Tag = "language";
+            this.lblIdioma.Text = "Idioma";
+            this.lblIdioma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbIdiomas
+            // 
+            this.cbIdiomas.FormattingEnabled = true;
+            this.cbIdiomas.ItemHeight = 23;
+            this.cbIdiomas.Location = new System.Drawing.Point(110, 406);
+            this.cbIdiomas.Name = "cbIdiomas";
+            this.cbIdiomas.Size = new System.Drawing.Size(223, 29);
+            this.cbIdiomas.TabIndex = 4;
+            this.cbIdiomas.UseSelectable = true;
+            this.cbIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbIdiomas_SelectedIndexChanged);
             // 
             // tcHome
             // 
@@ -118,6 +165,7 @@ namespace UI
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnProducto);
             this.groupBox1.Controls.Add(this.btnFamilia);
             this.groupBox1.Controls.Add(this.btnPuesto);
             this.groupBox1.Controls.Add(this.btnSucursal);
@@ -279,6 +327,7 @@ namespace UI
             // 
             // tabSucursal
             // 
+            this.tabSucursal.Controls.Add(this.btnVerQuejas);
             this.tabSucursal.Controls.Add(this.btnCancelarVentaVenta);
             this.tabSucursal.Controls.Add(this.btnCrearQueja);
             this.tabSucursal.Controls.Add(this.btnBuscarVenta);
@@ -296,9 +345,19 @@ namespace UI
             this.tabSucursal.VerticalScrollbarHighlightOnWheel = false;
             this.tabSucursal.VerticalScrollbarSize = 10;
             // 
+            // btnVerQuejas
+            // 
+            this.btnVerQuejas.Location = new System.Drawing.Point(3, 119);
+            this.btnVerQuejas.Name = "btnVerQuejas";
+            this.btnVerQuejas.Size = new System.Drawing.Size(188, 24);
+            this.btnVerQuejas.TabIndex = 6;
+            this.btnVerQuejas.Tag = "check_complaints";
+            this.btnVerQuejas.Text = "Ver Quejas";
+            this.btnVerQuejas.UseSelectable = true;
+            // 
             // btnCancelarVentaVenta
             // 
-            this.btnCancelarVentaVenta.Location = new System.Drawing.Point(3, 119);
+            this.btnCancelarVentaVenta.Location = new System.Drawing.Point(3, 149);
             this.btnCancelarVentaVenta.Name = "btnCancelarVentaVenta";
             this.btnCancelarVentaVenta.Size = new System.Drawing.Size(188, 24);
             this.btnCancelarVentaVenta.TabIndex = 5;
@@ -517,55 +576,22 @@ namespace UI
             this.btnVerEnvios.UseSelectable = true;
             this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
             // 
-            // cbIdiomas
+            // btnProducto
             // 
-            this.cbIdiomas.FormattingEnabled = true;
-            this.cbIdiomas.ItemHeight = 23;
-            this.cbIdiomas.Location = new System.Drawing.Point(110, 406);
-            this.cbIdiomas.Name = "cbIdiomas";
-            this.cbIdiomas.Size = new System.Drawing.Size(223, 29);
-            this.cbIdiomas.TabIndex = 4;
-            this.cbIdiomas.UseSelectable = true;
-            this.cbIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbIdiomas_SelectedIndexChanged);
-            // 
-            // lblIdioma
-            // 
-            this.lblIdioma.Location = new System.Drawing.Point(-1, 406);
-            this.lblIdioma.Name = "lblIdioma";
-            this.lblIdioma.Size = new System.Drawing.Size(105, 29);
-            this.lblIdioma.TabIndex = 5;
-            this.lblIdioma.Tag = "language";
-            this.lblIdioma.Text = "Idioma";
-            this.lblIdioma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnAyuda
-            // 
-            this.btnAyuda.Location = new System.Drawing.Point(641, 406);
-            this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(136, 23);
-            this.btnAyuda.TabIndex = 9;
-            this.btnAyuda.Tag = "help";
-            this.btnAyuda.Text = "Ayuda";
-            this.btnAyuda.UseSelectable = true;
-            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
-            // 
-            // pbLogout
-            // 
-            this.pbLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLogout.BackgroundImage")));
-            this.pbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLogout.InitialImage = null;
-            this.pbLogout.Location = new System.Drawing.Point(718, 23);
-            this.pbLogout.Name = "pbLogout";
-            this.pbLogout.Size = new System.Drawing.Size(25, 25);
-            this.pbLogout.TabIndex = 10;
-            this.pbLogout.TabStop = false;
-            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
+            this.btnProducto.Location = new System.Drawing.Point(148, 77);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(136, 23);
+            this.btnProducto.TabIndex = 9;
+            this.btnProducto.Tag = "product";
+            this.btnProducto.Text = "Producto";
+            this.btnProducto.UseSelectable = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
@@ -575,10 +601,12 @@ namespace UI
             this.Controls.Add(this.cbIdiomas);
             this.Controls.Add(this.tcHome);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Home";
+            this.Resizable = false;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             this.tcHome.ResumeLayout(false);
             this.tabAdmin.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -587,7 +615,6 @@ namespace UI
             this.tabDeposito.ResumeLayout(false);
             this.tabCaja.ResumeLayout(false);
             this.tabEnviosRecepciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -633,5 +660,7 @@ namespace UI
         private MetroButton btnExportReport;
         private MetroButton btnAyuda;
         private PictureBox pbLogout;
+        private MetroButton btnVerQuejas;
+        private MetroButton btnProducto;
     }
 }

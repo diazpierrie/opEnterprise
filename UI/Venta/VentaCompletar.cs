@@ -44,9 +44,6 @@ namespace UI
             if (!boolContains)
             {
                 metodosEntrega.RemoveAll(x=> x.Descripcion == ObtenerSesion().Idioma.Textos["branch_takeaway"]);
-            }
-            else
-            {
                 btnEnvioLocal.Visible = false;
             }
 
@@ -88,6 +85,15 @@ namespace UI
 
             if (VentaBll.Crear(ventaNueva, (DireccionEe)cbDirecciones.SelectedItem, Ventahome.ProductosAAsignar.ToList(), ProductosRetiroLocal) != 0)
             {
+                if (!_cliente.EsSocio)
+                {
+                    if (MetroMessageBox.Show(this, "Desea promover al cliente a socio?",
+                            "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                    {
+                        CompradorBll.PromoverASocio(_cliente);
+                    }
+
+                }
                 MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["success_sale"],
                     Sesion.ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
@@ -125,7 +131,7 @@ namespace UI
                 lblCuotas.Visible = false;
                 cbCuotas.Visible = false;
                 lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}" + @" (" +
-                                ObtenerSesion().Idioma.Textos["discount"] + @" 5%)";
+                                ObtenerSesion().Idioma.Textos["discount"] + @" -5%)";
             }
             else if (cbMetodoPago.SelectedValue.ToString() == ObtenerSesion().Idioma.Textos["debit"])
             {
@@ -136,11 +142,18 @@ namespace UI
             }
             else if (cbMetodoPago.SelectedValue.ToString() == ObtenerSesion().Idioma.Textos["credit"])
             {
+                _total *= 1.05;
                 btnRealizarVenta.Location = new Point(233, 249);
                 cbCuotas.SelectedIndex = 0;
                 lblCuotas.Visible = true;
                 cbCuotas.Visible = true;
-                lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}";
+                lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}" + " (+5% Credito)";
+            }
+
+            if (_cliente.EsSocio)
+            {
+                _total *= 0.90;
+                lblTotal.Text += " (-10% Socio)";
             }
 
             cbCuotas.DataSource = new List<string>

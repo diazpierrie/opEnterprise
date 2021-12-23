@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlCambiosEe.cs" />
     <Compile Include="BitacoraMensajeEe.cs" />
     <Compile Include="CompradorEe.cs" />
     <Compile Include="DepositoEe.cs" />
@@ -68,10 +67,8 @@
     <Compile Include="VentaDetalleEe.cs" />
     <Compile Include="PedidoProveedorEe.cs" />
     <Compile Include="PedidoEstadoEe.cs" />
-    <Compile Include="CuotaEe.cs" />
     <Compile Include="EstadoEe.cs" />
     <Compile Include="MetodoPagoEe.cs" />
-    <Compile Include="NotificacionEe.cs" />
     <Compile Include="PatenteEe.cs" />
     <Compile Include="PermisoEe.cs" />
     <Compile Include="PersonaEe.cs" />

@@ -16,25 +16,6 @@ namespace DAL
         private readonly SucursalDal _sucursalDal = new SucursalDal();
         private readonly UsuarioDal _usuarioDal = new UsuarioDal();
         private readonly VentaEstadoDal _ventaEstadoDal = new VentaEstadoDal();
-        public bool ActualizarStockDeposito(ProductoEdificioEe producto)
-        {
-            var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = @stock WHERE [idDeposito] = @idDeposito AND [idProducto] = @idProducto", Conn);
-            query.Parameters.AddWithValue("@idDeposito", producto.Edificio.Id);
-            query.Parameters.AddWithValue("@idProducto", producto.Id);
-            query.Parameters.AddWithValue("@stock", producto.CantidadAComprar);
-
-            return ExecuteQuery(query);
-        }
-
-        public bool ActualizarStockSucursal(ProductoEdificioEe producto)
-        {
-            var query = new SqlCommand("UPDATE [dbo].[sucursal_producto] SET [stock] = stock - @stock WHERE [idSucursal] = @idSucursal AND [idProducto] = @idProducto", Conn);
-            query.Parameters.AddWithValue("@idSucursal", producto.Edificio.Id);
-            query.Parameters.AddWithValue("@idProducto", producto.Id);
-            query.Parameters.AddWithValue("@stock", producto.CantidadAComprar);
-
-            return ExecuteQuery(query);
-        }
 
         public bool CambiarEstadoAPagado(VentaEe venta)
         {
@@ -121,6 +102,7 @@ namespace DAL
 
             return ExecuteQuery(query);
         }
+
         public bool MarcarVentaDevuelta(VentaEe venta)
         {
             var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
@@ -512,6 +494,7 @@ namespace DAL
                 return null;
             }
         }
+
         public List<VentaDetalleEe> ObtenerPerdidasAgrupadas(int id)
         {
             try
@@ -540,6 +523,26 @@ namespace DAL
                 ErrorManagerDal.AgregarMensaje(e.ToString());
                 return null;
             }
+        }
+
+        public bool ReducirStockDeposito(ProductoEdificioEe producto)
+        {
+            var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = stock - @stock WHERE [idDeposito] = @idDeposito AND [idProducto] = @idProducto", Conn);
+            query.Parameters.AddWithValue("@idDeposito", producto.Edificio.Id);
+            query.Parameters.AddWithValue("@idProducto", producto.Id);
+            query.Parameters.AddWithValue("@stock", producto.CantidadAComprar);
+
+            return ExecuteQuery(query);
+        }
+
+        public bool ReducirStockSucursal(ProductoEdificioEe producto)
+        {
+            var query = new SqlCommand("UPDATE [dbo].[sucursal_producto] SET [stock] = stock - @stock WHERE [idSucursal] = @idSucursal AND [idProducto] = @idProducto", Conn);
+            query.Parameters.AddWithValue("@idSucursal", producto.Edificio.Id);
+            query.Parameters.AddWithValue("@idProducto", producto.Id);
+            query.Parameters.AddWithValue("@stock", producto.CantidadAComprar);
+
+            return ExecuteQuery(query);
         }
 
         public int RegistrarDetallesDevolucion(DevolucionEe devolucion, List<VentaDetalleEe> productos)
@@ -598,6 +601,7 @@ namespace DAL
 
             return Insert("pago", columnas.ToArray(), valores.ToArray());
         }
+
         public int RegistrarPerdida(VentaEe obj, double total)
         {
             var columnas = new List<string> { "idSucursal", "idVenta", "idUsuario", "fecha", "total" };
@@ -612,6 +616,7 @@ namespace DAL
 
             return Insert("perdida", columnas.ToArray(), valores.ToArray());
         }
+
         public void RegistrarProductosDevueltos(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
         {
             foreach (var producto in productos)
@@ -625,137 +630,6 @@ namespace DAL
                     _productoDal.AgregarProductoSucursal(Sesion.ObtenerSesion().Sucursal, producto);
                 }
             }
-
-        }
-
-        public bool VerificarDevolucionEntera(VentaEe venta)
-        {
-            try
-            {
-                var strQuery =
-                    $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(dd.cantidad) AS Cantidad " +
-                    $"FROM venta_detalle as vd " +
-                    $"LEFT OUTER JOIN devolucion_detalle as dd ON vd.idProducto = dd.idProducto, " +
-                    $"(SELECT id FROM devolucion WHERE idVenta = {venta.Id}) as d " +
-                    $"WHERE dd.idDevolucion = d.id AND vd.idVenta = {venta.Id} " +
-                    $"GROUP BY vd.idProducto";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        if (int.Parse(data["cantidad"].ToString()) == 0) continue;
-                        Conn.Close();
-                        return false;
-                    }
-                }
-                else
-                {
-                    Conn.Close();
-                    return false;
-                }
-
-                Conn.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return false;
-            }
-
-        }
-
-        public bool VerificarPerdidaEntera(VentaEe venta)
-        {
-            try
-            {
-                var strQuery = $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(pd.cantidad) AS Cantidad " +
-                               $"FROM venta_detalle as vd " +
-                               $"LEFT OUTER JOIN perdida_detalle as pd ON vd.idProducto = pd.idProducto, " +
-                               $"(SELECT id FROM perdida WHERE idVenta = {venta.Id}) as d " +
-                               $"WHERE pd.idPerdida = d.id AND vd.idVenta = {venta.Id} " +
-                               $"GROUP BY vd.idProducto";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        if (int.Parse(data["cantidad"].ToString()) != 0)
-                        {
-                            Conn.Close();
-                            return false;
-                        }
-                    }
-                }
-                else
-                {
-                    Conn.Close();
-                    return false;
-                }
-
-                Conn.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return false;
-            }
-
-        }
-
-        public bool VerificarPerdidaYDevolucionEntera(VentaEe venta)
-        {
-            try
-            {
-                var strQuery = $"SELECT vd.idProducto, SUM(vd.cantidad) - SUM(pd.cantidad) - SUM(dd.cantidad) AS Cantidad " +
-                               $"FROM venta_detalle as vd " +
-                               $"LEFT OUTER JOIN perdida_detalle as pd ON vd.idProducto = pd.idProducto " +
-                               $"LEFT OUTER JOIN devolucion_detalle as dd ON vd.idProducto = dd.idProducto, " +
-                               $"(SELECT id FROM perdida WHERE idVenta = {venta.Id}) as p, " +
-                               $"(SELECT id FROM devolucion WHERE idVenta = {venta.Id}) as d " +
-                               $"WHERE pd.idPerdida = p.id AND dd.idDevolucion = d.id AND vd.idVenta = {venta.Id} GROUP BY vd.idProducto";
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        if (int.Parse(data["cantidad"].ToString()) == 0) continue;
-                        Conn.Close();
-                        return false;
-                    }
-                }
-                else
-                {
-                    Conn.Close();
-                    return false;
-                }
-
-                Conn.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return false;
-            }
-
         }
 
         private VentaEe CastDto(SqlDataReader data)

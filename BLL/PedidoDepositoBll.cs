@@ -36,25 +36,6 @@ namespace BLL
             return pedido.Id;
         }
 
-        public static PedidoDepositoEe Obtener(int id)
-        {
-            return Dal.Obtener(id);
-        }
-
-        public static List<PedidoDepositoEe> Obtener()
-        {
-            var pedidos = Dal.Obtener();
-
-            foreach (var pedido in pedidos)
-            {
-                pedido.Empleado = UsuarioDal.Obtener(pedido.Empleado.Id);
-                pedido.Sucursal = SucursalDal.Obtener(pedido.Sucursal.Id);
-                pedido.Estado = PedidoEstadoDal.Obtener(pedido.Estado.Id);
-            }
-
-            return pedidos;
-        }
-
         public static List<PedidoDepositoDetalleEe> ObtenerDetalle(PedidoDepositoEe pedidoDeposito)
         {
             var pedidos = Dal.ObtenerDetalle(pedidoDeposito.Id);
@@ -68,11 +49,6 @@ namespace BLL
 
 
             return pedidos;
-        }
-
-        public static List<PedidoDepositoDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
-        {
-            return Dal.ObtenerDetallesAgrupados(proveedor);
         }
 
         public static List<PedidoDepositoEe> ObtenerIniciados()

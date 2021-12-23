@@ -68,7 +68,7 @@ namespace UI
         private static void CreateDatabase()
         {
             var str = File.ReadAllText("./script.sql");
-            var myConn = new SqlConnection(@"Server=DESKTOP-D2N076T\SQLEXPRESS;Integrated security=SSPI;database=master");
+            var myConn = new SqlConnection(@"Server=(local);Integrated security=SSPI;database=master");
 
             try
             {
@@ -96,7 +96,7 @@ namespace UI
 
         private static bool CheckDatabaseExists(string databaseName)
         {
-            using (var connection = new SqlConnection(@"Server=DESKTOP-D2N076T\SQLEXPRESS;Integrated security=SSPI;database=master"))
+            using (var connection = new SqlConnection(@"Server=(local);Integrated security=SSPI;database=master"))
             {
                 using (var command = new SqlCommand($"SELECT db_id('{databaseName}')", connection))
                 {

@@ -59,15 +59,6 @@ namespace DAL
             }
         }
 
-        public int Crear(FamiliaEe familia)
-        {
-            string[] columns = { "Nombre" };
-            string[] values = { familia.Nombre };
-            Insert("familias", columns, values);
-
-            return GetLastid("familias");
-        }
-
         public bool Actualizar(FamiliaEe familia)
         {
             var query = new SqlCommand("UPDATE familia SET Nombre = @Nombre WHERE id = @id", Conn);

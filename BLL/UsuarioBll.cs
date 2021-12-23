@@ -42,35 +42,8 @@ namespace BLL
 
             return usuario.Id;
         }
-
-        public static bool ActualizarPassword(UsuarioEe usuario, string oldPass, string newPass)
-        {
-            if (Dal.ObtenerPasswordPorid(usuario.Id).Equals(Encriptador.Encriptar(oldPass)))
-            {
-                Dal.ActualizarPassword(usuario.Id, Encriptador.Encriptar(newPass));
-
-                BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
-                {
-                    Titulo = "Cambio de password",
-                    Descripcion = "Se ha realizado el cambio de contrasena del usuario: " + usuario.Id,
-                    Tipo = Tipo.Info,
-                    Fecha = DateTime.Now,
-                    Usuario = Sesion.ObtenerSesion().Usuario
-                });
-
-                Dv.ActualizarDv();
-                return true;
-            }
-
-            return false;
-        }
-
-        public static List<UsuarioEe> Obtener(string name = null)
-        {
-            return Dal.Obtener(name);
-        }
-
-        public static List<UsuarioEe> ObtenerActivos(string name = null)
+        
+public static List<UsuarioEe> ObtenerActivos(string name = null)
         {
             return Dal.ObtenerActivos(name);
         }

@@ -8,10 +8,6 @@ namespace DAL
 {
     public class PedidoDepositoDal : ConnectionDal
     {
-        public void Actualizar(ProductoEe sucu)
-        {
-        }
-
         public bool ActualizarStockSucursal(SucursalEe sucursal, ProductoEe producto)
         {
             var query = new SqlCommand("UPDATE [dbo].[sucursal_producto] SET [stock] = stock + @stock WHERE idSucursal = @idSucursal AND idProducto = @idProducto", Conn);
@@ -61,15 +57,6 @@ namespace DAL
                 valores.Add(value);
             }
             return Insert("pedido_deposito_detalle", columnas.ToArray(), valores);
-        }
-
-        public bool MarcarVentaComoPerdida(PedidoProveedorEe venta)
-        {
-            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
-            query.Parameters.AddWithValue("@id", venta.Id);
-            query.Parameters.AddWithValue("@idEstado", 3);
-
-            return ExecuteQuery(query);
         }
 
         public PedidoDepositoEe Obtener(int id)
@@ -288,7 +275,7 @@ namespace DAL
             {
                 Id = int.Parse(data["id"].ToString()),
                 Sucursal = new SucursalEe() {Id = int.Parse(data["idSucursal"].ToString()) },
-                Empleado = new EmpleadoEe() {Id = int.Parse(data["idUsuario"].ToString())},
+                Empleado = new UsuarioEe() {Id = int.Parse(data["idUsuario"].ToString())},
                 Estado = new PedidoEstadoEe() { Id = int.Parse(data["idEstado"].ToString())},
                 FechaPedido = data["FechaPedido"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaPedido"].ToString()) : default,
                 FechaRecepcion = data["FechaRecepcion"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaRecepcion"].ToString()) : default,

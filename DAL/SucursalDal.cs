@@ -244,50 +244,6 @@ namespace DAL
             }
         }
 
-        public List<SucursalEe> Obtener(SucursalEe dep, int limit = 0)
-        {
-            try
-            {
-                var strQuery = "SELECT";
-
-                if (limit != 0)
-                {
-                    strQuery += $" TOP {limit}";
-                }
-
-                strQuery += " id, nombre, direccion, mail, codigoPostal, telefono FROM Sucursal " +
-                    $"WHERE id = {dep.Id}";
-
-                if (limit != 0)
-                {
-                    strQuery += " ORDER BY id DESC";
-                }
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var sucursal = new List<SucursalEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        sucursal.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-
-                return sucursal;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
         public List<SucursalEe> ObtenerActivos(string name = null)
         {
             try

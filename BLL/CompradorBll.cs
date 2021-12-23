@@ -9,11 +9,6 @@ namespace BLL
     {
         private static readonly CompradorDal Dao = new CompradorDal();
 
-        public static CompradorEe BuscarComprador(int id)
-        {
-            return Dao.Obtener(id);
-        }
-
         public static List<CompradorEe> Obtener(string name = null)
         {
             return Dao.Obtener(name);
@@ -27,6 +22,11 @@ namespace BLL
             BitacoraManager.AgregarMensajeControl("Nuevo Comprador", obj);
 
             return obj.Id;
+        }
+
+        public static bool PromoverASocio(CompradorEe cliente)
+        {
+            return Dao.PromoverASocio(cliente.Id);
         }
     }
 }

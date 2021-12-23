@@ -24,6 +24,11 @@ namespace BLL
             pedido.Id = Dal.Crear(pedido);
             Dal.CrearDetalle(pedido, productos);
 
+            foreach (var producto in productos)
+            {
+                Dal.ReducirStockDeposito(Sesion.ObtenerSesion().Deposito, producto);
+            }
+
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Pedido creado: ", pedido);
@@ -31,24 +36,9 @@ namespace BLL
             return pedido.Id;
         }
 
-        public static PedidoProveedorEe Obtener(int id)
-        {
-            return Dal.Obtener(id);
-        }
-
-        public static IEnumerable<PedidoProveedorEe> Obtener()
-        {
-            return Dal.Obtener();
-        }
-
         public static List<PedidoProveedorDetalleEe> ObtenerDetalle(PedidoProveedorEe proveedor)
         {
             return Dal.ObtenerDetalle(proveedor.Id);
-        }
-
-        public static List<PedidoProveedorDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
-        {
-            return Dal.ObtenerDetallesAgrupados(proveedor);
         }
 
         public static List<PedidoProveedorEe> ObtenerIniciados()
@@ -64,7 +54,7 @@ namespace BLL
             {
                 if (Dal.ObtenerPorDeposito(Sesion.ObtenerSesion().Deposito).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
                 {
-                    Dal.ActualizarStockDeposito(Sesion.ObtenerSesion().Deposito, producto);
+                    Dal.AumentarStockDeposito(Sesion.ObtenerSesion().Deposito, producto);
                 }
                 else
                 {

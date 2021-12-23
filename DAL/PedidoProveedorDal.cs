@@ -14,13 +14,19 @@ namespace DAL
         private readonly ProveedorDal _proveedorDal = new ProveedorDal();
         private readonly UsuarioDal _usuarioDal = new UsuarioDal();
 
-        public void Actualizar(ProductoEe sucu)
-        {
-        }
-
-        public bool ActualizarStockDeposito(DepositoEe deposito, PedidoProveedorDetalleEe producto)
+        public bool AumentarStockDeposito(DepositoEe deposito, PedidoProveedorDetalleEe producto)
         {
             var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = stock + @stock WHERE idDeposito = @idDeposito AND idProducto = @idProducto", Conn);
+            query.Parameters.AddWithValue("@idDeposito", deposito.Id);
+            query.Parameters.AddWithValue("@idProducto", producto.Id);
+            query.Parameters.AddWithValue("@stock", producto.Cantidad);
+
+            return ExecuteQuery(query);
+        }
+
+        public bool ReducirStockDeposito(DepositoEe deposito, ProductoEe producto)
+        {
+            var query = new SqlCommand("UPDATE [dbo].[deposito_producto] SET [stock] = stock - @stock WHERE idDeposito = @idDeposito AND idProducto = @idProducto", Conn);
             query.Parameters.AddWithValue("@idDeposito", deposito.Id);
             query.Parameters.AddWithValue("@idProducto", producto.Id);
             query.Parameters.AddWithValue("@stock", producto.Cantidad);
@@ -67,15 +73,6 @@ namespace DAL
                 valores.Add(value);
             }
             return Insert("pedido_proveedor_detalle", columnas.ToArray(), valores);
-        }
-
-        public bool MarcarVentaComoPerdida(PedidoProveedorEe venta)
-        {
-            var query = new SqlCommand("UPDATE venta SET idEstado = @idEstado WHERE id = @id", Conn);
-            query.Parameters.AddWithValue("@id", venta.Id);
-            query.Parameters.AddWithValue("@idEstado", 3);
-
-            return ExecuteQuery(query);
         }
 
         public PedidoProveedorEe Obtener(int id)
@@ -290,11 +287,6 @@ namespace DAL
                 ErrorManagerDal.AgregarMensaje(e.ToString());
                 return null;
             }
-        }
-
-        public void RegistrarEntrada(List<PedidoProveedorDetalleEe> productosSeleccionados)
-        {
-            throw new NotImplementedException();
         }
 
         private PedidoProveedorEe CastDto(SqlDataReader data)

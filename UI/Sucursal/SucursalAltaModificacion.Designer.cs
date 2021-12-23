@@ -46,7 +46,7 @@ namespace UI.Sucursal
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
@@ -79,7 +79,7 @@ namespace UI.Sucursal
             // 
             // lblTelefono
             // 
-            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTelefono.Location = new System.Drawing.Point(23, 151);
             this.lblTelefono.Name = "lblTelefono";
@@ -102,7 +102,7 @@ namespace UI.Sucursal
             // 
             // txtMail
             // 
-            this.txtMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
@@ -135,7 +135,7 @@ namespace UI.Sucursal
             // 
             // lblMail
             // 
-            this.lblMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMail.Location = new System.Drawing.Point(23, 122);
             this.lblMail.Name = "lblMail";
@@ -148,7 +148,7 @@ namespace UI.Sucursal
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
@@ -181,7 +181,7 @@ namespace UI.Sucursal
             // 
             // lblNombre
             // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.Location = new System.Drawing.Point(23, 63);
             this.lblNombre.Name = "lblNombre";
@@ -194,7 +194,7 @@ namespace UI.Sucursal
             // 
             // lblDireccion
             // 
-            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDireccion.Location = new System.Drawing.Point(23, 92);
             this.lblDireccion.Name = "lblDireccion";
@@ -207,7 +207,7 @@ namespace UI.Sucursal
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
@@ -240,7 +240,7 @@ namespace UI.Sucursal
             // 
             // txtCodigoPostal
             // 
-            this.txtCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
@@ -273,7 +273,7 @@ namespace UI.Sucursal
             // 
             // lblCodigoPostal
             // 
-            this.lblCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCodigoPostal.Location = new System.Drawing.Point(23, 179);
             this.lblCodigoPostal.Name = "lblCodigoPostal";
@@ -284,7 +284,7 @@ namespace UI.Sucursal
             this.lblCodigoPostal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCodigoPostal.WrapToLine = true;
             // 
-            // DepositoAltaModificacion
+            // SucursalAltaModificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,8 +300,8 @@ namespace UI.Sucursal
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txtDireccion);
-            this.Name = "DepositoAltaModificacion";
-            this.Text = "EmpleadoAltaModificacion";
+            this.Name = "SucursalAltaModificacion";
+            this.Text = "SucursalAltaModificacion";
             this.Load += new System.EventHandler(this.EmpleadoAltaModificacion_Load);
             this.ResumeLayout(false);
 

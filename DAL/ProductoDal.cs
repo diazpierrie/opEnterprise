@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 
 namespace DAL
 {
@@ -16,6 +15,7 @@ namespace DAL
             var query = new SqlCommand("UPDATE producto SET nombre = @nombre, codigo = @codigo, precio = @precio, costo = @costo " +
                                              "WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", sucu.Id);
+            query.Parameters.AddWithValue("@nombre", sucu.Nombre);
             query.Parameters.AddWithValue("@codigo", sucu.Codigo);
             query.Parameters.AddWithValue("@precio", sucu.Precio);
             query.Parameters.AddWithValue("@costo", sucu.Costo);
@@ -43,16 +43,16 @@ namespace DAL
 
         public bool Borrar(int id)
         {
-            var query = new SqlCommand("UPDATE Sucursal SET activo = 0 WHERE id = @id", Conn);
+            var query = new SqlCommand("DELETE FROM [dbo].[producto] WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", id);
 
             return ExecuteQuery(query);
         }
 
-        public int Crear(ProductoEe obj)
+        public int Crear(ProductoEe producto)
         {
             var columnas = new List<string> { "nombre", "codigo", "fechaCreacion", "precio", "costo", "activo" };
-            var valores = new List<string> { obj.Nombre, obj.Codigo, obj.FechaCreacion.ToString(CultureInfo.InvariantCulture), obj.Precio.ToString(CultureInfo.InvariantCulture), obj.Costo.ToString(CultureInfo.InvariantCulture), 1.ToString() };
+            var valores = new List<string> { producto.Nombre, producto.Codigo, DateTime.Now.ToString(), producto.Precio.ToString(), producto.Costo.ToString(), 1.ToString() };
 
             return Insert("producto", columnas.ToArray(), valores.ToArray());
         }
@@ -78,50 +78,6 @@ namespace DAL
                 }
 
                 Conn.Close();
-                return sucursal;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
-        public List<ProductoEe> Obtener(ProductoEe dep, int limit = 0)
-        {
-            try
-            {
-                var strQuery = "SELECT";
-
-                if (limit != 0)
-                {
-                    strQuery += $" TOP {limit}";
-                }
-
-                strQuery += " id, nombre, direccion, mail, codigoPostal, telefono FROM Sucursal " +
-                    $"WHERE id = {dep.Id}";
-
-                if (limit != 0)
-                {
-                    strQuery += " ORDER BY id DESC";
-                }
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var sucursal = new List<ProductoEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        sucursal.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-
                 return sucursal;
             }
             catch (Exception e)

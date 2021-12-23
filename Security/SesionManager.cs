@@ -41,10 +41,5 @@ namespace Security
             Sesion.ObtenerSesion().Usuario = null;
             return true;
         }
-
-        public static bool EstaLoggeado()
-        {
-            return Sesion.ObtenerSesion().Usuario != null;
-        }
     }
 }

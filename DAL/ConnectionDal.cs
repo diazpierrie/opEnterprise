@@ -241,19 +241,6 @@ namespace DAL
             }
         }
 
-        public bool ColumnExists(IDataReader reader, string columnName)
-        {
-            for (var i = 0; i < reader.FieldCount; i++)
-            {
-                if (reader.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public string GetTimestamp(DateTime value)
         {
             return value.ToString("yyyyMMdd");

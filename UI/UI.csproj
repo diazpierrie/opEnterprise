@@ -68,6 +68,18 @@
     <Compile Include="Deposito\DepositoElegirProductos.Designer.cs">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\ProductoAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\ProductoAltaModificacion.Designer.cs">
+      <DependentUpon>ProductoAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\ProductoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\ProductoHome.Designer.cs">
+      <DependentUpon>ProductoHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proveedor\ProveedorVerPenalizaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +465,12 @@
     <EmbeddedResource Include="Deposito\DepositoElegirProductos.resx">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Producto\ProductoAltaModificacion.resx">
+      <DependentUpon>ProductoAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\ProductoHome.resx">
+      <DependentUpon>ProductoHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\ProveedorVerPenalizaciones.resx">
       <DependentUpon>ProveedorVerPenalizaciones.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -696,5 +714,6 @@
   <ItemGroup>
     <None Include="Resources\imgLogout.BackgroundImage.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

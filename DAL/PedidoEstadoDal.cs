@@ -67,11 +67,6 @@ namespace DAL
             }
         }
 
-        public PedidoEstadoEe ObtenerAgrupados(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         private static PedidoEstadoEe CastDto(SqlDataReader data)
         {
             return new PedidoEstadoEe

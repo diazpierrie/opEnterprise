@@ -89,55 +89,6 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        public bool Borrar(int id)
-        {
-            return DeleteByid("comprador", id);
-        }
-
-        public List<CompradorEe> Obtener(CompradorEe us, int limit = 0)
-        {
-            try
-            {
-                var strQuery = "SELECT";
-
-                if (limit != 0)
-                {
-                    strQuery += $" TOP {limit}";
-                }
-
-                strQuery += " * FROM comprador " +
-                    $"WHERE id = {us.Id}";
-
-                if (limit != 0)
-                {
-                    strQuery += " ORDER BY id DESC";
-                }
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var compradors = new List<CompradorEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        compradors.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-
-                return compradors;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
 
         private static CompradorEe CastDto(SqlDataReader data)
         {

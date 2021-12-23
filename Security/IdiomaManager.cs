@@ -47,11 +47,6 @@ namespace Security
             return Dao.ObtenerCompletos();
         }
 
-        public static List<IdiomaEe> Obtener(int id)
-        {
-            return Dao.Obtener(id);
-        }
-
         public static void CargarDefault()
         {
             Sesion.ObtenerSesion().Idioma = Dao.CargarDefault();

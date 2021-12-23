@@ -74,7 +74,7 @@ namespace BLL
                 switch (producto.Edificio.GetType().Name)
                 {
                     case "SucursalEe":
-                        Dal.ActualizarStockSucursal(producto);
+                        Dal.ReducirStockSucursal(producto);
                         if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
                         {
                             EnvioBll.CrearDetalleDeSucursal(new EnvioDetalleEe
@@ -89,7 +89,7 @@ namespace BLL
                         break;
 
                     case "DepositoEe":
-                        Dal.ActualizarStockDeposito(producto);
+                        Dal.ReducirStockDeposito(producto);
                         if (edificios.Count != 0 && cbDireccionesSelectedItem != null)
                         {
                             EnvioBll.CrearDetalleDeDeposito(new EnvioDetalleEe()
@@ -110,7 +110,7 @@ namespace BLL
                 foreach (var productoLocal in productosRetiroEnLocal)
                 {
                     Dal.CrearDetalle(venta, productoLocal);
-                    Dal.ActualizarStockSucursal(productoLocal);
+                    Dal.ReducirStockSucursal(productoLocal);
                 }
             }
 
@@ -124,11 +124,6 @@ namespace BLL
         public static VentaEe Obtener(int id)
         {
             return Dal.Obtener(id);
-        }
-
-        public static List<VentaEe> Obtener()
-        {
-            return Dal.Obtener();
         }
 
         public static List<VentaEe> Obtener(SucursalEe sucursal)
@@ -167,7 +162,6 @@ namespace BLL
             var devoluciones = Dal.ObtenerDevolucionesAgrupadas(venta.Id);
             var perdidas = Dal.ObtenerPerdidasAgrupadas(venta.Id);
 
-
             foreach (var detalle in detalles)
             {
                 detalle.Venta = Obtener(detalle.Id);
@@ -190,16 +184,6 @@ namespace BLL
         public static List<VentaEe> ObtenerPendienteDePago(SucursalEe sucursal)
         {
             return Dal.ObtenerPendienteDePago(sucursal);
-        }
-
-        public static List<VentaEe> ObtenerVentasDeCliente(CompradorEe comprador)
-        {
-            return Dal.Obtener(comprador);
-        }
-
-        public static List<VentaEe> ObtenerVentasDeUsuario(UsuarioEe user)
-        {
-            return Dal.Obtener(user);
         }
 
         public static int RegistrarDevolucion(VentaEe venta, List<VentaDetalleEe> productos)
@@ -263,7 +247,7 @@ namespace BLL
                     }
                 }
             }
-            
+
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Perdida registrada: ", venta);

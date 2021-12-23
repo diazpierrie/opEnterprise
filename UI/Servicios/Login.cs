@@ -39,10 +39,14 @@ namespace UI
             }
             var sesion = Sesion.ObtenerSesion();
 
+            if (!sesion.Usuario.Activo)
+            {
+                MetroMessageBox.Show(this, sesion.Idioma.Textos["inactive_user"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
-
-            Dv.ActualizarDv();
-
+            
             if (!Dv.VerificarDv())
             {
                 if (PermisosManager.VerificarPatente(sesion.Usuario, "DigitoVerificador"))

@@ -15,7 +15,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT password FROM usuario WHERE nombreUsuario = @username AND activo = 1", Conn);
+                var query = new SqlCommand("SELECT password FROM usuario WHERE nombreUsuario = @username", Conn);
                 query.Parameters.AddWithValue("@username", username);
 
                 UsuarioEe user = null;
@@ -101,7 +101,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto FROM usuario WHERE nombreUsuario = @username AND activo = 1", Conn);
+                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto FROM usuario WHERE nombreUsuario = @username", Conn);
                 query.Parameters.AddWithValue("@username", username);
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -344,20 +344,14 @@ namespace DAL
                 Mail = data["mail"].ToString(),
                 Dni = int.Parse(data["dni"].ToString()),
                 Telefono = data["telefono"].ToString(),
+
                 Permiso = DalFamilia.Obtener(int.Parse(data["idFamilia"].ToString())),
                 Puesto = DalPuesto.Obtener(new UsuarioEe { Id = int.Parse(data["id"].ToString()) }),
             };
 
+            result.Activo = Convert.ToBoolean(data["activo"].ToString());
+
             return result;
-        }
-
-        public bool AgregarPuesto(UsuarioEe us)
-        {
-            var query = new SqlCommand("UPDATE usuario SET idPuesto = @puestoid WHERE id = @id", Conn);
-            query.Parameters.AddWithValue("@puestoid", us.Puesto.Id);
-            query.Parameters.AddWithValue("@id", us.Id);
-
-            return ExecuteQuery(query);
         }
     }
 }

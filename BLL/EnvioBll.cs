@@ -55,10 +55,6 @@ namespace BLL
 
             return envio.Id;
         }
-        public static List<EnvioEe> ObtenerDeDeposito()
-        {
-            return Dal.ObtenerDeDeposito();
-        }
 
         public static List<EnvioEe> ObtenerDeDeposito(int id)
         {
@@ -85,19 +81,6 @@ namespace BLL
                 envio.Venta = VentaBll.Obtener(envio.Venta.Id);
                 envio.Direccion = DireccionBll.Obtener(envio.Direccion.Id);
                 envio.Estado = ObtenerEstado(envio.Estado.Id);
-            }
-
-            return envios;
-        }
-
-        public static List<EnvioDetalleEe> ObtenerDetalleDeDeposito(int id)
-        {
-            var envios = Dal.ObtenerDetalleDeDeposito(id);
-
-            foreach (var envio in envios)
-            {
-                envio.Edificio = DepositoBll.Obtener(envio.Edificio.Id);
-                envio.VentaDetalle = VentaBll.ObtenerDetalle(envio.VentaDetalle);
             }
 
             return envios;

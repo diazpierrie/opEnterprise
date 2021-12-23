@@ -13,63 +13,63 @@ namespace UI.Sucursal
             InitializeComponent();
         }
 
-        private void btnCrearDeposito_Click(object sender, EventArgs e)
+        private void btnCrearSucursal_Click(object sender, EventArgs e)
         {
             var sucursalAltaModificacion = new SucursalAltaModificacion(this);
             sucursalAltaModificacion.Show();
         }
 
-        private void btnModificarDeposito_Click(object sender, EventArgs e)
+        private void btnModificarSucursal_Click(object sender, EventArgs e)
         {
-            if (gridDeposito.SelectedRows.Count == 0)
+            if (gridSucursal.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
+            var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
             var sucursal = SucursalBll.Obtener(selectedItem);
             var provAm = new SucursalAltaModificacion(this, sucursal);
             provAm.Show();
         }
 
-        private void btnBorrarDeposito_Click(object sender, EventArgs e)
+        private void btnBorrarSucursal_Click(object sender, EventArgs e)
         {
-            if (gridDeposito.SelectedRows.Count == 0)
+            if (gridSucursal.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
+            var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
             var sucursal = SucursalBll.Obtener(selectedItem);
             SucursalBll.Eliminar(sucursal);
             ActualizarGrid();
         }
 
-        private void DepositoHome_Load(object sender, EventArgs e)
+        private void SucursalHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
         }
 
         public void ActualizarGrid()
         {
-            gridDeposito.DataSource = DepositoBll.ObtenerActivos();
-            gridDeposito.Columns["id"].Visible = false;
+            gridSucursal.DataSource = SucursalBll.ObtenerActivos();
+            gridSucursal.Columns["id"].Visible = false;
 
-            gridDeposito.Columns["nombre"].DisplayIndex = 0;
-            gridDeposito.Columns["direccion"].DisplayIndex = 1;
-            gridDeposito.Columns["mail"].DisplayIndex = 2;
-            gridDeposito.Columns["codigoPostal"].DisplayIndex = 3;
-            gridDeposito.Columns["telefono"].DisplayIndex = 4;
+            gridSucursal.Columns["nombre"].DisplayIndex = 0;
+            gridSucursal.Columns["direccion"].DisplayIndex = 1;
+            gridSucursal.Columns["mail"].DisplayIndex = 2;
+            gridSucursal.Columns["codigoPostal"].DisplayIndex = 3;
+            gridSucursal.Columns["telefono"].DisplayIndex = 4;
         }
 
-        private void gridDeposito_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void gridSucursal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (gridDeposito.SelectedRows.Count == 0)
+            if (gridSucursal.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
+            var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
             var sucursal = SucursalBll.Obtener(selectedItem);
             var provAm = new SucursalAltaModificacion(this, sucursal);
             provAm.Show();

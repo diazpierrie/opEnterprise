@@ -12,32 +12,32 @@ namespace BLL
         public static void Actualizar(ProductoEe producto)
         {
             Dal.Actualizar(producto);
-            BitacoraManager.AgregarMensajeControl("Sucursal actualizado: ", producto);
+            BitacoraManager.AgregarMensajeControl("Producto actualizado: ", producto);
 
             Dv.ActualizarDv();
         }
 
-        public static int Crear(SucursalEe sucursal)
+        public static int Crear(ProductoEe sucursal)
         {
-            //if (_dal.ObtenerSucursalPorCalle(sucursal.Nombre) != null)
-            //{
-            //    return 0;
-            //}
+            if (Dal.Obtener(sucursal.Id) != null)
+            {
+                return 0;
+            }
 
-            //sucursal.Id = _dal.Crear(sucursal);
-            //Dv.ActualizarDv();
+            sucursal.Id = Dal.Crear(sucursal);
+            Dv.ActualizarDv();
 
-            //BitacoraManager.AgregarMensajeControl("Sucursal creado: ", sucursal);
+            BitacoraManager.AgregarMensajeControl("Producto creado: ", sucursal);
 
             return sucursal.Id;
         }
 
-        public static void Eliminar(SucursalEe sucursal)
+        public static void Eliminar(ProductoEe producto)
         {
-            Dal.Borrar(sucursal.Id);
+            Dal.Borrar(producto.Id);
             Dv.ActualizarDv();
 
-            BitacoraManager.AgregarMensajeControl("Sucursal Eliminado ", sucursal);
+            BitacoraManager.AgregarMensajeControl("Producto Eliminado ", producto);
         }
         public static ProductoEe Obtener(int id)
         {

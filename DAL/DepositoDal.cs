@@ -221,50 +221,6 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        public List<DepositoEe> Obtener(DepositoEe dep, int limit = 0)
-        {
-            try
-            {
-                var strQuery = "SELECT";
-
-                if (limit != 0)
-                {
-                    strQuery += $" TOP {limit}";
-                }
-
-                strQuery += " id, nombre, direccion, mail, codigoPostal, telefono FROM deposito " +
-                    $"WHERE id = {dep.Id}";
-
-                if (limit != 0)
-                {
-                    strQuery += " ORDER BY id DESC";
-                }
-
-                var query = new SqlCommand(strQuery, Conn);
-
-                Conn.Open();
-                var data = query.ExecuteReader();
-                var deposito = new List<DepositoEe>();
-
-                if (data.HasRows)
-                {
-                    while (data.Read())
-                    {
-                        deposito.Add(CastDto(data));
-                    }
-                }
-
-                Conn.Close();
-
-                return deposito;
-            }
-            catch (Exception e)
-            {
-                ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
-            }
-        }
-
         public DepositoEe CastDto(SqlDataReader data)
         {
             return new DepositoEe
