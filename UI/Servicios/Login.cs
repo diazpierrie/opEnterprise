@@ -25,15 +25,8 @@ namespace UI
             AllControls.Add(lbUsuario);
             AllControls.Add(lbPassword);
             AllControls.Add(lbIdioma);
-
-            txtUsuario.Text = "admin";
-            txtPassword.Text = "admin";
-
-
+            
             CargarIdiomas();
-
-            btnIniciarSesion_Click(null, null);
-
         }
 
 
@@ -41,14 +34,14 @@ namespace UI
         {
             if (!SesionManager.IniciarSesion(txtUsuario.Text, txtPassword.Text))
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["login_failed"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["login_failed"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             var sesion = Sesion.ObtenerSesion();
 
-            //MetroFramework.MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"]);
+            MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
 
-            //Dv.ActualizarDv();
+            Dv.ActualizarDv();
 
             if (!Dv.VerificarDv())
             {
@@ -88,7 +81,7 @@ namespace UI
             Hide();
             var h1 = new Home();
 
-            switch (sesion.Usuario.Puesto.Id)
+            switch (sesion.Usuario.Permiso.Id)
             {
                 case 1: //Deposito
                     {
@@ -106,14 +99,14 @@ namespace UI
                                 }
                                 else
                                 {
-                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"]);
+                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
 
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
+                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     }
@@ -133,14 +126,14 @@ namespace UI
                                 }
                                 else
                                 {
-                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"]);
+                                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
 
                         }
                         else
                         {
-                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"]);
+                            MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_building"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     }

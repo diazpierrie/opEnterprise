@@ -7,11 +7,11 @@ namespace BLL
 {
     public class ProveedorBll
     {
-        private static ProveedorDal _dal = new ProveedorDal();
+        private static readonly ProveedorDal Dal = new ProveedorDal();
 
         public static void Actualizar(ProveedorEe proveedor)
         {
-            _dal.Actualizar(proveedor);
+            Dal.Actualizar(proveedor);
 
             BitacoraManager.AgregarMensajeControl("Proveedor actualizado: ", proveedor);
 
@@ -20,7 +20,7 @@ namespace BLL
 
         public static int Crear(ProveedorEe proveedor)
         {
-            proveedor.Id = _dal.Crear(proveedor);
+            proveedor.Id = Dal.Crear(proveedor);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Proveedor creado: ", proveedor);
@@ -30,7 +30,7 @@ namespace BLL
 
         public static void Eliminar(ProveedorEe proveedor)
         {
-            _dal.Eliminar(proveedor.Id);
+            Dal.Eliminar(proveedor.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Proveedor eliminado ", proveedor);
@@ -38,32 +38,32 @@ namespace BLL
 
         public static List<ProveedorEe> Obtener(string name = null)
         {
-            return _dal.Obtener(name);
+            return Dal.Obtener(name);
         }
 
         public static ProveedorEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
 
         public static List<PenalizacionMotivoEe> ObtenerMotivosPenalizacion()
         {
-            return _dal.ObtenerMotivosPenalizacion();
+            return Dal.ObtenerMotivosPenalizacion();
         }
 
         public static List<PenalizacionProveedorEe> ObtenerPenalizaciones(ProveedorEe selectedProveedor)
         {
-            return _dal.ObtenerPenalizaciones(selectedProveedor);
+            return Dal.ObtenerPenalizaciones(selectedProveedor);
         }
 
         public static int Penalizar(ProveedorEe proveedor, int idMotivo)
         {
-            return _dal.Penalizar(proveedor, idMotivo);
+            return Dal.Penalizar(proveedor, idMotivo);
         }
 
         public static bool Restaurar(ProveedorEe proveedorAntes, ProveedorEe proveedorDespues)
         {
-            return _dal.Restaurar(proveedorAntes.Id, proveedorDespues);
+            return Dal.Restaurar(proveedorAntes.Id, proveedorDespues);
         }
     }
 }

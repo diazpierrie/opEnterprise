@@ -33,18 +33,24 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.tcHome = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnFamilia = new MetroFramework.Controls.MetroButton();
+            this.btnPuesto = new MetroFramework.Controls.MetroButton();
+            this.btnSucursal = new MetroFramework.Controls.MetroButton();
+            this.btnDeposito = new MetroFramework.Controls.MetroButton();
             this.btnEmpleado = new MetroFramework.Controls.MetroButton();
             this.btnProveedor = new MetroFramework.Controls.MetroButton();
             this.gbConfiguracion = new System.Windows.Forms.GroupBox();
+            this.btnExportReport = new MetroFramework.Controls.MetroButton();
             this.btnIdioma = new MetroFramework.Controls.MetroButton();
             this.btnBackUp = new MetroFramework.Controls.MetroButton();
             this.btnRestaurarDv = new MetroFramework.Controls.MetroButton();
             this.btnBitacora = new MetroFramework.Controls.MetroButton();
             this.btnConfigurarEdificio = new MetroFramework.Controls.MetroButton();
-            this.tabVenta = new MetroFramework.Controls.MetroTabPage();
+            this.tabSucursal = new MetroFramework.Controls.MetroTabPage();
             this.btnCancelarVentaVenta = new MetroFramework.Controls.MetroButton();
             this.btnCrearQueja = new MetroFramework.Controls.MetroButton();
             this.btnBuscarVenta = new MetroFramework.Controls.MetroButton();
@@ -58,34 +64,37 @@ namespace UI
             this.btnBuscarVentaCaja = new MetroFramework.Controls.MetroButton();
             this.btnCancelarVentaCaja = new MetroFramework.Controls.MetroButton();
             this.btnRecibirPago = new MetroFramework.Controls.MetroButton();
-            this.tabEnvio = new MetroFramework.Controls.MetroTabPage();
+            this.tabEnviosRecepciones = new MetroFramework.Controls.MetroTabPage();
             this.btnRecepcionarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnRealizarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
             this.cbIdiomas = new MetroFramework.Controls.MetroComboBox();
             this.lblIdioma = new System.Windows.Forms.Label();
+            this.btnAyuda = new MetroFramework.Controls.MetroButton();
+            this.pbLogout = new System.Windows.Forms.PictureBox();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbConfiguracion.SuspendLayout();
-            this.tabVenta.SuspendLayout();
+            this.tabSucursal.SuspendLayout();
             this.tabDeposito.SuspendLayout();
             this.tabCaja.SuspendLayout();
-            this.tabEnvio.SuspendLayout();
+            this.tabEnviosRecepciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             this.SuspendLayout();
             // 
             // tcHome
             // 
             this.tcHome.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tcHome.Controls.Add(this.tabAdmin);
-            this.tcHome.Controls.Add(this.tabVenta);
+            this.tcHome.Controls.Add(this.tabSucursal);
             this.tcHome.Controls.Add(this.tabDeposito);
             this.tcHome.Controls.Add(this.tabCaja);
-            this.tcHome.Controls.Add(this.tabEnvio);
+            this.tcHome.Controls.Add(this.tabEnviosRecepciones);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 1;
+            this.tcHome.SelectedIndex = 0;
             this.tcHome.Size = new System.Drawing.Size(776, 346);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
@@ -101,6 +110,7 @@ namespace UI
             this.tabAdmin.Name = "tabAdmin";
             this.tabAdmin.Size = new System.Drawing.Size(768, 301);
             this.tabAdmin.TabIndex = 0;
+            this.tabAdmin.Tag = "admin";
             this.tabAdmin.Text = "Admin";
             this.tabAdmin.VerticalScrollbarBarColor = true;
             this.tabAdmin.VerticalScrollbarHighlightOnWheel = false;
@@ -108,6 +118,10 @@ namespace UI
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnFamilia);
+            this.groupBox1.Controls.Add(this.btnPuesto);
+            this.groupBox1.Controls.Add(this.btnSucursal);
+            this.groupBox1.Controls.Add(this.btnDeposito);
             this.groupBox1.Controls.Add(this.btnEmpleado);
             this.groupBox1.Controls.Add(this.btnProveedor);
             this.groupBox1.Location = new System.Drawing.Point(398, 15);
@@ -116,6 +130,50 @@ namespace UI
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion";
+            // 
+            // btnFamilia
+            // 
+            this.btnFamilia.Location = new System.Drawing.Point(148, 48);
+            this.btnFamilia.Name = "btnFamilia";
+            this.btnFamilia.Size = new System.Drawing.Size(136, 23);
+            this.btnFamilia.TabIndex = 8;
+            this.btnFamilia.Tag = "family";
+            this.btnFamilia.Text = "Familia";
+            this.btnFamilia.UseSelectable = true;
+            this.btnFamilia.Click += new System.EventHandler(this.btnFamilia_Click);
+            // 
+            // btnPuesto
+            // 
+            this.btnPuesto.Location = new System.Drawing.Point(148, 19);
+            this.btnPuesto.Name = "btnPuesto";
+            this.btnPuesto.Size = new System.Drawing.Size(136, 23);
+            this.btnPuesto.TabIndex = 7;
+            this.btnPuesto.Tag = "job";
+            this.btnPuesto.Text = "Puesto";
+            this.btnPuesto.UseSelectable = true;
+            this.btnPuesto.Click += new System.EventHandler(this.btnPuesto_Click);
+            // 
+            // btnSucursal
+            // 
+            this.btnSucursal.Location = new System.Drawing.Point(6, 106);
+            this.btnSucursal.Name = "btnSucursal";
+            this.btnSucursal.Size = new System.Drawing.Size(136, 23);
+            this.btnSucursal.TabIndex = 6;
+            this.btnSucursal.Tag = "branch";
+            this.btnSucursal.Text = "Sucursal";
+            this.btnSucursal.UseSelectable = true;
+            this.btnSucursal.Click += new System.EventHandler(this.btnSucursal_Click);
+            // 
+            // btnDeposito
+            // 
+            this.btnDeposito.Location = new System.Drawing.Point(6, 77);
+            this.btnDeposito.Name = "btnDeposito";
+            this.btnDeposito.Size = new System.Drawing.Size(136, 23);
+            this.btnDeposito.TabIndex = 5;
+            this.btnDeposito.Tag = "deposit";
+            this.btnDeposito.Text = "Deposito";
+            this.btnDeposito.UseSelectable = true;
+            this.btnDeposito.Click += new System.EventHandler(this.btnDeposito_Click);
             // 
             // btnEmpleado
             // 
@@ -141,6 +199,7 @@ namespace UI
             // 
             // gbConfiguracion
             // 
+            this.gbConfiguracion.Controls.Add(this.btnExportReport);
             this.gbConfiguracion.Controls.Add(this.btnIdioma);
             this.gbConfiguracion.Controls.Add(this.btnBackUp);
             this.gbConfiguracion.Controls.Add(this.btnRestaurarDv);
@@ -152,6 +211,17 @@ namespace UI
             this.gbConfiguracion.TabIndex = 4;
             this.gbConfiguracion.TabStop = false;
             this.gbConfiguracion.Text = "Configuracion";
+            // 
+            // btnExportReport
+            // 
+            this.btnExportReport.Location = new System.Drawing.Point(11, 164);
+            this.btnExportReport.Name = "btnExportReport";
+            this.btnExportReport.Size = new System.Drawing.Size(136, 23);
+            this.btnExportReport.TabIndex = 9;
+            this.btnExportReport.Tag = "export_report";
+            this.btnExportReport.Text = "Exportar Reporte";
+            this.btnExportReport.UseSelectable = true;
+            this.btnExportReport.Click += new System.EventHandler(this.btnExportReport_Click);
             // 
             // btnIdioma
             // 
@@ -207,23 +277,24 @@ namespace UI
             this.btnConfigurarEdificio.UseSelectable = true;
             this.btnConfigurarEdificio.Click += new System.EventHandler(this.btnConfigurarEdificio_Click);
             // 
-            // tabVenta
+            // tabSucursal
             // 
-            this.tabVenta.Controls.Add(this.btnCancelarVentaVenta);
-            this.tabVenta.Controls.Add(this.btnCrearQueja);
-            this.tabVenta.Controls.Add(this.btnBuscarVenta);
-            this.tabVenta.Controls.Add(this.btnRealizarVenta);
-            this.tabVenta.HorizontalScrollbarBarColor = true;
-            this.tabVenta.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabVenta.HorizontalScrollbarSize = 10;
-            this.tabVenta.Location = new System.Drawing.Point(4, 41);
-            this.tabVenta.Name = "tabVenta";
-            this.tabVenta.Size = new System.Drawing.Size(768, 301);
-            this.tabVenta.TabIndex = 1;
-            this.tabVenta.Text = "Ventas";
-            this.tabVenta.VerticalScrollbarBarColor = true;
-            this.tabVenta.VerticalScrollbarHighlightOnWheel = false;
-            this.tabVenta.VerticalScrollbarSize = 10;
+            this.tabSucursal.Controls.Add(this.btnCancelarVentaVenta);
+            this.tabSucursal.Controls.Add(this.btnCrearQueja);
+            this.tabSucursal.Controls.Add(this.btnBuscarVenta);
+            this.tabSucursal.Controls.Add(this.btnRealizarVenta);
+            this.tabSucursal.HorizontalScrollbarBarColor = true;
+            this.tabSucursal.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabSucursal.HorizontalScrollbarSize = 10;
+            this.tabSucursal.Location = new System.Drawing.Point(4, 41);
+            this.tabSucursal.Name = "tabSucursal";
+            this.tabSucursal.Size = new System.Drawing.Size(768, 301);
+            this.tabSucursal.TabIndex = 1;
+            this.tabSucursal.Tag = "branch";
+            this.tabSucursal.Text = "Sucursal";
+            this.tabSucursal.VerticalScrollbarBarColor = true;
+            this.tabSucursal.VerticalScrollbarHighlightOnWheel = false;
+            this.tabSucursal.VerticalScrollbarSize = 10;
             // 
             // btnCancelarVentaVenta
             // 
@@ -282,6 +353,7 @@ namespace UI
             this.tabDeposito.Name = "tabDeposito";
             this.tabDeposito.Size = new System.Drawing.Size(768, 301);
             this.tabDeposito.TabIndex = 2;
+            this.tabDeposito.Tag = "deposit";
             this.tabDeposito.Text = "Deposito";
             this.tabDeposito.VerticalScrollbarBarColor = true;
             this.tabDeposito.VerticalScrollbarHighlightOnWheel = false;
@@ -343,6 +415,7 @@ namespace UI
             this.tabCaja.Name = "tabCaja";
             this.tabCaja.Size = new System.Drawing.Size(768, 301);
             this.tabCaja.TabIndex = 3;
+            this.tabCaja.Tag = "cashier";
             this.tabCaja.Text = "Caja";
             this.tabCaja.VerticalScrollbarBarColor = true;
             this.tabCaja.VerticalScrollbarHighlightOnWheel = false;
@@ -381,23 +454,24 @@ namespace UI
             this.btnRecibirPago.UseSelectable = true;
             this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
             // 
-            // tabEnvio
+            // tabEnviosRecepciones
             // 
-            this.tabEnvio.Controls.Add(this.btnRecepcionarPedidoDeposito);
-            this.tabEnvio.Controls.Add(this.btnRealizarPedidoDeposito);
-            this.tabEnvio.Controls.Add(this.btnDespacharEnvio);
-            this.tabEnvio.Controls.Add(this.btnVerEnvios);
-            this.tabEnvio.HorizontalScrollbarBarColor = true;
-            this.tabEnvio.HorizontalScrollbarHighlightOnWheel = false;
-            this.tabEnvio.HorizontalScrollbarSize = 10;
-            this.tabEnvio.Location = new System.Drawing.Point(4, 41);
-            this.tabEnvio.Name = "tabEnvio";
-            this.tabEnvio.Size = new System.Drawing.Size(768, 301);
-            this.tabEnvio.TabIndex = 4;
-            this.tabEnvio.Text = "Envios y Recepciones";
-            this.tabEnvio.VerticalScrollbarBarColor = true;
-            this.tabEnvio.VerticalScrollbarHighlightOnWheel = false;
-            this.tabEnvio.VerticalScrollbarSize = 10;
+            this.tabEnviosRecepciones.Controls.Add(this.btnRecepcionarPedidoDeposito);
+            this.tabEnviosRecepciones.Controls.Add(this.btnRealizarPedidoDeposito);
+            this.tabEnviosRecepciones.Controls.Add(this.btnDespacharEnvio);
+            this.tabEnviosRecepciones.Controls.Add(this.btnVerEnvios);
+            this.tabEnviosRecepciones.HorizontalScrollbarBarColor = true;
+            this.tabEnviosRecepciones.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabEnviosRecepciones.HorizontalScrollbarSize = 10;
+            this.tabEnviosRecepciones.Location = new System.Drawing.Point(4, 41);
+            this.tabEnviosRecepciones.Name = "tabEnviosRecepciones";
+            this.tabEnviosRecepciones.Size = new System.Drawing.Size(768, 301);
+            this.tabEnviosRecepciones.TabIndex = 4;
+            this.tabEnviosRecepciones.Tag = "delivery_receptions";
+            this.tabEnviosRecepciones.Text = "Envios y Recepciones";
+            this.tabEnviosRecepciones.VerticalScrollbarBarColor = true;
+            this.tabEnviosRecepciones.VerticalScrollbarHighlightOnWheel = false;
+            this.tabEnviosRecepciones.VerticalScrollbarSize = 10;
             // 
             // btnRecepcionarPedidoDeposito
             // 
@@ -447,7 +521,7 @@ namespace UI
             // 
             this.cbIdiomas.FormattingEnabled = true;
             this.cbIdiomas.ItemHeight = 23;
-            this.cbIdiomas.Location = new System.Drawing.Point(101, 406);
+            this.cbIdiomas.Location = new System.Drawing.Point(110, 406);
             this.cbIdiomas.Name = "cbIdiomas";
             this.cbIdiomas.Size = new System.Drawing.Size(223, 29);
             this.cbIdiomas.TabIndex = 4;
@@ -456,22 +530,52 @@ namespace UI
             // 
             // lblIdioma
             // 
-            this.lblIdioma.AutoSize = true;
-            this.lblIdioma.Location = new System.Drawing.Point(13, 414);
+            this.lblIdioma.Location = new System.Drawing.Point(-1, 406);
             this.lblIdioma.Name = "lblIdioma";
-            this.lblIdioma.Size = new System.Drawing.Size(38, 13);
+            this.lblIdioma.Size = new System.Drawing.Size(105, 29);
             this.lblIdioma.TabIndex = 5;
             this.lblIdioma.Tag = "language";
             this.lblIdioma.Text = "Idioma";
+            this.lblIdioma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Location = new System.Drawing.Point(641, 406);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(136, 23);
+            this.btnAyuda.TabIndex = 9;
+            this.btnAyuda.Tag = "help";
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseSelectable = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // pbLogout
+            // 
+            this.pbLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLogout.BackgroundImage")));
+            this.pbLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLogout.InitialImage = null;
+            this.pbLogout.Location = new System.Drawing.Point(718, 23);
+            this.pbLogout.Name = "pbLogout";
+            this.pbLogout.Size = new System.Drawing.Size(25, 25);
+            this.pbLogout.TabIndex = 10;
+            this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.pbLogout);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.lblIdioma);
             this.Controls.Add(this.cbIdiomas);
             this.Controls.Add(this.tcHome);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
@@ -479,23 +583,23 @@ namespace UI
             this.tabAdmin.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.gbConfiguracion.ResumeLayout(false);
-            this.tabVenta.ResumeLayout(false);
+            this.tabSucursal.ResumeLayout(false);
             this.tabDeposito.ResumeLayout(false);
             this.tabCaja.ResumeLayout(false);
-            this.tabEnvio.ResumeLayout(false);
+            this.tabEnviosRecepciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
-        private MetroFramework.Controls.MetroTabPage tabEnvio;
+        private MetroFramework.Controls.MetroTabPage tabEnviosRecepciones;
         private MetroFramework.Controls.MetroButton btnVerEnvios;
         private MetroFramework.Controls.MetroButton btnDespacharEnvio;
 
         #endregion
         private MetroFramework.Controls.MetroTabControl tcHome;
         private MetroTabPage tabAdmin;
-        private MetroFramework.Controls.MetroTabPage tabVenta;
+        private MetroFramework.Controls.MetroTabPage tabSucursal;
         private MetroTabPage tabDeposito;
         private MetroButton btnRealizarVenta;
         private MetroButton btnConfigurarEdificio;
@@ -522,5 +626,12 @@ namespace UI
         private MetroButton btnRealizarPedidoDeposito;
         private MetroComboBox cbIdiomas;
         private Label lblIdioma;
+        private MetroButton btnSucursal;
+        private MetroButton btnDeposito;
+        private MetroButton btnFamilia;
+        private MetroButton btnPuesto;
+        private MetroButton btnExportReport;
+        private MetroButton btnAyuda;
+        private PictureBox pbLogout;
     }
 }

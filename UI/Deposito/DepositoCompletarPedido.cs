@@ -12,7 +12,7 @@ namespace UI
     {
         public readonly DepositoPedidoHome DepositoPedidoHome;
         private ProveedorEe _proveedor;
-        private double _total;
+        private readonly double _total;
         public DepositoCompletarPedido(DepositoPedidoHome depositoPedidoHome )
         {
             DepositoPedidoHome = depositoPedidoHome;

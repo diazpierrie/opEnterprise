@@ -7,11 +7,11 @@ namespace BLL
 {
     public class ProductoBll
     {
-        private static ProductoDal _dal = new ProductoDal();
+        private static readonly ProductoDal Dal = new ProductoDal();
 
         public static void Actualizar(ProductoEe producto)
         {
-            _dal.Actualizar(producto);
+            Dal.Actualizar(producto);
             BitacoraManager.AgregarMensajeControl("Sucursal actualizado: ", producto);
 
             Dv.ActualizarDv();
@@ -34,34 +34,34 @@ namespace BLL
 
         public static void Eliminar(SucursalEe sucursal)
         {
-            _dal.Borrar(sucursal.Id);
+            Dal.Borrar(sucursal.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Sucursal Eliminado ", sucursal);
         }
         public static ProductoEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
 
         public static List<ProductoEe> ObtenerActivos()
         {
-            return _dal.ObtenerActivos();
+            return Dal.ObtenerActivos();
         }
 
         public static List<ProductoEdificioEe> ObtenerDeposito(DepositoEe deposito)
         {
-            return _dal.ObtenerDeposito(deposito);
+            return Dal.ObtenerDeposito(deposito);
         }
 
         public static List<ProductoEe> ObtenerPorNombre(string name = null)
         {
-            return name == null ? null : _dal.ObtenerActivos(name);
+            return name == null ? null : Dal.ObtenerActivos(name);
         }
 
         public static List<ProductoEdificioEe> ObtenerPorSucursal(SucursalEe sucursal)
         {
-            return _dal.ObtenerPorSucursal(sucursal);
+            return Dal.ObtenerPorSucursal(sucursal);
         }
         //public static List<SucursalEe> ObtenerSucursalesDeUsuario(UsuarioEe user)
         //{
@@ -86,7 +86,7 @@ namespace BLL
         //}
         public static IList<ProductoEdificioEe> ObtenerTodosDeposito()
         {
-            return _dal.ObtenerTodosDeposito();
+            return Dal.ObtenerTodosDeposito();
         }
     }
 }

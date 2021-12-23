@@ -6,11 +6,11 @@ namespace Security
 {
     public static class BackUp
     {
-        private static BackupDal _dao = new BackupDal();
+        private static readonly BackupDal Dao = new BackupDal();
 
         public static bool RealizarBackUp(UsuarioEe usuarioLoggeado)
         {
-            if (!_dao.BackUp()) return false;
+            if (!Dao.BackUp()) return false;
 
             BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
             {
@@ -26,7 +26,7 @@ namespace Security
 
         public static bool RealizarRestore(string nombreArchivo, UsuarioEe usuarioLoggeado)
         {
-            if (!_dao.Restore(nombreArchivo)) return false;
+            if (!Dao.Restore(nombreArchivo)) return false;
 
             BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
             {

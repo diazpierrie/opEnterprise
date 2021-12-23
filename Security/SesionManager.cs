@@ -6,15 +6,15 @@ namespace Security
 {
     public static class SesionManager
     {
-        private static UsuarioDal _dao = new UsuarioDal();
+        private static readonly UsuarioDal Dao = new UsuarioDal();
 
         public static bool IniciarSesion(string nombreUsuario, string password)
         {
-            var user = _dao.Login(nombreUsuario, Encriptador.Encriptar(password));
+            var user = Dao.Login(nombreUsuario, Encriptador.Encriptar(password));
 
             if (user == null)
             {
-                var intentosFallidos = _dao.SumarIntentoFallido(nombreUsuario);
+                var intentosFallidos = Dao.SumarIntentoFallido(nombreUsuario);
 
                 if (intentosFallidos >= 5)
                 {
@@ -29,7 +29,7 @@ namespace Security
                 return false;
             }
 
-            _dao.ResetearIntentosFallidos(nombreUsuario);
+            Dao.ResetearIntentosFallidos(nombreUsuario);
             Sesion.ObtenerSesion().Usuario = user;
             return true;
         }

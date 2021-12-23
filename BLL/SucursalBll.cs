@@ -7,11 +7,11 @@ namespace BLL
 {
     public class SucursalBll
     {
-        private static SucursalDal _dal = new SucursalDal();
+        private static readonly SucursalDal Dal = new SucursalDal();
 
         public static void Actualizar(SucursalEe sucursal)
         {
-            _dal.Actualizar(sucursal);
+            Dal.Actualizar(sucursal);
             BitacoraManager.AgregarMensajeControl("Sucursal actualizado: ", sucursal);
 
             Dv.ActualizarDv();
@@ -19,7 +19,7 @@ namespace BLL
 
         public static void Eliminar(SucursalEe sucursal)
         {
-            _dal.Borrar(sucursal.Id);
+            Dal.Borrar(sucursal.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Sucursal Eliminado ", sucursal);
@@ -27,12 +27,12 @@ namespace BLL
 
         public static int Crear(SucursalEe sucursal)
         {
-            if (_dal.ObtenerSucursalPorNombre(sucursal.Nombre) != null)
+            if (Dal.ObtenerSucursalPorNombre(sucursal.Nombre) != null)
             {
                 return 0;
             }
 
-            sucursal.Id = _dal.Crear(sucursal);
+            sucursal.Id = Dal.Crear(sucursal);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Sucursal creado: ", sucursal);
@@ -42,24 +42,24 @@ namespace BLL
 
         public static List<SucursalEe> ObtenerActivos(string name = null)
         {
-            return _dal.ObtenerActivos(name);
+            return Dal.ObtenerActivos(name);
         }
 
         public static SucursalEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
 
         public static List<SucursalEe> ObtenerSucursalesDeUsuario(UsuarioEe user)
         {
-            return _dal.Obtener(user);
+            return Dal.Obtener(user);
         }
 
         public static int AsignarEmpleadoConSucursal(UsuarioEe user, SucursalEe depo)
         {
-            if (!_dal.ObtenerAsignacionEmpleadoConSucursal(user, depo))
+            if (!Dal.ObtenerAsignacionEmpleadoConSucursal(user, depo))
             {
-                return _dal.AsignarEmpleadoConSucursal(user, depo);
+                return Dal.AsignarEmpleadoConSucursal(user, depo);
             }
 
             return 0;
@@ -67,7 +67,7 @@ namespace BLL
 
         public static bool DesasignarEmpleadoConSucursal(UsuarioEe user, SucursalEe depo)
         {
-            return _dal.DesasignarEmpleadoConSucursal(user, depo);
+            return Dal.DesasignarEmpleadoConSucursal(user, depo);
         }
     }
 }

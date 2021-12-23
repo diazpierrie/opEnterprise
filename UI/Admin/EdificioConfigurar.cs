@@ -59,18 +59,18 @@ namespace UI
             Settings.Default["IdEdificio"] = edificioSeleccionado.Id;
             Settings.Default.Save();
 
-            if (ReferenceEquals(Settings.Default["TipoEdificio"], Sesion.ObtenerSesion().Idioma.Textos["deposit"]))
+            if (ReferenceEquals(Settings.Default["TipoEdificio"], _tipoEdificioStrings[0]))
             {
                 Sesion.ObtenerSesion().Deposito = DepositoBll.Obtener(edificioSeleccionado.Id);
                 Sesion.ObtenerSesion().Sucursal = null;
             }
-            else if (ReferenceEquals(Settings.Default["TipoEdificio"], Sesion.ObtenerSesion().Idioma.Textos["branch"]))
+            else if (ReferenceEquals(Settings.Default["TipoEdificio"], _tipoEdificioStrings[1]))
             {
                 Sesion.ObtenerSesion().Deposito = null;
                 Sesion.ObtenerSesion().Sucursal = SucursalBll.Obtener(edificioSeleccionado.Id);
             }
 
-            _homeForm.ActualizarTabs();
+            _homeForm.CargarPermisos();
         }
 
         private void EdificioConfigurar_Load(object sender, EventArgs e)

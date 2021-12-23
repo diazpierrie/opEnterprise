@@ -9,9 +9,9 @@ namespace UI
 {
     public partial class EmpleadoAltaModificacion : UpdatableForm
     {
-        private UsuarioEe _usuario = new UsuarioEe();
+        private readonly UsuarioEe _usuario = new UsuarioEe();
         private readonly EmpleadoHome _homeForm;
-        private bool _crear;
+        private readonly bool _crear;
         public EmpleadoAltaModificacion(EmpleadoHome homeForm)
         {
             _homeForm = homeForm;

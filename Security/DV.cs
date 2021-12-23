@@ -3,18 +3,17 @@ using EE;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Security
 {
     public static class Dv
     {
-        private static List<string> _errores = new List<string>();
-        private static DvDal _dao = new DvDal();
+        private static readonly List<string> Errores = new List<string>();
+        private static readonly DvDal Dao = new DvDal();
 
         public static bool VerificarDvh(string tabla)
         {
-            var rows = _dao.VerificarDvh(tabla);
+            var rows = Dao.VerificarDvh(tabla);
 
             if (rows.Count == 0)
             {
@@ -22,12 +21,12 @@ namespace Security
             }
 
             var errorMsg = Sesion.ObtenerSesion().Idioma.Textos["dvh_table"] + tabla;
-            _errores.Add(errorMsg);
+            Errores.Add(errorMsg);
 
             foreach (var row in rows)
             {
                 errorMsg = Sesion.ObtenerSesion().Idioma.Textos["error_row"] + row;
-                _errores.Add(errorMsg);
+                Errores.Add(errorMsg);
                 BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
                 {
                     Titulo = "Error DVV en BD",
@@ -45,13 +44,13 @@ namespace Security
         {
             var ok = true;
 
-            foreach (var tabla in _dao.ObtenerTablas())
+            foreach (var tabla in Dao.ObtenerTablas())
             {
-                if (!_dao.VerificarDvv(tabla))
+                if (!Dao.VerificarDvv(tabla))
                 {
                     ok = false;
                     var errorMsg = Sesion.ObtenerSesion().Idioma.Textos["dvv_table"] + tabla;
-                    _errores.Add(errorMsg);
+                    Errores.Add(errorMsg);
 
                     BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
                     {
@@ -74,7 +73,7 @@ namespace Security
         public static string ObtenerErrores()
         {
             var result = new StringBuilder();
-            foreach (var error in _errores)
+            foreach (var error in Errores)
             {
                 result.Append(error + "\n");
             }
@@ -82,37 +81,10 @@ namespace Security
             return result.ToString();
         }
 
-        public static async void ActualizarDv()
-        {
-            await Task.Run(() =>
-            {
-                try
-                {
-                    BorrarErrores();
-
-                    foreach (var tabla in _dao.ObtenerTablas())
-                    {
-                        _dao.ActualizarDvh(tabla);
-                        _dao.ActualizarDvv(tabla);
-                    }
-
-                    BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
-                    {
-                        Titulo = "Digitos verificadores",
-                        Descripcion = "Los Digitos verificadores se han actualizado",
-                        Tipo = Tipo.Info,
-                        Usuario = Sesion.ObtenerSesion().Usuario
-                    });
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            });
-        }
-
-        //public static void ActualizarDv()
+        //public static async void ActualizarDv()
         //{
+        //    await Task.Run(() =>
+        //    {
         //        try
         //        {
         //            BorrarErrores();
@@ -135,11 +107,38 @@ namespace Security
         //        {
         //            Console.WriteLine(ex);
         //        }
+        //    });
         //}
+
+        public static void ActualizarDv()
+        {
+            try
+            {
+                BorrarErrores();
+
+                foreach (var tabla in Dao.ObtenerTablas())
+                {
+                    Dao.ActualizarDvh(tabla);
+                    Dao.ActualizarDvv(tabla);
+                }
+
+                BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
+                {
+                    Titulo = "Digitos verificadores",
+                    Descripcion = "Los Digitos verificadores se han actualizado",
+                    Tipo = Tipo.Info,
+                    Usuario = Sesion.ObtenerSesion().Usuario
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
 
         private static void BorrarErrores()
         {
-            _errores.Clear();
+            Errores.Clear();
         }
     }
 }

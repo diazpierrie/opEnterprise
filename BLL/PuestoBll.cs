@@ -8,42 +8,42 @@ namespace BLL
 {
     public class PuestoBll
     {
-        private static PuestoDal _dao = new PuestoDal();
+        private static readonly PuestoDal Dao = new PuestoDal();
 
         public static List<PuestoEe> Obtener()
         {
-            return _dao.Obtener();
+            return Dao.Obtener();
         }
 
         public static PuestoEe Obtener(int id)
         {
-            return _dao.Obtener(id).ElementAt(0);
+            return Dao.Obtener(id).ElementAt(0);
         }
 
         public static void Crear(PuestoEe puesto)
         {
-            _dao.Crear(puesto);
+            Dao.Crear(puesto);
 
             BitacoraManager.AgregarMensajeControl("Puesto creado: ", puesto);
         }
 
         public static void Actualizar(PuestoEe puesto)
         {
-            _dao.Actualizar(puesto);
+            Dao.Actualizar(puesto);
 
             BitacoraManager.AgregarMensajeControl("Puesto actualizado: ", puesto);
         }
 
         public static void Borrar(int id)
         {
-            _dao.Borrar(id);
+            Dao.Borrar(id);
 
             BitacoraManager.AgregarMensajeControl("Puesto borrado: ", new PuestoEe { Id = id });
         }
 
         public static PuestoEe Obtener(UsuarioEe us)
         {
-            return us.Puesto ?? (us.Puesto = _dao.Obtener(us));
+            return us.Puesto ?? (us.Puesto = Dao.Obtener(us));
         }
     }
 }

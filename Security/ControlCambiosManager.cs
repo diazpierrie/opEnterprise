@@ -8,21 +8,21 @@ namespace Security
 {
     public static class ControlCambiosManager
     {
-        private static BitacoraDal _dao = new BitacoraDal();
+        private static readonly BitacoraDal Dao = new BitacoraDal();
 
         public static List<BitacoraMensajeEe> Obtener(DateTime desde, DateTime hasta, string tipo = null)
         {
-            return _dao.Obtener(desde, hasta, tipo);
+            return Dao.Obtener(desde, hasta, tipo);
         }
 
         public static int AgregarMensaje(BitacoraMensajeEe mensaje)
         {
-            return _dao.AgregarMensaje(mensaje);
+            return Dao.AgregarMensaje(mensaje);
         }
 
         public static int AgregarMensajeControl(string title, object obj)
         {
-            return _dao.AgregarMensaje(new BitacoraMensajeEe
+            return Dao.AgregarMensaje(new BitacoraMensajeEe
             {
                 Usuario = Sesion.ObtenerSesion().Usuario,
                 Tipo = Tipo.Control,

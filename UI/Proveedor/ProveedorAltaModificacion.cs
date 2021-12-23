@@ -7,9 +7,9 @@ namespace UI
 {
     public partial class ProveedorAltaModificacion : UpdatableForm
     {
-        private ProveedorEe _proveedor = new ProveedorEe();
-        private ProveedorHome _homeForm;
-        private ProveedorBuscar _buscarForm;
+        private readonly ProveedorEe _proveedor = new ProveedorEe();
+        private readonly ProveedorHome _homeForm;
+        private readonly ProveedorBuscar _buscarForm;
 
         private readonly bool _crear;
 
@@ -46,7 +46,7 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"]; ;
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"];
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"]);
 
             txtNombre.Text = _proveedor.Nombre;

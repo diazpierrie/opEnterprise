@@ -8,11 +8,11 @@ namespace BLL
 {
     public class UsuarioBll
     {
-        private static UsuarioDal _dal = new UsuarioDal();
+        private static readonly UsuarioDal Dal = new UsuarioDal();
 
         public static void Actualizar(UsuarioEe usuario)
         {
-            _dal.Actualizar(usuario);
+            Dal.Actualizar(usuario);
             PermisosManager.ModificarFamilia(usuario, PermisosManager.ObtenerFamilia(usuario));
 
             BitacoraManager.AgregarMensajeControl("Usuario actualizado: ", usuario);
@@ -22,7 +22,7 @@ namespace BLL
 
         public static void Eliminar(UsuarioEe usuario)
         {
-            _dal.Eliminar(usuario.Id);
+            Dal.Eliminar(usuario.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Usuario Eliminado ", usuario);
@@ -30,12 +30,12 @@ namespace BLL
 
         public static int Crear(UsuarioEe usuario)
         {
-            if (_dal.ObtenerPorNombreUsuario(usuario.NombreUsuario) != null)
+            if (Dal.ObtenerPorNombreUsuario(usuario.NombreUsuario) != null)
             {
                 return 0;
             }
 
-            usuario.Id = _dal.Crear(usuario, Encriptador.Encriptar("123456"), PermisosManager.ObtenerFamilia(usuario));
+            usuario.Id = Dal.Crear(usuario, Encriptador.Encriptar("123456"), PermisosManager.ObtenerFamilia(usuario));
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Usuario creado: ", usuario);
@@ -45,9 +45,9 @@ namespace BLL
 
         public static bool ActualizarPassword(UsuarioEe usuario, string oldPass, string newPass)
         {
-            if (_dal.ObtenerPasswordPorid(usuario.Id).Equals(Encriptador.Encriptar(oldPass)))
+            if (Dal.ObtenerPasswordPorid(usuario.Id).Equals(Encriptador.Encriptar(oldPass)))
             {
-                _dal.ActualizarPassword(usuario.Id, Encriptador.Encriptar(newPass));
+                Dal.ActualizarPassword(usuario.Id, Encriptador.Encriptar(newPass));
 
                 BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
                 {
@@ -67,17 +67,17 @@ namespace BLL
 
         public static List<UsuarioEe> Obtener(string name = null)
         {
-            return _dal.Obtener(name);
+            return Dal.Obtener(name);
         }
 
         public static List<UsuarioEe> ObtenerActivos(string name = null)
         {
-            return _dal.ObtenerActivos(name);
+            return Dal.ObtenerActivos(name);
         }
 
         public static UsuarioEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
     }
 }

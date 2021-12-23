@@ -1,35 +1,67 @@
 ﻿using EE;
 using Security;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using UI.Familia;
 using UI.Properties;
+using UI.Puesto;
+using UI.Sucursal;
 
 namespace UI
 {
     public partial class Home : UpdatableForm
     {
-        private bool _langLoaded = false;
+        private bool _langLoaded;
+
         public Home()
         {
             InitializeComponent();
-            ActualizarTabs();
+            CargarPermisos();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
         }
 
-        public void ActualizarTabs()
+        public void CargarPermisos()
         {
             var unused = Settings.Default.TipoEdificio;
-            tcHome.TabPages.Clear();
-            if (Sesion.ObtenerSesion().Usuario.Puesto.Id == 7)
+
+            var usuarioLoggeado = Sesion.ObtenerSesion().Usuario;
+
+            if (PermisosManager.ObtenerFamilia() == null)
             {
-                tcHome.TabPages.Add(tabAdmin);
+                MetroFramework.MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["error_contact_admin"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+                this.Close();
+                return;
             }
 
-            tcHome.TabPages.Add(tabVenta);
-            tcHome.TabPages.Add(tabCaja);
-            tcHome.TabPages.Add(tabEnvio);
-            tcHome.TabPages.Add(tabDeposito);
+            if (!PermisosManager.VerificarPatente(usuarioLoggeado, "Admin"))
+            {
+                tcHome.DisableTab(tabAdmin);
+            }
+
+            if (!PermisosManager.VerificarPatente(usuarioLoggeado, "Sucursal"))
+            {
+                tcHome.DisableTab(tabSucursal);
+            }
+
+            if (!PermisosManager.VerificarPatente(usuarioLoggeado, "Deposito"))
+            {
+                tcHome.DisableTab(tabDeposito);
+            }
+
+            if (!PermisosManager.VerificarPatente(usuarioLoggeado, "Caja"))
+            {
+                tcHome.DisableTab(tabCaja);
+            }
+
+            if (!PermisosManager.VerificarPatente(usuarioLoggeado, "EnviosRecepciones"))
+            {
+                tcHome.DisableTab(tabEnviosRecepciones);
+            }
+
         }
 
         private void btnBackUp_Click(object sender, EventArgs e)
@@ -86,10 +118,22 @@ namespace UI
             crearQueja.Show();
         }
 
+        private void btnDeposito_Click(object sender, EventArgs e)
+        {
+            var depositoHome = new DepositoHome();
+            depositoHome.Show();
+        }
+
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
             var empleadoHome = new EmpleadoHome();
             empleadoHome.Show();
+        }
+
+        private void btnFamilia_Click(object sender, EventArgs e)
+        {
+            var gestionarFamilia = new GestionarFamilia();
+            gestionarFamilia.Show();
         }
 
         private void btnIdioma_Click(object sender, EventArgs e)
@@ -110,16 +154,34 @@ namespace UI
             proveedorHome.Show();
         }
 
+        private void btnPuesto_Click(object sender, EventArgs e)
+        {
+            var gestionarPuesto = new GestionarPuesto();
+            gestionarPuesto.Show();
+        }
+
         private void btnRealizarPedido_Click(object sender, EventArgs e)
         {
             var realizarPedido = new DepositoPedidoHome();
             realizarPedido.Show();
         }
 
+        private void btnRealizarPedidoDeposito_Click(object sender, EventArgs e)
+        {
+            var sucursalPedidoHome = new SucursalPedidoHome();
+            sucursalPedidoHome.Show();
+        }
+
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
             var ventaHome = new VentaHome();
             ventaHome.Show();
+        }
+
+        private void btnRecepcionarPedidoDeposito_Click(object sender, EventArgs e)
+        {
+            var sucursalEntradaRegistrar = new SucursalEntradaRegistrar();
+            sucursalEntradaRegistrar.Show();
         }
 
         private void btnRecibirPago_Click(object sender, EventArgs e)
@@ -139,28 +201,30 @@ namespace UI
             Dv.ActualizarDv();
         }
 
+        private void btnSucursal_Click(object sender, EventArgs e)
+        {
+            var sucursalHome = new SucursalHome();
+            sucursalHome.Show();
+        }
 
         private void btnVerEnvios_Click(object sender, EventArgs e)
         {
             var buscarEnvio = new EnvioBuscar();
             buscarEnvio.Show();
         }
+
         private void btnVerInventario_Click(object sender, EventArgs e)
         {
             var verInventario = new DepositoVerInventario();
             verInventario.Show();
         }
 
-        private void btnRealizarPedidoDeposito_Click(object sender, EventArgs e)
+        private void cbIdiomas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var sucursalPedidoHome = new SucursalPedidoHome();
-            sucursalPedidoHome.Show();
-        }
-
-        private void btnRecepcionarPedidoDeposito_Click(object sender, EventArgs e)
-        {
-            var sucursalEntradaRegistrar = new SucursalEntradaRegistrar();
-            sucursalEntradaRegistrar.Show();
+            if (_langLoaded)
+            {
+                IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdiomas.SelectedValue.ToString()));
+            }
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -174,7 +238,6 @@ namespace UI
                 this.AllControls.Add(tp);
             }
 
-
             cbIdiomas.DisplayMember = "Value";
             cbIdiomas.ValueMember = "Key";
 
@@ -183,17 +246,38 @@ namespace UI
             cbIdiomas.DataSource = new BindingSource(idiomas, null);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
+            cbIdiomas.SelectedValue = Sesion.ObtenerSesion().Idioma.Id;
             _langLoaded = true;
         }
 
-        private void cbIdiomas_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnExportReport_Click(object sender, EventArgs e)
         {
-            if (_langLoaded)
+            var exportData = new SaveFileDialog
             {
-                IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdiomas.SelectedValue.ToString()));
-            }
+                Filter = "PDF(*.pdf)|*.pdf",
+                Title = "Save PDF file",
+                InitialDirectory = Directory.GetCurrentDirectory() + "\\..\\..\\..\\",
+            };
 
+            if (exportData.ShowDialog() == DialogResult.OK)
+            {
+                Process.Start(UsuarioManager.ExportPdf(exportData.FileName));
+            }
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            Ayuda a = new Ayuda();
+            a.Show();
+        }
+
+        private void pbLogout_Click(object sender, EventArgs e)
+        {
+            if (SesionManager.CerrarSesion())
+            {
+                this.Close();
+            }
+        }
     }
 }

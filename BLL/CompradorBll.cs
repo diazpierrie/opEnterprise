@@ -7,21 +7,21 @@ namespace BLL
 {
     public class CompradorBll
     {
-        private static CompradorDal _dao = new CompradorDal();
+        private static readonly CompradorDal Dao = new CompradorDal();
 
         public static CompradorEe BuscarComprador(int id)
         {
-            return _dao.Obtener(id);
+            return Dao.Obtener(id);
         }
 
         public static List<CompradorEe> Obtener(string name = null)
         {
-            return _dao.Obtener(name);
+            return Dao.Obtener(name);
         }
 
         public static int Crear(CompradorEe obj)
         {
-            obj.Id = _dao.Crear(obj);
+            obj.Id = Dao.Crear(obj);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Nuevo Comprador", obj);

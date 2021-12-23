@@ -281,9 +281,9 @@ namespace DAL
         {
             try
             {
-                string strQuery = "SELECT ct.id, ctrl.texto as Descripcion FROM [dbo].[cTipoEntrega] as ct " +
-                                        "INNER JOIN control as ctrl on ct.descripcion = ctrl.tag " +
-                                        $"WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id}";
+                var strQuery = "SELECT ct.id, ctrl.texto as Descripcion FROM [dbo].[cTipoEntrega] as ct " +
+                               "INNER JOIN control as ctrl on ct.descripcion = ctrl.tag " +
+                               $"WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 

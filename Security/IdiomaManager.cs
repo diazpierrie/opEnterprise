@@ -6,15 +6,15 @@ namespace Security
 {
     public static class IdiomaManager
     {
-        private static IdiomaDal _dao = new IdiomaDal();
+        private static readonly IdiomaDal Dao = new IdiomaDal();
 
         public static void Cambiar(IdiomaEe sesionidioma, int idiomaid)
         {
-            var newidioma = _dao.Obtener(idiomaid)[0];
+            var newidioma = Dao.Obtener(idiomaid)[0];
 
             sesionidioma.Id = newidioma.Id;
             sesionidioma.Nombre = newidioma.Nombre;
-            sesionidioma.Textos = _dao.ObtenerTextos(newidioma.Id);
+            sesionidioma.Textos = Dao.ObtenerTextos(newidioma.Id);
 
             foreach (var form in sesionidioma.Forms)
             {
@@ -24,64 +24,64 @@ namespace Security
 
         public static void Cambiar(IdiomaEe idioma, int idiomaid, IIUpdatable form)
         {
-            var newidioma = _dao.Obtener(idiomaid)[0];
+            var newidioma = Dao.Obtener(idiomaid)[0];
 
             idioma.Id = newidioma.Id;
             idioma.Nombre = newidioma.Nombre;
-            idioma.Textos = _dao.ObtenerTextos(newidioma.Id);
+            idioma.Textos = Dao.ObtenerTextos(newidioma.Id);
             form.ActualizarTextos();
         }
 
         public static void Cargar(IdiomaEe idioma)
         {
-            idioma.Textos = _dao.ObtenerTextos(idioma.Id);
+            idioma.Textos = Dao.ObtenerTextos(idioma.Id);
         }
 
         public static List<IdiomaEe> Obtener()
         {
-            return _dao.ObtenerActivos();
+            return Dao.ObtenerActivos();
         }
 
         public static List<IdiomaEe> ObtenerCompletos()
         {
-            return _dao.ObtenerCompletos();
+            return Dao.ObtenerCompletos();
         }
 
         public static List<IdiomaEe> Obtener(int id)
         {
-            return _dao.Obtener(id);
+            return Dao.Obtener(id);
         }
 
         public static void CargarDefault()
         {
-            Sesion.ObtenerSesion().Idioma = _dao.CargarDefault();
+            Sesion.ObtenerSesion().Idioma = Dao.CargarDefault();
         }
 
         public static int Crear()
         {
-            var idiomaId = _dao.Crear();
-            _dao.CrearControles(idiomaId);
+            var idiomaId = Dao.Crear();
+            Dao.CrearControles(idiomaId);
             return idiomaId;
         }
 
         public static List<ControlEe> ObtenerControles(int idiomaId)
         {
-            return _dao.ObtenerControles(idiomaId);
+            return Dao.ObtenerControles(idiomaId);
         }
 
         public static void ActualizarControles(List<ControlEe> controlesModificados)
         {
-            _dao.ActualizarControles(controlesModificados);
+            Dao.ActualizarControles(controlesModificados);
         }
 
         public static void ActualizarIdioma(IdiomaEe idioma, string nombreNuevo)
         {
-            _dao.ActualizarIdioma(idioma, nombreNuevo);
+            Dao.ActualizarIdioma(idioma, nombreNuevo);
         }
 
         public static void Eliminar(IdiomaEe idioma)
         {
-            _dao.EliminarIdioma(idioma.Id);
+            Dao.EliminarIdioma(idioma.Id);
             //_dao.EliminarControlesIdioma(idioma.Id);
 
             Dv.ActualizarDv();

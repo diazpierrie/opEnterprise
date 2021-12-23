@@ -110,6 +110,42 @@
     <Compile Include="Recepciones\SucursalPedidoHome.Designer.cs">
       <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Familia\AgregarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Familia\AgregarFamilia.Designer.cs">
+      <DependentUpon>AgregarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Familia\GestionarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Familia\GestionarFamilia.Designer.cs">
+      <DependentUpon>GestionarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Puesto\GestionarPuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Puesto\GestionarPuesto.Designer.cs">
+      <DependentUpon>GestionarPuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursal\SucursalAltaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucursal\SucursalAltaModificacion.Designer.cs">
+      <DependentUpon>SucursalAltaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursal\SucursalHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucursal\SucursalHome.Designer.cs">
+      <DependentUpon>SucursalHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +478,15 @@
     <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Puesto\GestionarPuesto.resx">
+      <DependentUpon>GestionarPuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sucursal\SucursalAltaModificacion.resx">
+      <DependentUpon>SucursalAltaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sucursal\SucursalHome.resx">
+      <DependentUpon>SucursalHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Venta\Cliente\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </EmbeddedResource>
@@ -592,6 +637,9 @@
     <EmbeddedResource Include="Servicios\BitacoraVer.resx">
       <DependentUpon>BitacoraVer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ManualDeUsuario.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -632,6 +680,9 @@
     <PackageReference Include="MetroModernUI">
       <Version>1.4.0</Version>
     </PackageReference>
+    <PackageReference Include="Spire.Office">
+      <Version>6.12.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\this.Icon.ico" />
@@ -639,6 +690,11 @@
   <ItemGroup>
     <None Include="Resources\%24this.Icon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logout.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgLogout.BackgroundImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

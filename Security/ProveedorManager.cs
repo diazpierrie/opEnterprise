@@ -6,11 +6,11 @@ namespace Security
 {
     public static class ProveedorManager
     {
-        private static ProveedorDal _dal = new ProveedorDal();
+        private static readonly ProveedorDal Dal = new ProveedorDal();
 
         public static void Actualizar(ProveedorEe proveedor)
         {
-            _dal.Actualizar(proveedor);
+            Dal.Actualizar(proveedor);
 
             BitacoraManager.AgregarMensajeControl("Proveedor Actualizado: ", proveedor);
 
@@ -19,7 +19,7 @@ namespace Security
 
         public static void Eliminar(ProveedorEe proveedor)
         {
-            _dal.Eliminar(proveedor.Id);
+            Dal.Eliminar(proveedor.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Proveedor Eliminado ", proveedor);
@@ -27,7 +27,7 @@ namespace Security
 
         public static int Crear(ProveedorEe proveedor)
         {
-            proveedor.Id = _dal.Crear(proveedor);
+            proveedor.Id = Dal.Crear(proveedor);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Proveedor Creado: ", proveedor);
@@ -37,12 +37,12 @@ namespace Security
 
         public static List<ProveedorEe> Obtener(string name = "")
         {
-            return _dal.Obtener(name);
+            return Dal.Obtener(name);
         }
 
         public static ProveedorEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
     }
 }

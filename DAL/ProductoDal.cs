@@ -61,7 +61,7 @@ namespace DAL
         {
             try
             {
-                string strQuery = $"SELECT id, nombre, codigo, fechaCreacion, precio, costo FROM producto WHERE id = {id}";
+                var strQuery = $"SELECT id, nombre, codigo, fechaCreacion, precio, costo FROM producto WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 

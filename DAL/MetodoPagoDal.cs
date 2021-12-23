@@ -11,7 +11,7 @@ namespace DAL
         {
             try
             {
-                string strQuery = $"SELECT cm.id, ctrl.texto as Nombre FROM [dbo].cMetodoPago as cm INNER JOIN control as ctrl on cm.nombre = ctrl.tag WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} ";
+                var strQuery = $"SELECT cm.id, ctrl.texto as Nombre FROM [dbo].cMetodoPago as cm INNER JOIN control as ctrl on cm.nombre = ctrl.tag WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} ";
 
                 var query = new SqlCommand(strQuery, Conn);
 

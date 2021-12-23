@@ -7,11 +7,11 @@ namespace BLL
 {
     public class DepositoBll
     {
-        private static DepositoDal _dal = new DepositoDal();
+        private static readonly DepositoDal Dal = new DepositoDal();
 
         public static void Actualizar(DepositoEe deposito)
         {
-            _dal.Actualizar(deposito);
+            Dal.Actualizar(deposito);
             BitacoraManager.AgregarMensajeControl("Deposito actualizado: ", deposito);
 
             Dv.ActualizarDv();
@@ -19,7 +19,7 @@ namespace BLL
 
         public static void Eliminar(DepositoEe deposito)
         {
-            _dal.Borrar(deposito.Id);
+            Dal.Borrar(deposito.Id);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Deposito Eliminado ", deposito);
@@ -27,12 +27,12 @@ namespace BLL
 
         public static int Crear(DepositoEe deposito)
         {
-            if (_dal.ObtenerDepositoPorNombre(deposito.Nombre) != null)
+            if (Dal.ObtenerDepositoPorNombre(deposito.Nombre) != null)
             {
                 return 0;
             }
 
-            deposito.Id = _dal.Crear(deposito);
+            deposito.Id = Dal.Crear(deposito);
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Deposito creado: ", deposito);
@@ -42,24 +42,24 @@ namespace BLL
 
         public static List<DepositoEe> ObtenerActivos(string name = null)
         {
-            return _dal.ObtenerActivos(name);
+            return Dal.ObtenerActivos(name);
         }
 
         public static DepositoEe Obtener(int id)
         {
-            return _dal.Obtener(id);
+            return Dal.Obtener(id);
         }
 
         public static List<DepositoEe> ObtenerDepositosDeUsuario(UsuarioEe user)
         {
-            return _dal.Obtener(user);
+            return Dal.Obtener(user);
         }
 
         public static int AsignarEmpleadoConDeposito(UsuarioEe user, DepositoEe depo)
         {
-            if (!_dal.ObtenerAsignacionEmpleadoConDeposito(user, depo))
+            if (!Dal.ObtenerAsignacionEmpleadoConDeposito(user, depo))
             {
-                return _dal.AsignarEmpleadoConDeposito(user, depo);
+                return Dal.AsignarEmpleadoConDeposito(user, depo);
             }
 
             return 0;
@@ -67,7 +67,7 @@ namespace BLL
 
         public static bool DesasignarEmpleadoConDeposito(UsuarioEe user, DepositoEe depo)
         {
-            return _dal.DesasignarEmpleadoConDeposito(user, depo);
+            return Dal.DesasignarEmpleadoConDeposito(user, depo);
         }
     }
 }

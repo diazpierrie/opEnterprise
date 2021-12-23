@@ -56,7 +56,7 @@ namespace UI
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[0];
-            this.txtUsuario.Location = new System.Drawing.Point(112, 98);
+            this.txtUsuario.Location = new System.Drawing.Point(163, 98);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -86,7 +86,7 @@ namespace UI
             this.txtPassword.CustomButton.UseSelectable = true;
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(112, 136);
+            this.txtPassword.Location = new System.Drawing.Point(163, 136);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -103,28 +103,31 @@ namespace UI
             // 
             // lbUsuario
             // 
-            this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Location = new System.Drawing.Point(53, 98);
+            this.lbUsuario.Location = new System.Drawing.Point(2, 98);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(53, 19);
+            this.lbUsuario.Size = new System.Drawing.Size(155, 19);
             this.lbUsuario.TabIndex = 2;
+            this.lbUsuario.Tag = "username";
             this.lbUsuario.Text = "Usuario";
+            this.lbUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbPassword
             // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(31, 136);
+            this.lbPassword.Location = new System.Drawing.Point(2, 136);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(75, 19);
+            this.lbPassword.Size = new System.Drawing.Size(155, 19);
             this.lbPassword.TabIndex = 3;
+            this.lbPassword.Tag = "password";
             this.lbPassword.Text = "Contraseña";
+            this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(214, 165);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(265, 165);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(94, 23);
             this.btnIniciarSesion.TabIndex = 4;
+            this.btnIniciarSesion.Tag = "login";
             this.btnIniciarSesion.Text = "Iniciar Sesion";
             this.btnIniciarSesion.UseSelectable = true;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
@@ -133,7 +136,7 @@ namespace UI
             // 
             this.cbIdioma.FormattingEnabled = true;
             this.cbIdioma.ItemHeight = 23;
-            this.cbIdioma.Location = new System.Drawing.Point(108, 255);
+            this.cbIdioma.Location = new System.Drawing.Point(159, 255);
             this.cbIdioma.Name = "cbIdioma";
             this.cbIdioma.Size = new System.Drawing.Size(200, 29);
             this.cbIdioma.TabIndex = 5;
@@ -142,18 +145,19 @@ namespace UI
             // 
             // lbIdioma
             // 
-            this.lbIdioma.AutoSize = true;
-            this.lbIdioma.Location = new System.Drawing.Point(52, 260);
+            this.lbIdioma.Location = new System.Drawing.Point(2, 260);
             this.lbIdioma.Name = "lbIdioma";
-            this.lbIdioma.Size = new System.Drawing.Size(50, 19);
+            this.lbIdioma.Size = new System.Drawing.Size(151, 19);
             this.lbIdioma.TabIndex = 6;
+            this.lbIdioma.Tag = "language";
             this.lbIdioma.Text = "Idioma";
+            this.lbIdioma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 327);
+            this.ClientSize = new System.Drawing.Size(402, 327);
             this.Controls.Add(this.lbIdioma);
             this.Controls.Add(this.cbIdioma);
             this.Controls.Add(this.btnIniciarSesion);
@@ -162,10 +166,10 @@ namespace UI
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Name = "Login";
+            this.Tag = "login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

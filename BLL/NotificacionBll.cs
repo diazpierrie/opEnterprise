@@ -6,26 +6,26 @@ namespace BLL
 {
     public class NotificacionBll
     {
-        private static NotificacionDal _dal = new NotificacionDal();
+        private static readonly NotificacionDal Dal = new NotificacionDal();
 
         public static List<NotificacionEe> Obtener(UsuarioEe us)
         {
-            return _dal.Obtener(us);
+            return Dal.Obtener(us);
         }
 
         public static int ObtenerCantidad(UsuarioEe us)
         {
-            return _dal.ObtenerCantidad(us);
+            return Dal.ObtenerCantidad(us);
         }
 
         public static void Enviar(NotificacionEe not)
         {
-            _dal.Crear(not);
+            Dal.Crear(not);
         }
 
         public static void LeerTodas(UsuarioEe us)
         {
-            _dal.LeerTodas(us);
+            Dal.LeerTodas(us);
         }
     }
 }

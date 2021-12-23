@@ -6,11 +6,11 @@ namespace BLL
 {
     public class VersionEntidadBll
     {
-        private static VersionEntidadDal _dal = new VersionEntidadDal();
+        private static readonly VersionEntidadDal Dal = new VersionEntidadDal();
 
         public static List<VersionEntidadEe> Obtener(string name, int id)
         {
-            return _dal.Obtener(name, id);
+            return Dal.Obtener(name, id);
         }
     }
 }
