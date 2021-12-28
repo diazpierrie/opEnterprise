@@ -150,11 +150,11 @@ namespace UI
                 lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}" + " (+5% Credito)";
             }
 
-            if (_cliente.EsSocio)
-            {
-                _total *= 0.90;
-                lblTotal.Text += " (-10% Socio)";
-            }
+            //if (_cliente.EsSocio)
+            //{
+            //    _total *= 0.90;
+            //    lblTotal.Text += " (-10% Socio)";
+            //}
 
             cbCuotas.DataSource = new List<string>
             {

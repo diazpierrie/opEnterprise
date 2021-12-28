@@ -11,7 +11,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("sp_backup", Conn);
+                var query = new SqlCommand("SP_Backup", Conn);
                 query.CommandType = CommandType.StoredProcedure;
                 var path = @"C:\openEnterprise Backup\";
                 if (!Directory.Exists(path))
@@ -39,11 +39,15 @@ namespace DAL
         {
             try
             {
-                var singleUser = new SqlCommand("ALTER DATABASE openEnterprise SET Single_User WITH Rollback Immediate", Conn);
-                var query = new SqlCommand("USE master; RESTORE DATABASE openEnterprise FROM DISK = @bkpPath WITH REPLACE;", Conn);
-                var multiUser = new SqlCommand("ALTER DATABASE openEnterprise SET Multi_User", Conn);
+                var singleUser = new SqlCommand("SP_Restore_Step_1", Conn);
+                singleUser.CommandType = CommandType.StoredProcedure;
 
+                var query = new SqlCommand("SP_Restore_Step_2", Conn);
+                query.CommandType = CommandType.StoredProcedure;
                 query.Parameters.AddWithValue("@bkpPath", nombreArchivo);
+
+                var multiUser = new SqlCommand("SP_Restore_Step_3", Conn);
+                multiUser.CommandType = CommandType.StoredProcedure;
 
                 Conn.Open();
                 singleUser.ExecuteNonQuery();

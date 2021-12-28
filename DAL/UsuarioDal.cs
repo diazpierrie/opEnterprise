@@ -190,7 +190,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto " +
                                      "FROM usuario WHERE activo = 1";
 
                 if (name != null)
@@ -230,7 +230,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, idFamilia, idPuesto " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto " +
                                $"FROM usuario WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
