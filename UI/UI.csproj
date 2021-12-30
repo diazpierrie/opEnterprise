@@ -68,6 +68,12 @@
     <Compile Include="Deposito\DepositoElegirProductos.Designer.cs">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI.Designer.cs">
+      <DependentUpon>MDI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Producto\ProductoAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,7 +129,7 @@
       <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Ayuda.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Servicios\Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
@@ -157,6 +163,26 @@
     </Compile>
     <Compile Include="Sucursal\SucursalHome.Designer.cs">
       <DependentUpon>SucursalHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logo.Designer.cs">
+      <DependentUpon>Logo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Test2.Designer.cs">
+      <DependentUpon>Test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatableUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdatableUserControl.Designer.cs">
+      <DependentUpon>UpdatableUserControl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
       <SubType>Form</SubType>
@@ -465,6 +491,9 @@
     <EmbeddedResource Include="Deposito\DepositoElegirProductos.resx">
       <DependentUpon>DepositoElegirProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI.resx">
+      <DependentUpon>MDI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\ProductoAltaModificacion.resx">
       <DependentUpon>ProductoAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,6 +522,9 @@
     <EmbeddedResource Include="Recepciones\SucursalPedidoHome.resx">
       <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,6 +536,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sucursal\SucursalHome.resx">
       <DependentUpon>SucursalHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logo.resx">
+      <DependentUpon>Logo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test2.resx">
+      <DependentUpon>Test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatableUserControl.resx">
+      <DependentUpon>UpdatableUserControl.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UpdatableUserControl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Venta\Cliente\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>

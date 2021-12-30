@@ -83,7 +83,7 @@ namespace UI
             }
 
             Hide();
-            var h1 = new Home();
+            var h1 = new MDI();
 
             switch (sesion.Usuario.Permiso.Id)
             {

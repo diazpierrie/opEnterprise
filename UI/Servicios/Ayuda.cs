@@ -3,7 +3,7 @@ using EE;
 
 namespace UI
 {
-    public partial class Ayuda : UpdatableForm
+    public partial class Ayuda : UpdatableUserControl
     {
         public Ayuda()
         {
