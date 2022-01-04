@@ -1,30 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 
 namespace UI
 {
-    public partial class MDI : MetroForm
+    public partial class Mdi : MetroForm
     {
-        public MDI()
+        public Mdi()
         {
             InitializeComponent();
-
 
             var home = new Logo();
             panelContainer.Controls.Add(home);
             home.Show();
             HidePanels();
         }
-
-
 
         private void HidePanels()
         {
@@ -34,14 +24,11 @@ namespace UI
             panelSucursal.Visible = false;
         }
 
-
-
         private void btnSucursalPanel_Click(object sender, EventArgs e)
         {
             HidePanels();
 
             panelSucursal.Visible = true;
-
         }
 
         private void btnDepositoPanel_Click(object sender, EventArgs e)
@@ -165,10 +152,7 @@ namespace UI
 
         private void RemoveUserControl()
         {
-            if (panelContainer.Controls.Count > 0)
-            {
-                panelContainer.Controls.RemoveAt(panelContainer.Controls.Count - 1);
-            }
+            if (panelContainer.Controls.Count > 0) panelContainer.Controls.RemoveAt(panelContainer.Controls.Count - 1);
         }
 
         private void picLogo_Click(object sender, EventArgs e)

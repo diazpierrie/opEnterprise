@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
@@ -25,7 +26,7 @@ namespace UI
             AllControls.Add(lbUsuario);
             AllControls.Add(lbPassword);
             AllControls.Add(lbIdioma);
-            
+
             CargarIdiomas();
         }
 
@@ -46,7 +47,7 @@ namespace UI
             }
 
             MetroMessageBox.Show(this, sesion.Idioma.Textos["login_success"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
-            
+
             if (!Dv.VerificarDv())
             {
                 if (PermisosManager.VerificarPatente(sesion.Usuario, "DigitoVerificador"))
@@ -60,30 +61,31 @@ namespace UI
                 return;
             }
 
-
             var tipoEdificio = Settings.Default.TipoEdificio;
             var idEdificio = Settings.Default.IdEdificio;
-
-            if (!string.IsNullOrEmpty(tipoEdificio) && !string.IsNullOrEmpty(idEdificio.ToString()))
+            if (!PermisosManager.VerificarPatente(sesion.Usuario, "Admin"))
             {
-                switch (tipoEdificio)
+                if (!string.IsNullOrEmpty(tipoEdificio) && !string.IsNullOrEmpty(idEdificio.ToString()))
                 {
-                    case "Deposito":
-                        sesion.Deposito = DepositoBll.Obtener(idEdificio);
-                        break;
-                    case "Sucursal":
-                        sesion.Sucursal = SucursalBll.Obtener(idEdificio);
-                        break;
+                    switch (tipoEdificio)
+                    {
+                        case "Deposito":
+                            sesion.Deposito = DepositoBll.Obtener(idEdificio);
+                            break;
+                        case "Sucursal":
+                            sesion.Sucursal = SucursalBll.Obtener(idEdificio);
+                            break;
+                    }
                 }
-            }
-            else
-            {
-                MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
-                return;
+                else
+                {
+                    MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
+                    return;
+                }
             }
 
             Hide();
-            var h1 = new MDI();
+            var h1 = new Mdi();
 
             switch (sesion.Usuario.Permiso.Id)
             {

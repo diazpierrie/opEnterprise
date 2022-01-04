@@ -4,7 +4,7 @@ using Button = System.Windows.Forms.Button;
 
 namespace UI
 {
-    partial class MDI
+    partial class Mdi
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mdi));
             this.panelOpciones = new MetroFramework.Controls.MetroPanel();
             this.panelEnvios = new MetroFramework.Controls.MetroPanel();
             this.btnRecepcionarPedidoDeposito = new System.Windows.Forms.Button();
@@ -635,7 +635,7 @@ namespace UI
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSidebar);
-            this.Name = "MDI";
+            this.Name = "Mdi";
             this.Text = "MDI";
             this.panelOpciones.ResumeLayout(false);
             this.panelEnvios.ResumeLayout(false);
