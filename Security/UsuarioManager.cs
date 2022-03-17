@@ -20,18 +20,18 @@ namespace Security
             var sucursalDal = new SucursalDal();
             var sucursales = sucursalDal.ObtenerActivos();
 
-            PdfDocument document = new PdfDocument();
+            var document = new PdfDocument();
             document.Info.Title = "openEnterprise";
 
-            XFont fontTitle = new XFont("Verdana", 20, XFontStyle.Bold);
-            XFont fontBody = new XFont("Verdana", 14, XFontStyle.Regular);
+            var fontTitle = new XFont("Verdana", 20, XFontStyle.Bold);
+            var fontBody = new XFont("Verdana", 14, XFontStyle.Regular);
 
             foreach (var sucursal in sucursales)
             {
-                PdfPage page = document.AddPage();
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-                XTextFormatter tf = new XTextFormatter(gfx);
-                XRect rect = new XRect(40, 40, page.Width, page.Height);
+                var page = document.AddPage();
+                var gfx = XGraphics.FromPdfPage(page);
+                var tf = new XTextFormatter(gfx);
+                var rect = new XRect(40, 40, page.Width, page.Height);
 
                 tf.DrawString($"{sucursal}, {sucursal.Direccion} ", fontTitle, XBrushes.Black, rect, XStringFormats.TopLeft);
 

@@ -61,7 +61,7 @@ namespace UI
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            Ayuda a = new Ayuda();
+            var a = new Ayuda();
             a.Show();
         }
 

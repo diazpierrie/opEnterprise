@@ -70,6 +70,13 @@ namespace UI
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
+            if (_cliente == null)
+            {
+                MetroMessageBox.Show(Ventahome.Mdi, "Debe seleccionar un cliente",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var ventaNueva = new VentaEe
             {
                 Comprador = _cliente,

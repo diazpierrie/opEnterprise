@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -11,14 +12,13 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SP_Backup", Conn);
-                query.CommandType = CommandType.StoredProcedure;
+                var query = new SqlCommand("BACKUP DATABASE openEnterprise TO  DISK = @bkpPath", Conn);
                 var path = @"C:\openEnterprise Backup\";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
-                var bkpPath = path + "\\bkp" + GetTimestamp(DateTime.Now) + ".bak";
+                var bkpPath = path + "\\openEnterpriseBackup" + GetTimestamp(DateTime.Now) + ".bak";
                 File.Delete(bkpPath);
                 query.Parameters.AddWithValue("@bkpPath", bkpPath);
 
@@ -39,15 +39,11 @@ namespace DAL
         {
             try
             {
-                var singleUser = new SqlCommand("SP_Restore_Step_1", Conn);
-                singleUser.CommandType = CommandType.StoredProcedure;
+                var singleUser = new SqlCommand("ALTER DATABASE openEnterprise SET Single_User WITH Rollback Immediate", Conn);
+                var query = new SqlCommand("USE master; RESTORE DATABASE openEnterprise FROM DISK = @bkpPath WITH REPLACE; ", Conn);
+                var multiUser = new SqlCommand("ALTER DATABASE openEnterprise SET Multi_User", Conn);
 
-                var query = new SqlCommand("SP_Restore_Step_2", Conn);
-                query.CommandType = CommandType.StoredProcedure;
                 query.Parameters.AddWithValue("@bkpPath", nombreArchivo);
-
-                var multiUser = new SqlCommand("SP_Restore_Step_3", Conn);
-                multiUser.CommandType = CommandType.StoredProcedure;
 
                 Conn.Open();
                 singleUser.ExecuteNonQuery();

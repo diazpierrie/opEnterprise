@@ -58,5 +58,10 @@ namespace UI
             _proveedorHome.ActualizarGrid();
             Close();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -41,8 +41,8 @@ namespace BLL
 
             return usuario.Id;
         }
-        
-public static List<UsuarioEe> ObtenerActivos(string name = null)
+
+        public static List<UsuarioEe> ObtenerActivos(string name = null)
         {
             return Dal.ObtenerActivos(name);
         }
@@ -55,6 +55,11 @@ public static List<UsuarioEe> ObtenerActivos(string name = null)
         public static List<UsuarioEe> Obtener()
         {
             return Dal.Obtener();
+        }
+
+        public static void DesbloquearUsuario(UsuarioEe selectedEmpleado)
+        {
+            Dal.ResetearIntentosFallidos(selectedEmpleado.NombreUsuario);
         }
     }
 }

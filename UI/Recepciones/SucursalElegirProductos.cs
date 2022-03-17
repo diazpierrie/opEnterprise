@@ -15,19 +15,14 @@ namespace UI
         private readonly PedidoDepositoEe _pedido;
         private readonly SucursalEntradaRegistrar _depositoEntradaRegistrar;
 
-        public SucursalElegirProductos(PedidoDepositoEe pedido, SucursalEntradaRegistrar depositoEntradaRegistrar)
+        public SucursalElegirProductos(PedidoDepositoEe pedido, SucursalEntradaRegistrar depositoEntradaRegistrar,
+            List<PedidoDepositoDetalleEe> pedidoDepositoDetalleEes)
         {
             _pedido = pedido;
             _depositoEntradaRegistrar = depositoEntradaRegistrar;
+            _productosSeleccionados = pedidoDepositoDetalleEes;
             InitializeComponent();
-            _productosSeleccionados = PedidoDepositoBll.ObtenerDetalle(pedido);
             gridDetalle.DataSource = _productosSeleccionados;
-
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
 
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Pedido"].Visible = false;
@@ -37,8 +32,6 @@ namespace UI
             gridDetalle.Columns["CantidadAIngresar"].ReadOnly = false;
 
             gridDetalle.Columns["CantidadAIngresar"].HeaderText = "Cantidad a Ingresar";
-
-            Show();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -54,6 +47,9 @@ namespace UI
             if (respuesta == DialogResult.Yes)
             {
                 PedidoDepositoBll.RegistrarEntrada(_pedido, _productosSeleccionados);
+                MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi,
+                    "Pedido recepcionado correctamente", "Confirmacion",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 _depositoEntradaRegistrar.ActualizarGrid();
             }
             Close();
@@ -62,7 +58,7 @@ namespace UI
         private void gridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var row = (PedidoDepositoDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
-            if (gridDetalle.CurrentCell.Value != null && (int) gridDetalle.CurrentCell.Value <= 0) 
+            if (gridDetalle.CurrentCell.Value != null && (int) gridDetalle.CurrentCell.Value < 0) 
             {
                 MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridDetalle.CurrentCell.Value = row.Cantidad;

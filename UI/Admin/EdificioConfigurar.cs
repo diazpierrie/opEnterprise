@@ -71,6 +71,7 @@ namespace UI
             }
 
             _mdi.CargarRoles();
+            _mdi.CargarEdificioLabel();
         }
 
         private void EdificioConfigurar_Load(object sender, EventArgs e)

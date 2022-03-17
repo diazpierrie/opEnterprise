@@ -1,14 +1,14 @@
-﻿using System;
+﻿using EE;
+using Security;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using EE;
-using Security;
 
 namespace UI.Familia
 {
     public partial class GestionarFamilia : UpdatableForm
     {
-        public Mdi Mdi;
+        public readonly Mdi Mdi;
 
         public GestionarFamilia(Mdi mdi)
         {

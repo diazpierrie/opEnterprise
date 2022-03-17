@@ -58,7 +58,16 @@ namespace UI
         {
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoDepositoEe)gridPedidos.SelectedRows[0].DataBoundItem;
-            var depositoElegirProductos = new SucursalElegirProductos(pedido, this);
+
+            var depositoDetalle = PedidoDepositoBll.ObtenerDetalle(pedido);
+
+
+            if (depositoDetalle.Count == 0)
+            {
+                return;
+            }
+
+            var depositoElegirProductos = new SucursalElegirProductos(pedido, this, depositoDetalle);
             Mdi.OpenWindowForm(depositoElegirProductos);
         }
 
@@ -66,7 +75,19 @@ namespace UI
         {
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoDepositoEe)gridPedidos.SelectedRows[0].DataBoundItem;
-            new SucursalVerDetalle(pedido);
+
+            var detalle =  PedidoDepositoBll.ObtenerDetalle(pedido);
+
+            if (detalle.Count == 0)
+            {
+                return;
+            }
+
+            var sucursalVerDetalle = new SucursalVerDetalle(detalle);
+
+            Mdi.OpenWindowForm(sucursalVerDetalle);
+
+
 
         }
     }

@@ -79,7 +79,7 @@ namespace DAL
 
         public bool Borrar(int id)
         {
-            if (!DeleteByid("familias", id))
+            if (!DeleteByid("familia", id))
             {
                 return false;
             }

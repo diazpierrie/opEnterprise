@@ -89,6 +89,7 @@ namespace Security
 
         public static void Borrar(FamiliaEe familiaEe)
         {
+            BorrarRelaciones(familiaEe);
             DalFamilia.Borrar(familiaEe.Id);
             Dv.ActualizarDv();
 

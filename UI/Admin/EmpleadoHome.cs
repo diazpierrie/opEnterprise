@@ -176,5 +176,17 @@ namespace UI
             var provAm = new EmpleadoAltaModificacion(this, selectedEmpleado);
             _mdi.OpenWindowForm(provAm);
         }
+
+        private void btnDesbloquearEmpleado_Click(object sender, EventArgs e)
+        {
+            if (gridEmpleado.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            var selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
+            var selectedEmpleado = UsuarioBll.Obtener(selectedItem);
+            UsuarioBll.DesbloquearUsuario(selectedEmpleado);
+        }
     }
 }

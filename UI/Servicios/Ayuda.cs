@@ -15,7 +15,7 @@ namespace UI
         {
             AllControls = Program.GetAllControls(this);
 
-            string fileName = System.IO.Directory.GetCurrentDirectory() + "\\ManualDeUsuario" + ".pdf";
+            var fileName = System.IO.Directory.GetCurrentDirectory() + "\\ManualDeUsuario" + ".pdf";
             view.LoadFromFile(fileName);
         }
     }

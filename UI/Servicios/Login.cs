@@ -14,11 +14,16 @@ namespace UI
         public Login()
         {
             InitializeComponent();
-            Dv.ActualizarDv();
         }
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+            if (SesionManager.VerificarBloqueo(txtUsuario.Text))
+            {
+                MetroMessageBox.Show(this, "El usuario se encuentra bloqueado, contacte al administrador", Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (!SesionManager.IniciarSesion(txtUsuario.Text, txtPassword.Text))
             {
                 MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["login_failed"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -161,9 +166,9 @@ namespace UI
 
             CargarIdiomas();
 
-            txtUsuario.Text = "admin";
-            txtPassword.Text = "admin";
-            btnIniciarSesion_Click(null, null);
+            //txtUsuario.Text = "admin";
+            //txtPassword.Text = "admin";
+            //btnIniciarSesion_Click(null, null);
         }
     }
 }

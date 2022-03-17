@@ -1,12 +1,21 @@
 ﻿using DAL;
 using EE;
 using System.Threading;
+using System.Windows.Forms;
+using MetroFramework;
 
 namespace Security
 {
     public static class SesionManager
     {
         private static readonly UsuarioDal Dao = new UsuarioDal();
+
+        public static bool VerificarBloqueo(string nombreUsuario)
+        {
+            var intentoFallido = Dao.SumarIntentoFallido(nombreUsuario);
+
+            return intentoFallido >= 3;
+        }
 
         public static bool IniciarSesion(string nombreUsuario, string password)
         {
@@ -16,16 +25,17 @@ namespace Security
             {
                 var intentosFallidos = Dao.SumarIntentoFallido(nombreUsuario);
 
-                if (intentosFallidos >= 5)
+                if (intentosFallidos < 3) return false;
+
+                Dao.BloquearUsuario(nombreUsuario);
+                BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
                 {
-                    BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
-                    {
-                        Titulo = "Intentos fallidos",
-                        Descripcion = $"{nombreUsuario} ha intentado iniciar sesion {intentosFallidos} veces",
-                        Tipo = Tipo.Warning,
-                        Usuario = null
-                    });
-                }
+                    Titulo = "Intentos fallidos",
+                    Descripcion = $"{nombreUsuario} ha bloqueado la cuenta",
+                    Tipo = Tipo.Warning,
+                    Usuario = null
+                });
+                Dv.ActualizarDv();
                 return false;
             }
 

@@ -21,6 +21,14 @@ namespace Security
             }
 
             var errorMsg = Sesion.ObtenerSesion().Idioma.Textos["dvh_table"] + tabla;
+            BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
+            {
+                Titulo = "Error DVH en BD",
+                Descripcion = errorMsg,
+                Tipo = Tipo.Error,
+                Fecha = DateTime.Now,
+                Usuario = Sesion.ObtenerSesion().Usuario
+            });
             Errores.Add(errorMsg);
 
             foreach (var row in rows)
@@ -80,35 +88,6 @@ namespace Security
 
             return result.ToString();
         }
-
-        //public static async void ActualizarDv()
-        //{
-        //    await Task.Run(() =>
-        //    {
-        //        try
-        //        {
-        //            BorrarErrores();
-
-        //            foreach (var tabla in _dao.ObtenerTablas())
-        //            {
-        //                _dao.ActualizarDvh(tabla);
-        //                _dao.ActualizarDvv(tabla);
-        //            }
-
-        //            BitacoraManager.AgregarMensaje(new BitacoraMensajeEe
-        //            {
-        //                Titulo = "Digitos verificadores",
-        //                Descripcion = "Los Digitos verificadores se han actualizado",
-        //                Tipo = Tipo.Info,
-        //                Usuario = Sesion.ObtenerSesion().Usuario
-        //            });
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Console.WriteLine(ex);
-        //        }
-        //    });
-        //}
 
         public static void ActualizarDv()
         {

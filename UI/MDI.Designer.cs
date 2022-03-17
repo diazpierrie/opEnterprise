@@ -55,8 +55,8 @@ namespace UI
             this.panelDeposito = new MetroFramework.Controls.MetroPanel();
             this.btnVerInventario = new System.Windows.Forms.Button();
             this.btnPenalizarProveedor = new System.Windows.Forms.Button();
-            this.btnRealizarPedidoProveedor = new System.Windows.Forms.Button();
             this.btnRegistrarEntrada = new System.Windows.Forms.Button();
+            this.btnRealizarPedidoProveedor = new System.Windows.Forms.Button();
             this.btnDepositoPanel = new System.Windows.Forms.Button();
             this.panelSucursal = new MetroFramework.Controls.MetroPanel();
             this.btnVerQuejas = new System.Windows.Forms.Button();
@@ -83,6 +83,7 @@ namespace UI
             this.btnAdminConfig = new System.Windows.Forms.Button();
             this.panelImagen = new MetroFramework.Controls.MetroPanel();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.lblEdificio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelSidebar.SuspendLayout();
@@ -129,6 +130,7 @@ namespace UI
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblEdificio);
             this.panel1.Controls.Add(this.btnAyuda);
             this.panel1.Controls.Add(this.lblIdioma);
             this.panel1.Controls.Add(this.cbIdiomas);
@@ -238,7 +240,7 @@ namespace UI
             // 
             // btnRecepcionarPedidoDeposito
             // 
-            this.btnRecepcionarPedidoDeposito.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRecepcionarPedidoDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnRecepcionarPedidoDeposito.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRecepcionarPedidoDeposito.FlatAppearance.BorderSize = 0;
             this.btnRecepcionarPedidoDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -255,7 +257,7 @@ namespace UI
             // 
             // btnRealizarPedidoDeposito
             // 
-            this.btnRealizarPedidoDeposito.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRealizarPedidoDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnRealizarPedidoDeposito.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRealizarPedidoDeposito.FlatAppearance.BorderSize = 0;
             this.btnRealizarPedidoDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -272,7 +274,7 @@ namespace UI
             // 
             // btnDespacharEnvio
             // 
-            this.btnDespacharEnvio.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDespacharEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnDespacharEnvio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDespacharEnvio.FlatAppearance.BorderSize = 0;
             this.btnDespacharEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -289,7 +291,7 @@ namespace UI
             // 
             // btnVerEnvios
             // 
-            this.btnVerEnvios.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnVerEnvios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnVerEnvios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVerEnvios.FlatAppearance.BorderSize = 0;
             this.btnVerEnvios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -306,6 +308,7 @@ namespace UI
             // 
             // btnEnviosPanel
             // 
+            this.btnEnviosPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnEnviosPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEnviosPanel.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnEnviosPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -317,6 +320,7 @@ namespace UI
             this.btnEnviosPanel.Tag = "delivery_receptions";
             this.btnEnviosPanel.Text = "Envios y Recepciones";
             this.btnEnviosPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnviosPanel.UseVisualStyleBackColor = false;
             this.btnEnviosPanel.Click += new System.EventHandler(this.btnEnviosPanel_Click);
             // 
             // panelCaja
@@ -339,7 +343,7 @@ namespace UI
             // 
             // btnBuscarVentaCaja
             // 
-            this.btnBuscarVentaCaja.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBuscarVentaCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnBuscarVentaCaja.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBuscarVentaCaja.FlatAppearance.BorderSize = 0;
             this.btnBuscarVentaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -356,7 +360,7 @@ namespace UI
             // 
             // btnCancelarVentaCaja
             // 
-            this.btnCancelarVentaCaja.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCancelarVentaCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnCancelarVentaCaja.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancelarVentaCaja.FlatAppearance.BorderSize = 0;
             this.btnCancelarVentaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -373,7 +377,7 @@ namespace UI
             // 
             // btnRecibirPago
             // 
-            this.btnRecibirPago.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRecibirPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnRecibirPago.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRecibirPago.FlatAppearance.BorderSize = 0;
             this.btnRecibirPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -390,6 +394,7 @@ namespace UI
             // 
             // btnCajaPanel
             // 
+            this.btnCajaPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnCajaPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCajaPanel.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnCajaPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -401,6 +406,7 @@ namespace UI
             this.btnCajaPanel.Tag = "cash_register";
             this.btnCajaPanel.Text = "Caja";
             this.btnCajaPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCajaPanel.UseVisualStyleBackColor = false;
             this.btnCajaPanel.Click += new System.EventHandler(this.btnCajaPanel_Click);
             // 
             // panelDeposito
@@ -424,7 +430,7 @@ namespace UI
             // 
             // btnVerInventario
             // 
-            this.btnVerInventario.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnVerInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnVerInventario.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVerInventario.FlatAppearance.BorderSize = 0;
             this.btnVerInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -441,7 +447,7 @@ namespace UI
             // 
             // btnPenalizarProveedor
             // 
-            this.btnPenalizarProveedor.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnPenalizarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnPenalizarProveedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPenalizarProveedor.FlatAppearance.BorderSize = 0;
             this.btnPenalizarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -456,26 +462,9 @@ namespace UI
             this.btnPenalizarProveedor.UseVisualStyleBackColor = false;
             this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
             // 
-            // btnRealizarPedidoProveedor
-            // 
-            this.btnRealizarPedidoProveedor.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnRealizarPedidoProveedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRealizarPedidoProveedor.FlatAppearance.BorderSize = 0;
-            this.btnRealizarPedidoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRealizarPedidoProveedor.Location = new System.Drawing.Point(0, 0);
-            this.btnRealizarPedidoProveedor.Name = "btnRealizarPedidoProveedor";
-            this.btnRealizarPedidoProveedor.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnRealizarPedidoProveedor.Size = new System.Drawing.Size(185, 40);
-            this.btnRealizarPedidoProveedor.TabIndex = 12;
-            this.btnRealizarPedidoProveedor.Tag = "make_order_vendor";
-            this.btnRealizarPedidoProveedor.Text = "Realizar Pedido Proveedor";
-            this.btnRealizarPedidoProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRealizarPedidoProveedor.UseVisualStyleBackColor = false;
-            this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.btnRealizarPedidoProveedor_Click);
-            // 
             // btnRegistrarEntrada
             // 
-            this.btnRegistrarEntrada.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRegistrarEntrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnRegistrarEntrada.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRegistrarEntrada.FlatAppearance.BorderSize = 0;
             this.btnRegistrarEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -490,8 +479,26 @@ namespace UI
             this.btnRegistrarEntrada.UseVisualStyleBackColor = false;
             this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
             // 
+            // btnRealizarPedidoProveedor
+            // 
+            this.btnRealizarPedidoProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
+            this.btnRealizarPedidoProveedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRealizarPedidoProveedor.FlatAppearance.BorderSize = 0;
+            this.btnRealizarPedidoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRealizarPedidoProveedor.Location = new System.Drawing.Point(0, 0);
+            this.btnRealizarPedidoProveedor.Name = "btnRealizarPedidoProveedor";
+            this.btnRealizarPedidoProveedor.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRealizarPedidoProveedor.Size = new System.Drawing.Size(185, 40);
+            this.btnRealizarPedidoProveedor.TabIndex = 12;
+            this.btnRealizarPedidoProveedor.Tag = "make_order_vendor";
+            this.btnRealizarPedidoProveedor.Text = "Realizar Pedido Proveedor";
+            this.btnRealizarPedidoProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRealizarPedidoProveedor.UseVisualStyleBackColor = false;
+            this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.btnRealizarPedidoProveedor_Click);
+            // 
             // btnDepositoPanel
             // 
+            this.btnDepositoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnDepositoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDepositoPanel.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnDepositoPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -503,6 +510,7 @@ namespace UI
             this.btnDepositoPanel.Tag = "deposit";
             this.btnDepositoPanel.Text = "Deposito";
             this.btnDepositoPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepositoPanel.UseVisualStyleBackColor = false;
             this.btnDepositoPanel.Click += new System.EventHandler(this.btnDepositoPanel_Click);
             // 
             // panelSucursal
@@ -528,7 +536,7 @@ namespace UI
             // 
             // btnVerQuejas
             // 
-            this.btnVerQuejas.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnVerQuejas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnVerQuejas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVerQuejas.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnVerQuejas.FlatAppearance.BorderSize = 0;
@@ -546,7 +554,7 @@ namespace UI
             // 
             // btnCrearQueja
             // 
-            this.btnCrearQueja.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCrearQueja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnCrearQueja.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCrearQueja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCrearQueja.FlatAppearance.BorderSize = 0;
@@ -564,7 +572,7 @@ namespace UI
             // 
             // btnCancelarVentaVenta
             // 
-            this.btnCancelarVentaVenta.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCancelarVentaVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnCancelarVentaVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancelarVentaVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelarVentaVenta.FlatAppearance.BorderSize = 0;
@@ -582,7 +590,7 @@ namespace UI
             // 
             // btnBuscarVenta
             // 
-            this.btnBuscarVenta.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBuscarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnBuscarVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBuscarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBuscarVenta.FlatAppearance.BorderSize = 0;
@@ -600,7 +608,7 @@ namespace UI
             // 
             // btnRealizarVenta
             // 
-            this.btnRealizarVenta.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRealizarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnRealizarVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRealizarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRealizarVenta.FlatAppearance.BorderSize = 0;
@@ -618,6 +626,7 @@ namespace UI
             // 
             // btnSucursalPanel
             // 
+            this.btnSucursalPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnSucursalPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSucursalPanel.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnSucursalPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -629,6 +638,7 @@ namespace UI
             this.btnSucursalPanel.Tag = "branch";
             this.btnSucursalPanel.Text = "Sucursal";
             this.btnSucursalPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSucursalPanel.UseVisualStyleBackColor = false;
             this.btnSucursalPanel.Click += new System.EventHandler(this.btnSucursalPanel_Click);
             // 
             // panelAdminGestion
@@ -655,7 +665,7 @@ namespace UI
             // 
             // btnProducto
             // 
-            this.btnProducto.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnProducto.FlatAppearance.BorderSize = 0;
@@ -673,7 +683,7 @@ namespace UI
             // 
             // btnFamilia
             // 
-            this.btnFamilia.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnFamilia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnFamilia.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFamilia.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnFamilia.FlatAppearance.BorderSize = 0;
@@ -691,7 +701,7 @@ namespace UI
             // 
             // btnSucursal
             // 
-            this.btnSucursal.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSucursal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnSucursal.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSucursal.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSucursal.FlatAppearance.BorderSize = 0;
@@ -709,7 +719,7 @@ namespace UI
             // 
             // btnDeposito
             // 
-            this.btnDeposito.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDeposito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnDeposito.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDeposito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnDeposito.FlatAppearance.BorderSize = 0;
@@ -727,7 +737,7 @@ namespace UI
             // 
             // btnProveedor
             // 
-            this.btnProveedor.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedor.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnProveedor.FlatAppearance.BorderSize = 0;
@@ -745,7 +755,7 @@ namespace UI
             // 
             // btnEmpleado
             // 
-            this.btnEmpleado.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
@@ -763,7 +773,7 @@ namespace UI
             // 
             // btnAdminGestion
             // 
-            this.btnAdminGestion.BackColor = System.Drawing.Color.White;
+            this.btnAdminGestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnAdminGestion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdminGestion.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnAdminGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -802,7 +812,7 @@ namespace UI
             // 
             // btnExportReport
             // 
-            this.btnExportReport.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnExportReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnExportReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExportReport.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnExportReport.FlatAppearance.BorderSize = 0;
@@ -820,7 +830,7 @@ namespace UI
             // 
             // btnConfigurarEdificio
             // 
-            this.btnConfigurarEdificio.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnConfigurarEdificio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnConfigurarEdificio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConfigurarEdificio.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnConfigurarEdificio.FlatAppearance.BorderSize = 0;
@@ -838,7 +848,7 @@ namespace UI
             // 
             // btnIdioma
             // 
-            this.btnIdioma.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnIdioma.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnIdioma.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnIdioma.FlatAppearance.BorderSize = 0;
@@ -856,7 +866,7 @@ namespace UI
             // 
             // btnRestaurarDv
             // 
-            this.btnRestaurarDv.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRestaurarDv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnRestaurarDv.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRestaurarDv.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRestaurarDv.FlatAppearance.BorderSize = 0;
@@ -874,7 +884,7 @@ namespace UI
             // 
             // btnBitacora
             // 
-            this.btnBitacora.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(217)))), ((int)(((byte)(255)))));
             this.btnBitacora.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBitacora.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBitacora.FlatAppearance.BorderSize = 0;
@@ -892,7 +902,7 @@ namespace UI
             // 
             // btnBackup
             // 
-            this.btnBackup.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBackup.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnBackup.FlatAppearance.BorderSize = 0;
@@ -910,10 +920,11 @@ namespace UI
             // 
             // btnAdminConfig
             // 
-            this.btnAdminConfig.BackColor = System.Drawing.Color.White;
+            this.btnAdminConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.btnAdminConfig.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdminConfig.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnAdminConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminConfig.Location = new System.Drawing.Point(0, 0);
             this.btnAdminConfig.Name = "btnAdminConfig";
             this.btnAdminConfig.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -951,6 +962,16 @@ namespace UI
             this.picLogo.TabStop = false;
             this.picLogo.Click += new System.EventHandler(this.picLogo_Click);
             // 
+            // lblEdificio
+            // 
+            this.lblEdificio.AutoSize = true;
+            this.lblEdificio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdificio.Location = new System.Drawing.Point(368, 13);
+            this.lblEdificio.Name = "lblEdificio";
+            this.lblEdificio.Size = new System.Drawing.Size(79, 24);
+            this.lblEdificio.TabIndex = 11;
+            this.lblEdificio.Text = "Edificio";
+            // 
             // Mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -968,6 +989,7 @@ namespace UI
             this.Load += new System.EventHandler(this.Mdi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelSidebar.ResumeLayout(false);
             this.panelOpciones.ResumeLayout(false);
             this.panelEnvios.ResumeLayout(false);
@@ -1033,5 +1055,6 @@ namespace UI
         private Button btnExportReport;
         private Button btnProducto;
         private Button btnFamilia;
+        private System.Windows.Forms.Label lblEdificio;
     }
 }

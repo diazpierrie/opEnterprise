@@ -28,6 +28,30 @@ namespace UI
             HideSubMenu();
             CargarRoles();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblEdificio);
+
+            CargarEdificioLabel();
+        }
+
+        public void CargarEdificioLabel()
+        {
+
+            var depositoEe = Sesion.ObtenerSesion().Deposito;
+            var sucursalEe = Sesion.ObtenerSesion().Sucursal;
+
+            lblEdificio.Text = (string) Settings.Default["TipoEdificio"] == "Sucursal" ? sucursalEe.ToString() : depositoEe.ToString();
+            
+        }
+
+        public void CargarIdiomas()
+        {
+            var idiomas = IdiomaManager.Obtener().ToDictionary(id => id.Id, id => id.Nombre);
+            cbIdiomas.DisplayMember = "Value";
+            cbIdiomas.ValueMember = "Key";
+            cbIdiomas.DataSource = new BindingSource(idiomas, null);
+            cbIdiomas.SelectedValue = Sesion.ObtenerSesion().Idioma.Id;
         }
 
         public void CargarRoles()
@@ -57,10 +81,10 @@ namespace UI
             btnSucursalPanel.Visible =
                 RolManager.VerificarPatente(usuarioLoggeado, "Sucursal") && edificio == "Sucursal";
 
+            btnCajaPanel.Visible = RolManager.VerificarPatente(usuarioLoggeado, "Caja") && edificio == "Sucursal";
+
             btnDepositoPanel.Visible =
                 RolManager.VerificarPatente(usuarioLoggeado, "Deposito") && edificio == "Deposito";
-
-            btnCajaPanel.Visible = RolManager.VerificarPatente(usuarioLoggeado, "Caja");
 
             btnEnviosPanel.Visible = RolManager.VerificarPatente(usuarioLoggeado, "EnviosRecepciones");
 
@@ -320,10 +344,9 @@ namespace UI
 
         private void cbIdiomas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_langLoaded)
-            {
-                IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdiomas.SelectedValue.ToString()));
-            }
+            if (!_langLoaded) return;
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdiomas.SelectedValue.ToString()));
+            CargarEdificioLabel();
         }
 
         private void HideSubMenu()
@@ -340,28 +363,6 @@ namespace UI
         {
             PrepararIdiomas();
         }
-
-        public void CargarIdiomas()
-        {
-            var idiomas = IdiomaManager.Obtener().ToDictionary(id => id.Id, id => id.Nombre);
-            cbIdiomas.DisplayMember = "Value";
-            cbIdiomas.ValueMember = "Key";
-            cbIdiomas.DataSource = new BindingSource(idiomas, null);
-            cbIdiomas.SelectedValue = Sesion.ObtenerSesion().Idioma.Id;
-        }
-
-        private void PrepararIdiomas()
-        {
-            AllControls = Program.GetAllControls(this);
-            AllControls.Add(lblIdioma);
-
-            CargarIdiomas();
-
-            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
-
-            _langLoaded = true;
-        }
-
         private void OpenChildForm(UpdatableForm childForm)
         {
             _activeForm?.Close();
@@ -393,6 +394,17 @@ namespace UI
             home.Show();
         }
 
+        private void PrepararIdiomas()
+        {
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lblIdioma);
+
+            CargarIdiomas();
+
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+
+            _langLoaded = true;
+        }
         private void RemoveUserControl()
         {
             if (panelContainer.Controls.Count > 0) panelContainer.Controls.RemoveAt(panelContainer.Controls.Count - 1);

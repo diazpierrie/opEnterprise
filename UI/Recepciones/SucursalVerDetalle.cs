@@ -1,5 +1,5 @@
 ﻿using System;
-using BLL;
+using System.Collections.Generic;
 using EE;
 
 // ReSharper disable PossibleNullReferenceException
@@ -8,20 +8,15 @@ namespace UI
 {
     public partial class SucursalVerDetalle : UpdatableForm
     {
-        public SucursalVerDetalle(PedidoDepositoEe pedido)
+        public SucursalVerDetalle(List<PedidoDepositoDetalleEe> pedidoDepositoDetalleEes)
         {
             InitializeComponent();
-            gridDetalle.DataSource = PedidoDepositoBll.ObtenerDetalle(pedido);
 
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
+            gridDetalle.DataSource = pedidoDepositoDetalleEes;
 
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Pedido"].Visible = false;
 
-            Show();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
