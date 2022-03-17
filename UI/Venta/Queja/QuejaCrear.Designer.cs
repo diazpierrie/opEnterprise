@@ -50,8 +50,9 @@ namespace UI
             // 
             // lblEstado
             // 
+            this.lblEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(575, 154);
+            this.lblEstado.Location = new System.Drawing.Point(576, 128);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(48, 19);
             this.lblEstado.TabIndex = 48;
@@ -60,9 +61,10 @@ namespace UI
             // 
             // cbEstado
             // 
+            this.cbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.ItemHeight = 23;
-            this.cbEstado.Location = new System.Drawing.Point(629, 149);
+            this.cbEstado.Location = new System.Drawing.Point(630, 123);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(159, 29);
             this.cbEstado.TabIndex = 47;
@@ -70,6 +72,7 @@ namespace UI
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Location = new System.Drawing.Point(630, 210);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
@@ -81,8 +84,9 @@ namespace UI
             // 
             // lblCliente
             // 
+            this.lblCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(574, 123);
+            this.lblCliente.Location = new System.Drawing.Point(575, 97);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(49, 19);
             this.lblCliente.TabIndex = 38;
@@ -91,6 +95,7 @@ namespace UI
             // 
             // txtCliente
             // 
+            this.txtCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -104,7 +109,7 @@ namespace UI
             this.txtCliente.CustomButton.UseSelectable = true;
             this.txtCliente.CustomButton.Visible = false;
             this.txtCliente.Lines = new string[0];
-            this.txtCliente.Location = new System.Drawing.Point(629, 120);
+            this.txtCliente.Location = new System.Drawing.Point(630, 94);
             this.txtCliente.MaxLength = 32767;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PasswordChar = '\0';
@@ -121,8 +126,9 @@ namespace UI
             // 
             // lblUsuario
             // 
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(571, 95);
+            this.lblUsuario.Location = new System.Drawing.Point(572, 69);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 19);
             this.lblUsuario.TabIndex = 36;
@@ -131,6 +137,7 @@ namespace UI
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -144,7 +151,7 @@ namespace UI
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[0];
-            this.txtUsuario.Location = new System.Drawing.Point(630, 91);
+            this.txtUsuario.Location = new System.Drawing.Point(631, 65);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -161,6 +168,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Location = new System.Drawing.Point(630, 413);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(157, 23);
@@ -175,8 +183,11 @@ namespace UI
             this.gridClientes.AllowUserToAddRows = false;
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.AllowUserToResizeRows = false;
+            this.gridClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -213,13 +224,14 @@ namespace UI
             this.gridClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClientes.Size = new System.Drawing.Size(511, 372);
+            this.gridClientes.Size = new System.Drawing.Size(546, 372);
             this.gridClientes.TabIndex = 0;
             this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
             // 
             // btnElegirVenta
             // 
-            this.btnElegirVenta.Location = new System.Drawing.Point(629, 264);
+            this.btnElegirVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnElegirVenta.Location = new System.Drawing.Point(630, 239);
             this.btnElegirVenta.Name = "btnElegirVenta";
             this.btnElegirVenta.Size = new System.Drawing.Size(157, 23);
             this.btnElegirVenta.TabIndex = 49;

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -10,23 +11,16 @@ namespace UI
 {
     public partial class ProveedorVerPenalizaciones : UpdatableForm
     {
-
-        public ProveedorVerPenalizaciones(ProveedorEe selectedProveedor)
+        public ProveedorVerPenalizaciones(List<PenalizacionProveedorEe> penalizacionProveedorEes)
         {
             InitializeComponent();
-
 
             AllControls = Program.GetAllControls(this);
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
-            gridDetalle.DataSource = ProveedorBll.ObtenerPenalizaciones(selectedProveedor);
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
+            gridDetalle.DataSource = penalizacionProveedorEes;
 
             gridDetalle.Columns["id"].Visible = false;
 
@@ -37,8 +31,6 @@ namespace UI
             gridDetalle.Columns["Descripcion"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["description"];
 
             gridDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            Show();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

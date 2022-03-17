@@ -11,10 +11,12 @@ namespace UI
 {
     public partial class PagoRecibir : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<VentaEe> _dataTable;
 
-        public PagoRecibir()
+        public PagoRecibir(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             var estados = VentaEstadoBll.Obtener();

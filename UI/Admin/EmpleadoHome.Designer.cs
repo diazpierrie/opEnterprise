@@ -45,7 +45,8 @@ namespace UI
             // 
             // btnAsignar
             // 
-            this.btnAsignar.Location = new System.Drawing.Point(626, 216);
+            this.btnAsignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsignar.Location = new System.Drawing.Point(641, 216);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(136, 41);
             this.btnAsignar.TabIndex = 8;
@@ -59,8 +60,11 @@ namespace UI
             this.gridEmpleado.AllowUserToAddRows = false;
             this.gridEmpleado.AllowUserToDeleteRows = false;
             this.gridEmpleado.AllowUserToResizeRows = false;
+            this.gridEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridEmpleado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridEmpleado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridEmpleado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -83,7 +87,7 @@ namespace UI
             this.gridEmpleado.EnableHeadersVisualStyles = false;
             this.gridEmpleado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridEmpleado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridEmpleado.Location = new System.Drawing.Point(38, 75);
+            this.gridEmpleado.Location = new System.Drawing.Point(23, 75);
             this.gridEmpleado.MultiSelect = false;
             this.gridEmpleado.Name = "gridEmpleado";
             this.gridEmpleado.ReadOnly = true;
@@ -98,14 +102,15 @@ namespace UI
             this.gridEmpleado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridEmpleado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridEmpleado.Size = new System.Drawing.Size(563, 301);
+            this.gridEmpleado.Size = new System.Drawing.Size(612, 352);
             this.gridEmpleado.TabIndex = 7;
             this.gridEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEmpleado_CellClick);
             this.gridEmpleado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEmpleado_CellDoubleClick);
             // 
             // btnBorrarEmpleado
             // 
-            this.btnBorrarEmpleado.Location = new System.Drawing.Point(626, 169);
+            this.btnBorrarEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBorrarEmpleado.Location = new System.Drawing.Point(641, 169);
             this.btnBorrarEmpleado.Name = "btnBorrarEmpleado";
             this.btnBorrarEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnBorrarEmpleado.TabIndex = 6;
@@ -116,7 +121,8 @@ namespace UI
             // 
             // btnModificarEmpleado
             // 
-            this.btnModificarEmpleado.Location = new System.Drawing.Point(626, 122);
+            this.btnModificarEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificarEmpleado.Location = new System.Drawing.Point(641, 122);
             this.btnModificarEmpleado.Name = "btnModificarEmpleado";
             this.btnModificarEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnModificarEmpleado.TabIndex = 5;
@@ -127,7 +133,8 @@ namespace UI
             // 
             // btnCrearEmpleado
             // 
-            this.btnCrearEmpleado.Location = new System.Drawing.Point(626, 75);
+            this.btnCrearEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCrearEmpleado.Location = new System.Drawing.Point(641, 75);
             this.btnCrearEmpleado.Name = "btnCrearEmpleado";
             this.btnCrearEmpleado.Size = new System.Drawing.Size(136, 41);
             this.btnCrearEmpleado.TabIndex = 4;

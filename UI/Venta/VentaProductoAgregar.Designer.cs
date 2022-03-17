@@ -56,9 +56,11 @@ namespace UI
             // 
             // cbDepositos
             // 
+            this.cbDepositos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDepositos.FormattingEnabled = true;
             this.cbDepositos.ItemHeight = 23;
-            this.cbDepositos.Location = new System.Drawing.Point(173, 456);
+            this.cbDepositos.Location = new System.Drawing.Point(173, 444);
             this.cbDepositos.Name = "cbDepositos";
             this.cbDepositos.Size = new System.Drawing.Size(317, 29);
             this.cbDepositos.TabIndex = 27;
@@ -67,8 +69,11 @@ namespace UI
             // 
             // rbDeposito
             // 
+            this.rbDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rbDeposito.AutoSize = true;
-            this.rbDeposito.Location = new System.Drawing.Point(96, 463);
+            this.rbDeposito.Location = new System.Drawing.Point(96, 451);
             this.rbDeposito.Name = "rbDeposito";
             this.rbDeposito.Size = new System.Drawing.Size(70, 15);
             this.rbDeposito.TabIndex = 26;
@@ -78,8 +83,10 @@ namespace UI
             // 
             // rbSucursal
             // 
+            this.rbSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rbSucursal.AutoSize = true;
-            this.rbSucursal.Location = new System.Drawing.Point(23, 463);
+            this.rbSucursal.Location = new System.Drawing.Point(23, 451);
             this.rbSucursal.Name = "rbSucursal";
             this.rbSucursal.Size = new System.Drawing.Size(67, 15);
             this.rbSucursal.TabIndex = 25;
@@ -90,10 +97,8 @@ namespace UI
             // 
             // btnAgregarProductos
             // 
-            this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarProductos.Location = new System.Drawing.Point(732, 443);
+            this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarProductos.Location = new System.Drawing.Point(753, 443);
             this.btnAgregarProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarProductos.Name = "btnAgregarProductos";
             this.btnAgregarProductos.Size = new System.Drawing.Size(123, 23);
@@ -121,7 +126,7 @@ namespace UI
             this.txtBuscar.CustomButton.Visible = false;
             this.txtBuscar.Lines = new string[] {
         "Busqueda"};
-            this.txtBuscar.Location = new System.Drawing.Point(161, 69);
+            this.txtBuscar.Location = new System.Drawing.Point(292, 69);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
@@ -169,7 +174,9 @@ namespace UI
             this.gridProductosAAgregar.AllowUserToAddRows = false;
             this.gridProductosAAgregar.AllowUserToDeleteRows = false;
             this.gridProductosAAgregar.AllowUserToResizeRows = false;
-            this.gridProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridProductosAAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridProductosAAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridProductosAAgregar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridProductosAAgregar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -213,10 +220,8 @@ namespace UI
             // 
             // btnQuitarProductos
             // 
-            this.btnQuitarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitarProductos.Location = new System.Drawing.Point(859, 443);
+            this.btnQuitarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarProductos.Location = new System.Drawing.Point(880, 443);
             this.btnQuitarProductos.Margin = new System.Windows.Forms.Padding(2);
             this.btnQuitarProductos.Name = "btnQuitarProductos";
             this.btnQuitarProductos.Size = new System.Drawing.Size(117, 23);
@@ -228,8 +233,7 @@ namespace UI
             // 
             // btnRemoverProducto
             // 
-            this.btnRemoverProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnRemoverProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoverProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnRemoverProducto.Location = new System.Drawing.Point(495, 264);
@@ -294,8 +298,7 @@ namespace UI
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarProducto.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnAgregarProducto.Location = new System.Drawing.Point(495, 191);

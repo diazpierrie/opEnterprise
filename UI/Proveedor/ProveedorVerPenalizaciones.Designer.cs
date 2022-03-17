@@ -55,7 +55,7 @@ namespace UI
             // 
             this.gridDetalle.AllowUserToResizeRows = false;
             this.gridDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

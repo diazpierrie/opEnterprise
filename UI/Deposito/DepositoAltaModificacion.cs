@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using BLL;
 using EE;
 using Security;
@@ -18,8 +19,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Empleado");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["deposit"]);
         }
 
         public DepositoAltaModificacion(DepositoHome homeForm, DepositoEe deposito)
@@ -31,8 +32,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Modificar";
-            CambiarTitulo("Modificar Empleado");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["deposit"]);
         }
 
         private void btnAccion_Click(object sender, EventArgs e)

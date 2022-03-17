@@ -93,14 +93,14 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado FROM envio_sucursal " +
+                var strQuery = "SELECT id, idVenta, idDireccion, idDeposito, fechaSalida, fechaLlegada, idEstado FROM envio_deposito " +
                                $"WHERE idDeposito = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
                 Conn.Open();
                 var data = query.ExecuteReader();
-                List<EnvioEe> envioEe = null;
+                var envioEe = new List<EnvioEe>();
 
                 if (data.HasRows)
                 {

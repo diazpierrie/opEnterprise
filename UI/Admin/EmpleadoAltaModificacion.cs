@@ -49,8 +49,7 @@ namespace UI
                     Mail = txtMail.Text,
                     Telefono = txtTelefono.Text,
                     NombreUsuario = txtUsername.Text,
-                    Permiso = new FamiliaEe { Id = int.Parse(cbPermiso.SelectedValue.ToString()) },
-                    Puesto = new PuestoEe { Id = int.Parse(cbPuesto.SelectedValue.ToString()) }
+                    Rol = new FamiliaEe { Id = int.Parse(cbRol.SelectedValue.ToString()) },
                 };
                 UsuarioBll.Crear(usuario);
             }
@@ -62,8 +61,7 @@ namespace UI
                 _usuario.Mail = txtMail.Text;
                 _usuario.Telefono = txtTelefono.Text;
                 _usuario.NombreUsuario = txtUsername.Text;
-                _usuario.Permiso = new FamiliaEe { Id = int.Parse(cbPermiso.SelectedValue.ToString()) };
-                _usuario.Puesto = new PuestoEe { Id = int.Parse(cbPuesto.SelectedValue.ToString()) };
+                _usuario.Rol = new FamiliaEe { Id = int.Parse(cbRol.SelectedValue.ToString()) };
                 UsuarioBll.Actualizar(_usuario);
             }
 
@@ -81,7 +79,6 @@ namespace UI
             AllControls.Add(lblRol);
             AllControls.Add(lblDNI);
             AllControls.Add(lblTelefono);
-            AllControls.Add(lblPuesto);
 
             if (_usuario.Id == 0)
             {
@@ -91,31 +88,18 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
             CargarFamilias();
-            CargarPuestos();
             CargarDetalleUsuario();
         }
 
 
         private void CargarFamilias()
         {
-            cbPermiso.DisplayMember = "Value";
-            cbPermiso.ValueMember = "Key";
+            cbRol.DisplayMember = "Value";
+            cbRol.ValueMember = "Key";
 
-            var familias = PermisosManager.ObtenerFamilia().ToDictionary(ee => ee.Id, ee => ee.Nombre);
+            var familias = RolManager.ObtenerFamilia().ToDictionary(ee => ee.Id, ee => ee.Nombre);
 
-            cbPermiso.DataSource = new BindingSource(familias, null);
-        }
-
-        private void CargarPuestos()
-        {
-            var puestos = PuestoBll.Obtener();
-
-            cbPuesto.DisplayMember = "Value";
-            cbPuesto.ValueMember = "Key";
-
-            var items = puestos.ToDictionary(puesto => puesto.Id, puesto => puesto.Nombre);
-
-            cbPuesto.DataSource = new BindingSource(items, null);
+            cbRol.DataSource = new BindingSource(familias, null);
         }
 
         private void CargarDetalleUsuario()
@@ -129,11 +113,8 @@ namespace UI
             txtTelefono.Text = _usuario.Telefono;
             txtUsername.Text = _usuario.NombreUsuario;
 
-            PermisosManager.ObtenerFamilia(_usuario);
-            cbPermiso.SelectedIndex = cbPermiso.FindStringExact(_usuario.Permiso != null ? _usuario.Permiso.Nombre : "");
-            
-            PuestoBll.Obtener(_usuario);
-            cbPuesto.SelectedIndex = cbPuesto.FindStringExact(_usuario.Puesto != null ? _usuario.Puesto.Nombre : "");
+            RolManager.ObtenerFamilia(_usuario);
+            cbRol.SelectedIndex = cbRol.FindStringExact(_usuario.Rol != null ? _usuario.Rol.Nombre : "");
         }
         
         private void CambiarTitulo(string titulo)

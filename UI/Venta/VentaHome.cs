@@ -1,12 +1,12 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using MetroFramework;
+using Security;
+using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using BLL;
-using EE;
-using MetroFramework;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -14,12 +14,15 @@ namespace UI
 {
     public partial class VentaHome : UpdatableForm
     {
+        private readonly Mdi _mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
         public BindingList<ProductoEdificioEe> ProductosDeposito;
         public BindingList<ProductoEdificioEe> ProductosSucursal;
         public double Total;
-        public VentaHome()
+
+        public VentaHome(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             TraerProductos();
 
@@ -29,7 +32,6 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
             lblTotal.Text += @": ";
-
         }
 
         public void ActualizarGrid()
@@ -108,10 +110,10 @@ namespace UI
             ProductosSucursal = new BindingList<ProductoEdificioEe>(ProductoBll.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal));
             ProductosDeposito = new BindingList<ProductoEdificioEe>(ProductoBll.ObtenerTodosDeposito());
         }
+
         private void VentaHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
         }
     }
-
 }

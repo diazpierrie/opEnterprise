@@ -49,7 +49,7 @@ namespace UI
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(706, 387);
+            this.lblTotal.Location = new System.Drawing.Point(711, 443);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(67, 25);
             this.lblTotal.TabIndex = 9;
@@ -60,8 +60,11 @@ namespace UI
             this.gridPedido.AllowUserToAddRows = false;
             this.gridPedido.AllowUserToDeleteRows = false;
             this.gridPedido.AllowUserToResizeRows = false;
+            this.gridPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPedido.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridPedido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridPedido.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridPedido.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridPedido.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -84,7 +87,7 @@ namespace UI
             this.gridPedido.EnableHeadersVisualStyles = false;
             this.gridPedido.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridPedido.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridPedido.Location = new System.Drawing.Point(38, 63);
+            this.gridPedido.Location = new System.Drawing.Point(23, 63);
             this.gridPedido.MultiSelect = false;
             this.gridPedido.Name = "gridPedido";
             this.gridPedido.ReadOnly = true;
@@ -99,14 +102,14 @@ namespace UI
             this.gridPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridPedido.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPedido.Size = new System.Drawing.Size(662, 405);
+            this.gridPedido.Size = new System.Drawing.Size(682, 405);
             this.gridPedido.TabIndex = 7;
             this.gridPedido.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellValueChanged);
             // 
             // btnRemoverProductos
             // 
             this.btnRemoverProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoverProductos.Location = new System.Drawing.Point(711, 121);
+            this.btnRemoverProductos.Location = new System.Drawing.Point(711, 110);
             this.btnRemoverProductos.Name = "btnRemoverProductos";
             this.btnRemoverProductos.Size = new System.Drawing.Size(136, 41);
             this.btnRemoverProductos.TabIndex = 5;
@@ -118,7 +121,7 @@ namespace UI
             // btnAgregarProductos
             // 
             this.btnAgregarProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarProductos.Location = new System.Drawing.Point(711, 74);
+            this.btnAgregarProductos.Location = new System.Drawing.Point(711, 63);
             this.btnAgregarProductos.Name = "btnAgregarProductos";
             this.btnAgregarProductos.Size = new System.Drawing.Size(136, 41);
             this.btnAgregarProductos.TabIndex = 4;
@@ -129,7 +132,7 @@ namespace UI
             // btnCompletarPedido
             // 
             this.btnCompletarPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCompletarPedido.Location = new System.Drawing.Point(711, 168);
+            this.btnCompletarPedido.Location = new System.Drawing.Point(711, 157);
             this.btnCompletarPedido.Name = "btnCompletarPedido";
             this.btnCompletarPedido.Size = new System.Drawing.Size(136, 41);
             this.btnCompletarPedido.TabIndex = 10;

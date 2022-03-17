@@ -17,7 +17,8 @@ namespace UI
         private readonly ProveedorEe _proveedor;
         private readonly ProveedorHome _proveedorHome;
 
-        public ProveedorRestaurar(ProveedorHome proveedorHome, ProveedorEe proveedor)
+        public ProveedorRestaurar(ProveedorHome proveedorHome, ProveedorEe proveedor,
+            List<VersionEntidadEe> listaVersiones)
         {
             AllControls = Program.GetAllControls(this);
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
@@ -27,14 +28,6 @@ namespace UI
             _proveedorHome = proveedorHome;
             _proveedor = proveedor;
             InitializeComponent();
-            var listaVersiones = VersionEntidadBll.Obtener("proveedor", _proveedor.Id);
-
-            if (listaVersiones.Count == 0)
-            {
-                MetroMessageBox.Show(_proveedorHome, Sesion.ObtenerSesion().Idioma.Textos["vendor_no_versions"],
-                    Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             foreach (var version in listaVersiones)
             {
@@ -59,8 +52,6 @@ namespace UI
             gridVersiones.Columns["mail"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["mail"];
             gridVersiones.Columns["telefono"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["telephone"];
             gridVersiones.Columns["CantidadErrores"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_errors"];
-
-            Show();
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)

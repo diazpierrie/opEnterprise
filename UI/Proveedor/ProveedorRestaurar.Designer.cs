@@ -45,7 +45,7 @@ namespace UI
             // 
             this.gridVersiones.AllowUserToResizeRows = false;
             this.gridVersiones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridVersiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridVersiones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridVersiones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridVersiones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -97,7 +97,7 @@ namespace UI
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(777, 413);
+            this.btnCerrar.Location = new System.Drawing.Point(777, 110);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(136, 41);
             this.btnCerrar.TabIndex = 2;

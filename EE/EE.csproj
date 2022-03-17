@@ -70,12 +70,11 @@
     <Compile Include="EstadoEe.cs" />
     <Compile Include="MetodoPagoEe.cs" />
     <Compile Include="PatenteEe.cs" />
-    <Compile Include="PermisoEe.cs" />
+    <Compile Include="RolEe.cs" />
     <Compile Include="PersonaEe.cs" />
     <Compile Include="ProductoEe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorEe.cs" />
-    <Compile Include="PuestoEe.cs" />
     <Compile Include="PerdidaEe.cs" />
     <Compile Include="RenovacionDepositoEe.cs" />
     <Compile Include="ReposicionEe.cs" />

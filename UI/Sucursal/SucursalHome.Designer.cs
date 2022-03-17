@@ -46,8 +46,11 @@ namespace UI.Sucursal
             this.gridSucursal.AllowUserToAddRows = false;
             this.gridSucursal.AllowUserToDeleteRows = false;
             this.gridSucursal.AllowUserToResizeRows = false;
+            this.gridSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridSucursal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridSucursal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridSucursal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridSucursal.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridSucursal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -70,7 +73,7 @@ namespace UI.Sucursal
             this.gridSucursal.EnableHeadersVisualStyles = false;
             this.gridSucursal.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridSucursal.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridSucursal.Location = new System.Drawing.Point(38, 75);
+            this.gridSucursal.Location = new System.Drawing.Point(23, 75);
             this.gridSucursal.Name = "gridSucursal";
             this.gridSucursal.ReadOnly = true;
             this.gridSucursal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -84,13 +87,14 @@ namespace UI.Sucursal
             this.gridSucursal.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridSucursal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridSucursal.Size = new System.Drawing.Size(563, 301);
+            this.gridSucursal.Size = new System.Drawing.Size(612, 352);
             this.gridSucursal.TabIndex = 7;
             this.gridSucursal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSucursal_CellDoubleClick);
             // 
             // btnBorrarSucursal
             // 
-            this.btnBorrarSucursal.Location = new System.Drawing.Point(626, 169);
+            this.btnBorrarSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBorrarSucursal.Location = new System.Drawing.Point(641, 169);
             this.btnBorrarSucursal.Name = "btnBorrarSucursal";
             this.btnBorrarSucursal.Size = new System.Drawing.Size(136, 41);
             this.btnBorrarSucursal.TabIndex = 6;
@@ -100,7 +104,8 @@ namespace UI.Sucursal
             // 
             // btnModificarSucursal
             // 
-            this.btnModificarSucursal.Location = new System.Drawing.Point(626, 122);
+            this.btnModificarSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificarSucursal.Location = new System.Drawing.Point(641, 122);
             this.btnModificarSucursal.Name = "btnModificarSucursal";
             this.btnModificarSucursal.Size = new System.Drawing.Size(136, 41);
             this.btnModificarSucursal.TabIndex = 5;
@@ -110,7 +115,8 @@ namespace UI.Sucursal
             // 
             // btnCrearSucursal
             // 
-            this.btnCrearSucursal.Location = new System.Drawing.Point(626, 75);
+            this.btnCrearSucursal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCrearSucursal.Location = new System.Drawing.Point(641, 75);
             this.btnCrearSucursal.Name = "btnCrearSucursal";
             this.btnCrearSucursal.Size = new System.Drawing.Size(136, 41);
             this.btnCrearSucursal.TabIndex = 4;

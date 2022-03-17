@@ -1,11 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.Linq;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using MetroFramework;
 using Security;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 using UI.Properties;
 
 namespace UI
@@ -15,21 +14,8 @@ namespace UI
         public Login()
         {
             InitializeComponent();
+            Dv.ActualizarDv();
         }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            IdiomaManager.CargarDefault();
-            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
-
-            AllControls = Program.GetAllControls(this);
-            AllControls.Add(lbUsuario);
-            AllControls.Add(lbPassword);
-            AllControls.Add(lbIdioma);
-
-            CargarIdiomas();
-        }
-
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
@@ -50,7 +36,7 @@ namespace UI
 
             if (!Dv.VerificarDv())
             {
-                if (PermisosManager.VerificarPatente(sesion.Usuario, "DigitoVerificador"))
+                if (RolManager.VerificarPatente(sesion.Usuario, "DigitoVerificador"))
                 {
                     var error = new ErrorDv();
                     error.Show();
@@ -63,21 +49,23 @@ namespace UI
 
             var tipoEdificio = Settings.Default.TipoEdificio;
             var idEdificio = Settings.Default.IdEdificio;
-            if (!PermisosManager.VerificarPatente(sesion.Usuario, "Admin"))
+
+            if (!string.IsNullOrEmpty(tipoEdificio) && !string.IsNullOrEmpty(idEdificio.ToString()))
             {
-                if (!string.IsNullOrEmpty(tipoEdificio) && !string.IsNullOrEmpty(idEdificio.ToString()))
+                switch (tipoEdificio)
                 {
-                    switch (tipoEdificio)
-                    {
-                        case "Deposito":
-                            sesion.Deposito = DepositoBll.Obtener(idEdificio);
-                            break;
-                        case "Sucursal":
-                            sesion.Sucursal = SucursalBll.Obtener(idEdificio);
-                            break;
-                    }
+                    case "Deposito":
+                        sesion.Deposito = DepositoBll.Obtener(idEdificio);
+                        break;
+
+                    case "Sucursal":
+                        sesion.Sucursal = SucursalBll.Obtener(idEdificio);
+                        break;
                 }
-                else
+            }
+            else
+            {
+                if (!RolManager.VerificarPatente(sesion.Usuario, "Admin"))
                 {
                     MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_config"], sesion.Idioma.Textos["notification"]);
                     return;
@@ -87,7 +75,7 @@ namespace UI
             Hide();
             var h1 = new Mdi();
 
-            switch (sesion.Usuario.Permiso.Id)
+            switch (sesion.Usuario.Rol.Id)
             {
                 case 1: //Deposito
                     {
@@ -96,10 +84,8 @@ namespace UI
                             sesion.Usuario.Depositos = DepositoBll.ObtenerDepositosDeUsuario(sesion.Usuario);
                             if (sesion.Usuario.Depositos != null)
                             {
-
                                 if (sesion.Usuario.Depositos.Find(depo => depo.Id == idEdificio) != null)
                                 {
-
                                     h1.ShowDialog();
                                     Close();
                                 }
@@ -108,7 +94,6 @@ namespace UI
                                     MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_warehouse"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-
                         }
                         else
                         {
@@ -123,10 +108,8 @@ namespace UI
                             sesion.Usuario.Sucursales = SucursalBll.ObtenerSucursalesDeUsuario(sesion.Usuario);
                             if (sesion.Usuario.Sucursales != null)
                             {
-
                                 if (sesion.Usuario.Sucursales.Find(sucu => sucu.Id == idEdificio) != null)
                                 {
-
                                     h1.ShowDialog();
                                     Close();
                                 }
@@ -135,7 +118,6 @@ namespace UI
                                     MetroMessageBox.Show(this, sesion.Idioma.Textos["wrong_branch"], sesion.Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-
                         }
                         else
                         {
@@ -152,11 +134,6 @@ namespace UI
             }
         }
 
-        private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdioma.SelectedValue.ToString()));
-        }
-
         private void CargarIdiomas()
         {
             cbIdioma.DisplayMember = "Value";
@@ -166,6 +143,27 @@ namespace UI
 
             cbIdioma.DataSource = new BindingSource(idiomas, null);
         }
+
+        private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdioma.SelectedValue.ToString()));
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            IdiomaManager.CargarDefault();
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+
+            AllControls = Program.GetAllControls(this);
+            AllControls.Add(lbUsuario);
+            AllControls.Add(lbPassword);
+            AllControls.Add(lbIdioma);
+
+            CargarIdiomas();
+
+            txtUsuario.Text = "admin";
+            txtPassword.Text = "admin";
+            btnIniciarSesion_Click(null, null);
+        }
     }
 }
-

@@ -50,8 +50,11 @@ namespace UI
             this.gridInventario.AllowUserToAddRows = false;
             this.gridInventario.AllowUserToDeleteRows = false;
             this.gridInventario.AllowUserToResizeRows = false;
+            this.gridInventario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridInventario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridInventario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridInventario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridInventario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridInventario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -93,6 +96,7 @@ namespace UI
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -106,7 +110,7 @@ namespace UI
             this.txtNombre.CustomButton.UseSelectable = true;
             this.txtNombre.CustomButton.Visible = false;
             this.txtNombre.Lines = new string[0];
-            this.txtNombre.Location = new System.Drawing.Point(629, 79);
+            this.txtNombre.Location = new System.Drawing.Point(629, 64);
             this.txtNombre.MaxLength = 32767;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
@@ -123,8 +127,9 @@ namespace UI
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(564, 83);
+            this.lblNombre.Location = new System.Drawing.Point(564, 68);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(59, 19);
             this.lblNombre.TabIndex = 2;
@@ -133,8 +138,9 @@ namespace UI
             // 
             // lblCodigo
             // 
+            this.lblCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(564, 108);
+            this.lblCodigo.Location = new System.Drawing.Point(564, 93);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(53, 19);
             this.lblCodigo.TabIndex = 4;
@@ -143,7 +149,8 @@ namespace UI
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(629, 137);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(629, 122);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
             this.btnBuscar.TabIndex = 11;
@@ -153,9 +160,10 @@ namespace UI
             // 
             // btnElegir
             // 
-            this.btnElegir.Location = new System.Drawing.Point(630, 413);
+            this.btnElegir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnElegir.Location = new System.Drawing.Point(564, 413);
             this.btnElegir.Name = "btnElegir";
-            this.btnElegir.Size = new System.Drawing.Size(157, 23);
+            this.btnElegir.Size = new System.Drawing.Size(223, 23);
             this.btnElegir.TabIndex = 12;
             this.btnElegir.Tag = "choose";
             this.btnElegir.Text = "Elegir";
@@ -163,6 +171,7 @@ namespace UI
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -176,7 +185,7 @@ namespace UI
             this.txtCodigo.CustomButton.UseSelectable = true;
             this.txtCodigo.CustomButton.Visible = false;
             this.txtCodigo.Lines = new string[0];
-            this.txtCodigo.Location = new System.Drawing.Point(629, 108);
+            this.txtCodigo.Location = new System.Drawing.Point(629, 93);
             this.txtCodigo.MaxLength = 32767;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.PasswordChar = '\0';

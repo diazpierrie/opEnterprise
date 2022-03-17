@@ -1,7 +1,6 @@
 ﻿using DAL;
 using EE;
 using Security;
-using System;
 using System.Collections.Generic;
 
 namespace BLL
@@ -13,7 +12,7 @@ namespace BLL
         public static void Actualizar(UsuarioEe usuario)
         {
             Dal.Actualizar(usuario);
-            PermisosManager.ModificarFamilia(usuario, PermisosManager.ObtenerFamilia(usuario));
+            RolManager.ModificarFamilia(usuario, RolManager.ObtenerFamilia(usuario));
 
             BitacoraManager.AgregarMensajeControl("Usuario actualizado: ", usuario);
 
@@ -35,7 +34,7 @@ namespace BLL
                 return 0;
             }
 
-            usuario.Id = Dal.Crear(usuario, Encriptador.Encriptar("123456"), PermisosManager.ObtenerFamilia(usuario));
+            usuario.Id = Dal.Crear(usuario, Encriptador.Encriptar("123456"), RolManager.ObtenerFamilia(usuario));
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Usuario creado: ", usuario);
@@ -51,6 +50,11 @@ public static List<UsuarioEe> ObtenerActivos(string name = null)
         public static UsuarioEe Obtener(int id)
         {
             return Dal.Obtener(id);
+        }
+
+        public static List<UsuarioEe> Obtener()
+        {
+            return Dal.Obtener();
         }
     }
 }

@@ -75,6 +75,11 @@ namespace BLL
         {
             var envios = Dal.ObtenerDeSucursal(id);
 
+            if (envios == null)
+            {
+                return null;
+            }
+
             foreach (var envio in envios)
             {
                 envio.Edificio = SucursalBll.Obtener(envio.Edificio.Id);

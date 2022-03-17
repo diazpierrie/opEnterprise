@@ -10,10 +10,12 @@ namespace UI
 {
     public partial class EnvioBuscar : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<EnvioEe> _dataTable;
 
-        public EnvioBuscar()
+        public EnvioBuscar(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             var estados = EnvioBll.ObtenerEstados();

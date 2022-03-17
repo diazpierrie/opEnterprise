@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace DAL
 {
@@ -52,7 +53,7 @@ namespace DAL
         public int Crear(ProductoEe producto)
         {
             var columnas = new List<string> { "nombre", "codigo", "fechaCreacion", "precio", "costo", "activo" };
-            var valores = new List<string> { producto.Nombre, producto.Codigo, DateTime.Now.ToString(), producto.Precio.ToString(), producto.Costo.ToString(), 1.ToString() };
+            var valores = new List<string> { producto.Nombre, producto.Codigo, DateTime.Now.ToString(CultureInfo.InvariantCulture), producto.Precio.ToString(CultureInfo.InvariantCulture), producto.Costo.ToString(CultureInfo.InvariantCulture), 1.ToString() };
 
             return Insert("producto", columnas.ToArray(), valores.ToArray());
         }

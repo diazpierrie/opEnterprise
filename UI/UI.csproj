@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -129,7 +130,7 @@
       <DependentUpon>SucursalPedidoHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Ayuda.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Servicios\Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
@@ -145,12 +146,6 @@
     </Compile>
     <Compile Include="Servicios\Familia\GestionarFamilia.Designer.cs">
       <DependentUpon>GestionarFamilia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicios\Puesto\GestionarPuesto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicios\Puesto\GestionarPuesto.Designer.cs">
-      <DependentUpon>GestionarPuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Sucursal\SucursalAltaModificacion.cs">
       <SubType>Form</SubType>
@@ -169,12 +164,6 @@
     </Compile>
     <Compile Include="Logo.Designer.cs">
       <DependentUpon>Logo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Test2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Test2.Designer.cs">
-      <DependentUpon>Test2.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdatableUserControl.cs">
       <SubType>UserControl</SubType>
@@ -219,12 +208,6 @@
     </Compile>
     <Compile Include="Servicios\IdiomaGestionar.Designer.cs">
       <DependentUpon>IdiomaGestionar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicios\IdiomaBorrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicios\IdiomaBorrar.Designer.cs">
-      <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta\Cliente\Direccion\DireccionAltaModificacion.cs">
       <SubType>Form</SubType>
@@ -528,8 +511,8 @@
     <EmbeddedResource Include="Servicios\ControlesGestionar.resx">
       <DependentUpon>ControlesGestionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\Puesto\GestionarPuesto.resx">
-      <DependentUpon>GestionarPuesto.cs</DependentUpon>
+    <EmbeddedResource Include="Servicios\Familia\AgregarFamilia.resx">
+      <DependentUpon>AgregarFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sucursal\SucursalAltaModificacion.resx">
       <DependentUpon>SucursalAltaModificacion.cs</DependentUpon>
@@ -539,9 +522,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logo.resx">
       <DependentUpon>Logo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test2.resx">
-      <DependentUpon>Test2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatableUserControl.resx">
       <DependentUpon>UpdatableUserControl.cs</DependentUpon>
@@ -559,9 +539,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\IdiomaGestionar.resx">
       <DependentUpon>IdiomaGestionar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\IdiomaBorrar.resx">
-      <DependentUpon>IdiomaBorrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Venta\Cliente\Direccion\DireccionAltaModificacion.resx">
       <DependentUpon>DireccionAltaModificacion.cs</DependentUpon>

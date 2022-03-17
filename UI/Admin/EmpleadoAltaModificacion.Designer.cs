@@ -45,16 +45,13 @@ namespace UI
             this.txtApellido = new MetroFramework.Controls.MetroTextBox();
             this.txtUsername = new MetroFramework.Controls.MetroTextBox();
             this.lblUsername = new MetroFramework.Controls.MetroLabel();
-            this.cbPermiso = new MetroFramework.Controls.MetroComboBox();
+            this.cbRol = new MetroFramework.Controls.MetroComboBox();
             this.lblRol = new MetroFramework.Controls.MetroLabel();
-            this.cbPuesto = new MetroFramework.Controls.MetroComboBox();
-            this.lblPuesto = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -86,8 +83,7 @@ namespace UI
             // 
             // lblTelefono
             // 
-            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefono.Location = new System.Drawing.Point(23, 180);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(127, 19);
@@ -99,7 +95,8 @@ namespace UI
             // 
             // btnAccion
             // 
-            this.btnAccion.Location = new System.Drawing.Point(271, 310);
+            this.btnAccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAccion.Location = new System.Drawing.Point(271, 275);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
             this.btnAccion.TabIndex = 56;
@@ -109,8 +106,7 @@ namespace UI
             // 
             // txtMail
             // 
-            this.txtMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -142,8 +138,7 @@ namespace UI
             // 
             // lblMail
             // 
-            this.lblMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMail.Location = new System.Drawing.Point(23, 151);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(127, 19);
@@ -155,8 +150,7 @@ namespace UI
             // 
             // lblDNI
             // 
-            this.lblDNI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDNI.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDNI.Location = new System.Drawing.Point(23, 121);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(127, 19);
@@ -168,8 +162,7 @@ namespace UI
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -201,8 +194,7 @@ namespace UI
             // 
             // txtDNI
             // 
-            this.txtDNI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDNI.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -234,8 +226,7 @@ namespace UI
             // 
             // lblNombre
             // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.Location = new System.Drawing.Point(23, 63);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(127, 19);
@@ -247,8 +238,7 @@ namespace UI
             // 
             // lblApellido
             // 
-            this.lblApellido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.Location = new System.Drawing.Point(23, 92);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(127, 19);
@@ -260,8 +250,7 @@ namespace UI
             // 
             // txtApellido
             // 
-            this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -293,8 +282,7 @@ namespace UI
             // 
             // txtUsername
             // 
-            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -326,8 +314,7 @@ namespace UI
             // 
             // lblUsername
             // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.Location = new System.Drawing.Point(23, 210);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(127, 19);
@@ -337,55 +324,35 @@ namespace UI
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblUsername.WrapToLine = true;
             // 
-            // cbPermiso
+            // cbRol
             // 
-            this.cbPermiso.FormattingEnabled = true;
-            this.cbPermiso.ItemHeight = 23;
-            this.cbPermiso.Location = new System.Drawing.Point(166, 240);
-            this.cbPermiso.Name = "cbPermiso";
-            this.cbPermiso.Size = new System.Drawing.Size(189, 29);
-            this.cbPermiso.TabIndex = 61;
-            this.cbPermiso.UseSelectable = true;
+            this.cbRol.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.ItemHeight = 23;
+            this.cbRol.Location = new System.Drawing.Point(166, 240);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(189, 29);
+            this.cbRol.TabIndex = 61;
+            this.cbRol.UseSelectable = true;
             // 
             // lblRol
             // 
-            this.lblRol.AutoSize = true;
+            this.lblRol.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRol.Location = new System.Drawing.Point(94, 246);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(56, 19);
             this.lblRol.TabIndex = 63;
             this.lblRol.Tag = "role";
-            this.lblRol.Text = "Permiso";
-            // 
-            // cbPuesto
-            // 
-            this.cbPuesto.FormattingEnabled = true;
-            this.cbPuesto.ItemHeight = 23;
-            this.cbPuesto.Location = new System.Drawing.Point(166, 275);
-            this.cbPuesto.Name = "cbPuesto";
-            this.cbPuesto.Size = new System.Drawing.Size(189, 29);
-            this.cbPuesto.TabIndex = 64;
-            this.cbPuesto.UseSelectable = true;
-            // 
-            // lblPuesto
-            // 
-            this.lblPuesto.AutoSize = true;
-            this.lblPuesto.Location = new System.Drawing.Point(102, 281);
-            this.lblPuesto.Name = "lblPuesto";
-            this.lblPuesto.Size = new System.Drawing.Size(48, 19);
-            this.lblPuesto.TabIndex = 66;
-            this.lblPuesto.Tag = "job";
-            this.lblPuesto.Text = "Puesto";
+            this.lblRol.Text = "Rol";
+            this.lblRol.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // EmpleadoAltaModificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 357);
-            this.Controls.Add(this.lblPuesto);
-            this.Controls.Add(this.cbPuesto);
+            this.ClientSize = new System.Drawing.Size(408, 313);
             this.Controls.Add(this.lblRol);
-            this.Controls.Add(this.cbPermiso);
+            this.Controls.Add(this.cbRol);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtTelefono);
@@ -403,7 +370,6 @@ namespace UI
             this.Text = "EmpleadoAltaModificacion";
             this.Load += new System.EventHandler(this.EmpleadoAltaModificacion_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -422,9 +388,7 @@ namespace UI
         private MetroTextBox txtApellido;
         private MetroTextBox txtUsername;
         private MetroLabel lblUsername;
-        private MetroComboBox cbPermiso;
+        private MetroComboBox cbRol;
         private MetroLabel lblRol;
-        private MetroComboBox cbPuesto;
-        private MetroLabel lblPuesto;
     }
 }

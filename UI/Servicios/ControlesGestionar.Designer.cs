@@ -49,7 +49,7 @@ namespace UI
             this.gridIdioma.AllowUserToDeleteRows = false;
             this.gridIdioma.AllowUserToResizeRows = false;
             this.gridIdioma.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridIdioma.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridIdioma.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridIdioma.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridIdioma.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -85,7 +85,7 @@ namespace UI
             this.gridIdioma.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridIdioma.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridIdioma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridIdioma.Size = new System.Drawing.Size(754, 561);
+            this.gridIdioma.Size = new System.Drawing.Size(754, 565);
             this.gridIdioma.TabIndex = 0;
             this.gridIdioma.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridIdioma_CellValueChanged);
             // 
@@ -130,9 +130,11 @@ namespace UI
             // 
             // btnAplicar
             // 
-            this.btnAplicar.Location = new System.Drawing.Point(682, 666);
+            this.btnAplicar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAplicar.Location = new System.Drawing.Point(683, 66);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(94, 23);
+            this.btnAplicar.Style = MetroFramework.MetroColorStyle.Teal;
             this.btnAplicar.TabIndex = 3;
             this.btnAplicar.Text = "Crear";
             this.btnAplicar.UseSelectable = true;
@@ -140,15 +142,16 @@ namespace UI
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(582, 666);
+            this.btnCerrar.Location = new System.Drawing.Point(583, 66);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(94, 23);
             this.btnCerrar.TabIndex = 4;
+            this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // GestionarControles
+            // ControlesGestionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -13,12 +13,14 @@ namespace UI
 {
     public partial class DepositoPedidoHome : UpdatableForm
     {
+        public Mdi Mdi;
         public readonly BindingList<ProductoEe> ProductosAAsignar = new BindingList<ProductoEe>();
         public BindingList<ProductoEe> ProductosProveedor;
         public double Total;
 
-        public DepositoPedidoHome()
+        public DepositoPedidoHome(Mdi mdi)
         {
+            Mdi = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);
@@ -64,13 +66,13 @@ namespace UI
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
             var agregarProducto = new DepositoProductoAgregar(this);
-            agregarProducto.Show();
+            Mdi.OpenWindowForm(agregarProducto);
         }
 
         private void btnCompletarPedido_Click(object sender, EventArgs e)
         {
             var agregarProducto = new DepositoCompletarPedido(this);
-            agregarProducto.Show();
+            Mdi.OpenWindowForm(agregarProducto);
         }
 
         private void btnRemoverProductos_Click(object sender, EventArgs e)

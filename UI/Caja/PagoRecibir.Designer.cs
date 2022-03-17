@@ -48,7 +48,8 @@ namespace UI
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(600, 149);
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(600, 122);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(188, 23);
             this.btnBuscar.TabIndex = 45;
@@ -59,8 +60,9 @@ namespace UI
             // 
             // lblCliente
             // 
+            this.lblCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(545, 124);
+            this.lblCliente.Location = new System.Drawing.Point(545, 97);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(49, 19);
             this.lblCliente.TabIndex = 38;
@@ -69,6 +71,7 @@ namespace UI
             // 
             // txtCliente
             // 
+            this.txtCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -82,7 +85,7 @@ namespace UI
             this.txtCliente.CustomButton.UseSelectable = true;
             this.txtCliente.CustomButton.Visible = false;
             this.txtCliente.Lines = new string[0];
-            this.txtCliente.Location = new System.Drawing.Point(600, 120);
+            this.txtCliente.Location = new System.Drawing.Point(600, 93);
             this.txtCliente.MaxLength = 32767;
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.PasswordChar = '\0';
@@ -99,8 +102,9 @@ namespace UI
             // 
             // lblUsuario
             // 
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(541, 95);
+            this.lblUsuario.Location = new System.Drawing.Point(541, 68);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 19);
             this.lblUsuario.TabIndex = 36;
@@ -109,6 +113,7 @@ namespace UI
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -122,7 +127,7 @@ namespace UI
             this.txtUsuario.CustomButton.UseSelectable = true;
             this.txtUsuario.CustomButton.Visible = false;
             this.txtUsuario.Lines = new string[0];
-            this.txtUsuario.Location = new System.Drawing.Point(600, 91);
+            this.txtUsuario.Location = new System.Drawing.Point(600, 64);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
@@ -139,9 +144,10 @@ namespace UI
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(600, 413);
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Location = new System.Drawing.Point(545, 413);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(187, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(242, 23);
             this.btnCerrar.TabIndex = 12;
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
@@ -153,6 +159,9 @@ namespace UI
             this.gridVentas.AllowUserToAddRows = false;
             this.gridVentas.AllowUserToDeleteRows = false;
             this.gridVentas.AllowUserToResizeRows = false;
+            this.gridVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridVentas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridVentas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -197,6 +206,7 @@ namespace UI
             // 
             // btnElegirVenta
             // 
+            this.btnElegirVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnElegirVenta.Location = new System.Drawing.Point(600, 255);
             this.btnElegirVenta.Name = "btnElegirVenta";
             this.btnElegirVenta.Size = new System.Drawing.Size(188, 23);
@@ -206,7 +216,7 @@ namespace UI
             this.btnElegirVenta.UseSelectable = true;
             this.btnElegirVenta.Click += new System.EventHandler(this.btnElegirVenta_Click);
             // 
-            // RecibirPago
+            // PagoRecibir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

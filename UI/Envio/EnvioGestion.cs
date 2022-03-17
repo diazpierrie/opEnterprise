@@ -12,10 +12,12 @@ namespace UI
 {
     public partial class EnvioGestion : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<EnvioEe> _dataTable;
 
-        public EnvioGestion()
+        public EnvioGestion(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             var estados = EnvioBll.ObtenerEstados();
@@ -58,11 +60,11 @@ namespace UI
                     _dataTable = EnvioBll.ObtenerDeSucursal(Sesion.ObtenerSesion().Sucursal.Id);
                     break;
             }
-
+            
             gridClientes.DataSource = _dataTable;
 
             gridClientes.Columns["id"].Visible = false;
-            gridClientes.Columns["sucursal"].Visible = false;
+            gridClientes.Columns["edificio"].Visible = false;
 
             gridClientes.Columns["venta"].DisplayIndex = 0;
             gridClientes.Columns["Direccion"].DisplayIndex = 1;

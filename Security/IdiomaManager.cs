@@ -1,6 +1,8 @@
-﻿using DAL;
+﻿using System;
+using DAL;
 using EE;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Security
 {
@@ -15,6 +17,13 @@ namespace Security
             sesionidioma.Id = newidioma.Id;
             sesionidioma.Nombre = newidioma.Nombre;
             sesionidioma.Textos = Dao.ObtenerTextos(newidioma.Id);
+
+            var textosDefault = Dao.ObtenerTextos(1);
+
+            foreach (var dicc in textosDefault.Where(dicc => sesionidioma.Textos[dicc.Key] == string.Empty))
+            {
+                sesionidioma.Textos[dicc.Key] = textosDefault[dicc.Key];
+            }
 
             foreach (var form in sesionidioma.Forms)
             {

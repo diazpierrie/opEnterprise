@@ -46,7 +46,8 @@ namespace UI
             // 
             // btnCompletarVenta
             // 
-            this.btnCompletarVenta.Location = new System.Drawing.Point(711, 168);
+            this.btnCompletarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCompletarVenta.Location = new System.Drawing.Point(711, 157);
             this.btnCompletarVenta.Name = "btnCompletarVenta";
             this.btnCompletarVenta.Size = new System.Drawing.Size(136, 41);
             this.btnCompletarVenta.TabIndex = 10;
@@ -57,9 +58,10 @@ namespace UI
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(706, 387);
+            this.lblTotal.Location = new System.Drawing.Point(711, 388);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(67, 25);
             this.lblTotal.TabIndex = 9;
@@ -71,8 +73,11 @@ namespace UI
             this.gridVenta.AllowUserToAddRows = false;
             this.gridVenta.AllowUserToDeleteRows = false;
             this.gridVenta.AllowUserToResizeRows = false;
+            this.gridVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridVenta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridVenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridVenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -95,7 +100,7 @@ namespace UI
             this.gridVenta.EnableHeadersVisualStyles = false;
             this.gridVenta.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridVenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridVenta.Location = new System.Drawing.Point(38, 63);
+            this.gridVenta.Location = new System.Drawing.Point(23, 63);
             this.gridVenta.MultiSelect = false;
             this.gridVenta.Name = "gridVenta";
             this.gridVenta.ReadOnly = true;
@@ -110,13 +115,14 @@ namespace UI
             this.gridVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridVenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridVenta.Size = new System.Drawing.Size(662, 405);
+            this.gridVenta.Size = new System.Drawing.Size(682, 405);
             this.gridVenta.TabIndex = 7;
             this.gridVenta.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellValueChanged);
             // 
             // btnRemoverProductos
             // 
-            this.btnRemoverProductos.Location = new System.Drawing.Point(711, 121);
+            this.btnRemoverProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoverProductos.Location = new System.Drawing.Point(711, 110);
             this.btnRemoverProductos.Name = "btnRemoverProductos";
             this.btnRemoverProductos.Size = new System.Drawing.Size(136, 41);
             this.btnRemoverProductos.TabIndex = 5;
@@ -127,7 +133,8 @@ namespace UI
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(711, 74);
+            this.btnAgregarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarProducto.Location = new System.Drawing.Point(711, 63);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(136, 41);
             this.btnAgregarProducto.TabIndex = 4;

@@ -320,7 +320,7 @@ namespace DAL
             try
             {
                 var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono FROM sucursal " +
-                               $"WHERE nombre = {nombre}";
+                               $"WHERE nombre = '{nombre}'";
 
                 var query = new SqlCommand(strQuery, Conn);
 

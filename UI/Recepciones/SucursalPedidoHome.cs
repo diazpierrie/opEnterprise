@@ -13,12 +13,14 @@ namespace UI
 {
     public partial class SucursalPedidoHome : UpdatableForm
     {
+        private readonly Mdi _mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
         public BindingList<ProductoEdificioEe> ProductosDeposito;
         public double Total;
 
-        public SucursalPedidoHome()
+        public SucursalPedidoHome(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             TraerProductos();
         }

@@ -18,8 +18,8 @@ namespace UI.Sucursal
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Crear";
-            CambiarTitulo("Crear Sucursal");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["branch"]);
         }
 
         public SucursalAltaModificacion(SucursalHome homeForm, SucursalEe sucursal)
@@ -31,8 +31,8 @@ namespace UI.Sucursal
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
-            btnAccion.Text = "Modificar";
-            CambiarTitulo("Modificar Sucursal");
+            btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["modify"];
+            CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["branch"]);
         }
 
         private void btnAccion_Click(object sender, EventArgs e)

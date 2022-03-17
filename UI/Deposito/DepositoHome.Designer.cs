@@ -47,8 +47,11 @@ namespace UI
             this.gridDeposito.AllowUserToAddRows = false;
             this.gridDeposito.AllowUserToDeleteRows = false;
             this.gridDeposito.AllowUserToResizeRows = false;
+            this.gridDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridDeposito.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDeposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDeposito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDeposito.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridDeposito.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -71,7 +74,7 @@ namespace UI
             this.gridDeposito.EnableHeadersVisualStyles = false;
             this.gridDeposito.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridDeposito.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDeposito.Location = new System.Drawing.Point(38, 75);
+            this.gridDeposito.Location = new System.Drawing.Point(23, 75);
             this.gridDeposito.Name = "gridDeposito";
             this.gridDeposito.ReadOnly = true;
             this.gridDeposito.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -85,13 +88,14 @@ namespace UI
             this.gridDeposito.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridDeposito.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDeposito.Size = new System.Drawing.Size(563, 301);
+            this.gridDeposito.Size = new System.Drawing.Size(612, 352);
             this.gridDeposito.TabIndex = 7;
             this.gridDeposito.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDeposito_CellDoubleClick);
             // 
             // btnBorrarDeposito
             // 
-            this.btnBorrarDeposito.Location = new System.Drawing.Point(626, 169);
+            this.btnBorrarDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBorrarDeposito.Location = new System.Drawing.Point(641, 169);
             this.btnBorrarDeposito.Name = "btnBorrarDeposito";
             this.btnBorrarDeposito.Size = new System.Drawing.Size(136, 41);
             this.btnBorrarDeposito.TabIndex = 6;
@@ -101,7 +105,8 @@ namespace UI
             // 
             // btnModificarDeposito
             // 
-            this.btnModificarDeposito.Location = new System.Drawing.Point(626, 122);
+            this.btnModificarDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificarDeposito.Location = new System.Drawing.Point(641, 122);
             this.btnModificarDeposito.Name = "btnModificarDeposito";
             this.btnModificarDeposito.Size = new System.Drawing.Size(136, 41);
             this.btnModificarDeposito.TabIndex = 5;
@@ -111,7 +116,8 @@ namespace UI
             // 
             // btnCrearDeposito
             // 
-            this.btnCrearDeposito.Location = new System.Drawing.Point(626, 75);
+            this.btnCrearDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCrearDeposito.Location = new System.Drawing.Point(641, 75);
             this.btnCrearDeposito.Name = "btnCrearDeposito";
             this.btnCrearDeposito.Size = new System.Drawing.Size(136, 41);
             this.btnCrearDeposito.TabIndex = 4;
@@ -129,6 +135,7 @@ namespace UI
             this.Controls.Add(this.btnModificarDeposito);
             this.Controls.Add(this.btnCrearDeposito);
             this.Name = "DepositoHome";
+            this.Tag = "manage_deposits";
             this.Text = "DepositoHome";
             this.Load += new System.EventHandler(this.DepositoHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridDeposito)).EndInit();

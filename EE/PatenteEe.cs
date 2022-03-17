@@ -1,10 +1,10 @@
 ﻿namespace EE
 {
-    public class PatenteEe : PermisoEe
+    public class PatenteEe : RolEe
     {
-        public override bool TienePermiso(string permiso)
+        public override bool TieneRol(string rol)
         {
-            return Nombre.Equals(permiso);
+            return Nombre.Equals(rol);
         }
     }
 }

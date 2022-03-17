@@ -1,9 +1,9 @@
 ﻿using BLL;
 using EE;
-using System;
-using System.Windows.Forms;
 using MetroFramework;
 using Security;
+using System;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -11,14 +11,18 @@ namespace UI
 {
     public partial class ProveedorHome : UpdatableForm
     {
-        public ProveedorHome()
+        public readonly Mdi Mdi;
+
+        public ProveedorHome(Mdi mdi)
         {
+            Mdi = mdi;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
 
-        public ProveedorHome(string button)
+        public ProveedorHome(Mdi mdi, string button)
         {
+            Mdi = mdi;
             InitializeComponent();
             if (button != Sesion.ObtenerSesion().Idioma.Textos["penalize_vendor"]) return;
             btnCrearProveedor.Visible = false;
@@ -63,20 +67,18 @@ namespace UI
                 return;
             }
 
-            var selectedProveedor = (ProveedorEe) gridProveedor.SelectedRows[0].DataBoundItem;
-            var response = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"].ToLower() + " " + selectedProveedor.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var selectedProveedor = (ProveedorEe)gridProveedor.SelectedRows[0].DataBoundItem;
+            var response = MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["vendor"].ToLower() + " " + selectedProveedor.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (response != DialogResult.Yes) return;
 
             ProveedorBll.Eliminar(selectedProveedor);
             ActualizarGrid();
-
-
         }
 
         private void btnCrearProveedor_Click(object sender, EventArgs e)
         {
             var crearProveedor = new ProveedorAltaModificacion(this);
-            crearProveedor.Show();
+            Mdi.OpenWindowForm(crearProveedor);
         }
 
         private void btnModificarProveedor_Click(object sender, EventArgs e)
@@ -89,7 +91,7 @@ namespace UI
             var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
             var provAm = new ProveedorAltaModificacion(this, selectedProveedor);
-            provAm.Show();
+            Mdi.OpenWindowForm(provAm);
         }
 
         private void btnPenalizarProveedor_Click(object sender, EventArgs e)
@@ -102,7 +104,7 @@ namespace UI
             var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
             var provAm = new ProveedorPenalizar(this, selectedProveedor);
-            provAm.Show();
+            Mdi.OpenWindowForm(provAm);
         }
 
         private void btnRestaurarProveedor_Click(object sender, EventArgs e)
@@ -110,7 +112,17 @@ namespace UI
             var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
             // ReSharper disable once ObjectCreationAsStatement
-            new ProveedorRestaurar(this, selectedProveedor);
+            var listaVersiones = VersionEntidadBll.Obtener("proveedor", selectedProveedor.Id);
+
+            if (listaVersiones.Count == 0)
+            {
+                MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["vendor_no_versions"],
+                    Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var proveedorRestaurar = new ProveedorRestaurar(this, selectedProveedor, listaVersiones);
+            Mdi.OpenWindowForm(proveedorRestaurar);
         }
 
         private void btnVerPenalizaciones_Click(object sender, EventArgs e)
@@ -121,8 +133,15 @@ namespace UI
             }
 
             var selectedProveedor = (ProveedorEe)gridProveedor.SelectedRows[0].DataBoundItem;
-            var proveedorVerPenalizaciones = new ProveedorVerPenalizaciones(selectedProveedor);
-            proveedorVerPenalizaciones.Show();
+            var lista = ProveedorBll.ObtenerPenalizaciones(selectedProveedor);
+
+            if (lista.Count == 0)
+            {
+                return;
+            }
+
+            var proveedorVerPenalizaciones = new ProveedorVerPenalizaciones(lista);
+            Mdi.OpenWindowForm(proveedorVerPenalizaciones);
         }
 
         private void gridProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -135,7 +154,7 @@ namespace UI
             var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
             var provAm = new ProveedorAltaModificacion(this, selectedProveedor);
-            provAm.Show();
+            Mdi.OpenWindowForm(provAm);
         }
 
         private void ProveedorHome_Load(object sender, EventArgs e)

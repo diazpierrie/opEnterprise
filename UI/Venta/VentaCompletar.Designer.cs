@@ -50,6 +50,8 @@ namespace UI
             // 
             // cbCuotas
             // 
+            this.cbCuotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCuotas.FormattingEnabled = true;
             this.cbCuotas.ItemHeight = 23;
             this.cbCuotas.Location = new System.Drawing.Point(144, 214);
@@ -60,6 +62,8 @@ namespace UI
             // 
             // lblCuotas
             // 
+            this.lblCuotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCuotas.AutoSize = true;
             this.lblCuotas.Location = new System.Drawing.Point(88, 219);
             this.lblCuotas.Name = "lblCuotas";
@@ -70,6 +74,8 @@ namespace UI
             // 
             // btnRealizarVenta
             // 
+            this.btnRealizarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRealizarVenta.Location = new System.Drawing.Point(233, 249);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
@@ -81,6 +87,8 @@ namespace UI
             // 
             // cbMetodoPago
             // 
+            this.cbMetodoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMetodoPago.FormattingEnabled = true;
             this.cbMetodoPago.ItemHeight = 23;
             this.cbMetodoPago.Location = new System.Drawing.Point(144, 179);
@@ -92,6 +100,7 @@ namespace UI
             // 
             // btnBuscarCliente
             // 
+            this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscarCliente.Location = new System.Drawing.Point(354, 80);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(114, 23);
@@ -103,6 +112,8 @@ namespace UI
             // 
             // lblMetodoPago
             // 
+            this.lblMetodoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMetodoPago.AutoSize = true;
             this.lblMetodoPago.Location = new System.Drawing.Point(29, 186);
             this.lblMetodoPago.Name = "lblMetodoPago";
@@ -113,6 +124,8 @@ namespace UI
             // 
             // txtCliente
             // 
+            this.txtCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -154,6 +167,8 @@ namespace UI
             // 
             // cbMetodoEntrega
             // 
+            this.cbMetodoEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMetodoEntrega.FormattingEnabled = true;
             this.cbMetodoEntrega.ItemHeight = 23;
             this.cbMetodoEntrega.Location = new System.Drawing.Point(144, 109);
@@ -165,6 +180,8 @@ namespace UI
             // 
             // lblMetodoEntrega
             // 
+            this.lblMetodoEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMetodoEntrega.AutoSize = true;
             this.lblMetodoEntrega.Location = new System.Drawing.Point(84, 115);
             this.lblMetodoEntrega.Name = "lblMetodoEntrega";
@@ -175,6 +192,8 @@ namespace UI
             // 
             // cbDirecciones
             // 
+            this.cbDirecciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbDirecciones.FormattingEnabled = true;
             this.cbDirecciones.ItemHeight = 23;
             this.cbDirecciones.Location = new System.Drawing.Point(144, 144);
@@ -185,6 +204,8 @@ namespace UI
             // 
             // lblDireccion
             // 
+            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Location = new System.Drawing.Point(74, 150);
             this.lblDireccion.Name = "lblDireccion";
@@ -195,6 +216,8 @@ namespace UI
             // 
             // lblCliente
             // 
+            this.lblCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCliente.AutoSize = true;
             this.lblCliente.Location = new System.Drawing.Point(90, 80);
             this.lblCliente.Name = "lblCliente";
@@ -205,6 +228,7 @@ namespace UI
             // 
             // btnEnvioLocal
             // 
+            this.btnEnvioLocal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnvioLocal.Location = new System.Drawing.Point(354, 111);
             this.btnEnvioLocal.Name = "btnEnvioLocal";
             this.btnEnvioLocal.Size = new System.Drawing.Size(114, 23);
@@ -234,6 +258,7 @@ namespace UI
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.lblCliente);
             this.Name = "VentaCompletar";
+            this.Resizable = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,10 +10,12 @@ namespace UI
 {
     public partial class SucursalEntradaRegistrar : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<PedidoDepositoEe> _dataTable;
 
-        public SucursalEntradaRegistrar()
+        public SucursalEntradaRegistrar(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }

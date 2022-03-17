@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Windows.Forms;
 using BLL;
+using EE;
+using MetroFramework;
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
     public partial class DepositoHome : UpdatableForm
     {
-        public DepositoHome()
+        private readonly Mdi _mdi;
+
+        public DepositoHome(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
+            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
 
         private void btnCrearDeposito_Click(object sender, EventArgs e)
@@ -38,10 +44,12 @@ namespace UI
                 return;
             }
 
-            var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
-            var selectedDeposito = DepositoBll.Obtener(selectedItem);
-            var provBaja = new DepositoBaja(this, selectedDeposito);
-            provBaja.Show();
+            var depositoEe = (DepositoEe)gridDeposito.SelectedRows[0].DataBoundItem;
+            var response = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["deposit"].ToLower() + " " + depositoEe.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (response != DialogResult.Yes) return;
+
+            DepositoBll.Eliminar(depositoEe);
+            ActualizarGrid();
         }
 
         private void DepositoHome_Load(object sender, EventArgs e)

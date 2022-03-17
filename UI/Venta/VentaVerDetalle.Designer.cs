@@ -44,8 +44,11 @@ namespace UI
             // gridDetalle
             // 
             this.gridDetalle.AllowUserToResizeRows = false;
+            this.gridDetalle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -100,7 +103,7 @@ namespace UI
             this.lblTotal.AutoSize = true;
             this.lblTotal.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblTotal.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblTotal.Location = new System.Drawing.Point(24, 412);
+            this.lblTotal.Location = new System.Drawing.Point(23, 404);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(64, 25);
             this.lblTotal.TabIndex = 2;

@@ -43,12 +43,10 @@ namespace UI
             this.view.IgnoreCase = false;
             this.view.IsToolBarVisible = true;
             this.view.Location = new System.Drawing.Point(0, 0);
-            this.view.MultiPagesThreshold = 60;
             this.view.Name = "view";
             this.view.OnRenderPageExceptionEvent = null;
             this.view.Size = new System.Drawing.Size(1204, 868);
             this.view.TabIndex = 1;
-            this.view.Threshold = 60;
             this.view.ViewerBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             // 
             // Ayuda
@@ -56,9 +54,10 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1204, 868);
             this.Controls.Add(this.view);
             this.Name = "Ayuda";
-            this.Size = new System.Drawing.Size(1204, 868);
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.Tag = "help";
             this.Load += new System.EventHandler(this.Ayuda_Load);
             this.ResumeLayout(false);

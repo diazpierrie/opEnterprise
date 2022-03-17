@@ -84,7 +84,7 @@ namespace UI
             this.btnDelete.UseSelectable = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // GestionarIdioma
+            // IdiomaGestionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

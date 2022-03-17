@@ -8,15 +8,18 @@ namespace UI.Familia
 {
     public partial class GestionarFamilia : UpdatableForm
     {
-        public GestionarFamilia()
+        public Mdi _mdi;
+
+        public GestionarFamilia(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
 
         private void GestionarFamilia_Load(object sender, EventArgs e)
         {
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
@@ -26,13 +29,13 @@ namespace UI.Familia
         private void btnDeleteFamily_Click(object sender, EventArgs e)
         {
             var selectedFamily = int.Parse(cmbFamilias.SelectedValue.ToString());
-            if (selectedFamily == PermisosManager.ObtenerFamilia(Sesion.ObtenerSesion().Usuario).Id)
+            if (selectedFamily == RolManager.ObtenerFamilia(Sesion.ObtenerSesion().Usuario).Id)
             {
-                MetroFramework.MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["cant_delete_my_family"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+                MetroFramework.MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["cant_delete_my_family"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
                 return;
             }
 
-            PermisosManager.Borrar(new FamiliaEe()
+            RolManager.Borrar(new FamiliaEe()
             {
                 Id = selectedFamily
             });
@@ -48,9 +51,10 @@ namespace UI.Familia
 
             var ag = new AgregarFamilia()
             {
-                Family = PermisosManager.ObtenerFamilia(int.Parse(cmbFamilias.SelectedValue.ToString()))
+                CallBack = this,
+                Family = RolManager.ObtenerFamilia(int.Parse(cmbFamilias.SelectedValue.ToString()))
             };
-            ag.Show();
+            _mdi.OpenWindowForm(ag);
         }
 
         private void btnAddFamily_Click(object sender, EventArgs e)
@@ -59,12 +63,12 @@ namespace UI.Familia
             {
                 CallBack = this
             };
-            ag.Show();
+            _mdi.OpenWindowForm(ag);
         }
 
         public void UpdateFamilyList()
         {
-            var familias = PermisosManager.ObtenerFamilia().ToDictionary(fam => fam.Id, fam => fam.Nombre);
+            var familias = RolManager.ObtenerFamilia().ToDictionary(fam => fam.Id, fam => fam.Nombre);
             cmbFamilias.DataSource = new BindingSource(familias, null);
             cmbFamilias.DisplayMember = "Value";
             cmbFamilias.ValueMember = "Key";

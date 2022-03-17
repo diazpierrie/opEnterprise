@@ -11,10 +11,12 @@ namespace UI
 {
     public partial class VentaBuscar : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<VentaEe> _dataTable;
 
-        public VentaBuscar()
+        public VentaBuscar(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);

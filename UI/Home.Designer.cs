@@ -41,6 +41,7 @@ namespace UI
             this.tcHome = new MetroFramework.Controls.MetroTabControl();
             this.tabAdmin = new MetroFramework.Controls.MetroTabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnProducto = new MetroFramework.Controls.MetroButton();
             this.btnFamilia = new MetroFramework.Controls.MetroButton();
             this.btnPuesto = new MetroFramework.Controls.MetroButton();
             this.btnSucursal = new MetroFramework.Controls.MetroButton();
@@ -74,7 +75,6 @@ namespace UI
             this.btnRealizarPedidoDeposito = new MetroFramework.Controls.MetroButton();
             this.btnDespacharEnvio = new MetroFramework.Controls.MetroButton();
             this.btnVerEnvios = new MetroFramework.Controls.MetroButton();
-            this.btnProducto = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             this.tcHome.SuspendLayout();
             this.tabAdmin.SuspendLayout();
@@ -141,7 +141,7 @@ namespace UI
             this.tcHome.Controls.Add(this.tabEnviosRecepciones);
             this.tcHome.Location = new System.Drawing.Point(12, 54);
             this.tcHome.Name = "tcHome";
-            this.tcHome.SelectedIndex = 0;
+            this.tcHome.SelectedIndex = 1;
             this.tcHome.Size = new System.Drawing.Size(776, 346);
             this.tcHome.TabIndex = 3;
             this.tcHome.UseSelectable = true;
@@ -179,6 +179,17 @@ namespace UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion";
             // 
+            // btnProducto
+            // 
+            this.btnProducto.Location = new System.Drawing.Point(148, 77);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(136, 23);
+            this.btnProducto.TabIndex = 9;
+            this.btnProducto.Tag = "product";
+            this.btnProducto.Text = "Producto";
+            this.btnProducto.UseSelectable = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
             // btnFamilia
             // 
             this.btnFamilia.Location = new System.Drawing.Point(148, 48);
@@ -199,7 +210,6 @@ namespace UI
             this.btnPuesto.Tag = "job";
             this.btnPuesto.Text = "Puesto";
             this.btnPuesto.UseSelectable = true;
-            this.btnPuesto.Click += new System.EventHandler(this.btnPuesto_Click);
             // 
             // btnSucursal
             // 
@@ -354,6 +364,7 @@ namespace UI
             this.btnVerQuejas.Tag = "check_complaints";
             this.btnVerQuejas.Text = "Ver Quejas";
             this.btnVerQuejas.UseSelectable = true;
+            this.btnVerQuejas.Click += new System.EventHandler(this.btnVerQuejas_Click);
             // 
             // btnCancelarVentaVenta
             // 
@@ -575,17 +586,6 @@ namespace UI
             this.btnVerEnvios.Text = "Ver Envios";
             this.btnVerEnvios.UseSelectable = true;
             this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
-            // 
-            // btnProducto
-            // 
-            this.btnProducto.Location = new System.Drawing.Point(148, 77);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(136, 23);
-            this.btnProducto.TabIndex = 9;
-            this.btnProducto.Tag = "product";
-            this.btnProducto.Text = "Producto";
-            this.btnProducto.UseSelectable = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // Home
             // 

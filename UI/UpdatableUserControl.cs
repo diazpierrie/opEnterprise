@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows.Forms;
 using EE;
 using MetroFramework.Controls;
-using MetroFramework.Forms;
 
 namespace UI
 {

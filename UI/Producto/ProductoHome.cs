@@ -11,8 +11,11 @@ namespace UI
 {
     public partial class ProductoHome : UpdatableForm
     {
-        public ProductoHome()
+        private readonly Mdi _mdi;
+
+        public ProductoHome(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
@@ -53,7 +56,7 @@ namespace UI
             }
 
             var selectedProducto = (ProductoEe) gridProducto.SelectedRows[0].DataBoundItem;
-            var response = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["product"].ToLower() + " " + selectedProducto.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var response = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["product"].ToLower() + " " + selectedProducto.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (response != DialogResult.Yes) return;
 
             ProductoBll.Eliminar(selectedProducto);

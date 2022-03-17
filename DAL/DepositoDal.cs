@@ -77,7 +77,7 @@ namespace DAL
             try
             {
                 var strQuery = "SELECT id, nombre, direccion, mail, codigoPostal, telefono FROM deposito " +
-                               $"WHERE nombre = {nombre}";
+                               $"WHERE nombre = '{nombre}'";
 
                 var query = new SqlCommand(strQuery, Conn);
 

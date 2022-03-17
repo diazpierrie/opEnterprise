@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Security
 {
-    public static class PermisosManager
+    public static class RolManager
     {
         private static readonly FamiliaDal DalFamilia = new FamiliaDal();
         private static readonly PatenteDal DalPatente = new PatenteDal();
@@ -19,11 +19,11 @@ namespace Security
             return DalFamilia.Obtener(id);
         }
 
-        public static List<PermisoEe> ObtenerPatentes(FamiliaEe familiaEe)
+        public static List<RolEe> ObtenerPatentes(FamiliaEe familiaEe)
         {
             if (familiaEe.Patentes != null) return familiaEe.Patentes;
 
-            familiaEe.Patentes = new List<PermisoEe>();
+            familiaEe.Patentes = new List<RolEe>();
             familiaEe.Patentes = ObtenerPorFamilia(familiaEe.Id);
             return familiaEe.Patentes;
         }
@@ -32,25 +32,27 @@ namespace Security
         {
             return DalPatente.Obtener();
         }
-
-        public static PermisoEe ObtenerPatente(int id)
+        
+        public static RolEe ObtenerPatente(int id)
         {
             return DalPatente.Obtener(id)[0];
         }
 
-        public static List<PermisoEe> ObtenerPorFamilia(int id)
+        public static List<RolEe> ObtenerPorFamilia(int id)
         {
             return DalPatente.ObtenerPorFamilia(id);
         }
 
         public static void Crear(FamiliaEe familiaEe)
         {
-            foreach (var permisoEe in familiaEe.Patentes)
+            familiaEe.Id = DalFamilia.Crear(familiaEe);
+
+            foreach (var rolEe in familiaEe.Patentes)
             {
-                DalPatente.CrearRelacion(familiaEe.Id, permisoEe.Id);
+                DalPatente.CrearRelacion(familiaEe.Id, rolEe.Id);
             }
 
-            BitacoraManager.AgregarMensajeControl("FamiliaEe creada: ", familiaEe);
+            BitacoraManager.AgregarMensajeControl("Familia creada: ", familiaEe);
 
             Dv.ActualizarDv();
         }
@@ -60,15 +62,15 @@ namespace Security
             return DalFamilia.VerSiFamiliaExiste(id, nombre);
         }
 
-        public static void Actualizar(FamiliaEe familiaEe, List<PermisoEe> newPatentes)
+        public static void Actualizar(FamiliaEe familiaEe, List<RolEe> newPatentes)
         {
             DalFamilia.Actualizar(familiaEe);
             BorrarRelaciones(familiaEe);
             familiaEe.Patentes.Clear();
-            foreach (var permisoEe in newPatentes)
+            foreach (var rolEe in newPatentes)
             {
-                DalPatente.CrearRelacion(familiaEe.Id, permisoEe.Id);
-                familiaEe.Patentes.Add(permisoEe);
+                DalPatente.CrearRelacion(familiaEe.Id, rolEe.Id);
+                familiaEe.Patentes.Add(rolEe);
             }
 
             BitacoraManager.AgregarMensajeControl("FamiliaEe actualizada: ", familiaEe);
@@ -78,11 +80,11 @@ namespace Security
 
         public static FamiliaEe ObtenerFamilia(UsuarioEe usuarioEe)
         {
-            if (usuarioEe.Permiso == null)
+            if (usuarioEe.Rol == null)
             {
-                usuarioEe.Permiso = DalFamilia.Obtener(usuarioEe);
+                usuarioEe.Rol = DalFamilia.Obtener(usuarioEe);
             }
-            return (FamiliaEe)usuarioEe.Permiso;
+            return (FamiliaEe)usuarioEe.Rol;
         }
 
         public static void Borrar(FamiliaEe familiaEe)
@@ -101,7 +103,7 @@ namespace Security
         public static bool VerificarPatente(UsuarioEe usuarioEe, string patenteNombre)
         {
             ObtenerPatentes(ObtenerFamilia(usuarioEe));
-            return usuarioEe.Permiso.TienePermiso(patenteNombre);
+            return usuarioEe.Rol.TieneRol(patenteNombre);
         }
 
         public static bool ModificarFamilia(UsuarioEe usuarioEe, FamiliaEe newFamilia)

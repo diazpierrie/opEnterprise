@@ -13,10 +13,12 @@ namespace UI
 {
     public partial class VentaCancelar : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<VentaEe> _dataTable;
 
-        public VentaCancelar()
+        public VentaCancelar(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);

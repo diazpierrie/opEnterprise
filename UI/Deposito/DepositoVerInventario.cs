@@ -10,10 +10,12 @@ namespace UI
 {
     public partial class DepositoVerInventario : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<ProductoEdificioEe> _dataTable;
 
-        public DepositoVerInventario()
+        public DepositoVerInventario(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }

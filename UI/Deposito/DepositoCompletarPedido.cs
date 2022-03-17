@@ -10,12 +10,12 @@ namespace UI
 {
     public partial class DepositoCompletarPedido : UpdatableForm
     {
-        public readonly DepositoPedidoHome DepositoPedidoHome;
+        private readonly DepositoPedidoHome _depositoPedidoHome;
         private ProveedorEe _proveedor;
         private readonly double _total;
         public DepositoCompletarPedido(DepositoPedidoHome depositoPedidoHome )
         {
-            DepositoPedidoHome = depositoPedidoHome;
+            _depositoPedidoHome = depositoPedidoHome;
             _total = depositoPedidoHome.Total;
             InitializeComponent();
             txtCliente.Enabled = false;
@@ -35,7 +35,7 @@ namespace UI
 
         private void btnCompletarPedido_Click(object sender, EventArgs e)
         {
-            var respuesta = MetroMessageBox.Show(this, $"¿Está seguro que desea realizar el pedido al proveedor {_proveedor.Nombre}?",
+            var respuesta = MetroMessageBox.Show(_depositoPedidoHome.Mdi, $"¿Está seguro que desea realizar el pedido al proveedor {_proveedor.Nombre}?",
                 "Confirmacion de pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (respuesta != DialogResult.Yes) return;
@@ -50,11 +50,11 @@ namespace UI
                 Total = _total
             };
 
-            if (PedidoProveedorBll.Crear(pedidoNuevo, DepositoPedidoHome.ProductosAAsignar.ToList()) == 0) return;
+            if (PedidoProveedorBll.Crear(pedidoNuevo, _depositoPedidoHome.ProductosAAsignar.ToList()) == 0) return;
 
-            MetroMessageBox.Show(this, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
+            MetroMessageBox.Show(_depositoPedidoHome.Mdi, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
                 MessageBoxIcon.Question);
-            DepositoPedidoHome.Close();
+            _depositoPedidoHome.Close();
             Close();
         }
     }

@@ -1,9 +1,6 @@
-﻿using DAL;
-
-namespace Security
+﻿namespace Security
 {
     public static class ProveedorManager
     {
-        private static readonly ProveedorDal Dal = new ProveedorDal();
     }
 }

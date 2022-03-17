@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using static System.Windows.Forms.Application;
@@ -22,6 +23,12 @@ namespace UI
         {
             EnableVisualStyles();
             SetCompatibleTextRenderingDefault(false);
+            SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            ThreadException += ApplicationOnThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+            EnableVisualStyles();
+            SetCompatibleTextRenderingDefault(false);
+
 
             // Check DB installation
             if (ConfigurationManager.AppSettings["database"] == "false" && !CheckDatabaseExists("openEnterprise"))
@@ -37,7 +44,29 @@ namespace UI
                 }
             }
 
+
+
             Run(new Login());
+        }
+
+        private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            var message = "Sorry, something went wrong. \r\n" + $"{((Exception)e.ExceptionObject).Message}\r\n" +
+                          "Please contact support.";
+
+            Console.WriteLine(@"Error {0}: {1}", DateTimeOffset.Now, e.ExceptionObject);
+
+            MessageBox.Show(message, @"Unexpected Error");
+        }
+
+        private static void ApplicationOnThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            var message = "Sorry, something went wrong. \r\n" + $"{e.Exception.Message}\r\n" +
+                          "Please contact support.";
+
+            Console.WriteLine(@"Error {0}: {1}", DateTimeOffset.Now, e.Exception);
+
+            MessageBox.Show(message, @"Unexpected Error");
         }
 
         private static List<Control> GetAllControls(Control container, List<Control> list)

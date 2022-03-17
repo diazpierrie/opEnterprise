@@ -39,13 +39,13 @@ namespace UI
 
         private void btnAsignarQueja_Click(object sender, EventArgs e)
         {
-            var response = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_penalize"] + " " +  _proveedor.Nombre + "?" + "\n" + Sesion.ObtenerSesion().Idioma.Textos["motive"] + ": " + cbMotivos.Text,
+            var response = MetroMessageBox.Show(_proveedorHome.Mdi, Sesion.ObtenerSesion().Idioma.Textos["question_penalize"] + " " +  _proveedor.Nombre + "?" + "\n" + Sesion.ObtenerSesion().Idioma.Textos["motive"] + ": " + cbMotivos.Text,
                 Sesion.ObtenerSesion().Idioma.Textos["confirm_penalization"], MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (response != DialogResult.Yes) return;
 
             if (ProveedorBll.Penalizar(_proveedor, (int) cbMotivos.SelectedValue) == 0) return;
 
-            MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["success_penalization"], Sesion.ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK,
+            MetroMessageBox.Show(_proveedorHome.Mdi, Sesion.ObtenerSesion().Idioma.Textos["success_penalization"], Sesion.ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK,
                 MessageBoxIcon.Question);
 
             ActualizarEstadoVentas();

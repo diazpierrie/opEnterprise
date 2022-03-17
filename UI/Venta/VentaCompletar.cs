@@ -31,9 +31,9 @@ namespace UI
             AllControls.Add(lblDireccion);
             AllControls.Add(lblMetodoEntrega);
             AllControls.Add(lblMetodoPago);
-            Sesion.ObtenerSesion().Idioma.Forms.Add(this);
+            ObtenerSesion().Idioma.Forms.Add(this);
 
-            IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
+            IdiomaManager.Cambiar(ObtenerSesion().Idioma, ObtenerSesion().Idioma.Id, this);
             txtCliente.Enabled = false;
             _total = ventahome.Total;
             cbMetodoPago.DataSource = MetodoPagoBll.Obtener();
@@ -94,8 +94,8 @@ namespace UI
                     }
 
                 }
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["success_sale"],
-                    Sesion.ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MetroMessageBox.Show(this, ObtenerSesion().Idioma.Textos["success_sale"],
+                    ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
             Close();

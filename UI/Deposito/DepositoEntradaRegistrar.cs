@@ -11,10 +11,12 @@ namespace UI
 {
     public partial class DepositoEntradaRegistrar : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<PedidoProveedorEe> _dataTable;
 
-        public DepositoEntradaRegistrar()
+        public DepositoEntradaRegistrar(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }

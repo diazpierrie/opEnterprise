@@ -3,7 +3,7 @@ using EE;
 
 namespace UI
 {
-    public partial class Ayuda : UpdatableUserControl
+    public partial class Ayuda : UpdatableForm
     {
         public Ayuda()
         {
@@ -13,7 +13,7 @@ namespace UI
 
         private void Ayuda_Load(object sender, EventArgs e)
         {
-            this.AllControls = Program.GetAllControls(this);
+            AllControls = Program.GetAllControls(this);
 
             string fileName = System.IO.Directory.GetCurrentDirectory() + "\\ManualDeUsuario" + ".pdf";
             view.LoadFromFile(fileName);

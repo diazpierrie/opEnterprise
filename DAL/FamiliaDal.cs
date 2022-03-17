@@ -33,11 +33,20 @@ namespace DAL
             }
         }
 
+        public int Crear(FamiliaEe familia)
+        {
+            var columnas = new List<string> { "nombre" };
+            var valores = new List<string> { familia.Nombre };
+
+            return Insert("familia", columnas.ToArray(), valores.ToArray());
+        }
+
+
         public FamiliaEe Obtener(UsuarioEe usuario)
         {
             try
             {
-                var query = new SqlCommand("SELECT f.id, f.Nombre FROM familia f JOIN usuario u ON u.familia_id = f.id WHERE u.id = @id", Conn);
+                var query = new SqlCommand("SELECT f.id, f.Nombre FROM familia f JOIN usuario u ON u.idFamilia = f.id WHERE u.id = @id", Conn);
                 query.Parameters.AddWithValue("@id", usuario.Id);
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -75,7 +84,7 @@ namespace DAL
                 return false;
             }
 
-            var query = new SqlCommand("UPDATE usuario SET familia_id = 0 WHERE familia_id = @id", Conn);
+            var query = new SqlCommand("UPDATE usuario SET idFamilia = 0 WHERE idFamilia = @id", Conn);
             query.Parameters.AddWithValue("@id", id);
 
             return ExecuteQuery(query);
@@ -117,16 +126,16 @@ namespace DAL
 
         public bool BorrarRelaciones(int familiaid)
         {
-            var query = new SqlCommand($"DELETE FROM familia_patente WHERE familia_id = {familiaid}", Conn);
+            var query = new SqlCommand($"DELETE FROM familia_patente WHERE idFamilia = {familiaid}", Conn);
 
             return ExecuteQuery(query);
         }
 
-        public bool ModificarFamilia(int userid, int permisoid)
+        public bool ModificarFamilia(int userid, int rolId)
         {
             var query = new SqlCommand("UPDATE usuario SET idFamilia = @idFamilia WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", userid);
-            query.Parameters.AddWithValue("@idFamilia", permisoid);
+            query.Parameters.AddWithValue("@idFamilia", rolId);
 
             return ExecuteQuery(query);
         }

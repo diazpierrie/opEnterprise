@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace EE
 {
-    public class FamiliaEe : PermisoEe
+    public class FamiliaEe : RolEe
     {
-        public List<PermisoEe> Patentes;
+        public List<RolEe> Patentes;
 
-        public override bool TienePermiso(string permiso)
+        public override bool TieneRol(string rol)
         {
-            return Patentes.Cast<PatenteEe>().Any(patente => patente.TienePermiso(permiso));
+            return Patentes.Cast<PatenteEe>().Any(patente => patente.TieneRol(rol));
         }
     }
 }

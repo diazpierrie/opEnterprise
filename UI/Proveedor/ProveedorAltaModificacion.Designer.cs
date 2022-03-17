@@ -47,8 +47,7 @@ namespace UI
             // 
             // lblMail
             // 
-            this.lblMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMail.Location = new System.Drawing.Point(13, 154);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(137, 19);
@@ -60,8 +59,7 @@ namespace UI
             // 
             // lblCodigoPostal
             // 
-            this.lblCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCodigoPostal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodigoPostal.Location = new System.Drawing.Point(13, 124);
             this.lblCodigoPostal.Name = "lblCodigoPostal";
             this.lblCodigoPostal.Size = new System.Drawing.Size(137, 19);
@@ -73,8 +71,7 @@ namespace UI
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -106,8 +103,7 @@ namespace UI
             // 
             // txtCodigoPostal
             // 
-            this.txtCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigoPostal.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -139,8 +135,7 @@ namespace UI
             // 
             // lblNombre
             // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.Location = new System.Drawing.Point(13, 66);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(137, 19);
@@ -152,8 +147,7 @@ namespace UI
             // 
             // lblDireccion
             // 
-            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDireccion.Location = new System.Drawing.Point(13, 95);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(137, 19);
@@ -165,8 +159,7 @@ namespace UI
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -198,8 +191,7 @@ namespace UI
             // 
             // txtMail
             // 
-            this.txtMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -231,6 +223,7 @@ namespace UI
             // 
             // btnAccion
             // 
+            this.btnAccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAccion.Location = new System.Drawing.Point(271, 233);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);
@@ -241,8 +234,7 @@ namespace UI
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -274,8 +266,7 @@ namespace UI
             // 
             // lblTelefono
             // 
-            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefono.Location = new System.Drawing.Point(13, 183);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(137, 19);

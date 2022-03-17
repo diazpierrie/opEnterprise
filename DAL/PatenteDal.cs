@@ -7,7 +7,7 @@ namespace DAL
 {
     public class PatenteDal : ConnectionDal
     {
-        public List<PermisoEe> ObtenerPorFamilia(int id)
+        public List<RolEe> ObtenerPorFamilia(int id)
         {
             try
             {
@@ -15,7 +15,7 @@ namespace DAL
                 query.Parameters.AddWithValue("@id", id);
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var result = new List<PermisoEe>
+                var result = new List<RolEe>
                 {
                     Capacity = 0
                 };
@@ -42,7 +42,7 @@ namespace DAL
         {
             try
             {
-                var sqlQuery = "SELECT p.id, p.Nombre FROM patentes p";
+                var sqlQuery = "SELECT p.id, p.Nombre FROM patente p";
 
                 if (id != 0)
                 {
@@ -74,7 +74,7 @@ namespace DAL
 
         public int CrearRelacion(int familiaid, int patenteid)
         {
-            string[] columns = { "familia_id", "patente_id" };
+            string[] columns = { "idFamilia", "idPatente" };
             string[] values = { familiaid.ToString(), patenteid.ToString() };
             return Insert("familia_patente", columns, values);
         }

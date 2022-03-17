@@ -166,6 +166,7 @@ namespace UI
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Name = "Login";
+            this.Resizable = false;
             this.Tag = "login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

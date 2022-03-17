@@ -8,12 +8,12 @@ namespace UI
 {
     public partial class EdificioConfigurar : UpdatableForm
     {
-        private readonly Home _homeForm;
+        private readonly Mdi _mdi;
         private readonly string[] _tipoEdificioStrings = { Sesion.ObtenerSesion().Idioma.Textos["deposit"], Sesion.ObtenerSesion().Idioma.Textos["branch"] };
 
-        public EdificioConfigurar(Home homeForm)
+        public EdificioConfigurar(Mdi mdi)
         {
-            _homeForm = homeForm;
+            _mdi = mdi;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
@@ -70,7 +70,7 @@ namespace UI
                 Sesion.ObtenerSesion().Sucursal = SucursalBll.Obtener(edificioSeleccionado.Id);
             }
 
-            _homeForm.CargarPermisos();
+            _mdi.CargarRoles();
         }
 
         private void EdificioConfigurar_Load(object sender, EventArgs e)

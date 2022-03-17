@@ -52,8 +52,11 @@ namespace UI
             this.gridProveedor.AllowUserToAddRows = false;
             this.gridProveedor.AllowUserToDeleteRows = false;
             this.gridProveedor.AllowUserToResizeRows = false;
+            this.gridProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridProveedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridProveedor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -108,6 +111,7 @@ namespace UI
             // 
             // btnModificarProveedor
             // 
+            this.btnModificarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificarProveedor.Location = new System.Drawing.Point(3, 50);
             this.btnModificarProveedor.Name = "btnModificarProveedor";
             this.btnModificarProveedor.Size = new System.Drawing.Size(136, 41);
@@ -119,6 +123,7 @@ namespace UI
             // 
             // btnBorrarProveedor
             // 
+            this.btnBorrarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBorrarProveedor.Location = new System.Drawing.Point(3, 97);
             this.btnBorrarProveedor.Name = "btnBorrarProveedor";
             this.btnBorrarProveedor.Size = new System.Drawing.Size(136, 41);
@@ -130,6 +135,7 @@ namespace UI
             // 
             // btnRestaurarProveedor
             // 
+            this.btnRestaurarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurarProveedor.Location = new System.Drawing.Point(3, 144);
             this.btnRestaurarProveedor.Name = "btnRestaurarProveedor";
             this.btnRestaurarProveedor.Size = new System.Drawing.Size(136, 41);
@@ -141,6 +147,7 @@ namespace UI
             // 
             // btnPenalizarProveedor
             // 
+            this.btnPenalizarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPenalizarProveedor.Location = new System.Drawing.Point(3, 238);
             this.btnPenalizarProveedor.Name = "btnPenalizarProveedor";
             this.btnPenalizarProveedor.Size = new System.Drawing.Size(136, 41);
@@ -152,6 +159,7 @@ namespace UI
             // 
             // flpProveedorHome
             // 
+            this.flpProveedorHome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flpProveedorHome.Controls.Add(this.btnCrearProveedor);
             this.flpProveedorHome.Controls.Add(this.btnModificarProveedor);
             this.flpProveedorHome.Controls.Add(this.btnBorrarProveedor);
@@ -166,6 +174,7 @@ namespace UI
             // 
             // btnVerPenalizaciones
             // 
+            this.btnVerPenalizaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVerPenalizaciones.Location = new System.Drawing.Point(3, 191);
             this.btnVerPenalizaciones.Name = "btnVerPenalizaciones";
             this.btnVerPenalizaciones.Size = new System.Drawing.Size(136, 41);

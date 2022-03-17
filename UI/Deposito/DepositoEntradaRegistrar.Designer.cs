@@ -48,6 +48,7 @@ namespace UI
             // 
             // btnConfirmarRecepcion
             // 
+            this.btnConfirmarRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirmarRecepcion.Location = new System.Drawing.Point(752, 257);
             this.btnConfirmarRecepcion.Name = "btnConfirmarRecepcion";
             this.btnConfirmarRecepcion.Size = new System.Drawing.Size(157, 23);
@@ -59,6 +60,7 @@ namespace UI
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Location = new System.Drawing.Point(752, 121);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
@@ -70,6 +72,7 @@ namespace UI
             // 
             // lblProveedor
             // 
+            this.lblProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Location = new System.Drawing.Point(677, 93);
             this.lblProveedor.Name = "lblProveedor";
@@ -80,6 +83,7 @@ namespace UI
             // 
             // txtProveedor
             // 
+            this.txtProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -110,6 +114,7 @@ namespace UI
             // 
             // lblEmpleado
             // 
+            this.lblEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Location = new System.Drawing.Point(677, 67);
             this.lblEmpleado.Name = "lblEmpleado";
@@ -120,6 +125,7 @@ namespace UI
             // 
             // txtEmpleado
             // 
+            this.txtEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -150,6 +156,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Location = new System.Drawing.Point(750, 469);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(157, 23);
@@ -159,11 +166,14 @@ namespace UI
             this.btnCerrar.UseSelectable = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // gridClientes
+            // gridPedidos
             // 
             this.gridPedidos.AllowUserToAddRows = false;
             this.gridPedidos.AllowUserToDeleteRows = false;
             this.gridPedidos.AllowUserToResizeRows = false;
+            this.gridPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;

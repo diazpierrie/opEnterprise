@@ -9,7 +9,6 @@ namespace DAL
     public class UsuarioDal : ConnectionDal
     {
         private static readonly FamiliaDal DalFamilia = new FamiliaDal();
-        private static readonly PuestoDal DalPuesto = new PuestoDal();
 
         public UsuarioEe Login(string username, string password)
         {
@@ -101,7 +100,7 @@ namespace DAL
         {
             try
             {
-                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto FROM usuario WHERE nombreUsuario = @username", Conn);
+                var query = new SqlCommand("SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia FROM usuario WHERE nombreUsuario = @username", Conn);
                 query.Parameters.AddWithValue("@username", username);
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -153,16 +152,19 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre,  apellido, mail, dni, telefono, idFamilia, idPuesto " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia " +
                                "FROM usuario";
 
                 if (name != null)
                 {
-                    strQuery += " WHERE nombre LIKE CONCAT('%', @name, '%') OR apellido LIKE CONCAT('%', @name, '%')";
+                    strQuery += " AND ( nombre LIKE CONCAT('%', @name, '%') OR apellido LIKE CONCAT('%', @name, '%') )";
                 }
 
                 var query = new SqlCommand(strQuery, Conn);
-                query.Parameters.AddWithValue("@name", name);
+                if (name != null)
+                {
+                    query.Parameters.AddWithValue("@name", name);
+                }
 
                 Conn.Open();
                 var data = query.ExecuteReader();
@@ -190,7 +192,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia " +
                                      "FROM usuario WHERE activo = 1";
 
                 if (name != null)
@@ -230,7 +232,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia, idPuesto " +
+                var strQuery = "SELECT id, nombreUsuario, nombre, apellido, mail, dni, telefono, activo, idFamilia " +
                                $"FROM usuario WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -258,7 +260,7 @@ namespace DAL
         public bool Actualizar(UsuarioEe user)
         {
             var query = new SqlCommand("UPDATE usuario SET nombreUsuario = @nombreUsuario, nombre = @nombre, apellido = @apellido, mail = @mail, dni = @dni, " +
-                                             "telefono = @telefono, idPuesto = @idPuesto WHERE id = @id", Conn);
+                                             "telefono = @telefono WHERE id = @id", Conn);
             query.Parameters.AddWithValue("@id", user.Id);
             query.Parameters.AddWithValue("@mail", user.Mail);
             query.Parameters.AddWithValue("@nombre", user.Nombre);
@@ -266,7 +268,6 @@ namespace DAL
             query.Parameters.AddWithValue("@nombreUsuario", user.NombreUsuario);
             query.Parameters.AddWithValue("@dni", user.Dni);
             query.Parameters.AddWithValue("@telefono", user.Telefono);
-            query.Parameters.AddWithValue("@idPuesto", user.Puesto.Id);
 
             return ExecuteQuery(query);
         }
@@ -309,16 +310,10 @@ namespace DAL
                 0.ToString()
             };
 
-            if (us.Permiso != null)
+            if (us.Rol != null)
             {
                 columns.Add("idFamilia");
-                values.Add(us.Permiso.Id.ToString());
-            }
-
-            if (us.Puesto != null)
-            {
-                columns.Add("idPuesto");
-                values.Add(us.Puesto.Id.ToString());
+                values.Add(us.Rol.Id.ToString());
             }
 
             return Insert("usuario", columns.ToArray(), values.ToArray());
@@ -345,8 +340,7 @@ namespace DAL
                 Dni = int.Parse(data["dni"].ToString()),
                 Telefono = data["telefono"].ToString(),
 
-                Permiso = DalFamilia.Obtener(int.Parse(data["idFamilia"].ToString())),
-                Puesto = DalPuesto.Obtener(new UsuarioEe { Id = int.Parse(data["id"].ToString()) }),
+                Rol = DalFamilia.Obtener(int.Parse(data["idFamilia"].ToString())),
             };
 
             result.Activo = Convert.ToBoolean(data["activo"].ToString());

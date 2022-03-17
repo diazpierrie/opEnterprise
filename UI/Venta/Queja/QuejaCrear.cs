@@ -12,10 +12,12 @@ namespace UI
 {
     public partial class QuejaCrear : UpdatableForm
     {
+        private readonly Mdi _mdi;
         private List<VentaEe> _dataTable;
 
-        public QuejaCrear()
+        public QuejaCrear(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);

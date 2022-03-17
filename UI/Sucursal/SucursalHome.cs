@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using BLL;
+using EE;
+using MetroFramework;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -8,9 +10,13 @@ namespace UI.Sucursal
 {
     public partial class SucursalHome : UpdatableForm
     {
-        public SucursalHome()
+        private readonly Mdi _mdi;
+
+        public SucursalHome(Mdi mdi)
         {
+            _mdi = mdi;
             InitializeComponent();
+
         }
 
         private void btnCrearSucursal_Click(object sender, EventArgs e)
@@ -39,10 +45,12 @@ namespace UI.Sucursal
                 return;
             }
 
-            var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
-            var sucursal = SucursalBll.Obtener(selectedItem);
-            SucursalBll.Eliminar(sucursal);
+            var sucursalEe = (SucursalEe)gridSucursal.SelectedRows[0].DataBoundItem;
+            var response = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["branch"].ToLower() + " " + sucursalEe.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (response != DialogResult.Yes) return;
+            SucursalBll.Eliminar(sucursalEe);
             ActualizarGrid();
+
         }
 
         private void SucursalHome_Load(object sender, EventArgs e)

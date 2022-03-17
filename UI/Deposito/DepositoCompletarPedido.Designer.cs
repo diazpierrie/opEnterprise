@@ -40,6 +40,7 @@ namespace UI
             // 
             // btnRealizarVenta
             // 
+            this.btnRealizarVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRealizarVenta.Location = new System.Drawing.Point(192, 92);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
@@ -50,6 +51,7 @@ namespace UI
             // 
             // btnBuscarProveedor
             // 
+            this.btnBuscarProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscarProveedor.Location = new System.Drawing.Point(312, 63);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(114, 23);
@@ -60,6 +62,7 @@ namespace UI
             // 
             // txtCliente
             // 
+            this.txtCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -91,6 +94,7 @@ namespace UI
             // 
             // lblProveedor
             // 
+            this.lblProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProveedor.AutoSize = true;
             this.lblProveedor.Location = new System.Drawing.Point(25, 63);
             this.lblProveedor.Name = "lblProveedor";
