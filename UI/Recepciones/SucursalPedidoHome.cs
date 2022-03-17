@@ -13,14 +13,14 @@ namespace UI
 {
     public partial class SucursalPedidoHome : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public readonly Mdi Mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
         public BindingList<ProductoEdificioEe> ProductosDeposito;
-        public double Total;
+        private double _total;
 
         public SucursalPedidoHome(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
             TraerProductos();
         }
@@ -40,14 +40,13 @@ namespace UI
             gridPedido.Columns["edificio"].DisplayIndex = 1;
             gridPedido.Columns["cantidad"].DisplayIndex = 2;
             gridPedido.Columns["costo"].DisplayIndex = 3;
-
             gridPedido.Columns["TotalProducto"].DisplayIndex = 4;
 
             gridPedido.Columns["Cantidad"].HeaderText = "Cantidad a Comprar";
             gridPedido.Columns["TotalProducto"].HeaderText = "Total del Producto";
 
-            Total = ProductosAAsignar.Sum(producto => producto.Cantidad * producto.Costo);
-            lblTotal.Text = $@"Total: ${Total}";
+            _total = ProductosAAsignar.Sum(producto => producto.Cantidad * producto.Costo);
+            lblTotal.Text = $@"Total: ${_total}";
 
             gridPedido.Refresh();
 
@@ -62,12 +61,12 @@ namespace UI
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
             var agregarProducto = new SucursalProductoAgregar(this);
-            agregarProducto.Show();
+            Mdi.OpenWindowForm(agregarProducto);
         }
 
         private void btnCompletarPedido_Click(object sender, EventArgs e)
         {
-            var respuesta = MetroMessageBox.Show(this, "¿Esta seguro de realizar el pedido?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var respuesta = MetroMessageBox.Show(Mdi, "¿Esta seguro de realizar el pedido?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (respuesta != DialogResult.Yes) return;
             var pedidoNuevo = new PedidoDepositoEe()
             {
@@ -79,7 +78,7 @@ namespace UI
 
             if (PedidoDepositoBll.Crear(pedidoNuevo, ProductosAAsignar.ToList()) == 0) return;
 
-            MetroMessageBox.Show(this, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
+            MetroMessageBox.Show(Mdi, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
                 MessageBoxIcon.Question);
             Close();
         }

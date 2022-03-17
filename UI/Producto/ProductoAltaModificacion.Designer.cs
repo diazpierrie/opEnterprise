@@ -45,8 +45,7 @@ namespace UI
             // 
             // lblMail
             // 
-            this.lblMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMail.Location = new System.Drawing.Point(13, 154);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(137, 19);
@@ -58,8 +57,7 @@ namespace UI
             // 
             // lblCodigoPostal
             // 
-            this.lblCodigoPostal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCodigoPostal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodigoPostal.Location = new System.Drawing.Point(13, 124);
             this.lblCodigoPostal.Name = "lblCodigoPostal";
             this.lblCodigoPostal.Size = new System.Drawing.Size(137, 19);
@@ -71,8 +69,7 @@ namespace UI
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -104,8 +101,7 @@ namespace UI
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecio.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -137,8 +133,7 @@ namespace UI
             // 
             // lblNombre
             // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.Location = new System.Drawing.Point(13, 66);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(137, 19);
@@ -150,8 +145,7 @@ namespace UI
             // 
             // lblCodigo
             // 
-            this.lblCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodigo.Location = new System.Drawing.Point(13, 95);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(137, 19);
@@ -163,8 +157,7 @@ namespace UI
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -196,8 +189,7 @@ namespace UI
             // 
             // txtCosto
             // 
-            this.txtCosto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCosto.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -229,6 +221,7 @@ namespace UI
             // 
             // btnAccion
             // 
+            this.btnAccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAccion.Location = new System.Drawing.Point(271, 182);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(84, 23);

@@ -22,7 +22,7 @@ namespace UI.Sucursal
         private void btnCrearSucursal_Click(object sender, EventArgs e)
         {
             var sucursalAltaModificacion = new SucursalAltaModificacion(this);
-            sucursalAltaModificacion.Show();
+            _mdi.OpenWindowForm(sucursalAltaModificacion);
         }
 
         private void btnModificarSucursal_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace UI.Sucursal
             var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
             var sucursal = SucursalBll.Obtener(selectedItem);
             var provAm = new SucursalAltaModificacion(this, sucursal);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
 
         private void btnBorrarSucursal_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace UI.Sucursal
             var selectedItem = int.Parse(gridSucursal.SelectedRows[0].Cells["id"].Value.ToString());
             var sucursal = SucursalBll.Obtener(selectedItem);
             var provAm = new SucursalAltaModificacion(this, sucursal);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
 
     }

@@ -11,12 +11,12 @@ namespace UI
 {
     public partial class PagoRecibir : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public readonly Mdi Mdi;
         private List<VentaEe> _dataTable;
 
         public PagoRecibir(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
 
             var estados = VentaEstadoBll.Obtener();
@@ -67,15 +67,21 @@ namespace UI
         private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            // ReSharper disable once ObjectCreationAsStatement
-            new VentaVerDetalle(venta);
+            var detalles = VentaBll.ObtenerDetalles(venta);
+
+            if (detalles.Count == 0)
+            {
+                return;
+            }
+
+            Mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
         private void btnElegirVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             var confirmarPago = new ConfirmarPago(this, venta);
-            confirmarPago.Show();
+            Mdi.OpenWindowForm(confirmarPago);
         }
     }
 }

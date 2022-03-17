@@ -77,6 +77,7 @@ namespace UI
             // 
             // cbEsSocio
             // 
+            this.cbEsSocio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbEsSocio.FormattingEnabled = true;
             this.cbEsSocio.ItemHeight = 23;
             this.cbEsSocio.Location = new System.Drawing.Point(151, 232);

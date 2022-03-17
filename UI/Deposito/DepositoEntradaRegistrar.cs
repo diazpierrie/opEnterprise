@@ -11,12 +11,12 @@ namespace UI
 {
     public partial class DepositoEntradaRegistrar : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public Mdi Mdi;
         private List<PedidoProveedorEe> _dataTable;
 
         public DepositoEntradaRegistrar(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }
@@ -63,18 +63,15 @@ namespace UI
         {
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoProveedorEe)gridPedidos.SelectedRows[0].DataBoundItem;
-            var depositoElegirProductos = new DepositoElegirProductos(pedido, this);
-            depositoElegirProductos.Show();
+            var detalle = PedidoProveedorBll.ObtenerDetalle(pedido);
 
+            if (detalle.Count == 0)
+            {
+                return;
+            }
 
-            //var pedido = (PedidoProveedorEe)gridPedidos.SelectedRows[0].DataBoundItem;
-
-            //        var respuesta = MetroMessageBox.Show(this, "¿Esta seguro que desea confirmar la recepcion del pedido?", "Confirmacion de recepcion",
-            //            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            //        if (respuesta != DialogResult.Yes) return;
-            //        PedidoProveedorBll.ConfirmarRecepcionPedido(pedido);
-            //        ActualizarGrid();
+            var depositoElegirProductos = new DepositoElegirProductos(pedido, this, detalle);
+            Mdi.OpenWindowForm(depositoElegirProductos);
         }
 
         private void gridClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -10,12 +10,12 @@ namespace UI
 {
     public partial class SucursalEntradaRegistrar : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public readonly Mdi Mdi;
         private List<PedidoDepositoEe> _dataTable;
 
         public SucursalEntradaRegistrar(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }
@@ -59,7 +59,7 @@ namespace UI
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoDepositoEe)gridPedidos.SelectedRows[0].DataBoundItem;
             var depositoElegirProductos = new SucursalElegirProductos(pedido, this);
-            depositoElegirProductos.Show();
+            Mdi.OpenWindowForm(depositoElegirProductos);
         }
 
         private void gridClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

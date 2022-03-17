@@ -169,7 +169,7 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"]);
+                MetroMessageBox.Show(_depositoPedidoHome.Mdi, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"]);
             }
 
         }

@@ -10,10 +10,10 @@ namespace UI
     {
         //public PedidoCompletar Fatherform { get; }
         private List<ProveedorEe> _dataTable;
-        private readonly DepositoCompletarPedido _fatherform;
+        public readonly DepositoCompletarPedido Fatherform;
         public ProveedorBuscar(DepositoCompletarPedido fatherform)
         {
-            _fatherform = fatherform;
+            Fatherform = fatherform;
             InitializeComponent();
             ActualizarGrid();
         }
@@ -43,14 +43,14 @@ namespace UI
 
         private void btnElegir_Click(object sender, EventArgs e)
         {
-            _fatherform.AsignarProveedor(_dataTable[gridClientes.SelectedRows[0].Index]);
+            Fatherform.AsignarProveedor(_dataTable[gridClientes.SelectedRows[0].Index]);
             Close();
         }
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {
             var altaCliente = new ProveedorAltaModificacion(this);
-            altaCliente.Show();
+            Fatherform.DepositoPedidoHome.Mdi.OpenWindowForm(altaCliente);
         }
 
         public void ActualizarGrid()

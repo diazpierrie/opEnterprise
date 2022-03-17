@@ -1,5 +1,5 @@
 ﻿using System;
-using BLL;
+using System.Collections.Generic;
 using EE;
 using Security;
 
@@ -9,7 +9,7 @@ namespace UI
 {
     public partial class VentaVerDetalle : UpdatableForm
     {
-        public VentaVerDetalle(VentaEe venta)
+        public VentaVerDetalle(VentaEe venta, List<VentaDetalleEe> ventaDetalleEes)
         {
             InitializeComponent();
 
@@ -18,12 +18,7 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
-            gridDetalle.DataSource = VentaBll.ObtenerDetalles(venta);
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
+            gridDetalle.DataSource = ventaDetalleEes;
 
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Venta"].Visible = false;
@@ -35,8 +30,6 @@ namespace UI
             gridDetalle.Columns["totaldetalle"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_detail"];
 
             lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + $@": ${venta.Total}";
-
-            Show();
 
         }
 

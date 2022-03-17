@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using BLL;
 using EE;
 using Security;

@@ -40,7 +40,6 @@ namespace UI
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
             this.lblCodigo = new MetroFramework.Controls.MetroLabel();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
-            this.btnElegir = new MetroFramework.Controls.MetroButton();
             this.txtCodigo = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridInventario)).BeginInit();
             this.SuspendLayout();
@@ -158,17 +157,6 @@ namespace UI
             this.btnBuscar.UseSelectable = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnElegir
-            // 
-            this.btnElegir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnElegir.Location = new System.Drawing.Point(564, 413);
-            this.btnElegir.Name = "btnElegir";
-            this.btnElegir.Size = new System.Drawing.Size(223, 23);
-            this.btnElegir.TabIndex = 12;
-            this.btnElegir.Tag = "choose";
-            this.btnElegir.Text = "Elegir";
-            this.btnElegir.UseSelectable = true;
-            // 
             // txtCodigo
             // 
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -205,7 +193,6 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 459);
-            this.Controls.Add(this.btnElegir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.txtCodigo);
@@ -213,7 +200,7 @@ namespace UI
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.gridInventario);
             this.Name = "DepositoVerInventario";
-            this.Text = "Buscar Proveedor";
+            this.Text = "Ver Inventario";
             ((System.ComponentModel.ISupportInitialize)(this.gridInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -227,7 +214,6 @@ namespace UI
         private MetroLabel lblNombre;
         private MetroLabel lblCodigo;
         private MetroButton btnBuscar;
-        private MetroButton btnElegir;
         private MetroTextBox txtCodigo;
     }
 }

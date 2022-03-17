@@ -112,14 +112,14 @@ namespace UI
             var row = (VentaDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
             if (gridDetalle.CurrentCell.Value != null && (int)gridDetalle.CurrentCell.Value < 0)
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_quejaElegir.QuejaCrear.Mdi, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridDetalle.CurrentCell.Value = row.Cantidad;
                 return;
             }
 
             if ((int)gridDetalle.CurrentCell.Value > row.Cantidad)
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number_or_less"],
+                MetroMessageBox.Show(_quejaElegir.QuejaCrear.Mdi, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number_or_less"],
                     Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridDetalle.CurrentCell.Value = row.Cantidad;
             }

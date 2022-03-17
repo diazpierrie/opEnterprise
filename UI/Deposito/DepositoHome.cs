@@ -21,7 +21,7 @@ namespace UI
         private void btnCrearDeposito_Click(object sender, EventArgs e)
         {
             var crearDeposito = new DepositoAltaModificacion(this);
-            crearDeposito.Show();
+            _mdi.OpenWindowForm(crearDeposito);
         }
 
         private void btnModificarDeposito_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace UI
             var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedDeposito = DepositoBll.Obtener(selectedItem);
             var provAm = new DepositoAltaModificacion(this, selectedDeposito);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
 
         private void btnBorrarDeposito_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace UI
             var selectedItem = int.Parse(gridDeposito.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedDeposito = DepositoBll.Obtener(selectedItem);
             var provAm = new DepositoAltaModificacion(this, selectedDeposito);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
 
     }

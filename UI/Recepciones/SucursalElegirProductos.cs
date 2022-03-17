@@ -48,7 +48,7 @@ namespace UI
 
         private void btnElegir_Click(object sender, EventArgs e)
         {
-            var respuesta = MetroMessageBox.Show(this,
+            var respuesta = MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi,
                 "¿Esta seguro que desea confirmar la entrada de productos?", "Confirmacion",
                 MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (respuesta == DialogResult.Yes)
@@ -64,17 +64,16 @@ namespace UI
             var row = (PedidoDepositoDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
             if (gridDetalle.CurrentCell.Value != null && (int) gridDetalle.CurrentCell.Value <= 0) 
             {
-                MetroMessageBox.Show(this, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridDetalle.CurrentCell.Value = row.Cantidad;
                 return;
             }
 
-            if ((int) gridDetalle.CurrentCell.Value > row.Cantidad)
-            {
-                MetroMessageBox.Show(this, "Ingrese un valor positivo igual o menor a la cantidad a entrar",
-                    "Cantidad excedida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                gridDetalle.CurrentCell.Value = row.Cantidad;
-            }
+            if ((int) gridDetalle.CurrentCell.Value <= row.Cantidad) return;
+
+            MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi, "Ingrese un valor positivo igual o menor a la cantidad a entrar",
+                "Cantidad excedida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            gridDetalle.CurrentCell.Value = row.Cantidad;
         }
 
         private void gridDetalle_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -86,7 +85,7 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_depositoEntradaRegistrar.Mdi, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

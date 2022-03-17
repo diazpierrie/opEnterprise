@@ -57,8 +57,9 @@ namespace UI
             this.gridClientes.AllowUserToAddRows = false;
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.AllowUserToResizeRows = false;
+            this.gridClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -100,6 +101,7 @@ namespace UI
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -130,6 +132,7 @@ namespace UI
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.Location = new System.Drawing.Point(541, 83);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(82, 19);
@@ -140,6 +143,7 @@ namespace UI
             // 
             // lblApellido
             // 
+            this.lblApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellido.Location = new System.Drawing.Point(541, 108);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(84, 19);
@@ -150,6 +154,7 @@ namespace UI
             // 
             // txtApellido
             // 
+            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -180,6 +185,7 @@ namespace UI
             // 
             // lblDni
             // 
+            this.lblDni.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDni.Location = new System.Drawing.Point(542, 137);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(81, 19);
@@ -190,6 +196,7 @@ namespace UI
             // 
             // txtDni
             // 
+            this.txtDni.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -220,6 +227,7 @@ namespace UI
             // 
             // lblMail
             // 
+            this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMail.Location = new System.Drawing.Point(542, 166);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(84, 19);
@@ -230,6 +238,7 @@ namespace UI
             // 
             // txtMail
             // 
+            this.txtMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -260,6 +269,7 @@ namespace UI
             // 
             // lblTelefono
             // 
+            this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefono.Location = new System.Drawing.Point(542, 195);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(81, 19);
@@ -270,6 +280,7 @@ namespace UI
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -300,6 +311,7 @@ namespace UI
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscar.Location = new System.Drawing.Point(629, 225);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
@@ -311,6 +323,7 @@ namespace UI
             // 
             // btnElegir
             // 
+            this.btnElegir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnElegir.Location = new System.Drawing.Point(630, 413);
             this.btnElegir.Name = "btnElegir";
             this.btnElegir.Size = new System.Drawing.Size(157, 23);
@@ -322,6 +335,7 @@ namespace UI
             // 
             // btnAltaCliente
             // 
+            this.btnAltaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAltaCliente.Location = new System.Drawing.Point(630, 254);
             this.btnAltaCliente.Name = "btnAltaCliente";
             this.btnAltaCliente.Size = new System.Drawing.Size(157, 23);

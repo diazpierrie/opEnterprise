@@ -68,7 +68,7 @@ namespace UI
         private void btnAgregarDireccion_Click(object sender, EventArgs e)
         {
             var agregarDireccion = new DireccionAltaModificacion(this);
-            agregarDireccion.Show();
+            _clienteBuscar.Fatherform.Ventahome.Mdi.OpenWindowForm(agregarDireccion);
         }
 
         public void ActualizarDireccion()

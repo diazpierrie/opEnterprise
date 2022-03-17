@@ -10,12 +10,10 @@ namespace UI
 {
     public partial class DepositoVerInventario : UpdatableForm
     {
-        private readonly Mdi _mdi;
         private List<ProductoEdificioEe> _dataTable;
 
-        public DepositoVerInventario(Mdi mdi)
+        public DepositoVerInventario()
         {
-            _mdi = mdi;
             InitializeComponent();
             ActualizarGrid();
         }
@@ -31,7 +29,7 @@ namespace UI
             gridInventario.Refresh();
         }
 
-        public void ActualizarGrid()
+        private void ActualizarGrid()
         { 
             _dataTable = ProductoBll.ObtenerDeposito(Sesion.ObtenerSesion().Deposito);
             gridInventario.DataSource = _dataTable;

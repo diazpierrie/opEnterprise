@@ -12,12 +12,12 @@ namespace UI
 {
     public partial class QuejaCrear : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public readonly Mdi Mdi;
         private List<VentaEe> _dataTable;
 
         public QuejaCrear(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);
@@ -96,7 +96,14 @@ namespace UI
         private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
-            new VentaVerDetalle(venta);
+            var detalles = VentaBll.ObtenerDetalles(venta);
+
+            if (detalles.Count == 0)
+            {
+                return;
+            }
+
+            Mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
         private void btnElegirVenta_Click(object sender, EventArgs e)

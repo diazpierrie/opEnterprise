@@ -45,6 +45,7 @@ namespace UI
             // 
             // btnCrearDireccion
             // 
+            this.btnCrearDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCrearDireccion.Location = new System.Drawing.Point(611, 63);
             this.btnCrearDireccion.Name = "btnCrearDireccion";
             this.btnCrearDireccion.Size = new System.Drawing.Size(136, 41);
@@ -55,6 +56,7 @@ namespace UI
             // 
             // btnModificarDireccion
             // 
+            this.btnModificarDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnModificarDireccion.Location = new System.Drawing.Point(611, 110);
             this.btnModificarDireccion.Name = "btnModificarDireccion";
             this.btnModificarDireccion.Size = new System.Drawing.Size(136, 41);
@@ -65,6 +67,7 @@ namespace UI
             // 
             // btnBorrarDireccion
             // 
+            this.btnBorrarDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBorrarDireccion.Location = new System.Drawing.Point(611, 157);
             this.btnBorrarDireccion.Name = "btnBorrarDireccion";
             this.btnBorrarDireccion.Size = new System.Drawing.Size(136, 41);
@@ -78,6 +81,7 @@ namespace UI
             this.gridDireccion.AllowUserToAddRows = false;
             this.gridDireccion.AllowUserToDeleteRows = false;
             this.gridDireccion.AllowUserToResizeRows = false;
+            this.gridDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridDireccion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridDireccion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDireccion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -123,6 +127,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCerrar.Location = new System.Drawing.Point(611, 323);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(136, 41);

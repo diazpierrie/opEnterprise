@@ -44,8 +44,9 @@ namespace UI
             // gridDetalle
             // 
             this.gridDetalle.AllowUserToResizeRows = false;
+            this.gridDetalle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -88,6 +89,7 @@ namespace UI
             // 
             // btnElegir
             // 
+            this.btnElegir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnElegir.Location = new System.Drawing.Point(554, 403);
             this.btnElegir.Name = "btnElegir";
             this.btnElegir.Size = new System.Drawing.Size(99, 23);
@@ -99,6 +101,7 @@ namespace UI
             // 
             // metroButton1
             // 
+            this.metroButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroButton1.Location = new System.Drawing.Point(449, 403);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(99, 23);

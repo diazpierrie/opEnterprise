@@ -44,9 +44,7 @@ namespace UI
             // gridDetalle
             // 
             this.gridDetalle.AllowUserToResizeRows = false;
-            this.gridDetalle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridDetalle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -89,6 +87,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCerrar.Location = new System.Drawing.Point(399, 404);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(99, 23);
@@ -100,6 +99,7 @@ namespace UI
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
             this.lblTotal.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblTotal.FontWeight = MetroFramework.MetroLabelWeight.Bold;

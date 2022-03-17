@@ -14,7 +14,7 @@ namespace UI
 {
     public partial class VentaHome : UpdatableForm
     {
-        private readonly Mdi _mdi;
+        public readonly Mdi Mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
         public BindingList<ProductoEdificioEe> ProductosDeposito;
         public BindingList<ProductoEdificioEe> ProductosSucursal;
@@ -22,7 +22,7 @@ namespace UI
 
         public VentaHome(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
             TraerProductos();
 
@@ -76,11 +76,11 @@ namespace UI
             if (ProductosAAsignar.Count != 0)
             {
                 var completarVenta = new VentaCompletar(this);
-                completarVenta.Show();
+                Mdi.OpenWindowForm(completarVenta);
             }
             else
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["please_add_products"],
+                MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["please_add_products"],
                     Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -88,7 +88,7 @@ namespace UI
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
             var agregarProducto = new VentaProductoAgregar(this);
-            agregarProducto.Show();
+            Mdi.OpenWindowForm(agregarProducto);
         }
 
         private void btnRemoverProductos_Click(object sender, EventArgs e)

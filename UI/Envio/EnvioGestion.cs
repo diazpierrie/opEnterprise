@@ -84,8 +84,15 @@ namespace UI
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
-            var envioVerDetalle = new EnvioVerDetalle(envio);
-            envioVerDetalle.Show();
+
+            var detalleDeSucursal = EnvioBll.ObtenerDetalleDeSucursal(envio);
+
+            if (detalleDeSucursal.Count == 0)
+            {
+                return;
+            }
+            var envioVerDetalle = new EnvioVerDetalle(detalleDeSucursal);
+            _mdi.OpenWindowForm(envioVerDetalle);
         }
 
         private void btnDespacharEnvio_Click(object sender, EventArgs e)
@@ -95,7 +102,7 @@ namespace UI
 
             if (envio.FechaSalida == default)
             {
-                var respuesta = MetroMessageBox.Show(this, "¿Esta seguro que desea despachar el envio?", "Despacho de productos",
+                var respuesta = MetroMessageBox.Show(_mdi, "¿Esta seguro que desea despachar el envio?", "Despacho de productos",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (respuesta != DialogResult.Yes) return;
@@ -104,7 +111,7 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, "El envio ya fue despachado", "Envio ya despachado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_mdi, "El envio ya fue despachado", "Envio ya despachado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -116,7 +123,7 @@ namespace UI
             {
                 if (envio.FechaLlegada == default)
                 {
-                    var respuesta = MetroMessageBox.Show(this, "¿Esta seguro que desea confirmar la recepcion del envio?", "Confirmacion de recepcion",
+                    var respuesta = MetroMessageBox.Show(_mdi, "¿Esta seguro que desea confirmar la recepcion del envio?", "Confirmacion de recepcion",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta != DialogResult.Yes) return;
@@ -125,12 +132,12 @@ namespace UI
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "El envio ya fue recibido", "Envio ya recibido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(_mdi, "El envio ya fue recibido", "Envio ya recibido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MetroMessageBox.Show(this, "El envio debe ser despachado primero", "Envio sin despachar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_mdi, "El envio debe ser despachado primero", "Envio sin despachar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

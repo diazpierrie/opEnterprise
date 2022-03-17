@@ -80,14 +80,21 @@ namespace UI
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             // ReSharper disable once ObjectCreationAsStatement
-            new VentaVerDetalle(venta);
+            var detalles = VentaBll.ObtenerDetalles(venta);
+
+            if (detalles.Count == 0)
+            {
+                return;
+            }
+
+            _mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
-            var respuesta = MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["question_cancel_sale"],
-                Sesion.ObtenerSesion().Idioma.Textos["confirmation"], MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var respuesta = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_cancel_sale"],
+                Sesion.ObtenerSesion().Idioma.Textos["confirmation"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (respuesta != DialogResult.Yes) return;
             VentaBll.Cancelar(venta);

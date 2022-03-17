@@ -47,6 +47,7 @@ namespace UI
             this.gridVentaDetalle.AllowUserToAddRows = false;
             this.gridVentaDetalle.AllowUserToDeleteRows = false;
             this.gridVentaDetalle.AllowUserToResizeRows = false;
+            this.gridVentaDetalle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridVentaDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridVentaDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridVentaDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -90,6 +91,7 @@ namespace UI
             // 
             // btnCompletarVenta
             // 
+            this.btnCompletarVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCompletarVenta.Location = new System.Drawing.Point(653, 64);
             this.btnCompletarVenta.Name = "btnCompletarVenta";
             this.btnCompletarVenta.Size = new System.Drawing.Size(167, 28);
@@ -100,6 +102,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCerrar.Location = new System.Drawing.Point(653, 468);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(167, 28);
@@ -110,6 +113,7 @@ namespace UI
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(652, 197);
             this.lblTotal.Name = "lblTotal";
@@ -119,6 +123,7 @@ namespace UI
             // 
             // txtEfectivo
             // 
+            this.txtEfectivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -150,6 +155,7 @@ namespace UI
             // 
             // lblEfectivoRecibido
             // 
+            this.lblEfectivoRecibido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEfectivoRecibido.AutoSize = true;
             this.lblEfectivoRecibido.Location = new System.Drawing.Point(653, 226);
             this.lblEfectivoRecibido.Name = "lblEfectivoRecibido";
@@ -159,6 +165,7 @@ namespace UI
             // 
             // lblVueltoADar
             // 
+            this.lblVueltoADar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblVueltoADar.AutoSize = true;
             this.lblVueltoADar.Location = new System.Drawing.Point(653, 300);
             this.lblVueltoADar.Name = "lblVueltoADar";

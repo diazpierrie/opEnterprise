@@ -11,13 +11,13 @@ namespace UI
     public partial class QuejaElegir : UpdatableForm
     {
         private readonly VentaEe _venta;
-        private readonly QuejaCrear _quejaCrear;
+        public readonly QuejaCrear QuejaCrear;
         private readonly List<string> _quejas = new List<string> { Sesion.ObtenerSesion().Idioma.Textos["product_bad_condition"], Sesion.ObtenerSesion().Idioma.Textos["product_not_desired"] };
 
         public QuejaElegir(VentaEe venta, QuejaCrear quejaCrear)
         {
             _venta = venta;
-            _quejaCrear = quejaCrear;
+            QuejaCrear = quejaCrear;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);
@@ -33,13 +33,13 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["sale_no_products"], Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(QuejaCrear.Mdi, Sesion.ObtenerSesion().Idioma.Textos["sale_no_products"], Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public void ActualizarEstadoVentas()
         {
-            _quejaCrear.ActualizarGrid();
+            QuejaCrear.ActualizarGrid();
         }
         
         private void btnAsignarQueja_Click(object sender, EventArgs e)

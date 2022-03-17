@@ -10,12 +10,12 @@ namespace UI
 {
     public partial class DepositoCompletarPedido : UpdatableForm
     {
-        private readonly DepositoPedidoHome _depositoPedidoHome;
+        public readonly DepositoPedidoHome DepositoPedidoHome;
         private ProveedorEe _proveedor;
         private readonly double _total;
         public DepositoCompletarPedido(DepositoPedidoHome depositoPedidoHome )
         {
-            _depositoPedidoHome = depositoPedidoHome;
+            DepositoPedidoHome = depositoPedidoHome;
             _total = depositoPedidoHome.Total;
             InitializeComponent();
             txtCliente.Enabled = false;
@@ -30,12 +30,12 @@ namespace UI
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
             var proveedorBuscar = new ProveedorBuscar(this);
-            proveedorBuscar.Show();
+            DepositoPedidoHome.Mdi.OpenWindowForm(proveedorBuscar);
         }
 
         private void btnCompletarPedido_Click(object sender, EventArgs e)
         {
-            var respuesta = MetroMessageBox.Show(_depositoPedidoHome.Mdi, $"¿Está seguro que desea realizar el pedido al proveedor {_proveedor.Nombre}?",
+            var respuesta = MetroMessageBox.Show(DepositoPedidoHome.Mdi, $"¿Está seguro que desea realizar el pedido al proveedor {_proveedor.Nombre}?",
                 "Confirmacion de pedido", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (respuesta != DialogResult.Yes) return;
@@ -50,11 +50,11 @@ namespace UI
                 Total = _total
             };
 
-            if (PedidoProveedorBll.Crear(pedidoNuevo, _depositoPedidoHome.ProductosAAsignar.ToList()) == 0) return;
+            if (PedidoProveedorBll.Crear(pedidoNuevo, DepositoPedidoHome.ProductosAAsignar.ToList()) == 0) return;
 
-            MetroMessageBox.Show(_depositoPedidoHome.Mdi, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
+            MetroMessageBox.Show(DepositoPedidoHome.Mdi, "Pedido realizado con exito", "Exito", MessageBoxButtons.OK,
                 MessageBoxIcon.Question);
-            _depositoPedidoHome.Close();
+            DepositoPedidoHome.Close();
             Close();
         }
     }

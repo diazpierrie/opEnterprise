@@ -3,7 +3,6 @@ using EE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using MetroFramework;
@@ -58,7 +57,7 @@ namespace UI
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             var buscarCliente = new ClienteBuscar(this);
-            buscarCliente.Show();
+            Ventahome.Mdi.OpenWindowForm(buscarCliente);
         }
 
         public void AsignarCliente(CompradorEe cliente)
@@ -87,14 +86,14 @@ namespace UI
             {
                 if (!_cliente.EsSocio)
                 {
-                    if (MetroMessageBox.Show(this, "Desea promover al cliente a socio?",
+                    if (MetroMessageBox.Show(Ventahome.Mdi, "Desea promover al cliente a socio?",
                             "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
                     {
                         CompradorBll.PromoverASocio(_cliente);
                     }
 
                 }
-                MetroMessageBox.Show(this, ObtenerSesion().Idioma.Textos["success_sale"],
+                MetroMessageBox.Show(Ventahome.Mdi, ObtenerSesion().Idioma.Textos["success_sale"],
                     ObtenerSesion().Idioma.Textos["success"], MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
@@ -127,7 +126,6 @@ namespace UI
             if (cbMetodoPago.SelectedValue.ToString() == ObtenerSesion().Idioma.Textos["cash"])
             {
                 _total *= 0.95;
-                btnRealizarVenta.Location = new Point(233, 214);
                 lblCuotas.Visible = false;
                 cbCuotas.Visible = false;
                 lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}" + @" (" +
@@ -135,7 +133,6 @@ namespace UI
             }
             else if (cbMetodoPago.SelectedValue.ToString() == ObtenerSesion().Idioma.Textos["debit"])
             {
-                btnRealizarVenta.Location = new Point(233, 214);
                 lblCuotas.Visible = false;
                 cbCuotas.Visible = false;
                 lblTotal.Text = ObtenerSesion().Idioma.Textos["total"] + @": $" + $@"{_total:##.##}";
@@ -143,7 +140,6 @@ namespace UI
             else if (cbMetodoPago.SelectedValue.ToString() == ObtenerSesion().Idioma.Textos["credit"])
             {
                 _total *= 1.05;
-                btnRealizarVenta.Location = new Point(233, 249);
                 cbCuotas.SelectedIndex = 0;
                 lblCuotas.Visible = true;
                 cbCuotas.Visible = true;
@@ -191,7 +187,8 @@ namespace UI
         private void btnEnvioLocal_Click(object sender, EventArgs e)
         {
             var agregarProducto = new RetiroLocalAgregar(this);
-            agregarProducto.Show();
+            Ventahome.Mdi.OpenWindowForm(agregarProducto);
         }
+
     }
 }

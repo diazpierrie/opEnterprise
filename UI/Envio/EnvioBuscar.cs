@@ -47,7 +47,7 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        public void ActualizarGrid()
+        private void ActualizarGrid()
         {
             _dataTable = EnvioBll.ObtenerDeSucursal(Sesion.ObtenerSesion().Sucursal.Id);
             gridClientes.DataSource = _dataTable;
@@ -71,18 +71,27 @@ namespace UI
 
         private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
-            var envioVerDetalle = new EnvioVerDetalle(envio);
-            envioVerDetalle.Show();
+            VerDetalle();
         }
 
         private void btnVerDetalle_Click(object sender, EventArgs e)
         {
+            VerDetalle();
+        }
+
+        private void VerDetalle()
+        {
             if (gridClientes.SelectedRows.Count <= 0) return;
-            var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
-            var envioVerDetalle = new EnvioVerDetalle(envio);
-            envioVerDetalle.Show();
+            var envio = (EnvioEe) gridClientes.SelectedRows[0].DataBoundItem;
+            var detalleDeSucursal = EnvioBll.ObtenerDetalleDeSucursal(envio);
+
+            if (detalleDeSucursal.Count == 0)
+            {
+                return;
+            }
+
+            var envioVerDetalle = new EnvioVerDetalle(detalleDeSucursal);
+            _mdi.OpenWindowForm(envioVerDetalle);
         }
     }
 }

@@ -72,7 +72,15 @@ namespace UI
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
-            var envioVerDetalle = new EnvioVerDetalle(envio);
+            var detalleDeSucursal = EnvioBll.ObtenerDetalleDeSucursal(envio);
+
+            if (detalleDeSucursal.Count == 0)
+            {
+                return;
+            }
+
+            var envioVerDetalle = new EnvioVerDetalle(detalleDeSucursal);
+            
             envioVerDetalle.Show();
         }
 

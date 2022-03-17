@@ -57,8 +57,9 @@ namespace UI
             this.gridClientes.AllowUserToAddRows = false;
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.AllowUserToResizeRows = false;
+            this.gridClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -100,6 +101,7 @@ namespace UI
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -130,6 +132,7 @@ namespace UI
             // 
             // lblNombre
             // 
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(564, 83);
             this.lblNombre.Name = "lblNombre";
@@ -140,6 +143,7 @@ namespace UI
             // 
             // lblDireccion
             // 
+            this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Location = new System.Drawing.Point(560, 108);
             this.lblDireccion.Name = "lblDireccion";
@@ -150,6 +154,7 @@ namespace UI
             // 
             // txtDireccion
             // 
+            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -180,6 +185,7 @@ namespace UI
             // 
             // lblCodigoPostal
             // 
+            this.lblCodigoPostal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCodigoPostal.AutoSize = true;
             this.lblCodigoPostal.Location = new System.Drawing.Point(532, 137);
             this.lblCodigoPostal.Name = "lblCodigoPostal";
@@ -189,6 +195,7 @@ namespace UI
             // 
             // txtCodigoPostal
             // 
+            this.txtCodigoPostal.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -219,6 +226,7 @@ namespace UI
             // 
             // lblMail
             // 
+            this.lblMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMail.AutoSize = true;
             this.lblMail.Location = new System.Drawing.Point(592, 166);
             this.lblMail.Name = "lblMail";
@@ -229,6 +237,7 @@ namespace UI
             // 
             // txtMail
             // 
+            this.txtMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -259,6 +268,7 @@ namespace UI
             // 
             // lblTelefono
             // 
+            this.lblTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Location = new System.Drawing.Point(565, 195);
             this.lblTelefono.Name = "lblTelefono";
@@ -269,6 +279,7 @@ namespace UI
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -299,6 +310,7 @@ namespace UI
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscar.Location = new System.Drawing.Point(629, 225);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 23);
@@ -309,6 +321,7 @@ namespace UI
             // 
             // btnElegir
             // 
+            this.btnElegir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnElegir.Location = new System.Drawing.Point(630, 413);
             this.btnElegir.Name = "btnElegir";
             this.btnElegir.Size = new System.Drawing.Size(157, 23);
@@ -320,6 +333,7 @@ namespace UI
             // 
             // btnAltaCliente
             // 
+            this.btnAltaCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAltaCliente.Location = new System.Drawing.Point(630, 254);
             this.btnAltaCliente.Name = "btnAltaCliente";
             this.btnAltaCliente.Size = new System.Drawing.Size(157, 23);

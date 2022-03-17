@@ -89,7 +89,14 @@ namespace UI
         {
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
             // ReSharper disable once ObjectCreationAsStatement
-            new VentaVerDetalle(venta);
+            var detalles = VentaBll.ObtenerDetalles(venta);
+
+            if (detalles.Count == 0)
+            {
+                return;
+            }
+
+            _mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
     }
 }

@@ -2,7 +2,6 @@
 using MetroFramework;
 using MetroFramework.Forms;
 using Security;
-using Spire.Presentation;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -308,15 +307,15 @@ namespace UI
         private void btnVerInventario_Click(object sender, EventArgs e)
         {
             HideSubMenu();
-            var verInventario = new DepositoVerInventario(this);
+            var verInventario = new DepositoVerInventario();
             OpenChildForm(verInventario);
         }
 
         private void btnVerQuejas_Click(object sender, EventArgs e)
         {
             HideSubMenu();
-            //var verInventario = new DepositoVerInventario();
-            //OpenChildForm(verInventario);
+            var verInventario = new DepositoVerInventario();
+            OpenChildForm(verInventario);
         }
 
         private void cbIdiomas_SelectedIndexChanged(object sender, EventArgs e)

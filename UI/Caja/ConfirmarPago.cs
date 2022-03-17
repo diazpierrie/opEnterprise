@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Forms;
 using BLL;
 using EE;
 using MetroFramework;
@@ -63,11 +64,12 @@ namespace UI
             {
                 VentaBll.ConfirmarPago(new PagoEe() { Venta = _venta, MontoCobrado = _venta.Total, Vuelto = _vuelto * -1 });
                 _pagoRecibir.ActualizarGrid();
+                MetroMessageBox.Show(_pagoRecibir.Mdi, "Cobro realizado exitosamente", "Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 Close();
             }
             else
             {
-                MetroMessageBox.Show(this, "Pago incorrecto", "Error");
+                MetroMessageBox.Show(_pagoRecibir.Mdi, "Pago incorrecto", "Error");
             }
         }
 

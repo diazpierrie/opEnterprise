@@ -68,7 +68,7 @@ namespace UI
         private void btnCrearProducto_Click(object sender, EventArgs e)
         {
             var crearProducto = new ProductoAltaModificacion(this);
-            crearProducto.Show();
+            _mdi.OpenWindowForm(crearProducto);
         }
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace UI
             var selectedItem = int.Parse(gridProducto.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProducto = ProductoBll.Obtener(selectedItem);
             var provAm = new ProductoAltaModificacion(this, selectedProducto);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
         
         private void gridProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +94,7 @@ namespace UI
             var selectedItem = int.Parse(gridProducto.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProducto = ProductoBll.Obtener(selectedItem);
             var provAm = new ProductoAltaModificacion(this, selectedProducto);
-            provAm.Show();
+            _mdi.OpenWindowForm(provAm);
         }
 
         private void ProductoHome_Load(object sender, EventArgs e)

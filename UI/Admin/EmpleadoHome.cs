@@ -93,14 +93,14 @@ namespace UI
                     selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
                     selectedEmpleado = UsuarioBll.Obtener(selectedItem);
                     var depoAssign = new DepositoAsignar(selectedEmpleado);
-                    depoAssign.Show();
+                    _mdi.OpenWindowForm(depoAssign);
                     break;
 
                 case 2:
                     selectedItem = int.Parse(gridEmpleado.SelectedRows[0].Cells["id"].Value.ToString());
                     selectedEmpleado = UsuarioBll.Obtener(selectedItem);
                     var sucuAssign = new SucursalAsignar(selectedEmpleado);
-                    sucuAssign.Show();
+                    _mdi.OpenWindowForm(sucuAssign);
                     break;
 
                 default:

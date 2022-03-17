@@ -8,11 +8,11 @@ namespace UI.Familia
 {
     public partial class GestionarFamilia : UpdatableForm
     {
-        public Mdi _mdi;
+        public Mdi Mdi;
 
         public GestionarFamilia(Mdi mdi)
         {
-            _mdi = mdi;
+            Mdi = mdi;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
@@ -31,7 +31,7 @@ namespace UI.Familia
             var selectedFamily = int.Parse(cmbFamilias.SelectedValue.ToString());
             if (selectedFamily == RolManager.ObtenerFamilia(Sesion.ObtenerSesion().Usuario).Id)
             {
-                MetroFramework.MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["cant_delete_my_family"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+                MetroFramework.MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["cant_delete_my_family"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
                 return;
             }
 
@@ -54,7 +54,7 @@ namespace UI.Familia
                 CallBack = this,
                 Family = RolManager.ObtenerFamilia(int.Parse(cmbFamilias.SelectedValue.ToString()))
             };
-            _mdi.OpenWindowForm(ag);
+            Mdi.OpenWindowForm(ag);
         }
 
         private void btnAddFamily_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace UI.Familia
             {
                 CallBack = this
             };
-            _mdi.OpenWindowForm(ag);
+            Mdi.OpenWindowForm(ag);
         }
 
         public void UpdateFamilyList()

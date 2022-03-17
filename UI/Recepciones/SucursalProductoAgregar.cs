@@ -34,6 +34,7 @@ namespace UI
             gridProductos.Columns["fechaCreacion"].Visible = false;
             gridProductos.Columns["precio"].Visible = false;
             gridProductos.Columns["TotalProducto"].Visible = false;
+            gridProductos.Columns["CantidadARetirar"].Visible = false;
 
             gridProductos.Columns["nombre"].DisplayIndex = 0;
             gridProductos.Columns["edificio"].DisplayIndex = 1;
@@ -137,12 +138,11 @@ namespace UI
                 var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
                 var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
-                productoNuevo.Cantidad = producto.CantidadAComprar;
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)) != null)
                 {
-                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)).Cantidad += productoNuevo.Cantidad;
                 }
                 else
                 {
@@ -165,9 +165,9 @@ namespace UI
                 productoNuevo.Cantidad = producto.CantidadAComprar;
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)) != null)
                 {
-                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
+                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)).Cantidad += productoNuevo.Cantidad;
                 }
                 else
                 {
@@ -191,14 +191,14 @@ namespace UI
             var row = (ProductoEdificioEe)gridProductos.Rows[e.RowIndex].DataBoundItem;
             if (gridProductos.CurrentCell.Value != null && (int)gridProductos.CurrentCell.Value <= 0)
             {
-                MetroMessageBox.Show(this, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Por favor, ingrese un numero positivo", "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridProductos.CurrentCell.Value = row.Cantidad;
                 return;
             }
 
             if ((int)gridProductos.CurrentCell.Value > row.Cantidad)
             {
-                MetroMessageBox.Show(this, "Ingrese un valor positivo igual o menor a la cantidad a entrar",
+                MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Ingrese un valor positivo igual o menor a la cantidad a entrar",
                     "Cantidad excedida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gridProductos.CurrentCell.Value = row.Cantidad;
             }
@@ -219,7 +219,7 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(this, "Por favor solo ingrese numeros positivos", "Valor incorrecto");
+                MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Por favor solo ingrese numeros positivos", "Valor incorrecto");
             }
         }
 

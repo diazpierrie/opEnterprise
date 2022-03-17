@@ -54,8 +54,9 @@ namespace UI
             this.gridAsignarSucursal.AllowUserToAddRows = false;
             this.gridAsignarSucursal.AllowUserToDeleteRows = false;
             this.gridAsignarSucursal.AllowUserToResizeRows = false;
+            this.gridAsignarSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridAsignarSucursal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridAsignarSucursal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridAsignarSucursal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridAsignarSucursal.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridAsignarSucursal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -97,6 +98,7 @@ namespace UI
             // 
             // btnAsignarSucursal
             // 
+            this.btnAsignarSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAsignarSucursal.Location = new System.Drawing.Point(251, 353);
             this.btnAsignarSucursal.Margin = new System.Windows.Forms.Padding(2);
             this.btnAsignarSucursal.Name = "btnAsignarSucursal";
@@ -112,8 +114,9 @@ namespace UI
             this.gridDesasignarSucursal.AllowUserToAddRows = false;
             this.gridDesasignarSucursal.AllowUserToDeleteRows = false;
             this.gridDesasignarSucursal.AllowUserToResizeRows = false;
+            this.gridDesasignarSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridDesasignarSucursal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridDesasignarSucursal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDesasignarSucursal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridDesasignarSucursal.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridDesasignarSucursal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -155,6 +158,7 @@ namespace UI
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCerrar.Location = new System.Drawing.Point(613, 352);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
@@ -167,6 +171,7 @@ namespace UI
             // 
             // btnDesasignarSucursal
             // 
+            this.btnDesasignarSucursal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDesasignarSucursal.Location = new System.Drawing.Point(486, 352);
             this.btnDesasignarSucursal.Margin = new System.Windows.Forms.Padding(2);
             this.btnDesasignarSucursal.Name = "btnDesasignarSucursal";
@@ -179,6 +184,7 @@ namespace UI
             // 
             // lblSucursales
             // 
+            this.lblSucursales.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSucursales.AutoSize = true;
             this.lblSucursales.Location = new System.Drawing.Point(148, 73);
             this.lblSucursales.Name = "lblSucursales";
@@ -189,6 +195,7 @@ namespace UI
             // 
             // lblSucursalesAsignadas
             // 
+            this.lblSucursalesAsignadas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSucursalesAsignadas.AutoSize = true;
             this.lblSucursalesAsignadas.Location = new System.Drawing.Point(513, 73);
             this.lblSucursalesAsignadas.Name = "lblSucursalesAsignadas";

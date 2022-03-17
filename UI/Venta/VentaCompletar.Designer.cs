@@ -50,8 +50,7 @@ namespace UI
             // 
             // cbCuotas
             // 
-            this.cbCuotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCuotas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCuotas.FormattingEnabled = true;
             this.cbCuotas.ItemHeight = 23;
             this.cbCuotas.Location = new System.Drawing.Point(144, 214);
@@ -62,8 +61,7 @@ namespace UI
             // 
             // lblCuotas
             // 
-            this.lblCuotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCuotas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCuotas.AutoSize = true;
             this.lblCuotas.Location = new System.Drawing.Point(88, 219);
             this.lblCuotas.Name = "lblCuotas";
@@ -74,9 +72,8 @@ namespace UI
             // 
             // btnRealizarVenta
             // 
-            this.btnRealizarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRealizarVenta.Location = new System.Drawing.Point(233, 249);
+            this.btnRealizarVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRealizarVenta.Location = new System.Drawing.Point(354, 182);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(114, 23);
             this.btnRealizarVenta.TabIndex = 8;
@@ -87,8 +84,7 @@ namespace UI
             // 
             // cbMetodoPago
             // 
-            this.cbMetodoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMetodoPago.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbMetodoPago.FormattingEnabled = true;
             this.cbMetodoPago.ItemHeight = 23;
             this.cbMetodoPago.Location = new System.Drawing.Point(144, 179);
@@ -100,7 +96,7 @@ namespace UI
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscarCliente.Location = new System.Drawing.Point(354, 80);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(114, 23);
@@ -112,8 +108,7 @@ namespace UI
             // 
             // lblMetodoPago
             // 
-            this.lblMetodoPago.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMetodoPago.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMetodoPago.AutoSize = true;
             this.lblMetodoPago.Location = new System.Drawing.Point(29, 186);
             this.lblMetodoPago.Name = "lblMetodoPago";
@@ -124,8 +119,7 @@ namespace UI
             // 
             // txtCliente
             // 
-            this.txtCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -157,6 +151,7 @@ namespace UI
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(25, 315);
@@ -167,8 +162,7 @@ namespace UI
             // 
             // cbMetodoEntrega
             // 
-            this.cbMetodoEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMetodoEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbMetodoEntrega.FormattingEnabled = true;
             this.cbMetodoEntrega.ItemHeight = 23;
             this.cbMetodoEntrega.Location = new System.Drawing.Point(144, 109);
@@ -180,8 +174,7 @@ namespace UI
             // 
             // lblMetodoEntrega
             // 
-            this.lblMetodoEntrega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMetodoEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMetodoEntrega.AutoSize = true;
             this.lblMetodoEntrega.Location = new System.Drawing.Point(84, 115);
             this.lblMetodoEntrega.Name = "lblMetodoEntrega";
@@ -192,8 +185,7 @@ namespace UI
             // 
             // cbDirecciones
             // 
-            this.cbDirecciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDirecciones.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbDirecciones.FormattingEnabled = true;
             this.cbDirecciones.ItemHeight = 23;
             this.cbDirecciones.Location = new System.Drawing.Point(144, 144);
@@ -204,8 +196,7 @@ namespace UI
             // 
             // lblDireccion
             // 
-            this.lblDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Location = new System.Drawing.Point(74, 150);
             this.lblDireccion.Name = "lblDireccion";
@@ -216,8 +207,7 @@ namespace UI
             // 
             // lblCliente
             // 
-            this.lblCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCliente.AutoSize = true;
             this.lblCliente.Location = new System.Drawing.Point(90, 80);
             this.lblCliente.Name = "lblCliente";
@@ -228,7 +218,7 @@ namespace UI
             // 
             // btnEnvioLocal
             // 
-            this.btnEnvioLocal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnvioLocal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEnvioLocal.Location = new System.Drawing.Point(354, 111);
             this.btnEnvioLocal.Name = "btnEnvioLocal";
             this.btnEnvioLocal.Size = new System.Drawing.Size(114, 23);

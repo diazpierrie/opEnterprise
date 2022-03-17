@@ -51,12 +51,12 @@ namespace UI.Familia
 		{
 			if (txtNombre.Text.Equals(""))
 			{
-				MetroFramework.MetroMessageBox.Show(CallBack._mdi, Sesion.ObtenerSesion().Idioma.Textos["incorrect_data"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+				MetroFramework.MetroMessageBox.Show(CallBack.Mdi, Sesion.ObtenerSesion().Idioma.Textos["incorrect_data"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
 			}
 
 			if (RolManager.VerSiFamiliaExiste(Family?.Id ?? 0, txtNombre.Text) && Family == null)
 			{
-				MetroFramework.MetroMessageBox.Show(CallBack._mdi, Sesion.ObtenerSesion().Idioma.Textos["name_already_used"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
+				MetroFramework.MetroMessageBox.Show(CallBack.Mdi, Sesion.ObtenerSesion().Idioma.Textos["name_already_used"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
 				return;
 			}
 
@@ -69,14 +69,14 @@ namespace UI.Familia
 					Nombre = txtNombre.Text,
 					Patentes = truePatentes
 				});
-				MetroFramework.MetroMessageBox.Show(CallBack._mdi, Sesion.ObtenerSesion().Idioma.Textos["created"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
+				MetroFramework.MetroMessageBox.Show(CallBack.Mdi, Sesion.ObtenerSesion().Idioma.Textos["created"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
 				CallBack.UpdateFamilyList();
             }
 			else
 			{
 				Family.Nombre = txtNombre.Text;
 				RolManager.Actualizar(Family, truePatentes);
-				MetroFramework.MetroMessageBox.Show(CallBack._mdi, Sesion.ObtenerSesion().Idioma.Textos["updated"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
+				MetroFramework.MetroMessageBox.Show(CallBack.Mdi, Sesion.ObtenerSesion().Idioma.Textos["updated"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
 			}
 
             Close();

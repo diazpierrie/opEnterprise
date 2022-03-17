@@ -10,12 +10,12 @@ namespace UI
 {
     public partial class ClienteBuscar : UpdatableForm
     {
-        private readonly VentaCompletar _fatherform;
+        public readonly VentaCompletar Fatherform;
         private List<CompradorEe> _dataTable;
 
         public ClienteBuscar(VentaCompletar fatherform)
         {
-            _fatherform = fatherform;
+            Fatherform = fatherform;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);
@@ -58,7 +58,7 @@ namespace UI
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {
             var altaCliente = new ClienteAlta(this);
-            altaCliente.Show();
+            Fatherform.Ventahome.Mdi.OpenWindowForm(altaCliente);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace UI
 
         private void btnElegir_Click(object sender, EventArgs e)
         {
-            _fatherform.AsignarCliente(_dataTable[gridClientes.SelectedRows[0].Index]);
+            Fatherform.AsignarCliente(_dataTable[gridClientes.SelectedRows[0].Index]);
             Close();
         }
     }

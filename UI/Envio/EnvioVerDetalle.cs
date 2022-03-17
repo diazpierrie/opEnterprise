@@ -1,6 +1,6 @@
-﻿using System;
-using BLL;
-using EE;
+﻿using EE;
+using System;
+using System.Collections.Generic;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -8,20 +8,13 @@ namespace UI
 {
     public partial class EnvioVerDetalle : UpdatableForm
     {
-        public EnvioVerDetalle(EnvioEe envio)
+        public EnvioVerDetalle(List<EnvioDetalleEe> detalleDeSucursal)
         {
             InitializeComponent();
-            gridDetalle.DataSource = EnvioBll.ObtenerDetalleDeSucursal(envio);
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
+            gridDetalle.DataSource = detalleDeSucursal;
 
             gridDetalle.Columns["id"].Visible = false;
-            gridDetalle.Columns["Sucursal"].Visible = false;
-
-            Show();
+            gridDetalle.Columns["Edificio"].Visible = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
