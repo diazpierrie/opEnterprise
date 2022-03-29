@@ -46,7 +46,7 @@ namespace UI
 			this.btnBackUp.TabIndex = 3;
 			this.btnBackUp.Text = "Back Up";
 			this.btnBackUp.UseSelectable = true;
-			this.btnBackUp.Click += new System.EventHandler(this.btnBackUp_Click);
+			this.btnBackUp.Click += new System.EventHandler(this.BtnBackUp_Click);
 			// 
 			// btnRestore
 			// 
@@ -57,7 +57,7 @@ namespace UI
 			this.btnRestore.Tag = "restore";
 			this.btnRestore.Text = "Restaurar";
 			this.btnRestore.UseSelectable = true;
-			this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+			this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
 			// 
 			// label1
 			// 

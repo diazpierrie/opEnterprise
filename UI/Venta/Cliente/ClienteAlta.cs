@@ -1,7 +1,7 @@
 ﻿using BLL;
 using EE;
-using System;
 using Security;
+using System;
 
 namespace UI
 {
@@ -9,7 +9,7 @@ namespace UI
     {
         private readonly ClienteBuscar _clienteBuscar;
         private readonly string[] _esSocioStrings = { Sesion.ObtenerSesion().Idioma.Textos["no"], Sesion.ObtenerSesion().Idioma.Textos["yes"] };
-        public DireccionEe Direccion = new DireccionEe();
+        public DireccionEe Direccion { get; set; } = new DireccionEe();
 
         public ClienteAlta(ClienteBuscar clienteBuscar)
         {
@@ -30,7 +30,7 @@ namespace UI
             cbEsSocio.DataSource = _esSocioStrings;
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             var compradorNuevo = new CompradorEe
             {
@@ -60,12 +60,12 @@ namespace UI
             Close();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnAgregarDireccion_Click(object sender, EventArgs e)
+        private void BtnAgregarDireccion_Click(object sender, EventArgs e)
         {
             var agregarDireccion = new DireccionAltaModificacion(this);
             _clienteBuscar.Fatherform.Ventahome.Mdi.OpenWindowForm(agregarDireccion);

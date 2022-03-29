@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class ProductoBll
+    public static class ProductoBll
     {
         private static readonly ProductoDal Dal = new ProductoDal();
 
@@ -39,6 +39,7 @@ namespace BLL
 
             BitacoraManager.AgregarMensajeControl("Producto Eliminado ", producto);
         }
+
         public static ProductoEe Obtener(int id)
         {
             return Dal.Obtener(id);
@@ -63,27 +64,6 @@ namespace BLL
         {
             return Dal.ObtenerPorSucursal(sucursal);
         }
-        //public static List<SucursalEe> ObtenerSucursalesDeUsuario(UsuarioEe user)
-        //{
-        //    return _dal.Obtener(user);
-        //}
-
-        //public static int AsignarEmpleadoConSucursal(UsuarioEe user, SucursalEe depo)
-        //{
-        //    if (!_dal.ObtenerAsignacionEmpleadoConSucursal(user, depo))
-        //    {
-        //        return _dal.AsignarEmpleadoConSucursal(user, depo);
-        //    }
-        //    else
-        //    {
-        //        return 0;
-        //    }
-        //}
-
-        //public static bool DesasignarEmpleadoConSucursal(UsuarioEe user, SucursalEe depo)
-        //{
-        //    return _dal.DesasignarEmpleadoConSucursal(user, depo);
-        //}
         public static IList<ProductoEdificioEe> ObtenerTodosDeposito()
         {
             return Dal.ObtenerTodosDeposito();

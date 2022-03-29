@@ -52,7 +52,7 @@ namespace UI
             this.btnCrearDireccion.TabIndex = 0;
             this.btnCrearDireccion.Text = "Crear Direccion";
             this.btnCrearDireccion.UseSelectable = true;
-            this.btnCrearDireccion.Click += new System.EventHandler(this.btnCrearDireccion_Click);
+            this.btnCrearDireccion.Click += new System.EventHandler(this.BtnCrearDireccion_Click);
             // 
             // btnModificarDireccion
             // 
@@ -63,7 +63,7 @@ namespace UI
             this.btnModificarDireccion.TabIndex = 1;
             this.btnModificarDireccion.Text = "Modificar Direccion";
             this.btnModificarDireccion.UseSelectable = true;
-            this.btnModificarDireccion.Click += new System.EventHandler(this.btnModificarDireccion_Click);
+            this.btnModificarDireccion.Click += new System.EventHandler(this.BtnModificarDireccion_Click);
             // 
             // btnBorrarDireccion
             // 
@@ -74,7 +74,7 @@ namespace UI
             this.btnBorrarDireccion.TabIndex = 2;
             this.btnBorrarDireccion.Text = "Borrar Direccion";
             this.btnBorrarDireccion.UseSelectable = true;
-            this.btnBorrarDireccion.Click += new System.EventHandler(this.btnBorrarDireccion_Click);
+            this.btnBorrarDireccion.Click += new System.EventHandler(this.BtnBorrarDireccion_Click);
             // 
             // gridDireccion
             // 
@@ -123,7 +123,7 @@ namespace UI
             this.gridDireccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDireccion.Size = new System.Drawing.Size(563, 301);
             this.gridDireccion.TabIndex = 3;
-            this.gridDireccion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDireccion_CellDoubleClick);
+            this.gridDireccion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDireccion_CellDoubleClick);
             // 
             // btnCerrar
             // 
@@ -134,7 +134,7 @@ namespace UI
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // DireccionHome
             // 

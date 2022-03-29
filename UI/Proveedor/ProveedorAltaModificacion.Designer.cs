@@ -230,7 +230,7 @@ namespace UI
             this.btnAccion.TabIndex = 45;
             this.btnAccion.Text = "Crear";
             this.btnAccion.UseSelectable = true;
-            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
+            this.btnAccion.Click += new System.EventHandler(this.BtnAccion_Click);
             // 
             // txtTelefono
             // 

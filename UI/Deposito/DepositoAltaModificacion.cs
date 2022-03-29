@@ -1,7 +1,7 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
 
 namespace UI
 {
@@ -10,6 +10,7 @@ namespace UI
         private readonly DepositoEe _deposito = new DepositoEe();
         private readonly DepositoHome _homeForm;
         private readonly bool _crear;
+
         public DepositoAltaModificacion(DepositoHome homeForm)
         {
             _homeForm = homeForm;
@@ -35,7 +36,7 @@ namespace UI
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["deposit"]);
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -66,7 +67,6 @@ namespace UI
 
         private void EmpleadoAltaModificacion_Load(object sender, EventArgs e)
         {
-
             AllControls.Add(lblDireccion);
             AllControls.Add(lblMail);
             AllControls.Add(lblNombre);

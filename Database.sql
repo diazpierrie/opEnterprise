@@ -1,86 +1,6 @@
-USE [master]
-GO
-/****** Object:  Database [openEnterprise]    Script Date: 12/30/2021 15:58:14 ******/
-CREATE DATABASE [openEnterprise]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'openEnterprise', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\openEnterprise.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'openEnterprise_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\openEnterprise_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
- WITH CATALOG_COLLATION = DATABASE_DEFAULT
-GO
-ALTER DATABASE [openEnterprise] SET COMPATIBILITY_LEVEL = 150
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [openEnterprise].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [openEnterprise] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [openEnterprise] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [openEnterprise] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [openEnterprise] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [openEnterprise] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [openEnterprise] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [openEnterprise] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [openEnterprise] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [openEnterprise] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [openEnterprise] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [openEnterprise] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [openEnterprise] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [openEnterprise] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [openEnterprise] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [openEnterprise] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [openEnterprise] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [openEnterprise] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [openEnterprise] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [openEnterprise] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [openEnterprise] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [openEnterprise] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [openEnterprise] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [openEnterprise] SET RECOVERY SIMPLE 
-GO
-ALTER DATABASE [openEnterprise] SET  MULTI_USER 
-GO
-ALTER DATABASE [openEnterprise] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [openEnterprise] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [openEnterprise] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [openEnterprise] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [openEnterprise] SET DELAYED_DURABILITY = DISABLED 
-GO
-ALTER DATABASE [openEnterprise] SET ACCELERATED_DATABASE_RECOVERY = OFF  
-GO
-ALTER DATABASE [openEnterprise] SET QUERY_STORE = OFF
-GO
 USE [openEnterprise]
 GO
-/****** Object:  Table [dbo].[bitacora]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[bitacora]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -98,7 +18,7 @@ CREATE TABLE [dbo].[bitacora](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cEstadoEnvio]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cEstadoEnvio]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +32,7 @@ CREATE TABLE [dbo].[cEstadoEnvio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cMetodoPago]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cMetodoPago]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +46,7 @@ CREATE TABLE [dbo].[cMetodoPago](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cMotivoPenalizacion]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cMotivoPenalizacion]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -140,7 +60,7 @@ CREATE TABLE [dbo].[cMotivoPenalizacion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[comprador]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[comprador]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -161,7 +81,7 @@ CREATE TABLE [dbo].[comprador](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[control]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[control]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +97,7 @@ CREATE TABLE [dbo].[control](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cPedidoEstado]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cPedidoEstado]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,7 +111,7 @@ CREATE TABLE [dbo].[cPedidoEstado](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cTipoEntrega]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cTipoEntrega]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -205,7 +125,7 @@ CREATE TABLE [dbo].[cTipoEntrega](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[cVentaEstado]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[cVentaEstado]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -219,7 +139,7 @@ CREATE TABLE [dbo].[cVentaEstado](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[deposito]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[deposito]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -239,7 +159,7 @@ CREATE TABLE [dbo].[deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[deposito_producto]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[deposito_producto]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -255,7 +175,7 @@ CREATE TABLE [dbo].[deposito_producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[devolucion]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[devolucion]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,7 +192,7 @@ CREATE TABLE [dbo].[devolucion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[devolucion_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[devolucion_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -288,7 +208,7 @@ CREATE TABLE [dbo].[devolucion_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[direccion]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[direccion]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -308,7 +228,7 @@ CREATE TABLE [dbo].[direccion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[dvv]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[dvv]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -323,7 +243,7 @@ CREATE TABLE [dbo].[dvv](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_deposito]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[envio_deposito]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -342,7 +262,7 @@ CREATE TABLE [dbo].[envio_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_deposito_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[envio_deposito_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -357,7 +277,7 @@ CREATE TABLE [dbo].[envio_deposito_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_sucursal]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[envio_sucursal]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -376,7 +296,7 @@ CREATE TABLE [dbo].[envio_sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[envio_sucursal_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[envio_sucursal_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -391,7 +311,7 @@ CREATE TABLE [dbo].[envio_sucursal_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[familia]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[familia]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -399,14 +319,14 @@ GO
 CREATE TABLE [dbo].[familia](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
-	[dvh] [varchar](50) NOT NULL,
+	[dvh] [varchar](50) NULL,
  CONSTRAINT [PK_familia] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[familia_patente]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[familia_patente]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -421,7 +341,7 @@ CREATE TABLE [dbo].[familia_patente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[idioma]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[idioma]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -436,7 +356,7 @@ CREATE TABLE [dbo].[idioma](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pago]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[pago]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -452,7 +372,7 @@ CREATE TABLE [dbo].[pago](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[patente]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[patente]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -466,7 +386,7 @@ CREATE TABLE [dbo].[patente](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_deposito]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[pedido_deposito]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -484,7 +404,7 @@ CREATE TABLE [dbo].[pedido_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_deposito_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[pedido_deposito_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -502,7 +422,7 @@ CREATE TABLE [dbo].[pedido_deposito_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_proveedor]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[pedido_proveedor]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -522,7 +442,7 @@ CREATE TABLE [dbo].[pedido_proveedor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[pedido_proveedor_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[pedido_proveedor_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -538,7 +458,7 @@ CREATE TABLE [dbo].[pedido_proveedor_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[perdida]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[perdida]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -556,7 +476,7 @@ CREATE TABLE [dbo].[perdida](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[perdida_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[perdida_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -573,7 +493,7 @@ CREATE TABLE [dbo].[perdida_detalle](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[producto]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[producto]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +513,7 @@ CREATE TABLE [dbo].[producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[proveedor]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[proveedor]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -613,7 +533,7 @@ CREATE TABLE [dbo].[proveedor](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[proveedor_penalizacion]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[proveedor_penalizacion]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -629,21 +549,7 @@ CREATE TABLE [dbo].[proveedor_penalizacion](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[puesto]    Script Date: 12/30/2021 15:58:15 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[puesto](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[nombre] [varchar](50) NOT NULL,
- CONSTRAINT [PK_puesto] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[retiro_sucursal]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[retiro_sucursal]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -658,7 +564,7 @@ CREATE TABLE [dbo].[retiro_sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sucursal]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[sucursal]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -678,7 +584,7 @@ CREATE TABLE [dbo].[sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sucursal_producto]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[sucursal_producto]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -694,7 +600,7 @@ CREATE TABLE [dbo].[sucursal_producto](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[usuario]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -713,14 +619,13 @@ CREATE TABLE [dbo].[usuario](
 	[dvh] [varchar](50) NULL,
 	[activo] [bit] NOT NULL,
 	[idFamilia] [int] NOT NULL,
-	[idPuesto] [int] NOT NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario_deposito]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[usuario_deposito]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -735,7 +640,7 @@ CREATE TABLE [dbo].[usuario_deposito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario_sucursal]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[usuario_sucursal]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -750,7 +655,7 @@ CREATE TABLE [dbo].[usuario_sucursal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[venta]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[venta]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -771,7 +676,7 @@ CREATE TABLE [dbo].[venta](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[venta_detalle]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  Table [dbo].[venta_detalle]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -989,11 +894,7 @@ INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsua
 GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (99, CAST(N'2021-11-09T16:15:52.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
 GO
-INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (100, CAST(N'2021-11-09T16:17:08.000' AS DateTime), N'Proveedor creado: ', N'{"CantidadErrores":0,"Nombre":"juan","Direccion":"juan 123","Mail":"juan@gmail.com","Telefono":"2135445","CodigoPostal":1788,"Activo":false,"Id":3}', N'Control', 4)
-GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (101, CAST(N'2021-11-09T16:17:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
-GO
-INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (102, CAST(N'2021-11-09T23:05:22.000' AS DateTime), N'Proveedor actualizado: ', N'{"CantidadErrores":0,"Nombre":"juancho","Direccion":"juan 456","Mail":"juancho@gmail.com","Telefono":"0303456","CodigoPostal":2000,"Activo":false,"Id":3}', N'Control', 4)
 GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (103, CAST(N'2021-11-09T23:05:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
 GO
@@ -1715,6 +1616,996 @@ INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsua
 GO
 INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2423, CAST(N'2021-12-28T16:50:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
 GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2424, CAST(N'2022-02-21T22:04:03.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2425, CAST(N'2022-03-11T14:14:10.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2426, CAST(N'2022-03-11T14:21:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2427, CAST(N'2022-03-11T14:31:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2428, CAST(N'2022-03-11T15:34:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2429, CAST(N'2022-03-11T15:34:22.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":14}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2430, CAST(N'2022-03-11T15:34:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2431, CAST(N'2022-03-11T15:34:25.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":15}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2432, CAST(N'2022-03-11T15:34:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2433, CAST(N'2022-03-11T15:34:28.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":16}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2434, CAST(N'2022-03-11T15:34:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2435, CAST(N'2022-03-11T15:34:31.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":17}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2436, CAST(N'2022-03-11T15:34:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2437, CAST(N'2022-03-11T15:34:35.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":18}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2438, CAST(N'2022-03-11T15:34:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2439, CAST(N'2022-03-11T15:34:38.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":19}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2440, CAST(N'2022-03-11T15:34:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2441, CAST(N'2022-03-11T15:34:40.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":20}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2442, CAST(N'2022-03-11T15:34:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2443, CAST(N'2022-03-11T15:34:52.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"JUAN","Id":21}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2444, CAST(N'2022-03-11T15:34:55.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2445, CAST(N'2022-03-11T15:34:55.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":22}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2446, CAST(N'2022-03-11T15:34:58.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2447, CAST(N'2022-03-11T15:34:58.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":23}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2448, CAST(N'2022-03-11T15:35:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2449, CAST(N'2022-03-11T15:35:02.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":24}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2450, CAST(N'2022-03-11T16:32:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2451, CAST(N'2022-03-11T16:37:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2452, CAST(N'2022-03-11T16:37:31.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":25}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2453, CAST(N'2022-03-11T16:37:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2454, CAST(N'2022-03-11T16:37:34.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":27}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2455, CAST(N'2022-03-11T16:37:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2456, CAST(N'2022-03-11T16:37:37.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":26}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2457, CAST(N'2022-03-11T16:37:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2458, CAST(N'2022-03-11T16:37:40.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":28}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2459, CAST(N'2022-03-11T16:37:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2460, CAST(N'2022-03-11T16:37:43.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":29}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2461, CAST(N'2022-03-11T16:37:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2462, CAST(N'2022-03-11T16:37:45.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":30}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2463, CAST(N'2022-03-11T16:37:48.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2464, CAST(N'2022-03-11T16:37:48.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":31}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2465, CAST(N'2022-03-11T17:20:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2466, CAST(N'2022-03-11T17:20:54.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Castellano","Id":1}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2467, CAST(N'2022-03-11T17:22:09.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2468, CAST(N'2022-03-11T17:22:09.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":32}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2469, CAST(N'2022-03-11T17:22:11.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2470, CAST(N'2022-03-11T17:22:11.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":32}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2471, CAST(N'2022-03-11T17:22:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2472, CAST(N'2022-03-11T17:22:13.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":32}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2473, CAST(N'2022-03-11T17:23:16.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2474, CAST(N'2022-03-11T17:23:20.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":32}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2475, CAST(N'2022-03-11T17:24:18.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2476, CAST(N'2022-03-11T17:24:18.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":32}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2477, CAST(N'2022-03-11T17:25:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2478, CAST(N'2022-03-11T17:25:03.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":34}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2479, CAST(N'2022-03-11T17:28:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2480, CAST(N'2022-03-11T17:28:31.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":33}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2481, CAST(N'2022-03-11T17:29:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2482, CAST(N'2022-03-11T17:29:08.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":33}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2483, CAST(N'2022-03-11T17:30:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2484, CAST(N'2022-03-11T17:30:15.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"JUAN","Id":35}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2485, CAST(N'2022-03-12T15:25:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2486, CAST(N'2022-03-12T15:26:00.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2487, CAST(N'2022-03-12T15:26:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2488, CAST(N'2022-03-12T15:26:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2489, CAST(N'2022-03-12T16:38:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2490, CAST(N'2022-03-12T16:38:13.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 1', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2491, CAST(N'2022-03-12T16:38:17.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2492, CAST(N'2022-03-14T15:12:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2493, CAST(N'2022-03-14T15:15:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2494, CAST(N'2022-03-14T15:16:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2495, CAST(N'2022-03-14T15:23:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2496, CAST(N'2022-03-14T15:30:12.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2497, CAST(N'2022-03-14T15:35:17.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2498, CAST(N'2022-03-14T15:45:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2499, CAST(N'2022-03-14T15:47:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2500, CAST(N'2022-03-14T15:57:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2501, CAST(N'2022-03-14T15:58:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2502, CAST(N'2022-03-16T02:24:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2503, CAST(N'2022-03-16T02:32:56.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2504, CAST(N'2022-03-16T02:33:22.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2505, CAST(N'2022-03-16T02:41:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2506, CAST(N'2022-03-16T03:06:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2507, CAST(N'2022-03-16T03:17:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2508, CAST(N'2022-03-16T03:20:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2509, CAST(N'2022-03-16T03:21:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2510, CAST(N'2022-03-16T03:22:30.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2511, CAST(N'2022-03-16T03:26:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2512, CAST(N'2022-03-16T03:29:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2513, CAST(N'2022-03-16T03:33:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2514, CAST(N'2022-03-16T03:40:16.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2515, CAST(N'2022-03-16T03:41:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2516, CAST(N'2022-03-16T03:43:11.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2517, CAST(N'2022-03-16T03:45:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2518, CAST(N'2022-03-16T03:47:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2519, CAST(N'2022-03-16T03:47:32.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2520, CAST(N'2022-03-16T03:47:33.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"JUAN","Id":37}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2521, CAST(N'2022-03-16T03:47:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2522, CAST(N'2022-03-16T03:47:35.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"ROBERT","Id":38}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2523, CAST(N'2022-03-16T03:47:41.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2524, CAST(N'2022-03-16T03:47:41.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Lenguaje sin nombre","Id":39}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2525, CAST(N'2022-03-16T03:47:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2526, CAST(N'2022-03-16T03:47:45.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"ytuiu","Id":40}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2527, CAST(N'2022-03-16T03:48:50.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2528, CAST(N'2022-03-16T03:52:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2529, CAST(N'2022-03-16T03:53:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2530, CAST(N'2022-03-16T03:57:30.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2531, CAST(N'2022-03-16T03:58:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2532, CAST(N'2022-03-16T14:52:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2533, CAST(N'2022-03-16T14:53:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2534, CAST(N'2022-03-16T14:54:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2535, CAST(N'2022-03-16T14:54:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2536, CAST(N'2022-03-16T14:55:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2537, CAST(N'2022-03-16T14:57:11.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2538, CAST(N'2022-03-16T14:58:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2539, CAST(N'2022-03-16T14:59:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2540, CAST(N'2022-03-16T14:59:15.000' AS DateTime), N'Usuario creado: ', N'{"NombreUsuario":"juancahhj","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":2,"Nombre":null},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Pedro, Juan","Nom ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2541, CAST(N'2022-03-16T14:59:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2542, CAST(N'2022-03-16T14:59:28.000' AS DateTime), N'Usuario actualizado: ', N'{"NombreUsuario":"juancahhj","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":1,"Nombre":null},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Pedro, Juan","Nom ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2543, CAST(N'2022-03-16T14:59:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2544, CAST(N'2022-03-16T14:59:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2545, CAST(N'2022-03-16T14:59:35.000' AS DateTime), N'Usuario Eliminado ', N'{"NombreUsuario":"juancahhj","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":1,"Nombre":"Deposito"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Pedro, Juan ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2546, CAST(N'2022-03-16T15:03:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2547, CAST(N'2022-03-16T15:05:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2548, CAST(N'2022-03-16T15:06:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2549, CAST(N'2022-03-16T15:07:53.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2550, CAST(N'2022-03-16T15:08:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2551, CAST(N'2022-03-16T15:19:05.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2552, CAST(N'2022-03-16T15:19:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2553, CAST(N'2022-03-16T15:20:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2554, CAST(N'2022-03-16T15:21:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2555, CAST(N'2022-03-16T15:21:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2556, CAST(N'2022-03-16T15:21:44.000' AS DateTime), N'Usuario Eliminado ', N'{"NombreUsuario":"juancahhj","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":1,"Nombre":"Deposito"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Pedro, Juan ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2557, CAST(N'2022-03-16T15:22:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2558, CAST(N'2022-03-16T19:40:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2559, CAST(N'2022-03-16T19:45:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2560, CAST(N'2022-03-16T19:46:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2561, CAST(N'2022-03-16T19:48:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2562, CAST(N'2022-03-16T19:53:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2563, CAST(N'2022-03-16T19:54:46.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2564, CAST(N'2022-03-16T19:55:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2565, CAST(N'2022-03-16T19:56:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2566, CAST(N'2022-03-16T19:56:25.000' AS DateTime), N'Proveedor creado: ', N'{"CantidadErrores":0,"Nombre":"robert","Direccion":"27827","Mail":"shjjks@snksn","Telefono":"7878","CodigoPostal":3728,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2567, CAST(N'2022-03-16T19:56:30.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2568, CAST(N'2022-03-16T19:56:30.000' AS DateTime), N'Proveedor eliminado ', N'{"CantidadErrores":0,"Nombre":"robert","Direccion":"27827","Mail":"shjjks@snksn","Telefono":"7878","CodigoPostal":3728,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2569, CAST(N'2022-03-16T19:58:49.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2570, CAST(N'2022-03-16T20:38:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2571, CAST(N'2022-03-16T20:40:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2572, CAST(N'2022-03-16T20:46:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2573, CAST(N'2022-03-16T20:53:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2574, CAST(N'2022-03-16T21:11:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2575, CAST(N'2022-03-16T21:11:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2576, CAST(N'2022-03-16T21:11:22.000' AS DateTime), N'Deposito creado: ', N'{"Nombre":"Juan","Direccion":"Juan 2782","Mail":"juan@gshjsj.com","Telefono":"678687","CodigoPostal":678678,"Activo":false,"Id":0}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2577, CAST(N'2022-03-16T21:11:53.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2578, CAST(N'2022-03-16T21:12:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2579, CAST(N'2022-03-16T21:12:14.000' AS DateTime), N'Deposito creado: ', N'{"Nombre":"hjk","Direccion":"hjk","Mail":"hkj","Telefono":"678","CodigoPostal":67,"Activo":false,"Id":0}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2580, CAST(N'2022-03-16T21:12:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2581, CAST(N'2022-03-16T21:16:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2582, CAST(N'2022-03-16T21:16:23.000' AS DateTime), N'Deposito creado: ', N'{"Nombre":"fgh","Direccion":"gh","Mail":"fgh","Telefono":"787","CodigoPostal":78,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2583, CAST(N'2022-03-16T21:16:38.000' AS DateTime), N'Deposito actualizado: ', N'{"Nombre":"fghdfgdgf","Direccion":"gh","Mail":"fgh","Telefono":"787","CodigoPostal":78,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2584, CAST(N'2022-03-16T21:16:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2585, CAST(N'2022-03-16T21:16:44.000' AS DateTime), N'Deposito actualizado: ', N'{"Nombre":"fghdfgdgf","Direccion":"ghdfg","Mail":"fghdgf","Telefono":"787455","CodigoPostal":7856,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2586, CAST(N'2022-03-16T21:16:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2587, CAST(N'2022-03-16T21:25:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2588, CAST(N'2022-03-16T21:26:05.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2589, CAST(N'2022-03-16T21:26:05.000' AS DateTime), N'Deposito Eliminado ', N'{"Nombre":"fghdfgdgf","Direccion":"ghdfg","Mail":"fghdgf","Telefono":"787455","CodigoPostal":7856,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2590, CAST(N'2022-03-16T21:27:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2591, CAST(N'2022-03-16T21:29:00.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2592, CAST(N'2022-03-16T21:29:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2593, CAST(N'2022-03-16T21:30:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2594, CAST(N'2022-03-16T21:31:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2595, CAST(N'2022-03-16T21:31:08.000' AS DateTime), N'Sucursal creado: ', N'{"Nombre":"hjkhkj","Direccion":"hkjhkj","Mail":"h778","Telefono":"768","CodigoPostal":78,"Activo":false,"Id":0}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2596, CAST(N'2022-03-16T21:31:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2597, CAST(N'2022-03-16T21:32:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2598, CAST(N'2022-03-16T21:32:02.000' AS DateTime), N'Sucursal creado: ', N'{"Nombre":"yu","Direccion":"yu","Mail":"yu","Telefono":"78","CodigoPostal":78,"Activo":false,"Id":0}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2599, CAST(N'2022-03-16T23:53:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2600, CAST(N'2022-03-16T23:54:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2601, CAST(N'2022-03-16T23:54:27.000' AS DateTime), N'Deposito creado: ', N'{"Nombre":"tyu","Direccion":"tyu","Mail":"tyu","Telefono":"787","CodigoPostal":787,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2602, CAST(N'2022-03-16T23:54:43.000' AS DateTime), N'Deposito actualizado: ', N'{"Nombre":"ghjgjh","Direccion":"tyugjhgjh","Mail":"tyu","Telefono":"787","CodigoPostal":787,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2603, CAST(N'2022-03-16T23:54:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2604, CAST(N'2022-03-16T23:54:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2605, CAST(N'2022-03-16T23:54:47.000' AS DateTime), N'Deposito Eliminado ', N'{"Nombre":"ghjgjh","Direccion":"tyugjhgjh","Mail":"tyu","Telefono":"787","CodigoPostal":787,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2606, CAST(N'2022-03-16T23:54:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2607, CAST(N'2022-03-16T23:54:59.000' AS DateTime), N'Sucursal creado: ', N'{"Nombre":"tutu","Direccion":"tyutut","Mail":"tuyuy","Telefono":"678678","CodigoPostal":678687,"Activo":false,"Id":0}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2608, CAST(N'2022-03-16T23:58:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2609, CAST(N'2022-03-16T23:58:19.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2610, CAST(N'2022-03-16T23:58:19.000' AS DateTime), N'Sucursal creado: ', N'{"Nombre":"gjhgh","Direccion":"gjhghj","Mail":"ghjgjh","Telefono":"678","CodigoPostal":678,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2611, CAST(N'2022-03-16T23:58:25.000' AS DateTime), N'Sucursal actualizado: ', N'{"Nombre":"678687","Direccion":"gjhghj","Mail":"ghjgjh","Telefono":"678","CodigoPostal":678,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2612, CAST(N'2022-03-16T23:58:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2613, CAST(N'2022-03-16T23:58:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2614, CAST(N'2022-03-16T23:58:27.000' AS DateTime), N'Sucursal Eliminado ', N'{"Nombre":"678687","Direccion":"gjhghj","Mail":"ghjgjh","Telefono":"678","CodigoPostal":678,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2615, CAST(N'2022-03-17T00:02:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2616, CAST(N'2022-03-17T00:02:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2617, CAST(N'2022-03-17T00:02:35.000' AS DateTime), N'Sucursal creado: ', N'{"Nombre":"fhg","Direccion":"fhg","Mail":"fgh","Telefono":"5567","CodigoPostal":567,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2618, CAST(N'2022-03-17T00:02:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2619, CAST(N'2022-03-17T00:02:39.000' AS DateTime), N'Sucursal Eliminado ', N'{"Nombre":"fhg","Direccion":"fhg","Mail":"fgh","Telefono":"5567","CodigoPostal":567,"Activo":false,"Id":4}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2620, CAST(N'2022-03-17T00:29:16.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2621, CAST(N'2022-03-17T00:33:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2622, CAST(N'2022-03-17T00:33:42.000' AS DateTime), N'FamiliaEe creada: ', N'{"Patentes":[],"Id":0,"Nombre":"Juancho"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2623, CAST(N'2022-03-17T00:33:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2624, CAST(N'2022-03-17T01:11:11.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2625, CAST(N'2022-03-17T01:11:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2626, CAST(N'2022-03-17T01:14:11.000' AS DateTime), N'FamiliaEe creada: ', N'{"Patentes":[{"Id":2,"Nombre":"Sucursal"},{"Id":3,"Nombre":"Deposito"},{"Id":4,"Nombre":"Caja"}],"Id":0,"Nombre":"Juan"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2627, CAST(N'2022-03-17T01:14:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2628, CAST(N'2022-03-17T01:14:29.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2629, CAST(N'2022-03-17T01:14:47.000' AS DateTime), N'FamiliaEe creada: ', N'{"Patentes":[{"Id":2,"Nombre":"Sucursal"},{"Id":3,"Nombre":"Deposito"}],"Id":0,"Nombre":"RICARDO"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2630, CAST(N'2022-03-17T01:14:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2631, CAST(N'2022-03-17T01:15:17.000' AS DateTime), N'FamiliaEe creada: ', N'{"Patentes":[{"Id":2,"Nombre":"Sucursal"},{"Id":3,"Nombre":"Deposito"}],"Id":0,"Nombre":"RICARDO"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2632, CAST(N'2022-03-17T01:15:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2633, CAST(N'2022-03-17T01:16:19.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2634, CAST(N'2022-03-17T01:26:12.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2635, CAST(N'2022-03-17T01:26:38.000' AS DateTime), N'Familia creada: ', N'{"Patentes":[{"Id":2,"Nombre":"Sucursal"},{"Id":3,"Nombre":"Deposito"}],"Id":0,"Nombre":"fghgh"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2636, CAST(N'2022-03-17T01:26:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2637, CAST(N'2022-03-17T01:27:49.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2638, CAST(N'2022-03-17T01:29:50.000' AS DateTime), N'Familia creada: ', N'{"Patentes":[{"Id":3,"Nombre":"Deposito"},{"Id":4,"Nombre":"Caja"}],"Id":8,"Nombre":"gfjhjh"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2639, CAST(N'2022-03-17T01:29:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2640, CAST(N'2022-03-17T01:31:47.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"},{"Id":5,"Nombre":"EnviosRecepciones"}],"Id":8,"Nombre":"gfjhjh"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2641, CAST(N'2022-03-17T01:31:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2642, CAST(N'2022-03-17T01:33:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2643, CAST(N'2022-03-17T01:33:27.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"}],"Id":8,"Nombre":"tgyjtyu"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2644, CAST(N'2022-03-17T01:33:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2645, CAST(N'2022-03-17T01:35:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2646, CAST(N'2022-03-17T01:35:20.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"}],"Id":8,"Nombre":"tgyjtyu"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2647, CAST(N'2022-03-17T01:35:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2648, CAST(N'2022-03-17T01:37:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2649, CAST(N'2022-03-17T01:56:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2650, CAST(N'2022-03-17T01:56:20.000' AS DateTime), N'Familia creada: ', N'{"Patentes":[{"Id":3,"Nombre":"Deposito"},{"Id":4,"Nombre":"Caja"}],"Id":9,"Nombre":"JUAN"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2651, CAST(N'2022-03-17T01:56:20.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2652, CAST(N'2022-03-17T01:56:29.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"}],"Id":9,"Nombre":"JUAN"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2653, CAST(N'2022-03-17T01:56:29.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2654, CAST(N'2022-03-17T01:57:02.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"}],"Id":9,"Nombre":"JUAN"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2655, CAST(N'2022-03-17T01:57:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2656, CAST(N'2022-03-17T01:57:14.000' AS DateTime), N'FamiliaEe actualizada: ', N'{"Patentes":[{"Id":4,"Nombre":"Caja"},{"Id":5,"Nombre":"EnviosRecepciones"}],"Id":9,"Nombre":"JUAN"}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2657, CAST(N'2022-03-17T01:57:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2658, CAST(N'2022-03-17T01:58:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2659, CAST(N'2022-03-17T01:58:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2660, CAST(N'2022-03-17T01:58:39.000' AS DateTime), N'Producto creado: ', N'{"Nombre":"juan","Codigo":"2190","FechaCreacion":"0001-01-01T00:00:00","Cantidad":0,"Precio":567.0,"Costo":55.0,"TotalProducto":0.0,"Activo":false,"Id":6}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2661, CAST(N'2022-03-17T01:58:46.000' AS DateTime), N'Producto actualizado: ', N'{"Nombre":"fghfhg","Codigo":"219055","FechaCreacion":"0001-01-01T00:00:00","Cantidad":0,"Precio":56756.0,"Costo":5566.0,"TotalProducto":0.0,"Activo":false,"Id":6}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2662, CAST(N'2022-03-17T01:58:46.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2663, CAST(N'2022-03-17T01:58:50.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2664, CAST(N'2022-03-17T01:58:50.000' AS DateTime), N'Producto Eliminado ', N'{"Nombre":"fghfhg","Codigo":"219055","FechaCreacion":"0001-01-01T00:00:00","Cantidad":0,"Precio":56756.0,"Costo":5566.0,"TotalProducto":0.0,"Activo":false,"Id":6}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2665, CAST(N'2022-03-17T01:59:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2666, CAST(N'2022-03-17T01:59:21.000' AS DateTime), N'Producto creado: ', N'{"Nombre":"fgh","Codigo":"5675","FechaCreacion":"0001-01-01T00:00:00","Cantidad":0,"Precio":5656.0,"Costo":55.0,"TotalProducto":0.0,"Activo":false,"Id":7}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2667, CAST(N'2022-03-17T01:59:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2668, CAST(N'2022-03-17T01:59:24.000' AS DateTime), N'Producto Eliminado ', N'{"Nombre":"fgh","Codigo":"5675","FechaCreacion":"0001-01-01T00:00:00","Cantidad":0,"Precio":5656.0,"Costo":55.0,"TotalProducto":0.0,"Activo":false,"Id":7}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2669, CAST(N'2022-03-17T02:06:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2670, CAST(N'2022-03-17T02:06:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2671, CAST(N'2022-03-17T02:07:58.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2672, CAST(N'2022-03-17T02:07:58.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2673, CAST(N'2022-03-17T02:10:16.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2674, CAST(N'2022-03-17T02:10:36.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2675, CAST(N'2022-03-17T02:10:36.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2676, CAST(N'2022-03-17T02:11:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2677, CAST(N'2022-03-17T02:11:34.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2678, CAST(N'2022-03-17T02:12:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2679, CAST(N'2022-03-17T02:12:34.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2680, CAST(N'2022-03-17T02:13:32.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2681, CAST(N'2022-03-17T02:14:56.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2682, CAST(N'2022-03-17T02:16:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2683, CAST(N'2022-03-17T02:20:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2684, CAST(N'2022-03-17T02:20:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2685, CAST(N'2022-03-17T02:22:19.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2686, CAST(N'2022-03-17T02:22:20.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2687, CAST(N'2022-03-17T02:22:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2688, CAST(N'2022-03-17T02:22:54.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2689, CAST(N'2022-03-17T02:32:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2690, CAST(N'2022-03-17T02:32:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2691, CAST(N'2022-03-17T02:32:37.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2692, CAST(N'2022-03-17T02:32:53.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2693, CAST(N'2022-03-17T02:32:53.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2694, CAST(N'2022-03-17T02:33:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2695, CAST(N'2022-03-17T02:33:06.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2696, CAST(N'2022-03-17T02:34:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2697, CAST(N'2022-03-17T02:38:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2698, CAST(N'2022-03-17T02:39:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2699, CAST(N'2022-03-17T02:39:14.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2700, CAST(N'2022-03-17T02:40:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2701, CAST(N'2022-03-17T02:40:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2702, CAST(N'2022-03-17T02:40:15.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2703, CAST(N'2022-03-17T02:43:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2704, CAST(N'2022-03-17T02:43:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2705, CAST(N'2022-03-17T02:43:57.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2706, CAST(N'2022-03-17T02:46:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2707, CAST(N'2022-03-17T02:46:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2708, CAST(N'2022-03-17T02:46:23.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2709, CAST(N'2022-03-17T02:49:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2710, CAST(N'2022-03-17T02:49:24.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2711, CAST(N'2022-03-17T11:42:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2712, CAST(N'2022-03-17T11:44:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2713, CAST(N'2022-03-17T11:49:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2714, CAST(N'2022-03-17T11:50:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2715, CAST(N'2022-03-17T12:08:48.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2716, CAST(N'2022-03-17T12:12:14.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2717, CAST(N'2022-03-17T12:21:16.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2718, CAST(N'2022-03-17T12:26:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2719, CAST(N'2022-03-17T12:26:31.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2720, CAST(N'2022-03-17T12:26:32.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2721, CAST(N'2022-03-17T12:42:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2722, CAST(N'2022-03-17T12:43:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2723, CAST(N'2022-03-17T12:43:10.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nomb ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2724, CAST(N'2022-03-17T12:43:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2725, CAST(N'2022-03-17T12:43:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2726, CAST(N'2022-03-17T12:43:10.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2727, CAST(N'2022-03-17T13:00:58.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2728, CAST(N'2022-03-17T13:03:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2729, CAST(N'2022-03-17T13:17:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2730, CAST(N'2022-03-17T13:17:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2731, CAST(N'2022-03-17T13:19:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2732, CAST(N'2022-03-17T13:19:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2733, CAST(N'2022-03-17T13:23:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2734, CAST(N'2022-03-17T13:27:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2735, CAST(N'2022-03-17T13:31:45.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2736, CAST(N'2022-03-17T13:37:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2737, CAST(N'2022-03-17T13:39:29.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2738, CAST(N'2022-03-17T13:44:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2739, CAST(N'2022-03-17T13:44:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2740, CAST(N'2022-03-17T13:44:34.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2741, CAST(N'2022-03-17T13:47:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2742, CAST(N'2022-03-17T13:50:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2743, CAST(N'2022-03-17T13:50:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2744, CAST(N'2022-03-17T13:50:26.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2745, CAST(N'2022-03-17T13:51:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2746, CAST(N'2022-03-17T13:51:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2747, CAST(N'2022-03-17T13:51:38.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2748, CAST(N'2022-03-17T13:52:09.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2749, CAST(N'2022-03-17T13:52:09.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2750, CAST(N'2022-03-17T13:54:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2751, CAST(N'2022-03-17T13:54:18.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2752, CAST(N'2022-03-17T13:54:19.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2753, CAST(N'2022-03-17T13:54:26.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2754, CAST(N'2022-03-17T13:54:26.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admind ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2755, CAST(N'2022-03-17T14:06:30.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2756, CAST(N'2022-03-17T14:12:09.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2757, CAST(N'2022-03-17T14:12:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2758, CAST(N'2022-03-17T14:13:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2759, CAST(N'2022-03-17T14:13:21.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"YIUI","Id":44}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2760, CAST(N'2022-03-17T14:17:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2761, CAST(N'2022-03-17T14:18:10.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2762, CAST(N'2022-03-17T14:18:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2763, CAST(N'2022-03-17T14:18:34.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nomb ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2764, CAST(N'2022-03-17T14:18:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2765, CAST(N'2022-03-17T14:18:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2766, CAST(N'2022-03-17T14:18:34.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2767, CAST(N'2022-03-17T14:20:49.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2768, CAST(N'2022-03-17T14:21:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2769, CAST(N'2022-03-17T14:21:34.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nomb ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2770, CAST(N'2022-03-17T14:21:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2771, CAST(N'2022-03-17T14:21:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2772, CAST(N'2022-03-17T14:21:34.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2773, CAST(N'2022-03-17T14:22:24.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2774, CAST(N'2022-03-17T14:29:21.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2775, CAST(N'2022-03-17T14:31:29.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2776, CAST(N'2022-03-17T14:33:02.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2777, CAST(N'2022-03-17T14:33:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2778, CAST(N'2022-03-17T14:37:12.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2779, CAST(N'2022-03-17T14:41:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2780, CAST(N'2022-03-17T14:42:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2781, CAST(N'2022-03-17T14:44:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2782, CAST(N'2022-03-17T14:48:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2783, CAST(N'2022-03-17T14:50:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2784, CAST(N'2022-03-17T14:53:32.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2785, CAST(N'2022-03-17T14:58:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2786, CAST(N'2022-03-17T15:00:03.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2787, CAST(N'2022-03-17T15:01:04.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2788, CAST(N'2022-03-17T15:15:49.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2789, CAST(N'2022-03-17T15:21:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2790, CAST(N'2022-03-17T15:25:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2791, CAST(N'2022-03-17T15:27:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2792, CAST(N'2022-03-17T15:32:05.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2793, CAST(N'2022-03-17T15:54:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2794, CAST(N'2022-03-17T15:56:28.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2795, CAST(N'2022-03-17T15:56:28.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"Portugues","Id":45}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2796, CAST(N'2022-03-17T15:57:33.000' AS DateTime), N'Proveedor actualizado: ', N'{"CantidadErrores":2,"Nombre":"Sariftg","Direccion":"Roma 162","Mail":"sarif@gmail.com","Telefono":"0303456","CodigoPostal":2000,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2797, CAST(N'2022-03-17T15:57:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2798, CAST(N'2022-03-17T15:58:01.000' AS DateTime), N'Proveedor actualizado: ', N'{"CantidadErrores":2,"Nombre":"Sarif","Direccion":"Roma 162","Mail":"sarif@gmail.com","Telefono":"0303456","CodigoPostal":2000,"Activo":false,"Id":3}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2799, CAST(N'2022-03-17T15:58:01.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2800, CAST(N'2022-03-17T16:03:27.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2801, CAST(N'2022-03-17T16:04:49.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2802, CAST(N'2022-03-17T16:04:49.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":8,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2803, CAST(N'2022-03-17T16:05:25.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2804, CAST(N'2022-03-17T16:05:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2805, CAST(N'2022-03-17T16:05:39.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":8,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2806, CAST(N'2022-03-17T16:05:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2807, CAST(N'2022-03-17T16:06:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2808, CAST(N'2022-03-17T16:06:40.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":9,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2809, CAST(N'2022-03-17T16:07:06.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2810, CAST(N'2022-03-17T16:09:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2811, CAST(N'2022-03-17T16:09:15.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":9,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2812, CAST(N'2022-03-17T16:09:38.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2813, CAST(N'2022-03-17T16:09:38.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":9,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2814, CAST(N'2022-03-17T16:09:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2815, CAST(N'2022-03-17T16:10:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2816, CAST(N'2022-03-17T16:10:40.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":9,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2817, CAST(N'2022-03-17T16:10:54.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2818, CAST(N'2022-03-17T16:12:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2819, CAST(N'2022-03-17T16:13:17.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2820, CAST(N'2022-03-17T16:13:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2821, CAST(N'2022-03-17T16:13:39.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":9,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2822, CAST(N'2022-03-17T16:13:47.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2823, CAST(N'2022-03-17T16:13:47.000' AS DateTime), N'Familia borrada: ', N'{"Patentes":null,"Id":8,"Nombre":null}', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2824, CAST(N'2022-03-17T16:27:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2825, CAST(N'2022-03-17T16:27:30.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2826, CAST(N'2022-03-17T16:29:48.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2827, CAST(N'2022-03-17T16:30:57.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2828, CAST(N'2022-03-17T16:35:39.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2829, CAST(N'2022-03-17T16:35:49.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2830, CAST(N'2022-03-17T16:41:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2831, CAST(N'2022-03-17T16:48:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2832, CAST(N'2022-03-17T16:50:34.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2833, CAST(N'2022-03-17T16:50:45.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2834, CAST(N'2022-03-17T16:59:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2835, CAST(N'2022-03-17T17:05:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2836, CAST(N'2022-03-17T17:05:37.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2837, CAST(N'2022-03-17T17:05:58.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2838, CAST(N'2022-03-17T17:10:00.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2839, CAST(N'2022-03-17T17:10:49.000' AS DateTime), N'BackUp', N'Se ha realizado un backUp', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2840, CAST(N'2022-03-17T17:11:46.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2841, CAST(N'2022-03-17T17:12:14.000' AS DateTime), N'Restore', N'Se ha realizado un restore', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2842, CAST(N'2022-03-17T17:12:59.000' AS DateTime), N'Restore', N'Se ha realizado un restore', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2843, CAST(N'2022-03-17T17:13:40.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2844, CAST(N'2022-03-17T17:13:59.000' AS DateTime), N'Restore', N'Se ha realizado un restore', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2845, CAST(N'2022-03-17T17:14:23.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2846, CAST(N'2022-03-17T17:14:45.000' AS DateTime), N'Restore', N'Se ha realizado un restore', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2847, CAST(N'2022-03-17T17:15:08.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2848, CAST(N'2022-03-17T17:16:24.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 10', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2849, CAST(N'2022-03-17T17:16:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2850, CAST(N'2022-03-17T17:16:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2851, CAST(N'2022-03-17T17:16:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2852, CAST(N'2022-03-17T17:16:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2853, CAST(N'2022-03-17T17:16:44.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2854, CAST(N'2022-03-17T17:18:58.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 10', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2855, CAST(N'2022-03-17T17:19:03.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 10', N'Error', 7)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2856, CAST(N'2022-03-17T17:20:29.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 10', N'Error', 7)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2857, CAST(N'2022-03-17T17:20:44.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 10', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2858, CAST(N'2022-03-17T17:20:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2859, CAST(N'2022-03-17T17:20:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2860, CAST(N'2022-03-17T17:20:52.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2861, CAST(N'2022-03-17T17:22:34.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 2', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2862, CAST(N'2022-03-17T17:22:34.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 11', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2863, CAST(N'2022-03-17T17:22:35.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2864, CAST(N'2022-03-17T17:22:36.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2865, CAST(N'2022-03-17T17:22:36.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2866, CAST(N'2022-03-17T17:25:43.000' AS DateTime), N'Restore', N'Se ha realizado un restore', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2867, CAST(N'2022-03-17T17:27:26.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 9', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2868, CAST(N'2022-03-17T17:32:38.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2869, CAST(N'2022-03-17T17:32:40.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 9', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2870, CAST(N'2022-03-17T17:33:53.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2871, CAST(N'2022-03-17T17:33:55.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 9', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2872, CAST(N'2022-03-17T17:33:58.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2873, CAST(N'2022-03-17T17:33:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2874, CAST(N'2022-03-17T17:33:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2875, CAST(N'2022-03-17T17:33:59.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2876, CAST(N'2022-03-17T17:34:43.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 5 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2877, CAST(N'2022-03-17T17:34:44.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 6 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2878, CAST(N'2022-03-17T17:34:45.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 7 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2879, CAST(N'2022-03-17T17:34:46.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 8 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2880, CAST(N'2022-03-17T17:34:47.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 9 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2881, CAST(N'2022-03-17T17:35:24.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 5 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2882, CAST(N'2022-03-17T17:35:25.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 6 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2883, CAST(N'2022-03-17T17:35:26.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 7 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2884, CAST(N'2022-03-17T17:35:27.000' AS DateTime), N'Intentos fallidos', N'admin ha intentado iniciar sesion 8 veces', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2885, CAST(N'2022-03-17T17:52:45.000' AS DateTime), N'Intentos fallidos', N'admin ha bloqueado la cuenta', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2886, CAST(N'2022-03-17T17:53:14.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2887, CAST(N'2022-03-17T17:53:14.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 1', N'Error', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2888, CAST(N'2022-03-17T17:53:15.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2889, CAST(N'2022-03-17T17:54:01.000' AS DateTime), N'Intentos fallidos', N'admin ha bloqueado la cuenta', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2890, CAST(N'2022-03-17T17:54:46.000' AS DateTime), N'Intentos fallidos', N'admin ha bloqueado la cuenta', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2891, CAST(N'2022-03-17T17:55:41.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2892, CAST(N'2022-03-17T17:55:41.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 1', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2893, CAST(N'2022-03-17T17:55:42.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2894, CAST(N'2022-03-17T17:55:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2895, CAST(N'2022-03-17T17:55:43.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2896, CAST(N'2022-03-17T18:02:45.000' AS DateTime), N'Intentos fallidos', N'sales ha bloqueado la cuenta', N'Warning', 0)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2897, CAST(N'2022-03-17T18:02:56.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2898, CAST(N'2022-03-17T18:02:56.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 4', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2899, CAST(N'2022-03-17T18:03:07.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2900, CAST(N'2022-03-17T18:09:30.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2901, CAST(N'2022-03-17T18:09:30.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 1', N'Error', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2902, CAST(N'2022-03-17T18:09:32.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2903, CAST(N'2022-03-17T18:09:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2904, CAST(N'2022-03-17T18:09:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 12)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2905, CAST(N'2022-03-17T18:11:20.000' AS DateTime), N'Error DVH en BD', N'Error DVH en la tabla: usuario', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2906, CAST(N'2022-03-17T18:11:20.000' AS DateTime), N'Error DVV en BD', N'Error en la fila: 1', N'Error', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2907, CAST(N'2022-03-17T18:11:22.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2908, CAST(N'2022-03-17T18:11:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2909, CAST(N'2022-03-17T18:11:51.000' AS DateTime), N'Envio de Sucursal creado: ', N'{"Venta":{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nomb ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2910, CAST(N'2022-03-17T18:11:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2911, CAST(N'2022-03-17T18:11:51.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2912, CAST(N'2022-03-17T18:11:51.000' AS DateTime), N'Venta creada: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2913, CAST(N'2022-03-17T18:12:13.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2914, CAST(N'2022-03-17T18:12:13.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":[{"Id":1,"Nombre":"Admin"},{"Id":9,"Nombre":"BackUp"},{"Id":10,"Nombre":"Bitacora"},{"Id":11,"Nombre":"Digi ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2915, CAST(N'2022-03-17T18:12:33.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2916, CAST(N'2022-03-17T18:12:33.000' AS DateTime), N'Pedido creado: ', N'{"Empleado":{"NombreUsuario":"admin","FechaCreacion":"0001-01-01T00:00:00","Rol":{"Patentes":null,"Id":5,"Nombre":"Admin"},"Depositos":null,"Sucursales":null,"Bloqueado":false,"NombreCompleto":"Admins ...', N'Control', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2917, CAST(N'2022-03-17T18:13:17.000' AS DateTime), N'Digitos verificadores', N'Los Digitos verificadores se han actualizado', N'Info', 4)
+GO
+INSERT [dbo].[bitacora] ([id], [fecha], [titulo], [descripcion], [tipo], [idUsuario]) VALUES (2918, CAST(N'2022-03-17T18:13:17.000' AS DateTime), N'Idioma eliminado: ', N'{"Forms":[],"Textos":{},"Nombre":"fhgtfhg","Id":46}', N'Control', 4)
+GO
 SET IDENTITY_INSERT [dbo].[bitacora] OFF
 GO
 SET IDENTITY_INSERT [dbo].[cEstadoEnvio] ON 
@@ -1753,13 +2644,13 @@ SET IDENTITY_INSERT [dbo].[cMotivoPenalizacion] OFF
 GO
 SET IDENTITY_INSERT [dbo].[comprador] ON 
 GO
-INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (1, N'juan', N'juanes', 678378, N'juan@gmail.com', NULL, N'1789', 0, 1)
+INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (1, N'Juan', N'Juanes', 252525, N'juan@gmail.com', NULL, N'1789', 1, 1)
 GO
-INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (2, N'ricardo', N'gomez', 5456787, N'ricardo@gmail.,com', NULL, N'2672', 0, 1)
+INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (2, N'Ricardo', N'Gomez', 5456787, N'ricardo@gmail.,com', NULL, N'2672', 0, 1)
 GO
-INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (3, N'gjh', N'hjg', 687, N'fgh', NULL, N'576', 1, 1)
+INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (3, N'Lucas', N'Lopez', 454565, N'lucas@gmail.com', NULL, N'576', 1, 1)
 GO
-INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (4, N'Ricardo', N'Juanes', 26782, N'juankl@gmail.com', NULL, N'26726', 1, 1)
+INSERT [dbo].[comprador] ([id], [nombre], [apellido], [dni], [mail], [idDireccion], [telefono], [esSocio], [activo]) VALUES (4, N'Fernando', N'Contra', 262562, N'fernando@gmail.com', NULL, N'26726', 1, 1)
 GO
 SET IDENTITY_INSERT [dbo].[comprador] OFF
 GO
@@ -1769,9 +2660,9 @@ INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (1, 1, N'langua
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (2, 2, N'language', N'Language')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3, 1, N'bitacore', N'log de sistema')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3, 1, N'bitacore', N'Log del Sistema')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4, 2, N'bitacore', N'log')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4, 2, N'bitacore', N'System Log')
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (5, 1, N'username', N'Nombre de usuario')
 GO
@@ -1885,7 +2776,7 @@ INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (59, 1, N'add_u
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (60, 2, N'add_user', N'Add user')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (61, 1, N'role', N'Permiso')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (61, 1, N'role', N'Rol')
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (62, 2, N'role', N'Role')
 GO
@@ -2727,1933 +3618,1027 @@ INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3791, 1, N'ina
 GO
 INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3792, 2, N'inactive_user', N'User is inactive, please contact your administrator')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3793, 10, N'language', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4757, 1, N'dv_restored', N'Los digitos verificadores han sido restaurados')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3794, 10, N'bitacore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4759, 2, N'dv_restored', N'The verifier digits has been restored')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3795, 10, N'username', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (9116, 1, N'delete_language', N'¿Está seguro de querer eliminar el idioma')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3796, 10, N'password', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (9117, 2, N'delete_language', N'Are you sure you want to delete the language')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3797, 10, N'login', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (9607, 1, N'warning', N'Precaucion')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3798, 10, N'updateDV', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (9608, 2, N'warning', N'Warning')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3799, 10, N'employees', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10097, 1, N'admin_config', N'Administrador - Configuracion')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3800, 10, N'rest_dv', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10098, 2, N'admin_config', N'Administrator - Configuration')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3801, 10, N'restore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10099, 1, N'admin_manage', N'Administrador - Gestion')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3802, 10, N'bkp_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10101, 2, N'admin_manage', N'Administrator - Manage')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3803, 10, N'restore_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10102, 1, N'cash_register', N'Caja Registradora')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3804, 10, N'login_failed', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10103, 2, N'cash_register', N'Cash Register')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3805, 10, N'login_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (10352, 2, N'assignedWarehosues', N'Assigned Warehouses')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3806, 10, N'logout_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12082, 1, N'manage_deposits', N'Gestionar Depositos')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3807, 10, N'notification', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12083, 2, N'manage_deposits', N'Manage Deposits')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3808, 10, N'dvh_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12332, 45, N'language', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3809, 10, N'error_row', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12333, 45, N'bitacore', N'ROERT')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3810, 10, N'dvv_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12334, 45, N'username', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3811, 10, N'error_contact_admin', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12335, 45, N'password', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3812, 10, N'recognize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12336, 45, N'login', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3813, 10, N'see_profile', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12337, 45, N'updateDV', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3814, 10, N'search', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12338, 45, N'employees', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3815, 10, N'name', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12339, 45, N'rest_dv', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3816, 10, N'lastname', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12340, 45, N'restore', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3817, 10, N'save', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12341, 45, N'bkp_done', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3818, 10, N'update', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12342, 45, N'restore_done', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3819, 10, N'new_pass', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12343, 45, N'login_failed', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3820, 10, N'personal_data', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12344, 45, N'login_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3821, 10, N'error', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12345, 45, N'logout_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3822, 10, N'add_user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12346, 45, N'notification', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3823, 10, N'role', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12347, 45, N'dvh_table', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3824, 10, N'delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12348, 45, N'error_row', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3825, 10, N'date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12349, 45, N'dvv_table', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3826, 10, N'title', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12350, 45, N'error_contact_admin', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3827, 10, N'description', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12351, 45, N'recognize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3828, 10, N'type', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12352, 45, N'see_profile', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3829, 10, N'valoration', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12353, 45, N'search', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3830, 10, N'patents', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12354, 45, N'name', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3831, 10, N'add', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12355, 45, N'lastname', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3832, 10, N'edit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12356, 45, N'save', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3833, 10, N'incorrect_data', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12357, 45, N'update', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3834, 10, N'emblem', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12358, 45, N'new_pass', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3835, 10, N'recognized', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12359, 45, N'personal_data', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3836, 10, N'recognize_create_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12360, 45, N'error', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3837, 10, N'see_recognize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12361, 45, N'add_user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3838, 10, N'last_recognizes', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12362, 45, N'role', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3839, 10, N'boss', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12363, 45, N'delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3840, 10, N'suggest', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12364, 45, N'date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3841, 10, N'experience_sent', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12365, 45, N'title', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3842, 10, N'sent', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12366, 45, N'description', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3843, 10, N'received', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12367, 45, N'type', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3844, 10, N'my_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12368, 45, N'valoration', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3845, 10, N'sector_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12369, 45, N'patents', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3846, 10, N'finalize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12370, 45, N'add', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3847, 10, N'not_finalized', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12371, 45, N'edit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3848, 10, N'assign_new', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12372, 45, N'incorrect_data', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3849, 10, N'objective', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12373, 45, N'emblem', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3850, 10, N'pick_valid_date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12374, 45, N'recognized', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3851, 10, N'close_before', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12375, 45, N'recognize_create_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3852, 10, N'employee_assigned', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12376, 45, N'see_recognize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3853, 10, N'level', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12377, 45, N'last_recognizes', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3854, 10, N'see_detail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12378, 45, N'boss', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3855, 10, N'open', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12379, 45, N'suggest', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3856, 10, N'closed', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12380, 45, N'experience_sent', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3857, 10, N'manage', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12381, 45, N'sent', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3858, 10, N'open_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12382, 45, N'received', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3859, 10, N'closed_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12383, 45, N'my_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3860, 10, N'objective_taken', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12384, 45, N'sector_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3861, 10, N'archive', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12385, 45, N'finalize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3862, 10, N'cant_recognize_myself', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12386, 45, N'not_finalized', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3863, 10, N'cant_delete_my_family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12387, 45, N'assign_new', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3864, 10, N'position', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12388, 45, N'objective', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3865, 10, N'user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12389, 45, N'pick_valid_date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3866, 10, N'reward', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12390, 45, N'close_before', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3867, 10, N'created', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12391, 45, N'employee_assigned', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3868, 10, N'updated', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12392, 45, N'level', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3869, 10, N'deleted', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12393, 45, N'see_detail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3870, 10, N'appreciation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12394, 45, N'open', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3871, 10, N'families', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12395, 45, N'closed', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3872, 10, N'emblems', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12396, 45, N'manage', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3873, 10, N'sectors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12397, 45, N'open_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3874, 10, N'positions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12398, 45, N'closed_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3875, 10, N'rewards', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12399, 45, N'objective_taken', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3876, 10, N'old_pass', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12400, 45, N'archive', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3877, 10, N'date_creation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12401, 45, N'cant_recognize_myself', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3878, 10, N'date_close', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12402, 45, N'cant_delete_my_family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3879, 10, N'manage_family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12403, 45, N'position', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3880, 10, N'filter', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12404, 45, N'user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3881, 10, N'recognizer', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12405, 45, N'reward', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3882, 10, N'select', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12406, 45, N'created', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3883, 10, N'enter_date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12407, 45, N'updated', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3884, 10, N'please_add_level', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12408, 45, N'deleted', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3885, 10, N'please_add_position', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12409, 45, N'appreciation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3886, 10, N'please_add_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12410, 45, N'families', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3887, 10, N'name_already_used', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12411, 45, N'emblems', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3888, 10, N'help', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12412, 45, N'sectors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3889, 10, N'new_objective', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12413, 45, N'positions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3890, 10, N'export_report', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12414, 45, N'rewards', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3891, 10, N'telephone', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12415, 45, N'old_pass', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3892, 10, N'address', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12416, 45, N'date_creation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3893, 10, N'zipcode', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12417, 45, N'date_close', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3894, 10, N'mail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12418, 45, N'manage_family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3895, 10, N'assign', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12419, 45, N'filter', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3896, 10, N'close', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12420, 45, N'recognizer', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3897, 10, N'unassign', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12421, 45, N'select', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3898, 10, N'branches', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12422, 45, N'enter_date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3899, 10, N'assignedBranches', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12423, 45, N'please_add_level', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3900, 10, N'warehouses', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12424, 45, N'please_add_position', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3901, 10, N'assignedWarehosues', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12425, 45, N'please_add_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3902, 10, N'products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12426, 45, N'name_already_used', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3903, 10, N'products_to_add', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12427, 45, N'help', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3904, 10, N'no_warehouse_found', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12428, 45, N'new_objective', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3905, 10, N'no_branch_found', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12429, 45, N'export_report', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3906, 10, N'choose', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12430, 45, N'telephone', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3907, 10, N'set_up', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12431, 45, N'address', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3908, 10, N'wrong_warehouse', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12432, 45, N'zipcode', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3909, 10, N'wrong_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12433, 45, N'mail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3910, 10, N'wrong_branch', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12434, 45, N'assign', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3911, 10, N'wrong_config', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12435, 45, N'close', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3912, 10, N'remove', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12436, 45, N'unassign', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3913, 10, N'remove_product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12437, 45, N'branches', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3914, 10, N'create_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12438, 45, N'assignedBranches', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3915, 10, N'member', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12439, 45, N'warehouses', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3916, 10, N'choose_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12440, 45, N'assignedWarehosues', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3917, 10, N'assign_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12441, 45, N'products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3918, 10, N'complete_order', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12442, 45, N'products_to_add', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3919, 10, N'create_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12443, 45, N'no_warehouse_found', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3920, 10, N'vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12444, 45, N'no_branch_found', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3921, 10, N'search_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12445, 45, N'choose', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3922, 10, N'street', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12446, 45, N'set_up', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3923, 10, N'city', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12447, 45, N'wrong_warehouse', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3924, 10, N'state', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12448, 45, N'wrong_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3925, 10, N'country', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12449, 45, N'wrong_branch', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3926, 10, N'add_to_cart', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12450, 45, N'wrong_config', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3927, 10, N'empty_cart', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12451, 45, N'remove', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3928, 10, N'add_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12452, 45, N'remove_product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3929, 10, N'remove_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12453, 45, N'create_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3930, 10, N'empty_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12454, 45, N'member', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3931, 10, N'dispatch_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12455, 45, N'choose_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3932, 10, N'confirm_reception', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12456, 45, N'assign_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3933, 10, N'building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12457, 45, N'complete_order', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3934, 10, N'employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12458, 45, N'create_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3935, 10, N'make_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12459, 45, N'vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3936, 10, N'search_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12460, 45, N'search_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3937, 10, N'create_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12461, 45, N'street', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3938, 10, N'cancel_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12462, 45, N'city', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3939, 10, N'make_order_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12463, 45, N'state', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3940, 10, N'register_products_entry', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12464, 45, N'country', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3941, 10, N'penalize_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12465, 45, N'add_to_cart', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3942, 10, N'check_inventory', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12466, 45, N'empty_cart', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3943, 10, N'receive_payment', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12467, 45, N'add_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3944, 10, N'check_deliveries', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12468, 45, N'remove_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3945, 10, N'receive_order_deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12469, 45, N'empty_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3946, 10, N'make_order_deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12470, 45, N'dispatch_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3947, 10, N'all', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12471, 45, N'confirm_reception', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3948, 10, N'configure_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12472, 45, N'building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3949, 10, N'type_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12473, 45, N'employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3950, 10, N'deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12474, 45, N'make_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3951, 10, N'branch', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12475, 45, N'search_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3952, 10, N'create_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12476, 45, N'create_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3953, 10, N'modify_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12477, 45, N'cancel_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3954, 10, N'delete_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12478, 45, N'make_order_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3955, 10, N'manage_employees', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12479, 45, N'register_products_entry', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3956, 10, N'create', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12480, 45, N'penalize_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3957, 10, N'modify', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12481, 45, N'check_inventory', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3958, 10, N'job', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12482, 45, N'receive_payment', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3959, 10, N'dni', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12483, 45, N'check_deliveries', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3960, 10, N'question_delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12484, 45, N'receive_order_deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3961, 10, N'confirm_delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12485, 45, N'make_order_deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3962, 10, N'blocked', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12486, 45, N'all', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3963, 10, N'amount_errors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12487, 45, N'configure_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3964, 10, N'modify_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12488, 45, N'type_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3965, 10, N'delete_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12489, 45, N'deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3966, 10, N'restore_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12490, 45, N'branch', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3967, 10, N'check_penalizations', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12491, 45, N'create_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3968, 10, N'manage_vendors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12492, 45, N'modify_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3969, 10, N'vendor_no_versions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12493, 45, N'delete_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3970, 10, N'missing_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12494, 45, N'manage_employees', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3971, 10, N'damaged_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12495, 45, N'create', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3972, 10, N'incorrect_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12496, 45, N'modify', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3973, 10, N'late_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12497, 45, N'job', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3974, 10, N'no_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12498, 45, N'dni', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3975, 10, N'complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12499, 45, N'question_delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3976, 10, N'question_penalize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12500, 45, N'confirm_delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3977, 10, N'motive', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12501, 45, N'blocked', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3978, 10, N'confirm_penalization', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12502, 45, N'amount_errors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3979, 10, N'success_penalization', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12503, 45, N'modify_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3980, 10, N'success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12504, 45, N'delete_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3981, 10, N'code', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12505, 45, N'restore_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3982, 10, N'price', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12506, 45, N'check_penalizations', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3983, 10, N'amount_buy', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12507, 45, N'manage_vendors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3984, 10, N'total_product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12508, 45, N'vendor_no_versions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3985, 10, N'total', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12509, 45, N'missing_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3986, 10, N'add_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12510, 45, N'damaged_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3987, 10, N'finish_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12511, 45, N'incorrect_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3988, 10, N'stock', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12512, 45, N'late_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3989, 10, N'please_add_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12513, 45, N'no_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3990, 10, N'installment', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12514, 45, N'complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3991, 10, N'installments', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12515, 45, N'question_penalize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3992, 10, N'select_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12516, 45, N'motive', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3993, 10, N'initiated', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12517, 45, N'confirm_penalization', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3994, 10, N'discount', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12518, 45, N'success_penalization', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3995, 10, N'branch_takeaway', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12519, 45, N'success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3996, 10, N'delivery_city', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12520, 45, N'code', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3997, 10, N'delivery_province', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12521, 45, N'price', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3998, 10, N'delivery_country', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12522, 45, N'amount_buy', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (3999, 10, N'amount_takeaway', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12523, 45, N'total_product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4000, 10, N'cash', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12524, 45, N'total', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4001, 10, N'debit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12525, 45, N'add_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4002, 10, N'credit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12526, 45, N'finish_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4003, 10, N'search_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12527, 45, N'stock', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4004, 10, N'branch_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12528, 45, N'please_add_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4005, 10, N'client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12529, 45, N'installment', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4006, 10, N'delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12530, 45, N'installments', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4007, 10, N'payment_method', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12531, 45, N'select_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4008, 10, N'yes', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12532, 45, N'initiated', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4009, 10, N'no', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12533, 45, N'discount', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4010, 10, N'add_address', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12534, 45, N'branch_takeaway', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4011, 10, N'success_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12535, 45, N'delivery_city', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4012, 10, N'status', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12536, 45, N'delivery_province', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4013, 10, N'product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12537, 45, N'delivery_country', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4014, 10, N'cost', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12538, 45, N'amount_takeaway', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4015, 10, N'amount', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12539, 45, N'cash', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4016, 10, N'total_detail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12540, 45, N'debit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4017, 10, N'product_bad_condition', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12541, 45, N'credit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4018, 10, N'product_not_desired', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12542, 45, N'search_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4019, 10, N'sale_no_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12543, 45, N'branch_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4020, 10, N'loss', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12544, 45, N'client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4021, 10, N'devolution', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12545, 45, N'delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4022, 10, N'choose_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12546, 45, N'payment_method', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4023, 10, N'please_positive_number', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12547, 45, N'yes', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4024, 10, N'please_positive_number_or_less', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12548, 45, N'no', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4025, 10, N'question_cancel_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12549, 45, N'add_address', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4026, 10, N'confirmation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12550, 45, N'success_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4027, 10, N'finish_order', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12551, 45, N'status', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4028, 10, N'family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12552, 45, N'product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4029, 10, N'cashier', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12553, 45, N'cost', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4030, 10, N'delivery_receptions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12554, 45, N'amount', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4031, 10, N'admin', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12555, 45, N'total_detail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4032, 10, N'check_complaints', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12556, 45, N'product_bad_condition', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4033, 10, N'inactive_user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12557, 45, N'product_not_desired', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4034, 11, N'language', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12558, 45, N'sale_no_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4035, 11, N'bitacore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12559, 45, N'loss', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4036, 11, N'username', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12560, 45, N'devolution', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4037, 11, N'password', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12561, 45, N'choose_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4038, 11, N'login', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12562, 45, N'please_positive_number', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4039, 11, N'updateDV', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12563, 45, N'please_positive_number_or_less', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4040, 11, N'employees', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12564, 45, N'question_cancel_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4041, 11, N'rest_dv', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12565, 45, N'confirmation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4042, 11, N'restore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12566, 45, N'finish_order', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4043, 11, N'bkp_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12567, 45, N'family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4044, 11, N'restore_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12568, 45, N'cashier', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4045, 11, N'login_failed', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12569, 45, N'delivery_receptions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4046, 11, N'login_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12570, 45, N'admin', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4047, 11, N'logout_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12571, 45, N'check_complaints', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4048, 11, N'notification', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12572, 45, N'inactive_user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4049, 11, N'dvh_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12573, 45, N'dv_restored', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4050, 11, N'error_row', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12574, 45, N'delete_language', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4051, 11, N'dvv_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12575, 45, N'warning', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4052, 11, N'error_contact_admin', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12576, 45, N'admin_config', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4053, 11, N'recognize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12577, 45, N'admin_manage', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4054, 11, N'see_profile', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12578, 45, N'cash_register', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4055, 11, N'search', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12579, 45, N'manage_deposits', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4056, 11, N'name', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12580, 46, N'language', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4057, 11, N'lastname', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12581, 46, N'bitacore', N'ghjgjh')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4058, 11, N'save', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12582, 46, N'username', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4059, 11, N'update', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12583, 46, N'password', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4060, 11, N'new_pass', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12584, 46, N'login', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4061, 11, N'personal_data', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12585, 46, N'updateDV', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4062, 11, N'error', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12586, 46, N'employees', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4063, 11, N'add_user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12587, 46, N'rest_dv', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4064, 11, N'role', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12588, 46, N'restore', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4065, 11, N'delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12589, 46, N'bkp_done', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4066, 11, N'date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12590, 46, N'restore_done', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4067, 11, N'title', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12591, 46, N'login_failed', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4068, 11, N'description', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12592, 46, N'login_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4069, 11, N'type', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12593, 46, N'logout_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4070, 11, N'valoration', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12594, 46, N'notification', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4071, 11, N'patents', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12595, 46, N'dvh_table', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4072, 11, N'add', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12596, 46, N'error_row', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4073, 11, N'edit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12597, 46, N'dvv_table', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4074, 11, N'incorrect_data', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12598, 46, N'error_contact_admin', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4075, 11, N'emblem', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12599, 46, N'recognize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4076, 11, N'recognized', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12600, 46, N'see_profile', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4077, 11, N'recognize_create_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12601, 46, N'search', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4078, 11, N'see_recognize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12602, 46, N'name', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4079, 11, N'last_recognizes', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12603, 46, N'lastname', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4080, 11, N'boss', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12604, 46, N'save', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4081, 11, N'suggest', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12605, 46, N'update', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4082, 11, N'experience_sent', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12606, 46, N'new_pass', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4083, 11, N'sent', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12607, 46, N'personal_data', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4084, 11, N'received', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12608, 46, N'error', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4085, 11, N'my_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12609, 46, N'add_user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4086, 11, N'sector_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12610, 46, N'role', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4087, 11, N'finalize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12611, 46, N'delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4088, 11, N'not_finalized', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12612, 46, N'date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4089, 11, N'assign_new', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12613, 46, N'title', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4090, 11, N'objective', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12614, 46, N'description', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4091, 11, N'pick_valid_date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12615, 46, N'type', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4092, 11, N'close_before', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12616, 46, N'valoration', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4093, 11, N'employee_assigned', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12617, 46, N'patents', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4094, 11, N'level', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12618, 46, N'add', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4095, 11, N'see_detail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12619, 46, N'edit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4096, 11, N'open', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12620, 46, N'incorrect_data', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4097, 11, N'closed', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12621, 46, N'emblem', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4098, 11, N'manage', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12622, 46, N'recognized', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4099, 11, N'open_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12623, 46, N'recognize_create_success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4100, 11, N'closed_objectives', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12624, 46, N'see_recognize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4101, 11, N'objective_taken', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12625, 46, N'last_recognizes', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4102, 11, N'archive', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12626, 46, N'boss', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4103, 11, N'cant_recognize_myself', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12627, 46, N'suggest', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4104, 11, N'cant_delete_my_family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12628, 46, N'experience_sent', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4105, 11, N'position', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12629, 46, N'sent', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4106, 11, N'user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12630, 46, N'received', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4107, 11, N'reward', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12631, 46, N'my_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4108, 11, N'created', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12632, 46, N'sector_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4109, 11, N'updated', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12633, 46, N'finalize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4110, 11, N'deleted', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12634, 46, N'not_finalized', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4111, 11, N'appreciation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12635, 46, N'assign_new', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4112, 11, N'families', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12636, 46, N'objective', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4113, 11, N'emblems', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12637, 46, N'pick_valid_date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4114, 11, N'sectors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12638, 46, N'close_before', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4115, 11, N'positions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12639, 46, N'employee_assigned', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4116, 11, N'rewards', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12640, 46, N'level', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4117, 11, N'old_pass', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12641, 46, N'see_detail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4118, 11, N'date_creation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12642, 46, N'open', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4119, 11, N'date_close', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12643, 46, N'closed', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4120, 11, N'manage_family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12644, 46, N'manage', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4121, 11, N'filter', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12645, 46, N'open_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4122, 11, N'recognizer', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12646, 46, N'closed_objectives', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4123, 11, N'select', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12647, 46, N'objective_taken', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4124, 11, N'enter_date', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12648, 46, N'archive', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4125, 11, N'please_add_level', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12649, 46, N'cant_recognize_myself', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4126, 11, N'please_add_position', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12650, 46, N'cant_delete_my_family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4127, 11, N'please_add_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12651, 46, N'position', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4128, 11, N'name_already_used', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12652, 46, N'user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4129, 11, N'help', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12653, 46, N'reward', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4130, 11, N'new_objective', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12654, 46, N'created', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4131, 11, N'export_report', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12655, 46, N'updated', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4132, 11, N'telephone', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12656, 46, N'deleted', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4133, 11, N'address', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12657, 46, N'appreciation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4134, 11, N'zipcode', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12658, 46, N'families', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4135, 11, N'mail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12659, 46, N'emblems', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4136, 11, N'assign', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12660, 46, N'sectors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4137, 11, N'close', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12661, 46, N'positions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4138, 11, N'unassign', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12662, 46, N'rewards', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4139, 11, N'branches', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12663, 46, N'old_pass', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4140, 11, N'assignedBranches', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12664, 46, N'date_creation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4141, 11, N'warehouses', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12665, 46, N'date_close', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4142, 11, N'assignedWarehosues', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12666, 46, N'manage_family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4143, 11, N'products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12667, 46, N'filter', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4144, 11, N'products_to_add', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12668, 46, N'recognizer', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4145, 11, N'no_warehouse_found', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12669, 46, N'select', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4146, 11, N'no_branch_found', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12670, 46, N'enter_date', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4147, 11, N'choose', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12671, 46, N'please_add_level', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4148, 11, N'set_up', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12672, 46, N'please_add_position', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4149, 11, N'wrong_warehouse', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12673, 46, N'please_add_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4150, 11, N'wrong_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12674, 46, N'name_already_used', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4151, 11, N'wrong_branch', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12675, 46, N'help', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4152, 11, N'wrong_config', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12676, 46, N'new_objective', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4153, 11, N'remove', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12677, 46, N'export_report', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4154, 11, N'remove_product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12678, 46, N'telephone', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4155, 11, N'create_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12679, 46, N'address', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4156, 11, N'member', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12680, 46, N'zipcode', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4157, 11, N'choose_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12681, 46, N'mail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4158, 11, N'assign_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12682, 46, N'assign', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4159, 11, N'complete_order', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12683, 46, N'close', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4160, 11, N'create_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12684, 46, N'unassign', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4161, 11, N'vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12685, 46, N'branches', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4162, 11, N'search_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12686, 46, N'assignedBranches', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4163, 11, N'street', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12687, 46, N'warehouses', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4164, 11, N'city', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12688, 46, N'assignedWarehosues', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4165, 11, N'state', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12689, 46, N'products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4166, 11, N'country', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12690, 46, N'products_to_add', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4167, 11, N'add_to_cart', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12691, 46, N'no_warehouse_found', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4168, 11, N'empty_cart', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12692, 46, N'no_branch_found', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4169, 11, N'add_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12693, 46, N'choose', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4170, 11, N'remove_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12694, 46, N'set_up', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4171, 11, N'empty_local_pickup', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12695, 46, N'wrong_warehouse', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4172, 11, N'dispatch_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12696, 46, N'wrong_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4173, 11, N'confirm_reception', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12697, 46, N'wrong_branch', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4174, 11, N'building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12698, 46, N'wrong_config', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4175, 11, N'employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12699, 46, N'remove', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4176, 11, N'make_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12700, 46, N'remove_product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4177, 11, N'search_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12701, 46, N'create_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4178, 11, N'create_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12702, 46, N'member', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4179, 11, N'cancel_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12703, 46, N'choose_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4180, 11, N'make_order_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12704, 46, N'assign_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4181, 11, N'register_products_entry', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12705, 46, N'complete_order', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4182, 11, N'penalize_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12706, 46, N'create_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4183, 11, N'check_inventory', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12707, 46, N'vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4184, 11, N'receive_payment', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12708, 46, N'search_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4185, 11, N'check_deliveries', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12709, 46, N'street', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4186, 11, N'receive_order_deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12710, 46, N'city', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4187, 11, N'make_order_deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12711, 46, N'state', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4188, 11, N'all', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12712, 46, N'country', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4189, 11, N'configure_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12713, 46, N'add_to_cart', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4190, 11, N'type_building', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12714, 46, N'empty_cart', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4191, 11, N'deposit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12715, 46, N'add_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4192, 11, N'branch', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12716, 46, N'remove_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4193, 11, N'create_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12717, 46, N'empty_local_pickup', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4194, 11, N'modify_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12718, 46, N'dispatch_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4195, 11, N'delete_employee', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12719, 46, N'confirm_reception', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4196, 11, N'manage_employees', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12720, 46, N'building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4197, 11, N'create', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12721, 46, N'employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4198, 11, N'modify', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12722, 46, N'make_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4199, 11, N'job', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12723, 46, N'search_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4200, 11, N'dni', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12724, 46, N'create_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4201, 11, N'question_delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12725, 46, N'cancel_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4202, 11, N'confirm_delete', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12726, 46, N'make_order_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4203, 11, N'blocked', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12727, 46, N'register_products_entry', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4204, 11, N'amount_errors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12728, 46, N'penalize_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4205, 11, N'modify_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12729, 46, N'check_inventory', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4206, 11, N'delete_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12730, 46, N'receive_payment', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4207, 11, N'restore_vendor', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12731, 46, N'check_deliveries', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4208, 11, N'check_penalizations', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12732, 46, N'receive_order_deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4209, 11, N'manage_vendors', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12733, 46, N'make_order_deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4210, 11, N'vendor_no_versions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12734, 46, N'all', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4211, 11, N'missing_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12735, 46, N'configure_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4212, 11, N'damaged_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12736, 46, N'type_building', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4213, 11, N'incorrect_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12737, 46, N'deposit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4214, 11, N'late_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12738, 46, N'branch', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4215, 11, N'no_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12739, 46, N'create_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4216, 11, N'complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12740, 46, N'modify_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4217, 11, N'question_penalize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12741, 46, N'delete_employee', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4218, 11, N'motive', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12742, 46, N'manage_employees', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4219, 11, N'confirm_penalization', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12743, 46, N'create', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4220, 11, N'success_penalization', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12744, 46, N'modify', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4221, 11, N'success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12745, 46, N'job', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4222, 11, N'code', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12746, 46, N'dni', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4223, 11, N'price', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12747, 46, N'question_delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4224, 11, N'amount_buy', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12748, 46, N'confirm_delete', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4225, 11, N'total_product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12749, 46, N'blocked', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4226, 11, N'total', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12750, 46, N'amount_errors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4227, 11, N'add_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12751, 46, N'modify_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4228, 11, N'finish_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12752, 46, N'delete_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4229, 11, N'stock', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12753, 46, N'restore_vendor', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4230, 11, N'please_add_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12754, 46, N'check_penalizations', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4231, 11, N'installment', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12755, 46, N'manage_vendors', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4232, 11, N'installments', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12756, 46, N'vendor_no_versions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4233, 11, N'select_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12757, 46, N'missing_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4234, 11, N'initiated', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12758, 46, N'damaged_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4235, 11, N'discount', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12759, 46, N'incorrect_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4236, 11, N'branch_takeaway', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12760, 46, N'late_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4237, 11, N'delivery_city', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12761, 46, N'no_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4238, 11, N'delivery_province', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12762, 46, N'complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4239, 11, N'delivery_country', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12763, 46, N'question_penalize', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4240, 11, N'amount_takeaway', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12764, 46, N'motive', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4241, 11, N'cash', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12765, 46, N'confirm_penalization', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4242, 11, N'debit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12766, 46, N'success_penalization', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4243, 11, N'credit', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12767, 46, N'success', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4244, 11, N'search_client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12768, 46, N'code', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4245, 11, N'branch_delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12769, 46, N'price', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4246, 11, N'client', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12770, 46, N'amount_buy', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4247, 11, N'delivery', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12771, 46, N'total_product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4248, 11, N'payment_method', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12772, 46, N'total', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4249, 11, N'yes', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12773, 46, N'add_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4250, 11, N'no', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12774, 46, N'finish_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4251, 11, N'add_address', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12775, 46, N'stock', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4252, 11, N'success_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12776, 46, N'please_add_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4253, 11, N'status', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12777, 46, N'installment', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4254, 11, N'product', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12778, 46, N'installments', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4255, 11, N'cost', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12779, 46, N'select_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4256, 11, N'amount', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12780, 46, N'initiated', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4257, 11, N'total_detail', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12781, 46, N'discount', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4258, 11, N'product_bad_condition', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12782, 46, N'branch_takeaway', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4259, 11, N'product_not_desired', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12783, 46, N'delivery_city', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4260, 11, N'sale_no_products', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12784, 46, N'delivery_province', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4261, 11, N'loss', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12785, 46, N'delivery_country', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4262, 11, N'devolution', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12786, 46, N'amount_takeaway', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4263, 11, N'choose_complaint', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12787, 46, N'cash', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4264, 11, N'please_positive_number', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12788, 46, N'debit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4265, 11, N'please_positive_number_or_less', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12789, 46, N'credit', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4266, 11, N'question_cancel_sale', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12790, 46, N'search_client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4267, 11, N'confirmation', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12791, 46, N'branch_delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4268, 11, N'finish_order', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12792, 46, N'client', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4269, 11, N'family', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12793, 46, N'delivery', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4270, 11, N'cashier', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12794, 46, N'payment_method', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4271, 11, N'delivery_receptions', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12795, 46, N'yes', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4272, 11, N'admin', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12796, 46, N'no', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4273, 11, N'check_complaints', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12797, 46, N'add_address', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4274, 11, N'inactive_user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12798, 46, N'success_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4275, 12, N'language', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12799, 46, N'status', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4276, 12, N'bitacore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12800, 46, N'product', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4277, 12, N'username', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12801, 46, N'cost', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4278, 12, N'password', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12802, 46, N'amount', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4279, 12, N'login', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12803, 46, N'total_detail', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4280, 12, N'updateDV', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12804, 46, N'product_bad_condition', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4281, 12, N'employees', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12805, 46, N'product_not_desired', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4282, 12, N'rest_dv', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12806, 46, N'sale_no_products', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4283, 12, N'restore', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12807, 46, N'loss', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4284, 12, N'bkp_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12808, 46, N'devolution', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4285, 12, N'restore_done', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12809, 46, N'choose_complaint', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4286, 12, N'login_failed', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12810, 46, N'please_positive_number', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4287, 12, N'login_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12811, 46, N'please_positive_number_or_less', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4288, 12, N'logout_success', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12812, 46, N'question_cancel_sale', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4289, 12, N'notification', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12813, 46, N'confirmation', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4290, 12, N'dvh_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12814, 46, N'finish_order', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4291, 12, N'error_row', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12815, 46, N'family', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4292, 12, N'dvv_table', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12816, 46, N'cashier', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4293, 12, N'error_contact_admin', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12817, 46, N'delivery_receptions', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4294, 12, N'recognize', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12818, 46, N'admin', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4295, 12, N'see_profile', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12819, 46, N'check_complaints', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4296, 12, N'search', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12820, 46, N'inactive_user', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4297, 12, N'name', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12821, 46, N'dv_restored', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4298, 12, N'lastname', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12822, 46, N'delete_language', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4299, 12, N'save', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12823, 46, N'warning', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4300, 12, N'update', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12824, 46, N'admin_config', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4301, 12, N'new_pass', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12825, 46, N'admin_manage', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4302, 12, N'personal_data', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12826, 46, N'cash_register', N'')
 GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4303, 12, N'error', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4304, 12, N'add_user', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4305, 12, N'role', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4306, 12, N'delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4307, 12, N'date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4308, 12, N'title', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4309, 12, N'description', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4310, 12, N'type', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4311, 12, N'valoration', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4312, 12, N'patents', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4313, 12, N'add', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4314, 12, N'edit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4315, 12, N'incorrect_data', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4316, 12, N'emblem', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4317, 12, N'recognized', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4318, 12, N'recognize_create_success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4319, 12, N'see_recognize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4320, 12, N'last_recognizes', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4321, 12, N'boss', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4322, 12, N'suggest', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4323, 12, N'experience_sent', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4324, 12, N'sent', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4325, 12, N'received', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4326, 12, N'my_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4327, 12, N'sector_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4328, 12, N'finalize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4329, 12, N'not_finalized', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4330, 12, N'assign_new', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4331, 12, N'objective', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4332, 12, N'pick_valid_date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4333, 12, N'close_before', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4334, 12, N'employee_assigned', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4335, 12, N'level', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4336, 12, N'see_detail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4337, 12, N'open', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4338, 12, N'closed', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4339, 12, N'manage', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4340, 12, N'open_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4341, 12, N'closed_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4342, 12, N'objective_taken', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4343, 12, N'archive', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4344, 12, N'cant_recognize_myself', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4345, 12, N'cant_delete_my_family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4346, 12, N'position', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4347, 12, N'user', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4348, 12, N'reward', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4349, 12, N'created', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4350, 12, N'updated', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4351, 12, N'deleted', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4352, 12, N'appreciation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4353, 12, N'families', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4354, 12, N'emblems', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4355, 12, N'sectors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4356, 12, N'positions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4357, 12, N'rewards', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4358, 12, N'old_pass', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4359, 12, N'date_creation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4360, 12, N'date_close', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4361, 12, N'manage_family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4362, 12, N'filter', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4363, 12, N'recognizer', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4364, 12, N'select', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4365, 12, N'enter_date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4366, 12, N'please_add_level', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4367, 12, N'please_add_position', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4368, 12, N'please_add_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4369, 12, N'name_already_used', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4370, 12, N'help', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4371, 12, N'new_objective', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4372, 12, N'export_report', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4373, 12, N'telephone', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4374, 12, N'address', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4375, 12, N'zipcode', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4376, 12, N'mail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4377, 12, N'assign', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4378, 12, N'close', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4379, 12, N'unassign', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4380, 12, N'branches', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4381, 12, N'assignedBranches', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4382, 12, N'warehouses', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4383, 12, N'assignedWarehosues', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4384, 12, N'products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4385, 12, N'products_to_add', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4386, 12, N'no_warehouse_found', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4387, 12, N'no_branch_found', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4388, 12, N'choose', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4389, 12, N'set_up', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4390, 12, N'wrong_warehouse', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4391, 12, N'wrong_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4392, 12, N'wrong_branch', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4393, 12, N'wrong_config', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4394, 12, N'remove', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4395, 12, N'remove_product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4396, 12, N'create_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4397, 12, N'member', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4398, 12, N'choose_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4399, 12, N'assign_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4400, 12, N'complete_order', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4401, 12, N'create_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4402, 12, N'vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4403, 12, N'search_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4404, 12, N'street', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4405, 12, N'city', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4406, 12, N'state', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4407, 12, N'country', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4408, 12, N'add_to_cart', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4409, 12, N'empty_cart', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4410, 12, N'add_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4411, 12, N'remove_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4412, 12, N'empty_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4413, 12, N'dispatch_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4414, 12, N'confirm_reception', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4415, 12, N'building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4416, 12, N'employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4417, 12, N'make_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4418, 12, N'search_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4419, 12, N'create_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4420, 12, N'cancel_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4421, 12, N'make_order_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4422, 12, N'register_products_entry', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4423, 12, N'penalize_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4424, 12, N'check_inventory', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4425, 12, N'receive_payment', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4426, 12, N'check_deliveries', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4427, 12, N'receive_order_deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4428, 12, N'make_order_deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4429, 12, N'all', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4430, 12, N'configure_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4431, 12, N'type_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4432, 12, N'deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4433, 12, N'branch', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4434, 12, N'create_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4435, 12, N'modify_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4436, 12, N'delete_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4437, 12, N'manage_employees', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4438, 12, N'create', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4439, 12, N'modify', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4440, 12, N'job', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4441, 12, N'dni', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4442, 12, N'question_delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4443, 12, N'confirm_delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4444, 12, N'blocked', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4445, 12, N'amount_errors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4446, 12, N'modify_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4447, 12, N'delete_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4448, 12, N'restore_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4449, 12, N'check_penalizations', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4450, 12, N'manage_vendors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4451, 12, N'vendor_no_versions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4452, 12, N'missing_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4453, 12, N'damaged_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4454, 12, N'incorrect_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4455, 12, N'late_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4456, 12, N'no_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4457, 12, N'complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4458, 12, N'question_penalize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4459, 12, N'motive', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4460, 12, N'confirm_penalization', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4461, 12, N'success_penalization', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4462, 12, N'success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4463, 12, N'code', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4464, 12, N'price', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4465, 12, N'amount_buy', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4466, 12, N'total_product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4467, 12, N'total', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4468, 12, N'add_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4469, 12, N'finish_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4470, 12, N'stock', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4471, 12, N'please_add_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4472, 12, N'installment', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4473, 12, N'installments', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4474, 12, N'select_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4475, 12, N'initiated', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4476, 12, N'discount', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4477, 12, N'branch_takeaway', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4478, 12, N'delivery_city', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4479, 12, N'delivery_province', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4480, 12, N'delivery_country', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4481, 12, N'amount_takeaway', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4482, 12, N'cash', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4483, 12, N'debit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4484, 12, N'credit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4485, 12, N'search_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4486, 12, N'branch_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4487, 12, N'client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4488, 12, N'delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4489, 12, N'payment_method', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4490, 12, N'yes', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4491, 12, N'no', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4492, 12, N'add_address', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4493, 12, N'success_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4494, 12, N'status', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4495, 12, N'product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4496, 12, N'cost', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4497, 12, N'amount', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4498, 12, N'total_detail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4499, 12, N'product_bad_condition', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4500, 12, N'product_not_desired', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4501, 12, N'sale_no_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4502, 12, N'loss', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4503, 12, N'devolution', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4504, 12, N'choose_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4505, 12, N'please_positive_number', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4506, 12, N'please_positive_number_or_less', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4507, 12, N'question_cancel_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4508, 12, N'confirmation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4509, 12, N'finish_order', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4510, 12, N'family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4511, 12, N'cashier', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4512, 12, N'delivery_receptions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4513, 12, N'admin', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4514, 12, N'check_complaints', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4515, 12, N'inactive_user', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4516, 13, N'language', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4517, 13, N'bitacore', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4518, 13, N'username', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4519, 13, N'password', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4520, 13, N'login', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4521, 13, N'updateDV', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4522, 13, N'employees', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4523, 13, N'rest_dv', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4524, 13, N'restore', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4525, 13, N'bkp_done', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4526, 13, N'restore_done', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4527, 13, N'login_failed', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4528, 13, N'login_success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4529, 13, N'logout_success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4530, 13, N'notification', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4531, 13, N'dvh_table', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4532, 13, N'error_row', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4533, 13, N'dvv_table', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4534, 13, N'error_contact_admin', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4535, 13, N'recognize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4536, 13, N'see_profile', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4537, 13, N'search', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4538, 13, N'name', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4539, 13, N'lastname', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4540, 13, N'save', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4541, 13, N'update', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4542, 13, N'new_pass', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4543, 13, N'personal_data', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4544, 13, N'error', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4545, 13, N'add_user', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4546, 13, N'role', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4547, 13, N'delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4548, 13, N'date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4549, 13, N'title', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4550, 13, N'description', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4551, 13, N'type', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4552, 13, N'valoration', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4553, 13, N'patents', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4554, 13, N'add', N'Agregarnho')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4555, 13, N'edit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4556, 13, N'incorrect_data', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4557, 13, N'emblem', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4558, 13, N'recognized', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4559, 13, N'recognize_create_success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4560, 13, N'see_recognize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4561, 13, N'last_recognizes', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4562, 13, N'boss', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4563, 13, N'suggest', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4564, 13, N'experience_sent', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4565, 13, N'sent', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4566, 13, N'received', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4567, 13, N'my_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4568, 13, N'sector_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4569, 13, N'finalize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4570, 13, N'not_finalized', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4571, 13, N'assign_new', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4572, 13, N'objective', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4573, 13, N'pick_valid_date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4574, 13, N'close_before', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4575, 13, N'employee_assigned', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4576, 13, N'level', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4577, 13, N'see_detail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4578, 13, N'open', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4579, 13, N'closed', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4580, 13, N'manage', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4581, 13, N'open_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4582, 13, N'closed_objectives', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4583, 13, N'objective_taken', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4584, 13, N'archive', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4585, 13, N'cant_recognize_myself', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4586, 13, N'cant_delete_my_family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4587, 13, N'position', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4588, 13, N'user', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4589, 13, N'reward', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4590, 13, N'created', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4591, 13, N'updated', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4592, 13, N'deleted', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4593, 13, N'appreciation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4594, 13, N'families', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4595, 13, N'emblems', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4596, 13, N'sectors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4597, 13, N'positions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4598, 13, N'rewards', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4599, 13, N'old_pass', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4600, 13, N'date_creation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4601, 13, N'date_close', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4602, 13, N'manage_family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4603, 13, N'filter', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4604, 13, N'recognizer', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4605, 13, N'select', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4606, 13, N'enter_date', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4607, 13, N'please_add_level', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4608, 13, N'please_add_position', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4609, 13, N'please_add_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4610, 13, N'name_already_used', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4611, 13, N'help', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4612, 13, N'new_objective', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4613, 13, N'export_report', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4614, 13, N'telephone', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4615, 13, N'address', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4616, 13, N'zipcode', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4617, 13, N'mail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4618, 13, N'assign', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4619, 13, N'close', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4620, 13, N'unassign', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4621, 13, N'branches', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4622, 13, N'assignedBranches', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4623, 13, N'warehouses', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4624, 13, N'assignedWarehosues', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4625, 13, N'products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4626, 13, N'products_to_add', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4627, 13, N'no_warehouse_found', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4628, 13, N'no_branch_found', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4629, 13, N'choose', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4630, 13, N'set_up', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4631, 13, N'wrong_warehouse', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4632, 13, N'wrong_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4633, 13, N'wrong_branch', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4634, 13, N'wrong_config', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4635, 13, N'remove', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4636, 13, N'remove_product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4637, 13, N'create_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4638, 13, N'member', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4639, 13, N'choose_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4640, 13, N'assign_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4641, 13, N'complete_order', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4642, 13, N'create_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4643, 13, N'vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4644, 13, N'search_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4645, 13, N'street', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4646, 13, N'city', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4647, 13, N'state', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4648, 13, N'country', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4649, 13, N'add_to_cart', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4650, 13, N'empty_cart', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4651, 13, N'add_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4652, 13, N'remove_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4653, 13, N'empty_local_pickup', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4654, 13, N'dispatch_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4655, 13, N'confirm_reception', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4656, 13, N'building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4657, 13, N'employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4658, 13, N'make_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4659, 13, N'search_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4660, 13, N'create_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4661, 13, N'cancel_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4662, 13, N'make_order_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4663, 13, N'register_products_entry', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4664, 13, N'penalize_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4665, 13, N'check_inventory', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4666, 13, N'receive_payment', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4667, 13, N'check_deliveries', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4668, 13, N'receive_order_deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4669, 13, N'make_order_deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4670, 13, N'all', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4671, 13, N'configure_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4672, 13, N'type_building', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4673, 13, N'deposit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4674, 13, N'branch', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4675, 13, N'create_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4676, 13, N'modify_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4677, 13, N'delete_employee', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4678, 13, N'manage_employees', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4679, 13, N'create', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4680, 13, N'modify', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4681, 13, N'job', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4682, 13, N'dni', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4683, 13, N'question_delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4684, 13, N'confirm_delete', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4685, 13, N'blocked', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4686, 13, N'amount_errors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4687, 13, N'modify_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4688, 13, N'delete_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4689, 13, N'restore_vendor', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4690, 13, N'check_penalizations', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4691, 13, N'manage_vendors', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4692, 13, N'vendor_no_versions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4693, 13, N'missing_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4694, 13, N'damaged_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4695, 13, N'incorrect_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4696, 13, N'late_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4697, 13, N'no_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4698, 13, N'complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4699, 13, N'question_penalize', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4700, 13, N'motive', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4701, 13, N'confirm_penalization', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4702, 13, N'success_penalization', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4703, 13, N'success', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4704, 13, N'code', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4705, 13, N'price', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4706, 13, N'amount_buy', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4707, 13, N'total_product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4708, 13, N'total', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4709, 13, N'add_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4710, 13, N'finish_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4711, 13, N'stock', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4712, 13, N'please_add_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4713, 13, N'installment', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4714, 13, N'installments', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4715, 13, N'select_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4716, 13, N'initiated', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4717, 13, N'discount', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4718, 13, N'branch_takeaway', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4719, 13, N'delivery_city', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4720, 13, N'delivery_province', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4721, 13, N'delivery_country', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4722, 13, N'amount_takeaway', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4723, 13, N'cash', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4724, 13, N'debit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4725, 13, N'credit', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4726, 13, N'search_client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4727, 13, N'branch_delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4728, 13, N'client', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4729, 13, N'delivery', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4730, 13, N'payment_method', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4731, 13, N'yes', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4732, 13, N'no', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4733, 13, N'add_address', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4734, 13, N'success_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4735, 13, N'status', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4736, 13, N'product', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4737, 13, N'cost', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4738, 13, N'amount', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4739, 13, N'total_detail', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4740, 13, N'product_bad_condition', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4741, 13, N'product_not_desired', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4742, 13, N'sale_no_products', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4743, 13, N'loss', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4744, 13, N'devolution', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4745, 13, N'choose_complaint', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4746, 13, N'please_positive_number', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4747, 13, N'please_positive_number_or_less', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4748, 13, N'question_cancel_sale', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4749, 13, N'confirmation', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4750, 13, N'finish_order', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4751, 13, N'family', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4752, 13, N'cashier', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4753, 13, N'delivery_receptions', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4754, 13, N'admin', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4755, 13, N'check_complaints', N'')
-GO
-INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (4756, 13, N'inactive_user', N'')
+INSERT [dbo].[control] ([id], [idIdioma], [tag], [texto]) VALUES (12827, 46, N'manage_deposits', N'')
 GO
 SET IDENTITY_INSERT [dbo].[control] OFF
 GO
@@ -4705,17 +4690,23 @@ INSERT [dbo].[deposito] ([id], [nombre], [direccion], [mail], [codigoPostal], [t
 GO
 INSERT [dbo].[deposito] ([id], [nombre], [direccion], [mail], [codigoPostal], [telefono], [dvh], [activo]) VALUES (2, N'Recoleta', N'Roca 124', N'recolata@nsj.com', 1098, N'2571262', N'1275051092', 1)
 GO
+INSERT [dbo].[deposito] ([id], [nombre], [direccion], [mail], [codigoPostal], [telefono], [dvh], [activo]) VALUES (3, N'fghdfgdgf', N'ghdfg', N'fghdgf', 7856, N'787455', N'717695635', 0)
+GO
+INSERT [dbo].[deposito] ([id], [nombre], [direccion], [mail], [codigoPostal], [telefono], [dvh], [activo]) VALUES (4, N'ghjgjh', N'tyugjhgjh', N'tyu', 787, N'787', N'-692657947', 0)
+GO
 SET IDENTITY_INSERT [dbo].[deposito] OFF
 GO
 SET IDENTITY_INSERT [dbo].[deposito_producto] ON 
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (1, 1, 1, -6)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (1, 1, 1, 2)
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (3, 1, 3, 0)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (3, 1, 3, 7)
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (4, 2, 1, 3)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (4, 2, 1, 7)
 GO
-INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (5, 2, 3, 2)
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (5, 2, 3, 7)
+GO
+INSERT [dbo].[deposito_producto] ([id], [idDeposito], [idProducto], [stock]) VALUES (6, 1, 4, 1)
 GO
 SET IDENTITY_INSERT [dbo].[deposito_producto] OFF
 GO
@@ -4789,13 +4780,13 @@ SET IDENTITY_INSERT [dbo].[direccion] OFF
 GO
 SET IDENTITY_INSERT [dbo].[dvv] ON 
 GO
-INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (1, N'usuario', N'671894005')
+INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (1, N'usuario', N'-943132234')
 GO
 INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (2, N'producto', N'-2092459432')
 GO
 INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (3, N'familia', N'970202579')
 GO
-INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (4, N'deposito', N'-508331991')
+INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (4, N'deposito', N'177661652')
 GO
 INSERT [dbo].[dvv] ([id], [nombreTabla], [dvv]) VALUES (5, N'sucursal', N'1615648807')
 GO
@@ -4921,11 +4912,19 @@ INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fe
 GO
 INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (19, 39, 1, 1, CAST(N'2021-12-08T18:26:15.000' AS DateTime), CAST(N'2021-12-08T18:26:19.577' AS DateTime), 3)
 GO
-INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (20, 40, 1, 1, NULL, NULL, 1)
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (20, 40, 1, 1, CAST(N'2022-03-17T13:19:27.920' AS DateTime), CAST(N'2022-03-17T13:19:33.160' AS DateTime), 3)
 GO
 INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (21, 41, 1, 1, NULL, NULL, 1)
 GO
 INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (22, 46, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (23, 58, 2, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (24, 59, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (25, 60, 1, 1, NULL, NULL, 1)
+GO
+INSERT [dbo].[envio_sucursal] ([id], [idVenta], [idDireccion], [idSucursal], [fechaSalida], [fechaLlegada], [idEstado]) VALUES (26, 61, 1, 1, NULL, NULL, 1)
 GO
 SET IDENTITY_INSERT [dbo].[envio_sucursal] OFF
 GO
@@ -4963,6 +4962,14 @@ INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VAL
 GO
 INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (16, 62, 1)
 GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (17, 68, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (18, 69, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (19, 70, 1)
+GO
+INSERT [dbo].[envio_sucursal_detalle] ([id], [idVentaDetalle], [idSucursal]) VALUES (20, 71, 1)
+GO
 SET IDENTITY_INSERT [dbo].[envio_sucursal_detalle] OFF
 GO
 SET IDENTITY_INSERT [dbo].[familia] ON 
@@ -4999,14 +5006,6 @@ INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (43, 5, 1
 GO
 INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (44, 5, 11)
 GO
-INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (45, 1, 11)
-GO
-INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (46, 2, 11)
-GO
-INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (47, 3, 11)
-GO
-INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (48, 4, 11)
-GO
 INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (49, 7, 1)
 GO
 INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (50, 7, 2)
@@ -5023,6 +5022,16 @@ INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (58, 7, 1
 GO
 INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (59, 7, 11)
 GO
+INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (60, 5, 2)
+GO
+INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (61, 5, 3)
+GO
+INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (62, 5, 4)
+GO
+INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (63, 5, 5)
+GO
+INSERT [dbo].[familia_patente] ([id], [idFamilia], [idPatente]) VALUES (67, 5, 9)
+GO
 SET IDENTITY_INSERT [dbo].[familia_patente] OFF
 GO
 SET IDENTITY_INSERT [dbo].[idioma] ON 
@@ -5031,15 +5040,11 @@ INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (1, N'Castellano', 1)
 GO
 INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (2, N'English', 1)
 GO
-INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (9, N'Lenguaje sin nombre', 0)
+INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (44, N'YIUI', 0)
 GO
-INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (10, N'Lenguaje sin nombre', 0)
+INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (45, N'Portugues', 0)
 GO
-INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (11, N'Lenguaje sin nombre', 0)
-GO
-INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (12, N'Lenguaje sin nombre', 0)
-GO
-INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (13, N'Portugues', 1)
+INSERT [dbo].[idioma] ([id], [nombre], [activo]) VALUES (46, N'fhgtfhg', 0)
 GO
 SET IDENTITY_INSERT [dbo].[idioma] OFF
 GO
@@ -5054,6 +5059,20 @@ GO
 INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (4, 15, 343.6600, 0.0000)
 GO
 INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (5, 51, 760.5100, 39.4900)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1004, 56, 1169.6300, 0.0000)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1005, 57, 504.2800, 0.0000)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1006, 58, 693.7600, 6.2400)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1007, 44, 2938.2900, 61.7100)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1008, 11, 343.6600, 0.0000)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1009, 41, 2938.2900, 61.7100)
+GO
+INSERT [dbo].[pago] ([id], [idVenta], [montoCobrado], [vuelto]) VALUES (1010, 39, 2938.2900, 61.7100)
 GO
 SET IDENTITY_INSERT [dbo].[pago] OFF
 GO
@@ -5081,6 +5100,14 @@ SET IDENTITY_INSERT [dbo].[pedido_deposito] ON
 GO
 INSERT [dbo].[pedido_deposito] ([id], [idUsuario], [idSucursal], [fechaPedido], [fechaRecepcion], [idEstado]) VALUES (2, 4, 1, CAST(N'2021-12-20T21:56:18.000' AS DateTime), CAST(N'2021-12-21T00:44:49.043' AS DateTime), 2)
 GO
+INSERT [dbo].[pedido_deposito] ([id], [idUsuario], [idSucursal], [fechaPedido], [fechaRecepcion], [idEstado]) VALUES (3, 4, 1, CAST(N'2022-03-17T13:44:34.000' AS DateTime), CAST(N'2022-03-17T13:50:26.383' AS DateTime), 2)
+GO
+INSERT [dbo].[pedido_deposito] ([id], [idUsuario], [idSucursal], [fechaPedido], [fechaRecepcion], [idEstado]) VALUES (4, 4, 1, CAST(N'2022-03-17T13:51:38.000' AS DateTime), CAST(N'2022-03-17T13:52:09.190' AS DateTime), 2)
+GO
+INSERT [dbo].[pedido_deposito] ([id], [idUsuario], [idSucursal], [fechaPedido], [fechaRecepcion], [idEstado]) VALUES (5, 4, 1, CAST(N'2022-03-17T13:54:18.000' AS DateTime), CAST(N'2022-03-17T13:54:26.433' AS DateTime), 2)
+GO
+INSERT [dbo].[pedido_deposito] ([id], [idUsuario], [idSucursal], [fechaPedido], [fechaRecepcion], [idEstado]) VALUES (6, 4, 1, CAST(N'2022-03-17T18:12:13.000' AS DateTime), CAST(N'2022-03-17T18:12:33.247' AS DateTime), 2)
+GO
 SET IDENTITY_INSERT [dbo].[pedido_deposito] OFF
 GO
 SET IDENTITY_INSERT [dbo].[pedido_deposito_detalle] ON 
@@ -5089,23 +5116,39 @@ INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], 
 GO
 INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (4, 2, 2, 1, CAST(300.00 AS Decimal(14, 2)), 1)
 GO
+INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (5, 3, 1, 1, CAST(300.00 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (6, 4, 1, 1, CAST(300.00 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (7, 5, 1, 1, CAST(300.00 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (8, 6, 1, 1, CAST(300.00 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[pedido_deposito_detalle] ([id], [idPedidoDeposito], [idDeposito], [idProducto], [costoUnitario], [cantidad]) VALUES (9, 6, 1, 3, CAST(400.00 AS Decimal(14, 2)), 3)
+GO
 SET IDENTITY_INSERT [dbo].[pedido_deposito_detalle] OFF
 GO
 SET IDENTITY_INSERT [dbo].[pedido_proveedor] ON 
 GO
-INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (5, 4, 2, 1, CAST(N'2021-12-08T00:00:00.000' AS DateTime), CAST(N'2021-12-09T04:39:56.417' AS DateTime), CAST(600.00 AS Decimal(14, 2)), 1)
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (5, 4, 2, 1, CAST(N'2021-12-08T00:00:00.000' AS DateTime), CAST(N'2022-03-17T02:49:24.410' AS DateTime), CAST(600.00 AS Decimal(14, 2)), 2)
 GO
 INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (6, 4, 2, 1, CAST(N'2021-12-08T00:00:00.000' AS DateTime), CAST(N'2021-12-09T23:34:58.733' AS DateTime), CAST(900.00 AS Decimal(14, 2)), 2)
 GO
 INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (7, 4, 2, 1, CAST(N'2021-12-13T18:41:07.000' AS DateTime), CAST(N'2021-12-13T19:28:59.323' AS DateTime), CAST(900.00 AS Decimal(14, 2)), 2)
 GO
-INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (8, 4, 2, 1, CAST(N'2021-12-13T18:51:42.000' AS DateTime), NULL, CAST(600.00 AS Decimal(14, 2)), 1)
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (8, 4, 2, 1, CAST(N'2021-12-13T18:51:42.000' AS DateTime), CAST(N'2022-03-17T02:46:23.463' AS DateTime), CAST(600.00 AS Decimal(14, 2)), 2)
 GO
-INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (9, 4, 2, 1, CAST(N'2021-12-13T20:37:49.000' AS DateTime), NULL, CAST(1400.00 AS Decimal(14, 2)), 1)
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (9, 4, 2, 1, CAST(N'2021-12-13T20:37:49.000' AS DateTime), CAST(N'2022-03-17T02:43:57.800' AS DateTime), CAST(1400.00 AS Decimal(14, 2)), 2)
 GO
-INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (11, 4, 2, 1, CAST(N'2021-12-21T00:55:34.000' AS DateTime), NULL, CAST(2100.00 AS Decimal(14, 2)), 1)
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (11, 4, 2, 1, CAST(N'2021-12-21T00:55:34.000' AS DateTime), CAST(N'2022-03-17T02:40:15.650' AS DateTime), CAST(2100.00 AS Decimal(14, 2)), 2)
 GO
 INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (12, 12, 3, 1, CAST(N'2021-12-23T19:43:36.000' AS DateTime), CAST(N'2021-12-23T19:44:04.403' AS DateTime), CAST(2900.00 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (16, 4, 2, 1, CAST(N'2022-03-17T02:21:09.000' AS DateTime), CAST(N'2022-03-17T02:39:14.500' AS DateTime), CAST(600.00 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (17, 4, 2, 1, CAST(N'2022-03-17T02:22:54.000' AS DateTime), CAST(N'2022-03-17T02:33:06.053' AS DateTime), CAST(600.00 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[pedido_proveedor] ([id], [idUsuario], [idProveedor], [idDeposito], [fechaPedido], [fechaRecepcion], [total], [idEstado]) VALUES (18, 4, 2, 1, CAST(N'2022-03-17T02:32:37.000' AS DateTime), CAST(N'2022-03-17T02:32:53.563' AS DateTime), CAST(300.00 AS Decimal(14, 2)), 2)
 GO
 SET IDENTITY_INSERT [dbo].[pedido_proveedor] OFF
 GO
@@ -5136,6 +5179,12 @@ GO
 INSERT [dbo].[pedido_proveedor_detalle] ([id], [idPedidoProveedor], [idProducto], [cantidad]) VALUES (12, 12, 1, 7)
 GO
 INSERT [dbo].[pedido_proveedor_detalle] ([id], [idPedidoProveedor], [idProducto], [cantidad]) VALUES (13, 12, 3, 2)
+GO
+INSERT [dbo].[pedido_proveedor_detalle] ([id], [idPedidoProveedor], [idProducto], [cantidad]) VALUES (14, 16, 1, 2)
+GO
+INSERT [dbo].[pedido_proveedor_detalle] ([id], [idPedidoProveedor], [idProducto], [cantidad]) VALUES (15, 17, 1, 2)
+GO
+INSERT [dbo].[pedido_proveedor_detalle] ([id], [idPedidoProveedor], [idProducto], [cantidad]) VALUES (16, 18, 1, 1)
 GO
 SET IDENTITY_INSERT [dbo].[pedido_proveedor_detalle] OFF
 GO
@@ -5209,11 +5258,13 @@ SET IDENTITY_INSERT [dbo].[producto] OFF
 GO
 SET IDENTITY_INSERT [dbo].[proveedor] ON 
 GO
-INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (1, N'juanernesto', N'juan 16237', 2687, N'juan@gmail.com', N'67868', 0, 0)
+INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (1, N'Catalys', N'Romano 172', 2687, N'catalys@gmail.com', N'567576', 0, 0)
 GO
-INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (2, N'ricardo', N'ricardo 5656', 21789, N'ricardo@gmail.com', N'678', 11, 1)
+INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (2, N'Swansson', N'Espada 262', 2152, N'Swansson@gmail.com', N'56567', 17, 1)
 GO
-INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (3, N'juancho', N'juan 456', 2000, N'juancho@gmail.com', N'0303456', 2, 1)
+INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (3, N'Sariftg', N'Roma 162', 2000, N'sarif@gmail.com', N'0303456', 2, 1)
+GO
+INSERT [dbo].[proveedor] ([id], [nombre], [direccion], [codigoPostal], [mail], [telefono], [cantidadErrores], [activo]) VALUES (4, N'Jensen', N'Detroit 2182', 3728, N'jensen@gmail.com', N'7878', 0, 0)
 GO
 SET IDENTITY_INSERT [dbo].[proveedor] OFF
 GO
@@ -5243,19 +5294,23 @@ INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha])
 GO
 INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (13, 3, 1, CAST(N'2021-12-23T19:44:14.000' AS DateTime))
 GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (14, 2, 1, CAST(N'2022-03-16T20:47:42.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (15, 2, 1, CAST(N'2022-03-17T02:32:53.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (16, 2, 1, CAST(N'2022-03-17T02:33:06.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (17, 2, 1, CAST(N'2022-03-17T02:40:15.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (18, 2, 1, CAST(N'2022-03-17T02:43:57.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (19, 2, 1, CAST(N'2022-03-17T02:46:23.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (20, 3, 1, CAST(N'2022-03-17T02:49:34.000' AS DateTime))
+GO
+INSERT [dbo].[proveedor_penalizacion] ([id], [idProveedor], [idMotivo], [fecha]) VALUES (21, 3, 3, CAST(N'2022-03-17T02:49:40.000' AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[proveedor_penalizacion] OFF
-GO
-SET IDENTITY_INSERT [dbo].[puesto] ON 
-GO
-INSERT [dbo].[puesto] ([id], [nombre]) VALUES (1, N'Empleado')
-GO
-INSERT [dbo].[puesto] ([id], [nombre]) VALUES (2, N'Jefe')
-GO
-INSERT [dbo].[puesto] ([id], [nombre]) VALUES (3, N'Gerente')
-GO
-INSERT [dbo].[puesto] ([id], [nombre]) VALUES (7, N'CEO')
-GO
-SET IDENTITY_INSERT [dbo].[puesto] OFF
 GO
 SET IDENTITY_INSERT [dbo].[sucursal] ON 
 GO
@@ -5269,7 +5324,7 @@ SET IDENTITY_INSERT [dbo].[sucursal_producto] ON
 GO
 INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (1, 1, 1, 0)
 GO
-INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (3, 1, 3, 9)
+INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (3, 1, 3, 3)
 GO
 INSERT [dbo].[sucursal_producto] ([id], [idSucursal], [idProducto], [stock]) VALUES (6, 1, 1, 2)
 GO
@@ -5277,23 +5332,27 @@ SET IDENTITY_INSERT [dbo].[sucursal_producto] OFF
 GO
 SET IDENTITY_INSERT [dbo].[usuario] ON 
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (4, N'Admindfdd', N'Admindfgdg', 38726254, N'admin@asd.com', N'1162538276', N'admin', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2019-04-09T00:00:00.000' AS DateTime), 0, N'1940732993', 1, 5, 3)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (4, N'Admin', N'Adminson', 38726254, N'admin@asd.com', N'1162538276', N'admin', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2019-04-09T00:00:00.000' AS DateTime), 0, N'-1441823615', 1, 5)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (5, N'ddfgdgffhg', N'juannhh', 256767, N'hgjgh', N'567567', N'inactive', N'hsjkjkahaskjhaskjh', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 2, N'-1170743431', 0, 1, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (5, N'Juan', N'Gutierrez', 256767, N'juan@gmail.com', N'567567', N'inactive', N'hsjkjkahaskjhaskjh', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'1042988577', 0, 1)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (6, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'sales_not_assigned', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-76968037', 1, 2, 2)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (6, N'Ricardo', N'Gonzalez', 456456, N'ricardo@gmail.com', N'4564', N'sales_not_assigned', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'1102484370', 1, 2)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (7, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'sales', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'1205920524', 1, 2, 2)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (7, N'Carlos', N'Bala', 456456, N'carlos@gmail.com', N'4564', N'sales', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 3, N'-231299937', 0, 2)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (8, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'deposit_not_assigned', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'563568223', 1, 1, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (8, N'Diego', N'Maradona', 456456, N'diego@gmail.com', N'4564', N'deposit_not_assigned', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-149113897', 1, 1)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (9, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'deposit', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-845084217', 1, 1, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (9, N'Lionel', N'Messi', 456456, N'lionel@gmail.com', N'4564', N'deposit', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'2001248706', 1, 1)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (10, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'delivery', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'267829017', 1, 3, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (10, N'Leonardo', N'Ninja', 456456, N'leo@gmail.com', N'4564', N'delivery', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-253393727', 1, 3)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (11, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'cashier', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'1521706498', 1, 4, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (11, N'Rafael', N'Coma', 456456, N'rafael@gmail.com', N'4564', N'cashier', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'1171467927', 1, 4)
 GO
-INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia], [idPuesto]) VALUES (12, N'dfgdfg', N'dfgdg', 456456, N'dfgdfg', N'4564', N'global', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-781739148', 1, 7, 1)
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (12, N'fgfg', N'Palo', 456456, N'donatello@gmail.com', N'4564', N'global', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2021-10-28T00:00:00.000' AS DateTime), 0, N'-1171026230', 1, 7)
+GO
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (13, N'gfhjghj', N'Nunchaku', 2637829, N'migue@gmail.com', N'57676', N'migue', N'3HhxGocas55cs8Bct+/O3Q==', CAST(N'2022-03-16T00:00:00.000' AS DateTime), 0, N'621471724', 0, 1)
+GO
+INSERT [dbo].[usuario] ([id], [nombre], [apellido], [dni], [mail], [telefono], [nombreUsuario], [password], [fechaCreacion], [intentosFallidos], [dvh], [activo], [idFamilia]) VALUES (17, N'tguytyu', N'tyutuy', 678, N'tuytyu', N'67868', N'tyj', N'nRy/sK5Z7ENvGsSwfcmLzw==', CAST(N'2022-03-16T00:00:00.000' AS DateTime), 0, N'990676316', 1, 1)
 GO
 SET IDENTITY_INSERT [dbo].[usuario] OFF
 GO
@@ -5323,13 +5382,13 @@ INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoP
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (5, 4, 3, 1, 1, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(12084.71 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (6, 4, 3, 1, 1, 1, 1, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(49576.87 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (6, 4, 3, 1, 1, 1, 3, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(49576.87 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (7, 4, 2, 1, 1, 1, 3, CAST(N'2021-11-03T00:00:00.000' AS DateTime), CAST(276751.52 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (10, 4, 1, 1, 3, 3, 2, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (11, 4, 1, 1, 3, 2, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (11, 4, 1, 1, 3, 2, 2, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (12, 4, 1, 1, 3, 1, 1, CAST(N'2021-11-19T00:00:00.000' AS DateTime), CAST(343.66 AS Decimal(14, 2)))
 GO
@@ -5383,19 +5442,19 @@ INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoP
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (37, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (38, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(5980.35 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (38, 4, 1, 1, 1, 2, 3, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(5980.35 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (39, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (39, 4, 1, 1, 1, 2, 2, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (40, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (40, 4, 1, 1, 1, 2, 3, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (41, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (41, 4, 1, 1, 1, 2, 2, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (42, 4, 1, 1, 1, 2, 4, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (43, 4, 1, 1, 1, 2, 9, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (44, 4, 1, 1, 1, 2, 1, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (44, 4, 1, 1, 1, 2, 2, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (45, 4, 1, 1, 1, 2, 9, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2938.29 AS Decimal(14, 2)))
 GO
@@ -5419,7 +5478,17 @@ INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoP
 GO
 INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (55, 4, 1, 1, 1, 2, 3, CAST(N'2021-12-03T00:00:00.000' AS DateTime), CAST(2553.98 AS Decimal(14, 2)))
 GO
-INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (56, 12, 4, 0, 3, 2, 1, CAST(N'2021-12-23T00:00:00.000' AS DateTime), CAST(1169.63 AS Decimal(14, 2)))
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (56, 12, 4, 0, 3, 2, 2, CAST(N'2021-12-23T00:00:00.000' AS DateTime), CAST(1169.63 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (57, 4, 1, 1, 3, 1, 2, CAST(N'2022-03-17T00:00:00.000' AS DateTime), CAST(504.28 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (58, 4, 1, 1, 1, 2, 2, CAST(N'2022-03-17T00:00:00.000' AS DateTime), CAST(693.76 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (59, 4, 1, 1, 1, 2, 1, CAST(N'2022-03-17T00:00:00.000' AS DateTime), CAST(693.76 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (60, 4, 1, 1, 3, 3, 1, CAST(N'2022-03-17T00:00:00.000' AS DateTime), CAST(1428.57 AS Decimal(14, 2)))
+GO
+INSERT [dbo].[venta] ([id], [idUsuario], [idComprador], [idSucursal], [idMetodoPago], [idTipoEntrega], [idEstado], [fecha], [total]) VALUES (61, 4, 1, 1, 2, 2, 1, CAST(N'2022-03-17T00:00:00.000' AS DateTime), CAST(730.27 AS Decimal(14, 2)))
 GO
 SET IDENTITY_INSERT [dbo].[venta] OFF
 GO
@@ -5553,15 +5622,17 @@ INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [p
 GO
 INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (66, 56, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
 GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (67, 57, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (68, 58, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (69, 59, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (70, 60, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 2)
+GO
+INSERT [dbo].[venta_detalle] ([id], [idVenta], [idProducto], [costoUnitario], [precioUnitario], [cantidad]) VALUES (71, 61, 3, CAST(400.00 AS Decimal(14, 2)), CAST(480.27 AS Decimal(14, 2)), 1)
+GO
 SET IDENTITY_INSERT [dbo].[venta_detalle] OFF
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_producto]    Script Date: 12/30/2021 15:58:15 ******/
-CREATE NONCLUSTERED INDEX [IX_producto] ON [dbo].[producto]
-(
-	[codigo] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[control]  WITH CHECK ADD  CONSTRAINT [FK_control_idioma] FOREIGN KEY([idIdioma])
 REFERENCES [dbo].[idioma] ([id])
@@ -5768,11 +5839,6 @@ REFERENCES [dbo].[sucursal] ([id])
 GO
 ALTER TABLE [dbo].[sucursal_producto] CHECK CONSTRAINT [FK_sucursal_producto_sucursal]
 GO
-ALTER TABLE [dbo].[usuario]  WITH CHECK ADD  CONSTRAINT [FK_usuario_puesto] FOREIGN KEY([idPuesto])
-REFERENCES [dbo].[puesto] ([id])
-GO
-ALTER TABLE [dbo].[usuario] CHECK CONSTRAINT [FK_usuario_puesto]
-GO
 ALTER TABLE [dbo].[usuario_deposito]  WITH CHECK ADD  CONSTRAINT [FK_usuario_deposito_deposito] FOREIGN KEY([idDeposito])
 REFERENCES [dbo].[deposito] ([id])
 GO
@@ -5828,7 +5894,7 @@ REFERENCES [dbo].[venta] ([id])
 GO
 ALTER TABLE [dbo].[venta_detalle] CHECK CONSTRAINT [FK_venta_detalle_venta]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Backup]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Backup]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5851,7 +5917,7 @@ BACKUP DATABASE openEnterprise
 REVERT;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_1]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_1]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5870,10 +5936,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	ALTER DATABASE openEnterprise SET Single_User WITH Rollback Immediate
+	ALTER DATABASE openEnterprise SET MULTI_USER WITH Rollback Immediate
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_2]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_2]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5897,7 +5963,7 @@ BEGIN
 	RESTORE DATABASE openEnterprise FROM DISK = @bkpPath WITH REPLACE;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_3]    Script Date: 12/30/2021 15:58:15 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Restore_Step_3]    Script Date: 3/17/2022 18:28:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -5918,8 +5984,4 @@ BEGIN
     -- Insert statements for procedure here
 ALTER DATABASE openEnterprise SET Multi_User
 END
-GO
-USE [master]
-GO
-ALTER DATABASE [openEnterprise] SET  READ_WRITE 
 GO

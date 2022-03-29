@@ -1,11 +1,11 @@
 ﻿using BLL;
 using EE;
+using MetroFramework;
 using Security;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using MetroFramework;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -80,7 +80,7 @@ namespace UI
             gridProductos.Columns["costo"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             if (gridProductos.SelectedRows.Count == 0) return;
 
@@ -119,13 +119,13 @@ namespace UI
             }
         }
 
-        private void btnAsignarProductos_Click(object sender, EventArgs e)
+        private void BtnAsignarProductos_Click(object sender, EventArgs e)
         {
             _depositoPedidoHome.ActualizarGrid();
             Close();
         }
 
-        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
+        private void BtnRemoverProducto_Click(object sender, EventArgs e)
         {
             if (gridProductosAAgregar.SelectedRows.Count == 0) return;
 
@@ -139,7 +139,7 @@ namespace UI
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             if (_depositoPedidoHome.ProductosAAsignar.Count == 0) Close();
 
@@ -147,21 +147,22 @@ namespace UI
             ActualizarGrids();
             Close();
         }
-        private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+
+        private void GridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (gridProductos.CurrentCell.Value == null || (int)gridProductos.CurrentCell.Value > 0) return;
 
             gridProductos.CurrentCell.Value = 0;
         }
 
-        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void GridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             gridProductos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void gridProductos_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void GridProductos_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (int.TryParse(gridProductos.CurrentCell.EditedFormattedValue.ToString(), out _))
             {
@@ -169,9 +170,8 @@ namespace UI
             }
             else
             {
-                MetroMessageBox.Show(_depositoPedidoHome.Mdi, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"]);
+                MetroMessageBox.Show(_depositoPedidoHome.Mdi1, Sesion.ObtenerSesion().Idioma.Textos["please_positive_number"], Sesion.ObtenerSesion().Idioma.Textos["error"]);
             }
-
         }
 
         private void ProductoAgregar_Load(object sender, EventArgs e)
@@ -183,9 +183,9 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
+            if (e.KeyCode == Keys.Enter && txtBuscar.Text != null)
             {
                 gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
             }

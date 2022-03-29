@@ -59,33 +59,32 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == null &&
-                txtCliente.Text == null) return;
+            if (txtUsuario.Text == null && txtCliente.Text == null) return;
 
             var ventaEstado = (EstadoEe)cbEstado.SelectedItem;
             if (ventaEstado.Nombre == Sesion.ObtenerSesion().Idioma.Textos["all"])
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
             else
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower())
-                                                                  && x.Estado.Nombre.ToLower().Contains(ventaEstado.Nombre.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Estado.Nombre.IndexOf(ventaEstado.Nombre, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
             gridClientes.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void GridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
             // ReSharper disable once ObjectCreationAsStatement

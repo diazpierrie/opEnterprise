@@ -7,7 +7,7 @@ namespace DAL
 {
     public class FamiliaDal : ConnectionDal
     {
-        public FamiliaEe Obtener(int id)
+        public FamiliaEe ObtenerPorId(int id)
         {
             try
             {
@@ -41,8 +41,7 @@ namespace DAL
             return Insert("familia", columnas.ToArray(), valores.ToArray());
         }
 
-
-        public FamiliaEe Obtener(UsuarioEe usuario)
+        public FamiliaEe ObtenerPorUsuario(UsuarioEe usuario)
         {
             try
             {
@@ -120,7 +119,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<FamiliaEe>();
             }
         }
 
@@ -154,12 +153,7 @@ namespace DAL
                 var query = new SqlCommand(queryTxt, Conn);
                 Conn.Open();
                 var data = query.ExecuteReader();
-                var result = false;
-
-                if (data.HasRows)
-                {
-                    result = true;
-                }
+                var result = data.HasRows;
 
                 Conn.Close();
                 return result;
@@ -171,13 +165,13 @@ namespace DAL
             }
         }
 
-        public FamiliaEe CastDto(SqlDataReader data)
+        private static FamiliaEe CastDto(SqlDataReader data)
         {
-            var result = new FamiliaEe();
-            result.Id = Convert.ToInt32(data["id"]);
-            result.Nombre = data["Nombre"].ToString();
-
-            return result;
+            return new FamiliaEe
+            {
+                Id = Convert.ToInt32(data["id"]),
+                Nombre = data["Nombre"].ToString()
+            };
         }
     }
 }

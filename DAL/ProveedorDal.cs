@@ -25,10 +25,11 @@ namespace DAL
             {
                 Descripcion = data["Descripcion"].ToString(),
                 Fecha = Convert.ToDateTime(data["fecha"].ToString())
-        };
+            };
 
             return result;
         }
+
         public bool Actualizar(ProveedorEe proveedor)
         {
             var query = new SqlCommand("UPDATE proveedor SET nombre = @nombre, direccion = @direccion, mail = @mail, codigoPostal = @codigoPostal, telefono = @telefono WHERE id = @id", Conn);
@@ -42,7 +43,7 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        public ProveedorEe CastDto(SqlDataReader data)
+        private static ProveedorEe CastDto(SqlDataReader data)
         {
             var result = new ProveedorEe
             {
@@ -134,7 +135,7 @@ namespace DAL
             {
                 Conn.Close();
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ProveedorEe>();
             }
         }
 
@@ -174,7 +175,7 @@ namespace DAL
             {
                 var strQuery = "SELECT cm.id, ctrl.texto as descripcion " +
                                "FROM cMotivoPenalizacion as cm " +
-                               "INNER JOIN control as ctrl ON cm.descripcion = ctrl.tag " + 
+                               "INNER JOIN control as ctrl ON cm.descripcion = ctrl.tag " +
                                $"WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} " +
                                "ORDER BY id";
 
@@ -199,7 +200,7 @@ namespace DAL
             {
                 Conn.Close();
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PenalizacionMotivoEe>();
             }
         }
 
@@ -234,7 +235,7 @@ namespace DAL
             {
                 Conn.Close();
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PenalizacionProveedorEe>();
             }
         }
 

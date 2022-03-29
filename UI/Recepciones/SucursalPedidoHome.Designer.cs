@@ -104,7 +104,7 @@ namespace UI
             this.gridPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPedido.Size = new System.Drawing.Size(682, 405);
             this.gridPedido.TabIndex = 7;
-            this.gridPedido.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridVenta_CellValueChanged);
+            this.gridPedido.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridVenta_CellValueChanged);
             // 
             // btnRemoverProductos
             // 
@@ -116,7 +116,7 @@ namespace UI
             this.btnRemoverProductos.Tag = "remove_product";
             this.btnRemoverProductos.Text = "Remover Productos";
             this.btnRemoverProductos.UseSelectable = true;
-            this.btnRemoverProductos.Click += new System.EventHandler(this.btnRemoverProductos_Click);
+            this.btnRemoverProductos.Click += new System.EventHandler(this.BtnRemoverProductos_Click);
             // 
             // btnAgregarProductos
             // 
@@ -127,7 +127,7 @@ namespace UI
             this.btnAgregarProductos.TabIndex = 4;
             this.btnAgregarProductos.Text = "Agregar Productos";
             this.btnAgregarProductos.UseSelectable = true;
-            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAgregarProductos_Click);
+            this.btnAgregarProductos.Click += new System.EventHandler(this.BtnAgregarProductos_Click);
             // 
             // btnCompletarPedido
             // 
@@ -139,7 +139,7 @@ namespace UI
             this.btnCompletarPedido.Tag = "finish_request";
             this.btnCompletarPedido.Text = "Completar Pedido";
             this.btnCompletarPedido.UseSelectable = true;
-            this.btnCompletarPedido.Click += new System.EventHandler(this.btnCompletarPedido_Click);
+            this.btnCompletarPedido.Click += new System.EventHandler(this.BtnCompletarPedido_Click);
             // 
             // SucursalPedidoHome
             // 

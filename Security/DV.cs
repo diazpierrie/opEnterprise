@@ -83,7 +83,7 @@ namespace Security
             var result = new StringBuilder();
             foreach (var error in Errores)
             {
-                result.Append(error + "\n");
+                result.Append(error).Append('\n');
             }
 
             return result.ToString();

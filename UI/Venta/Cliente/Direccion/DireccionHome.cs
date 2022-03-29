@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -17,14 +17,14 @@ namespace UI
             InitializeComponent();
         }
 
-        private void btnCrearDireccion_Click(object sender, EventArgs e)
+        private void BtnCrearDireccion_Click(object sender, EventArgs e)
         {
             var direccionAltaModificacion = new DireccionAltaModificacion(this);
 
             direccionAltaModificacion.Show();
         }
 
-        private void btnModificarDireccion_Click(object sender, EventArgs e)
+        private void BtnModificarDireccion_Click(object sender, EventArgs e)
         {
             if (gridDireccion.SelectedRows.Count == 0)
             {
@@ -57,7 +57,7 @@ namespace UI
             gridDireccion.Columns["CantidadErrores"].DisplayIndex = 5;
         }
 
-        private void gridDireccion_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridDireccion_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridDireccion.SelectedRows.Count == 0)
             {
@@ -70,7 +70,7 @@ namespace UI
             direccionAltaModificacion.Show();
         }
 
-        private void btnBorrarDireccion_Click(object sender, EventArgs e)
+        private void BtnBorrarDireccion_Click(object sender, EventArgs e)
         {
             if (gridDireccion.SelectedRows.Count == 0)
             {
@@ -83,7 +83,7 @@ namespace UI
             direccionBaja.Show();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

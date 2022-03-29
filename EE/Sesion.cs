@@ -1,11 +1,11 @@
 ﻿namespace EE
 {
-    public class Sesion
+    public sealed class Sesion
     {
-        public UsuarioEe Usuario;
-        public IdiomaEe Idioma;
-        public SucursalEe Sucursal;
-        public DepositoEe Deposito;
+        public UsuarioEe Usuario { get; set; }
+        public IdiomaEe Idioma { get; set; }
+        public SucursalEe Sucursal { get; set; }
+        public DepositoEe Deposito { get; set; }
         private static Sesion _sesion;
 
         private Sesion()

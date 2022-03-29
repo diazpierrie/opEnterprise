@@ -46,7 +46,7 @@ namespace UI
             gridClientes.Columns["dni"].DisplayIndex = 3;
             gridClientes.Columns["telefono"].DisplayIndex = 4;
 
-            gridClientes.Columns["nombre"].HeaderText= Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridClientes.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
             gridClientes.Columns["apellido"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["lastname"];
             gridClientes.Columns["mail"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["mail"];
             gridClientes.Columns["dni"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["dni"];
@@ -55,19 +55,15 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnAltaCliente_Click(object sender, EventArgs e)
+        private void BtnAltaCliente_Click(object sender, EventArgs e)
         {
             var altaCliente = new ClienteAlta(this);
             Fatherform.Ventahome.Mdi.OpenWindowForm(altaCliente);
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == null &&
-                txtApellido.Text == null &&
-                txtDni.Text == null &&
-                txtMail.Text == null &&
-                txtTelefono.Text == null) return;
+            if (txtNombre.Text == null && txtApellido.Text == null && txtDni.Text == null && txtMail.Text == null && txtTelefono.Text == null) return;
 
             gridClientes.DataSource = _dataTable.FindAll(x => x.Nombre.Contains(txtNombre.Text.ToLower())
                                                              && x.Apellido.Contains(txtApellido.Text.ToLower())
@@ -77,7 +73,7 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnElegir_Click(object sender, EventArgs e)
+        private void BtnElegir_Click(object sender, EventArgs e)
         {
             Fatherform.AsignarCliente(_dataTable[gridClientes.SelectedRows[0].Index]);
             Close();

@@ -110,7 +110,7 @@ namespace UI
             this.pbLogout.Size = new System.Drawing.Size(25, 25);
             this.pbLogout.TabIndex = 11;
             this.pbLogout.TabStop = false;
-            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
+            this.pbLogout.Click += new System.EventHandler(this.PbLogout_Click);
             // 
             // panelContainer
             // 
@@ -149,7 +149,7 @@ namespace UI
             this.btnAyuda.Tag = "help";
             this.btnAyuda.Text = "Ayuda";
             this.btnAyuda.UseSelectable = true;
-            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            this.btnAyuda.Click += new System.EventHandler(this.BtnAyuda_Click);
             // 
             // lblIdioma
             // 
@@ -170,7 +170,7 @@ namespace UI
             this.cbIdiomas.Size = new System.Drawing.Size(223, 29);
             this.cbIdiomas.TabIndex = 6;
             this.cbIdiomas.UseSelectable = true;
-            this.cbIdiomas.SelectedIndexChanged += new System.EventHandler(this.cbIdiomas_SelectedIndexChanged);
+            this.cbIdiomas.SelectedIndexChanged += new System.EventHandler(this.CbIdiomas_SelectedIndexChanged);
             // 
             // panelSidebar
             // 
@@ -253,7 +253,7 @@ namespace UI
             this.btnRecepcionarPedidoDeposito.Text = "Recepcionar Pedido Deposito";
             this.btnRecepcionarPedidoDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecepcionarPedidoDeposito.UseVisualStyleBackColor = false;
-            this.btnRecepcionarPedidoDeposito.Click += new System.EventHandler(this.btnRecepcionarPedidoDeposito_Click);
+            this.btnRecepcionarPedidoDeposito.Click += new System.EventHandler(this.BtnRecepcionarPedidoDeposito_Click);
             // 
             // btnRealizarPedidoDeposito
             // 
@@ -270,7 +270,7 @@ namespace UI
             this.btnRealizarPedidoDeposito.Text = "Realizar Pedido Deposito";
             this.btnRealizarPedidoDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRealizarPedidoDeposito.UseVisualStyleBackColor = false;
-            this.btnRealizarPedidoDeposito.Click += new System.EventHandler(this.btnRealizarPedidoDeposito_Click);
+            this.btnRealizarPedidoDeposito.Click += new System.EventHandler(this.BtnRealizarPedidoDeposito_Click);
             // 
             // btnDespacharEnvio
             // 
@@ -287,7 +287,7 @@ namespace UI
             this.btnDespacharEnvio.Text = "Despachar Envio";
             this.btnDespacharEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDespacharEnvio.UseVisualStyleBackColor = false;
-            this.btnDespacharEnvio.Click += new System.EventHandler(this.btnDespacharEnvio_Click);
+            this.btnDespacharEnvio.Click += new System.EventHandler(this.BtnDespacharEnvio_Click);
             // 
             // btnVerEnvios
             // 
@@ -304,7 +304,7 @@ namespace UI
             this.btnVerEnvios.Text = "Ver Envios";
             this.btnVerEnvios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerEnvios.UseVisualStyleBackColor = false;
-            this.btnVerEnvios.Click += new System.EventHandler(this.btnVerEnvios_Click);
+            this.btnVerEnvios.Click += new System.EventHandler(this.BtnVerEnvios_Click);
             // 
             // btnEnviosPanel
             // 
@@ -321,7 +321,7 @@ namespace UI
             this.btnEnviosPanel.Text = "Envios y Recepciones";
             this.btnEnviosPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEnviosPanel.UseVisualStyleBackColor = false;
-            this.btnEnviosPanel.Click += new System.EventHandler(this.btnEnviosPanel_Click);
+            this.btnEnviosPanel.Click += new System.EventHandler(this.BtnEnviosPanel_Click);
             // 
             // panelCaja
             // 
@@ -356,7 +356,7 @@ namespace UI
             this.btnBuscarVentaCaja.Text = "Buscar Venta";
             this.btnBuscarVentaCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarVentaCaja.UseVisualStyleBackColor = false;
-            this.btnBuscarVentaCaja.Click += new System.EventHandler(this.btnBuscarVentaCaja_Click);
+            this.btnBuscarVentaCaja.Click += new System.EventHandler(this.BtnBuscarVenta_Click);
             // 
             // btnCancelarVentaCaja
             // 
@@ -373,7 +373,7 @@ namespace UI
             this.btnCancelarVentaCaja.Text = "Cancelar Venta";
             this.btnCancelarVentaCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarVentaCaja.UseVisualStyleBackColor = false;
-            this.btnCancelarVentaCaja.Click += new System.EventHandler(this.btnCancelarVentaCaja_Click);
+            this.btnCancelarVentaCaja.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
             // 
             // btnRecibirPago
             // 
@@ -390,7 +390,7 @@ namespace UI
             this.btnRecibirPago.Text = "Recibir Pago";
             this.btnRecibirPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecibirPago.UseVisualStyleBackColor = false;
-            this.btnRecibirPago.Click += new System.EventHandler(this.btnRecibirPago_Click);
+            this.btnRecibirPago.Click += new System.EventHandler(this.BtnRecibirPago_Click);
             // 
             // btnCajaPanel
             // 
@@ -407,7 +407,7 @@ namespace UI
             this.btnCajaPanel.Text = "Caja";
             this.btnCajaPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCajaPanel.UseVisualStyleBackColor = false;
-            this.btnCajaPanel.Click += new System.EventHandler(this.btnCajaPanel_Click);
+            this.btnCajaPanel.Click += new System.EventHandler(this.BtnCajaPanel_Click);
             // 
             // panelDeposito
             // 
@@ -443,7 +443,7 @@ namespace UI
             this.btnVerInventario.Text = "Ver Inventario";
             this.btnVerInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerInventario.UseVisualStyleBackColor = false;
-            this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
+            this.btnVerInventario.Click += new System.EventHandler(this.BtnVerInventario_Click);
             // 
             // btnPenalizarProveedor
             // 
@@ -460,7 +460,7 @@ namespace UI
             this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
             this.btnPenalizarProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPenalizarProveedor.UseVisualStyleBackColor = false;
-            this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
+            this.btnPenalizarProveedor.Click += new System.EventHandler(this.BtnPenalizarProveedor_Click);
             // 
             // btnRegistrarEntrada
             // 
@@ -477,7 +477,7 @@ namespace UI
             this.btnRegistrarEntrada.Text = "Registrar Entrada de Productos";
             this.btnRegistrarEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrarEntrada.UseVisualStyleBackColor = false;
-            this.btnRegistrarEntrada.Click += new System.EventHandler(this.btnRegistrarEntrada_Click);
+            this.btnRegistrarEntrada.Click += new System.EventHandler(this.BtnRegistrarEntrada_Click);
             // 
             // btnRealizarPedidoProveedor
             // 
@@ -494,7 +494,7 @@ namespace UI
             this.btnRealizarPedidoProveedor.Text = "Realizar Pedido Proveedor";
             this.btnRealizarPedidoProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRealizarPedidoProveedor.UseVisualStyleBackColor = false;
-            this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.btnRealizarPedidoProveedor_Click);
+            this.btnRealizarPedidoProveedor.Click += new System.EventHandler(this.BtnRealizarPedidoProveedor_Click);
             // 
             // btnDepositoPanel
             // 
@@ -511,7 +511,7 @@ namespace UI
             this.btnDepositoPanel.Text = "Deposito";
             this.btnDepositoPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDepositoPanel.UseVisualStyleBackColor = false;
-            this.btnDepositoPanel.Click += new System.EventHandler(this.btnDepositoPanel_Click);
+            this.btnDepositoPanel.Click += new System.EventHandler(this.BtnDepositoPanel_Click);
             // 
             // panelSucursal
             // 
@@ -550,7 +550,7 @@ namespace UI
             this.btnVerQuejas.Text = "Ver Quejas";
             this.btnVerQuejas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerQuejas.UseVisualStyleBackColor = false;
-            this.btnVerQuejas.Click += new System.EventHandler(this.btnVerQuejas_Click);
+            this.btnVerQuejas.Click += new System.EventHandler(this.BtnVerQuejas_Click);
             // 
             // btnCrearQueja
             // 
@@ -568,7 +568,7 @@ namespace UI
             this.btnCrearQueja.Text = "Crear Queja";
             this.btnCrearQueja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCrearQueja.UseVisualStyleBackColor = false;
-            this.btnCrearQueja.Click += new System.EventHandler(this.btnCrearQueja_Click);
+            this.btnCrearQueja.Click += new System.EventHandler(this.BtnCrearQueja_Click);
             // 
             // btnCancelarVentaVenta
             // 
@@ -586,7 +586,7 @@ namespace UI
             this.btnCancelarVentaVenta.Text = "Cancelar Venta";
             this.btnCancelarVentaVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarVentaVenta.UseVisualStyleBackColor = false;
-            this.btnCancelarVentaVenta.Click += new System.EventHandler(this.btnCancelarVentaVenta_Click);
+            this.btnCancelarVentaVenta.Click += new System.EventHandler(this.BtnCancelarVenta_Click);
             // 
             // btnBuscarVenta
             // 
@@ -604,7 +604,7 @@ namespace UI
             this.btnBuscarVenta.Text = "Buscar Venta";
             this.btnBuscarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarVenta.UseVisualStyleBackColor = false;
-            this.btnBuscarVenta.Click += new System.EventHandler(this.btnBuscarVenta_Click);
+            this.btnBuscarVenta.Click += new System.EventHandler(this.BtnBuscarVenta_Click);
             // 
             // btnRealizarVenta
             // 
@@ -622,7 +622,7 @@ namespace UI
             this.btnRealizarVenta.Text = "Realizar Venta";
             this.btnRealizarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRealizarVenta.UseVisualStyleBackColor = false;
-            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
+            this.btnRealizarVenta.Click += new System.EventHandler(this.BtnRealizarVenta_Click);
             // 
             // btnSucursalPanel
             // 
@@ -639,7 +639,7 @@ namespace UI
             this.btnSucursalPanel.Text = "Sucursal";
             this.btnSucursalPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSucursalPanel.UseVisualStyleBackColor = false;
-            this.btnSucursalPanel.Click += new System.EventHandler(this.btnSucursalPanel_Click);
+            this.btnSucursalPanel.Click += new System.EventHandler(this.BtnSucursalPanel_Click);
             // 
             // panelAdminGestion
             // 
@@ -679,7 +679,7 @@ namespace UI
             this.btnProducto.Text = "Producto";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducto.UseVisualStyleBackColor = false;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            this.btnProducto.Click += new System.EventHandler(this.BtnProducto_Click);
             // 
             // btnFamilia
             // 
@@ -697,7 +697,7 @@ namespace UI
             this.btnFamilia.Text = "Familia";
             this.btnFamilia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFamilia.UseVisualStyleBackColor = false;
-            this.btnFamilia.Click += new System.EventHandler(this.btnFamilia_Click);
+            this.btnFamilia.Click += new System.EventHandler(this.BtnFamilia_Click);
             // 
             // btnSucursal
             // 
@@ -715,7 +715,7 @@ namespace UI
             this.btnSucursal.Text = "Sucursal";
             this.btnSucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSucursal.UseVisualStyleBackColor = false;
-            this.btnSucursal.Click += new System.EventHandler(this.btnSucursal_Click);
+            this.btnSucursal.Click += new System.EventHandler(this.BtnSucursal_Click);
             // 
             // btnDeposito
             // 
@@ -733,7 +733,7 @@ namespace UI
             this.btnDeposito.Text = "Deposito";
             this.btnDeposito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeposito.UseVisualStyleBackColor = false;
-            this.btnDeposito.Click += new System.EventHandler(this.btnDeposito_Click);
+            this.btnDeposito.Click += new System.EventHandler(this.BtnDeposito_Click);
             // 
             // btnProveedor
             // 
@@ -751,7 +751,7 @@ namespace UI
             this.btnProveedor.Text = "Proveedor";
             this.btnProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedor.UseVisualStyleBackColor = false;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
+            this.btnProveedor.Click += new System.EventHandler(this.BtnProveedor_Click);
             // 
             // btnEmpleado
             // 
@@ -769,7 +769,7 @@ namespace UI
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.UseVisualStyleBackColor = false;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
+            this.btnEmpleado.Click += new System.EventHandler(this.BtnEmpleado_Click);
             // 
             // btnAdminGestion
             // 
@@ -786,7 +786,7 @@ namespace UI
             this.btnAdminGestion.Text = "Administrador - Gestion";
             this.btnAdminGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdminGestion.UseVisualStyleBackColor = false;
-            this.btnAdminGestion.Click += new System.EventHandler(this.btnAdminGestion_Click);
+            this.btnAdminGestion.Click += new System.EventHandler(this.BtnAdminGestion_Click);
             // 
             // panelAdminConfig
             // 
@@ -826,7 +826,7 @@ namespace UI
             this.btnExportReport.Text = "Exportar Reporte";
             this.btnExportReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExportReport.UseVisualStyleBackColor = false;
-            this.btnExportReport.Click += new System.EventHandler(this.btnExportReport_Click);
+            this.btnExportReport.Click += new System.EventHandler(this.BtnExportReport_Click);
             // 
             // btnConfigurarEdificio
             // 
@@ -844,7 +844,7 @@ namespace UI
             this.btnConfigurarEdificio.Text = "Edificio";
             this.btnConfigurarEdificio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfigurarEdificio.UseVisualStyleBackColor = false;
-            this.btnConfigurarEdificio.Click += new System.EventHandler(this.btnConfigurarEdificio_Click);
+            this.btnConfigurarEdificio.Click += new System.EventHandler(this.BtnConfigurarEdificio_Click);
             // 
             // btnIdioma
             // 
@@ -862,7 +862,7 @@ namespace UI
             this.btnIdioma.Text = "Idiomas";
             this.btnIdioma.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIdioma.UseVisualStyleBackColor = false;
-            this.btnIdioma.Click += new System.EventHandler(this.btnIdioma_Click);
+            this.btnIdioma.Click += new System.EventHandler(this.BtnIdioma_Click);
             // 
             // btnRestaurarDv
             // 
@@ -880,7 +880,7 @@ namespace UI
             this.btnRestaurarDv.Text = "Restaurar DV";
             this.btnRestaurarDv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRestaurarDv.UseVisualStyleBackColor = false;
-            this.btnRestaurarDv.Click += new System.EventHandler(this.btnRestaurarDv_Click);
+            this.btnRestaurarDv.Click += new System.EventHandler(this.BtnRestaurarDv_Click);
             // 
             // btnBitacora
             // 
@@ -898,7 +898,7 @@ namespace UI
             this.btnBitacora.Text = "Bitacora";
             this.btnBitacora.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBitacora.UseVisualStyleBackColor = false;
-            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
+            this.btnBitacora.Click += new System.EventHandler(this.BtnBitacora_Click);
             // 
             // btnBackup
             // 
@@ -916,7 +916,7 @@ namespace UI
             this.btnBackup.Text = "Backup";
             this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBackup.UseVisualStyleBackColor = false;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            this.btnBackup.Click += new System.EventHandler(this.BtnBackup_Click);
             // 
             // btnAdminConfig
             // 
@@ -934,7 +934,7 @@ namespace UI
             this.btnAdminConfig.Text = "Administrador - Configuracion";
             this.btnAdminConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdminConfig.UseVisualStyleBackColor = false;
-            this.btnAdminConfig.Click += new System.EventHandler(this.btnAdminConfig_Click);
+            this.btnAdminConfig.Click += new System.EventHandler(this.BtnAdminConfig_Click);
             // 
             // panelImagen
             // 
@@ -960,7 +960,7 @@ namespace UI
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogo.TabIndex = 2;
             this.picLogo.TabStop = false;
-            this.picLogo.Click += new System.EventHandler(this.picLogo_Click);
+            this.picLogo.Click += new System.EventHandler(this.PicLogo_Click);
             // 
             // lblEdificio
             // 

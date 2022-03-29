@@ -1,8 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using MetroFramework;
+using System;
+using System.Windows.Forms;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
@@ -18,13 +19,13 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
 
-        private void btnCrearDeposito_Click(object sender, EventArgs e)
+        private void BtnCrearDeposito_Click(object sender, EventArgs e)
         {
             var crearDeposito = new DepositoAltaModificacion(this);
             _mdi.OpenWindowForm(crearDeposito);
         }
 
-        private void btnModificarDeposito_Click(object sender, EventArgs e)
+        private void BtnModificarDeposito_Click(object sender, EventArgs e)
         {
             if (gridDeposito.SelectedRows.Count == 0)
             {
@@ -37,7 +38,7 @@ namespace UI
             _mdi.OpenWindowForm(provAm);
         }
 
-        private void btnBorrarDeposito_Click(object sender, EventArgs e)
+        private void BtnBorrarDeposito_Click(object sender, EventArgs e)
         {
             if (gridDeposito.SelectedRows.Count == 0)
             {
@@ -69,7 +70,7 @@ namespace UI
             gridDeposito.Columns["telefono"].DisplayIndex = 4;
         }
 
-        private void gridDeposito_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridDeposito_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridDeposito.SelectedRows.Count == 0)
             {
@@ -81,7 +82,5 @@ namespace UI
             var provAm = new DepositoAltaModificacion(this, selectedDeposito);
             _mdi.OpenWindowForm(provAm);
         }
-
     }
-
 }

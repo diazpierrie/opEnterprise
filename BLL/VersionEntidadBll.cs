@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class VersionEntidadBll
+    public static class VersionEntidadBll
     {
         private static readonly VersionEntidadDal Dal = new VersionEntidadDal();
 

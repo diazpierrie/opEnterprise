@@ -16,7 +16,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
             if (SesionManager.VerificarBloqueo(txtUsuario.Text))
             {
@@ -149,7 +149,7 @@ namespace UI
             cbIdioma.DataSource = new BindingSource(idiomas, null);
         }
 
-        private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdioma.SelectedValue.ToString()));
         }

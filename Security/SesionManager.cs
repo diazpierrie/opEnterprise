@@ -1,8 +1,6 @@
 ﻿using DAL;
 using EE;
 using System.Threading;
-using System.Windows.Forms;
-using MetroFramework;
 
 namespace Security
 {

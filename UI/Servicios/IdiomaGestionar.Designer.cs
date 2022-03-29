@@ -58,7 +58,7 @@ namespace UI
             this.btnAdd.Tag = "add";
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseSelectable = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // Editar
             // 
@@ -82,7 +82,7 @@ namespace UI
             this.btnDelete.Tag = "delete";
             this.btnDelete.Text = "Borrar";
             this.btnDelete.UseSelectable = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // IdiomaGestionar
             // 

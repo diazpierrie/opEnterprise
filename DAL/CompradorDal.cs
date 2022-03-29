@@ -69,7 +69,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<CompradorEe>();
             }
         }
 
@@ -89,9 +89,9 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-
         private static CompradorEe CastDto(SqlDataReader data)
         {
+            if (data == null) throw new ArgumentNullException(nameof(data));
             return new CompradorEe
             {
                 Id = int.Parse(data["id"].ToString()),

@@ -124,7 +124,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ProductoEe>();
             }
         }
 
@@ -157,7 +157,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ProductoEdificioEe>();
             }
         }
 
@@ -191,7 +191,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ProductoEdificioEe>();
             }
         }
 
@@ -199,10 +199,10 @@ namespace DAL
         {
             try
             {
-                var strQuery = " SELECT p.[id], d.[idDeposito], p.[nombre] ,p.[codigo] ,p.[precio], p.[costo], d.[stock] FROM " +
-                               "[dbo].[producto] as p " +
-                               "INNER JOIN deposito_producto as d " +
-                               "ON d.idProducto = p.id WHERE p.activo = 1";
+                const string strQuery = " SELECT p.[id], d.[idDeposito], p.[nombre] ,p.[codigo] ,p.[precio], p.[costo], d.[stock] FROM " +
+                                        "[dbo].[producto] as p " +
+                                        "INNER JOIN deposito_producto as d " +
+                                        "ON d.idProducto = p.id WHERE p.activo = 1";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -224,7 +224,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ProductoEdificioEe>();
             }
         }
 

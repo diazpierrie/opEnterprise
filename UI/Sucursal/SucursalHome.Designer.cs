@@ -89,7 +89,7 @@ namespace UI.Sucursal
             this.gridSucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSucursal.Size = new System.Drawing.Size(612, 352);
             this.gridSucursal.TabIndex = 7;
-            this.gridSucursal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSucursal_CellDoubleClick);
+            this.gridSucursal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridSucursal_CellDoubleClick);
             // 
             // btnBorrarSucursal
             // 
@@ -100,7 +100,7 @@ namespace UI.Sucursal
             this.btnBorrarSucursal.TabIndex = 6;
             this.btnBorrarSucursal.Text = "Borrar Sucursal";
             this.btnBorrarSucursal.UseSelectable = true;
-            this.btnBorrarSucursal.Click += new System.EventHandler(this.btnBorrarSucursal_Click);
+            this.btnBorrarSucursal.Click += new System.EventHandler(this.BtnBorrarSucursal_Click);
             // 
             // btnModificarSucursal
             // 
@@ -111,7 +111,7 @@ namespace UI.Sucursal
             this.btnModificarSucursal.TabIndex = 5;
             this.btnModificarSucursal.Text = "Modificar Sucursal";
             this.btnModificarSucursal.UseSelectable = true;
-            this.btnModificarSucursal.Click += new System.EventHandler(this.btnModificarSucursal_Click);
+            this.btnModificarSucursal.Click += new System.EventHandler(this.BtnModificarSucursal_Click);
             // 
             // btnCrearSucursal
             // 
@@ -122,7 +122,7 @@ namespace UI.Sucursal
             this.btnCrearSucursal.TabIndex = 4;
             this.btnCrearSucursal.Text = "Crear Sucursal";
             this.btnCrearSucursal.UseSelectable = true;
-            this.btnCrearSucursal.Click += new System.EventHandler(this.btnCrearSucursal_Click);
+            this.btnCrearSucursal.Click += new System.EventHandler(this.BtnCrearSucursal_Click);
             // 
             // SucursalHome
             // 

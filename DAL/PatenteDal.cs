@@ -7,7 +7,7 @@ namespace DAL
 {
     public class PatenteDal : ConnectionDal
     {
-        public List<RolEe> ObtenerPorFamilia(int id)
+        public List<RolEe> ObtenerRolesPorFamiliaId(int id)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<RolEe>();
             }
         }
 
@@ -68,7 +68,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PatenteEe>();
             }
         }
 
@@ -79,11 +79,13 @@ namespace DAL
             return Insert("familia_patente", columns, values);
         }
 
-        public PatenteEe CastDto(SqlDataReader data)
+        private static PatenteEe CastDto(SqlDataReader data)
         {
-            var result = new PatenteEe();
-            result.Id = Convert.ToInt32(data["id"]);
-            result.Nombre = data["Nombre"].ToString();
+            var result = new PatenteEe
+            {
+                Id = Convert.ToInt32(data["id"]),
+                Nombre = data["Nombre"].ToString()
+            };
 
             return result;
         }

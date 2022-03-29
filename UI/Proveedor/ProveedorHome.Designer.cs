@@ -96,7 +96,7 @@ namespace UI
             this.gridProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProveedor.Size = new System.Drawing.Size(730, 436);
             this.gridProveedor.TabIndex = 3;
-            this.gridProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProveedor_CellDoubleClick);
+            this.gridProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProveedor_CellDoubleClick);
             // 
             // btnCrearProveedor
             // 
@@ -107,7 +107,7 @@ namespace UI
             this.btnCrearProveedor.Tag = "create_vendor";
             this.btnCrearProveedor.Text = "Crear Proveedor";
             this.btnCrearProveedor.UseSelectable = true;
-            this.btnCrearProveedor.Click += new System.EventHandler(this.btnCrearProveedor_Click);
+            this.btnCrearProveedor.Click += new System.EventHandler(this.BtnCrearProveedor_Click);
             // 
             // btnModificarProveedor
             // 
@@ -119,7 +119,7 @@ namespace UI
             this.btnModificarProveedor.Tag = "modify_vendor";
             this.btnModificarProveedor.Text = "Modificar Proveedor";
             this.btnModificarProveedor.UseSelectable = true;
-            this.btnModificarProveedor.Click += new System.EventHandler(this.btnModificarProveedor_Click);
+            this.btnModificarProveedor.Click += new System.EventHandler(this.BtnModificarProveedor_Click);
             // 
             // btnBorrarProveedor
             // 
@@ -131,7 +131,7 @@ namespace UI
             this.btnBorrarProveedor.Tag = "delete_vendor";
             this.btnBorrarProveedor.Text = "Borrar Proveedor";
             this.btnBorrarProveedor.UseSelectable = true;
-            this.btnBorrarProveedor.Click += new System.EventHandler(this.btnBorrarProveedor_Click);
+            this.btnBorrarProveedor.Click += new System.EventHandler(this.BtnBorrarProveedor_Click);
             // 
             // btnRestaurarProveedor
             // 
@@ -143,7 +143,7 @@ namespace UI
             this.btnRestaurarProveedor.Tag = "restore_vendor";
             this.btnRestaurarProveedor.Text = "Restaurar Proveedor";
             this.btnRestaurarProveedor.UseSelectable = true;
-            this.btnRestaurarProveedor.Click += new System.EventHandler(this.btnRestaurarProveedor_Click);
+            this.btnRestaurarProveedor.Click += new System.EventHandler(this.BtnRestaurarProveedor_Click);
             // 
             // btnPenalizarProveedor
             // 
@@ -155,7 +155,7 @@ namespace UI
             this.btnPenalizarProveedor.Tag = "penalize_vendor";
             this.btnPenalizarProveedor.Text = "Penalizar Proveedor";
             this.btnPenalizarProveedor.UseSelectable = true;
-            this.btnPenalizarProveedor.Click += new System.EventHandler(this.btnPenalizarProveedor_Click);
+            this.btnPenalizarProveedor.Click += new System.EventHandler(this.BtnPenalizarProveedor_Click);
             // 
             // flpProveedorHome
             // 
@@ -182,7 +182,7 @@ namespace UI
             this.btnVerPenalizaciones.Tag = "check_penalizations";
             this.btnVerPenalizaciones.Text = "Ver Penalizaciones";
             this.btnVerPenalizaciones.UseSelectable = true;
-            this.btnVerPenalizaciones.Click += new System.EventHandler(this.btnVerPenalizaciones_Click);
+            this.btnVerPenalizaciones.Click += new System.EventHandler(this.BtnVerPenalizaciones_Click);
             // 
             // ProveedorHome
             // 

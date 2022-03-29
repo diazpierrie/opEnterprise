@@ -1,9 +1,9 @@
 ﻿using BLL;
 using EE;
 using Newtonsoft.Json;
+using Security;
 using System;
 using System.Collections.Generic;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -52,14 +52,14 @@ namespace UI
             gridVersiones.Columns["CantidadErrores"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_errors"];
         }
 
-        private void btnRestaurar_Click(object sender, EventArgs e)
+        private void BtnRestaurar_Click(object sender, EventArgs e)
         {
             ProveedorBll.Restaurar(_proveedor, (ProveedorEe)gridVersiones.SelectedRows[0].DataBoundItem);
             _proveedorHome.ActualizarGrid();
             Close();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -11,7 +11,7 @@ namespace DAL
         public int AgregarMensaje(BitacoraMensajeEe mensaje)
         {
             string[] columns = { "fecha", "Titulo", "Descripcion", "tipo", "idUsuario" };
-            var userid = mensaje.Usuario != null ? mensaje.Usuario.Id : 0;
+            var userid = mensaje.Usuario?.Id ?? 0;
             string[] values = { DateTime.Now.ToString(CultureInfo.InvariantCulture), mensaje.Titulo, mensaje.Descripcion, mensaje.Tipo.ToString(), userid.ToString() };
             return Insert("bitacora", columns, values);
         }
@@ -20,7 +20,7 @@ namespace DAL
         {
             try
             {
-                var consultaSql = $"SELECT id, fecha, titulo, Descripcion, tipo, idUsuario FROM bitacora WHERE fecha BETWEEN '{desde.ToString("yyyy-MM-dd")}' AND '{hasta.ToString("yyyy-MM-dd")}  23:59:59'";
+                var consultaSql = $"SELECT id, fecha, titulo, Descripcion, tipo, idUsuario FROM bitacora WHERE fecha BETWEEN '{desde:yyyy-MM-dd}' AND '{hasta:yyyy-MM-dd} 23:59:59'";
 
                 if (tipo != null)
                 {
@@ -43,17 +43,19 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<BitacoraMensajeEe>();
             }
         }
 
-        public BitacoraMensajeEe CastDto(SqlDataReader data)
+        private static BitacoraMensajeEe CastDto(SqlDataReader data)
         {
-            var result = new BitacoraMensajeEe();
-            result.Id = Convert.ToInt32(data["id"]);
-            result.Fecha = Convert.ToDateTime(data["fecha"].ToString());
-            result.Titulo = data["Titulo"].ToString();
-            result.Descripcion = data["Descripcion"].ToString();
+            var result = new BitacoraMensajeEe
+            {
+                Id = Convert.ToInt32(data["id"]),
+                Fecha = Convert.ToDateTime(data["fecha"].ToString()),
+                Titulo = data["Titulo"].ToString(),
+                Descripcion = data["Descripcion"].ToString()
+            };
             switch (data["tipo"].ToString())
             {
                 case "Error":

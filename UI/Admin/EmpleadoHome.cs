@@ -60,23 +60,23 @@ namespace UI
             {
                 case 1:
                     btnAsignar.Text =
-                        $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["deposit"]}";
+                        $"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["deposit"]}";
                     btnAsignar.Enabled = true;
                     break;
 
                 case 2:
-                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["branch"]}";
+                    btnAsignar.Text = $"{Sesion.ObtenerSesion().Idioma.Textos["assign"]} {Sesion.ObtenerSesion().Idioma.Textos["branch"]}";
                     btnAsignar.Enabled = true;
                     break;
 
                 default:
-                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}";
+                    btnAsignar.Text = $"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}";
                     btnAsignar.Enabled = false;
                     break;
             }
         }
 
-        private void btnAsignar_Click(object sender, EventArgs e)
+        private void BtnAsignar_Click(object sender, EventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {
@@ -104,13 +104,13 @@ namespace UI
                     break;
 
                 default:
-                    btnAsignar.Text = $@"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}";
+                    btnAsignar.Text = $"{Sesion.ObtenerSesion().Idioma.Textos["assign"]}";
                     btnAsignar.Enabled = false;
                     break;
             }
         }
 
-        private void btnBorrarEmpleado_Click(object sender, EventArgs e)
+        private void BtnBorrarEmpleado_Click(object sender, EventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {
@@ -125,13 +125,13 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnCrearEmpleado_Click(object sender, EventArgs e)
+        private void BtnCrearEmpleado_Click(object sender, EventArgs e)
         {
             var crearEmpleado = new EmpleadoAltaModificacion(this);
             _mdi.OpenWindowForm(crearEmpleado);
         }
 
-        private void btnModificarEmpleado_Click(object sender, EventArgs e)
+        private void BtnModificarEmpleado_Click(object sender, EventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {
@@ -143,6 +143,7 @@ namespace UI
             var provAm = new EmpleadoAltaModificacion(this, selectedEmpleado);
             _mdi.OpenWindowForm(provAm);
         }
+
         private void EmpleadoHome_Load(object sender, EventArgs e)
         {
             ActualizarGrid();
@@ -154,7 +155,8 @@ namespace UI
 
             ActualizarBtnAsignarText();
         }
-        private void gridEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void GridEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {
@@ -164,7 +166,7 @@ namespace UI
             ActualizarBtnAsignarText();
         }
 
-        private void gridEmpleado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridEmpleado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {
@@ -177,7 +179,7 @@ namespace UI
             _mdi.OpenWindowForm(provAm);
         }
 
-        private void btnDesbloquearEmpleado_Click(object sender, EventArgs e)
+        private void BtnDesbloquearEmpleado_Click(object sender, EventArgs e)
         {
             if (gridEmpleado.SelectedRows.Count == 0)
             {

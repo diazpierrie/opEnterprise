@@ -25,28 +25,27 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == null &&
-                txtCliente.Text == null) return;
+            if (txtUsuario.Text == null && txtCliente.Text == null) return;
 
             var envioEstado = (EstadoEe)cbEstado.SelectedItem;
             if (envioEstado.Nombre == "Todos")
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Venta.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Venta.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Venta.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Venta.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
             else
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Venta.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Venta.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower())
-                                                                  && x.Estado.Nombre.ToLower().Contains(envioEstado.Nombre.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Venta.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Venta.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Estado.Nombre.IndexOf(envioEstado.Nombre, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
             gridClientes.Refresh();
         }
 
-        public void ActualizarGrid()
+        private void ActualizarGrid()
         {
             _dataTable = EnvioBll.ObtenerDeSucursal(Sesion.ObtenerSesion().Sucursal.Id);
             gridClientes.DataSource = _dataTable;
@@ -63,12 +62,12 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void GridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
@@ -80,11 +79,10 @@ namespace UI
             }
 
             var envioVerDetalle = new EnvioVerDetalle(detalleDeSucursal);
-            
             envioVerDetalle.Show();
         }
 
-        private void btnDespacharEnvio_Click(object sender, EventArgs e)
+        private void BtnDespacharEnvio_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;
@@ -104,7 +102,7 @@ namespace UI
             }
         }
 
-        private void btnConfirmarRecepcion_Click(object sender, EventArgs e)
+        private void BtnConfirmarRecepcion_Click(object sender, EventArgs e)
         {
             if (gridClientes.SelectedRows.Count <= 0) return;
             var envio = (EnvioEe)gridClientes.SelectedRows[0].DataBoundItem;

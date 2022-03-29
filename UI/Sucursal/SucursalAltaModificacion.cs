@@ -1,7 +1,7 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
 
 namespace UI.Sucursal
 {
@@ -10,6 +10,7 @@ namespace UI.Sucursal
         private readonly SucursalEe _sucursal = new SucursalEe();
         private readonly SucursalHome _homeForm;
         private readonly bool _crear;
+
         public SucursalAltaModificacion(SucursalHome homeForm)
         {
             _homeForm = homeForm;
@@ -35,7 +36,7 @@ namespace UI.Sucursal
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify"] + " " + Sesion.ObtenerSesion().Idioma.Textos["branch"]);
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -66,7 +67,6 @@ namespace UI.Sucursal
 
         private void EmpleadoAltaModificacion_Load(object sender, EventArgs e)
         {
-
             AllControls.Add(lblDireccion);
             AllControls.Add(lblMail);
             AllControls.Add(lblNombre);

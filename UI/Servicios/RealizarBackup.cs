@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using EE;
+﻿using EE;
 using Security;
+using System;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -15,17 +15,17 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
 
-        private void btnBackUp_Click(object sender, EventArgs e)
+        private void BtnBackUp_Click(object sender, EventArgs e)
         {
             label1.Text = BackUp.RealizarBackUp(Sesion.ObtenerSesion().Usuario) ? Sesion.ObtenerSesion().Idioma.Textos["bkp_done"] : Sesion.ObtenerSesion().Idioma.Textos["error"];
         }
 
-        private void btnRestore_Click(object sender, EventArgs e)
+        private void BtnRestore_Click(object sender, EventArgs e)
         {
             _openFileDialog1 = new OpenFileDialog
             {
-                Filter = @"Database backups (*.bak)|*.bak",
-                Title = @"Open database backup",
+                Filter = "Database backups (*.bak)|*.bak",
+                Title = "Open database backup",
                 InitialDirectory = @"C:\openEnterprise Backup\",
             };
 

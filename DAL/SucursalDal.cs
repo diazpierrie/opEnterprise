@@ -42,9 +42,9 @@ namespace DAL
             try
             {
                 var strQuery =
-                    $"SELECT SUM(precioUnitario) - SUM(costoUnitario) as ganancias " +
-                    $"FROM [openEnterprise].[dbo].[venta_detalle] as vd " +
-                    $"INNER JOIN venta as v on v.id = vd.idVenta " +
+                    "SELECT SUM(precioUnitario) - SUM(costoUnitario) as ganancias " +
+                    "FROM [openEnterprise].[dbo].[venta_detalle] as vd " +
+                    "INNER JOIN venta as v on v.id = vd.idVenta " +
                     $"WHERE v.idSucursal = {sucursal.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -65,7 +65,6 @@ namespace DAL
                         {
                             result = null;
                         }
-                        
                     }
                 }
 
@@ -135,7 +134,7 @@ namespace DAL
                 {
                     while (data.Read())
                     {
-                         result = data["nombre"] + " - " + data["ventas"] + " unidades";
+                        result = data["nombre"] + " - " + data["ventas"] + " unidades";
                     }
                 }
 
@@ -149,7 +148,7 @@ namespace DAL
             }
         }
 
-        public SucursalEe CastDto(SqlDataReader data)
+        private static SucursalEe CastDto(SqlDataReader data)
         {
             return new SucursalEe
             {
@@ -240,7 +239,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<SucursalEe>();
             }
         }
 
@@ -280,7 +279,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<SucursalEe>();
             }
         }
 

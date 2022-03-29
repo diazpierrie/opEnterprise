@@ -54,7 +54,7 @@ namespace UI
             this.btnAsignar.Tag = "assign";
             this.btnAsignar.Text = "Asignar";
             this.btnAsignar.UseSelectable = true;
-            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            this.btnAsignar.Click += new System.EventHandler(this.BtnAsignar_Click);
             // 
             // gridEmpleado
             // 
@@ -105,8 +105,8 @@ namespace UI
             this.gridEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridEmpleado.Size = new System.Drawing.Size(612, 352);
             this.gridEmpleado.TabIndex = 7;
-            this.gridEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEmpleado_CellClick);
-            this.gridEmpleado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridEmpleado_CellDoubleClick);
+            this.gridEmpleado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridEmpleado_CellClick);
+            this.gridEmpleado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridEmpleado_CellDoubleClick);
             // 
             // btnBorrarEmpleado
             // 
@@ -118,7 +118,7 @@ namespace UI
             this.btnBorrarEmpleado.Tag = "delete_employee";
             this.btnBorrarEmpleado.Text = "Borrar Empleado";
             this.btnBorrarEmpleado.UseSelectable = true;
-            this.btnBorrarEmpleado.Click += new System.EventHandler(this.btnBorrarEmpleado_Click);
+            this.btnBorrarEmpleado.Click += new System.EventHandler(this.BtnBorrarEmpleado_Click);
             // 
             // btnModificarEmpleado
             // 
@@ -130,7 +130,7 @@ namespace UI
             this.btnModificarEmpleado.Tag = "modify_employee";
             this.btnModificarEmpleado.Text = "Modificar Empleado";
             this.btnModificarEmpleado.UseSelectable = true;
-            this.btnModificarEmpleado.Click += new System.EventHandler(this.btnModificarEmpleado_Click);
+            this.btnModificarEmpleado.Click += new System.EventHandler(this.BtnModificarEmpleado_Click);
             // 
             // btnCrearEmpleado
             // 
@@ -142,7 +142,7 @@ namespace UI
             this.btnCrearEmpleado.Tag = "create_employee";
             this.btnCrearEmpleado.Text = "Crear Empleado";
             this.btnCrearEmpleado.UseSelectable = true;
-            this.btnCrearEmpleado.Click += new System.EventHandler(this.btnCrearEmpleado_Click);
+            this.btnCrearEmpleado.Click += new System.EventHandler(this.BtnCrearEmpleado_Click);
             // 
             // btnDesbloquearEmpleado
             // 
@@ -154,7 +154,7 @@ namespace UI
             this.btnDesbloquearEmpleado.Tag = "";
             this.btnDesbloquearEmpleado.Text = "Desbloquear Empleado";
             this.btnDesbloquearEmpleado.UseSelectable = true;
-            this.btnDesbloquearEmpleado.Click += new System.EventHandler(this.btnDesbloquearEmpleado_Click);
+            this.btnDesbloquearEmpleado.Click += new System.EventHandler(this.BtnDesbloquearEmpleado_Click);
             // 
             // EmpleadoHome
             // 

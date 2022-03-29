@@ -40,6 +40,7 @@ namespace BLL
 
             return envio.Id;
         }
+
         public static int CrearDetalleDeDeposito(EnvioDetalleEe envio)
         {
             envio.Id = Dal.CrearDetalleDeDeposito(envio);
@@ -77,7 +78,7 @@ namespace BLL
 
             if (envios == null)
             {
-                return null;
+                return new List<EnvioEe>();
             }
 
             foreach (var envio in envios)
@@ -103,6 +104,7 @@ namespace BLL
 
             return envios;
         }
+
         public static EstadoEe ObtenerEstado(int id)
         {
             return Dal.ObtenerEstado(id);

@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,10 +37,15 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hasPatent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openEnterpriseDataSet = new UI.openEnterpriseDataSet();
             this.lblNombre = new MetroFramework.Controls.MetroLabel();
             this.txtNombre = new MetroFramework.Controls.MetroTextBox();
             this.btnSave = new MetroFramework.Controls.MetroButton();
+            this.patenteTableAdapter = new UI.openEnterpriseDataSetTableAdapters.patenteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gridPatentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patenteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openEnterpriseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPatentes
@@ -56,7 +62,6 @@
             // 
             // gridPatentes
             // 
-            this.gridPatentes.AllowUserToAddRows = false;
             this.gridPatentes.AllowUserToResizeRows = false;
             this.gridPatentes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gridPatentes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -137,6 +142,16 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
+            // patenteBindingSource
+            // 
+            this.patenteBindingSource.DataMember = "patente";
+            this.patenteBindingSource.DataSource = this.openEnterpriseDataSet;
+            // 
+            // openEnterpriseDataSet
+            // 
+            this.openEnterpriseDataSet.DataSetName = "openEnterpriseDataSet";
+            this.openEnterpriseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // lblNombre
             // 
             this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -193,7 +208,11 @@
             this.btnSave.Tag = "";
             this.btnSave.Text = "✔";
             this.btnSave.UseSelectable = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // patenteTableAdapter
+            // 
+            this.patenteTableAdapter.ClearBeforeFill = true;
             // 
             // AgregarFamilia
             // 
@@ -210,6 +229,8 @@
             this.Text = "Gestionar familia";
             this.Load += new System.EventHandler(this.AgregarFamilia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridPatentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patenteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openEnterpriseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +246,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn id;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn hasPatent;
 		private System.Windows.Forms.DataGridViewTextBoxColumn name;
-	}
+        private openEnterpriseDataSet openEnterpriseDataSet;
+        private System.Windows.Forms.BindingSource patenteBindingSource;
+        private openEnterpriseDataSetTableAdapters.patenteTableAdapter patenteTableAdapter;
+    }
 }

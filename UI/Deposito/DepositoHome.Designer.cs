@@ -90,7 +90,7 @@ namespace UI
             this.gridDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDeposito.Size = new System.Drawing.Size(612, 352);
             this.gridDeposito.TabIndex = 7;
-            this.gridDeposito.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDeposito_CellDoubleClick);
+            this.gridDeposito.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDeposito_CellDoubleClick);
             // 
             // btnBorrarDeposito
             // 
@@ -101,7 +101,7 @@ namespace UI
             this.btnBorrarDeposito.TabIndex = 6;
             this.btnBorrarDeposito.Text = "Borrar Deposito";
             this.btnBorrarDeposito.UseSelectable = true;
-            this.btnBorrarDeposito.Click += new System.EventHandler(this.btnBorrarDeposito_Click);
+            this.btnBorrarDeposito.Click += new System.EventHandler(this.BtnBorrarDeposito_Click);
             // 
             // btnModificarDeposito
             // 
@@ -112,7 +112,7 @@ namespace UI
             this.btnModificarDeposito.TabIndex = 5;
             this.btnModificarDeposito.Text = "Modificar Deposito";
             this.btnModificarDeposito.UseSelectable = true;
-            this.btnModificarDeposito.Click += new System.EventHandler(this.btnModificarDeposito_Click);
+            this.btnModificarDeposito.Click += new System.EventHandler(this.BtnModificarDeposito_Click);
             // 
             // btnCrearDeposito
             // 
@@ -123,7 +123,7 @@ namespace UI
             this.btnCrearDeposito.TabIndex = 4;
             this.btnCrearDeposito.Text = "Crear Deposito";
             this.btnCrearDeposito.UseSelectable = true;
-            this.btnCrearDeposito.Click += new System.EventHandler(this.btnCrearDeposito_Click);
+            this.btnCrearDeposito.Click += new System.EventHandler(this.BtnCrearDeposito_Click);
             // 
             // DepositoHome
             // 

@@ -21,9 +21,9 @@ namespace DAL
         {
             try
             {
-                var strQuery = "UPDATE[dbo].[venta] " +
-                               "SET[idEstado] = 2 " +
-                               $"WHERE id = @id";
+                const string strQuery = "UPDATE[dbo].[venta] " +
+                                        "SET[idEstado] = 2 " +
+                                        "WHERE id = @id";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -42,9 +42,9 @@ namespace DAL
         {
             try
             {
-                var strQuery = "UPDATE[dbo].[venta] " +
-                               "SET[idEstado] = 3 " +
-                               $"WHERE id = @id";
+                const string strQuery = "UPDATE[dbo].[venta] " +
+                                        "SET[idEstado] = 3 " +
+                                        "WHERE id = @id";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -168,15 +168,15 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT" +
-                               " id," +
-                               " idUsuario," +
-                               " idComprador," +
-                               " idSucursal," +
-                               " idMetodoPago," +
-                               " idEstado," +
-                               " total," +
-                               " fecha FROM venta";
+                const string strQuery = "SELECT" +
+                                        " id," +
+                                        " idUsuario," +
+                                        " idComprador," +
+                                        " idSucursal," +
+                                        " idMetodoPago," +
+                                        " idEstado," +
+                                        " total," +
+                                        " fecha FROM venta";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -198,7 +198,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaEe>();
             }
         }
 
@@ -237,7 +237,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaEe>();
             }
         }
 
@@ -276,7 +276,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaEe>();
             }
         }
 
@@ -315,7 +315,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaEe>();
             }
         }
 
@@ -391,7 +391,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaDetalleEe>();
             }
         }
 
@@ -421,7 +421,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaDetalleEe>();
             }
         }
 
@@ -451,7 +451,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaDetalleEe>();
             }
         }
 
@@ -469,7 +469,7 @@ namespace DAL
                                " total," +
                                " fecha FROM venta" +
                                $" WHERE idSucursal = {sucursal.Id}" +
-                               $" AND idEstado = 1";
+                               " AND idEstado = 1";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -491,7 +491,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaEe>();
             }
         }
 
@@ -521,7 +521,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VentaDetalleEe>();
             }
         }
 
@@ -617,11 +617,11 @@ namespace DAL
             return Insert("perdida", columnas.ToArray(), valores.ToArray());
         }
 
-        public void RegistrarProductosDevueltos(DevolucionEe devolucionEe, List<VentaDetalleEe> productos)
+        public void RegistrarProductosDevueltos(List<VentaDetalleEe> productos)
         {
             foreach (var producto in productos)
             {
-                if (_productoDal.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                if (_productoDal.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).Any(x => x.Id == producto.Producto.Id))
                 {
                     _productoDal.ActualizarStockSucursal(Sesion.ObtenerSesion().Sucursal, producto);
                 }
@@ -647,7 +647,7 @@ namespace DAL
             };
         }
 
-        private VentaDetalleEe CastDtoDetalle(SqlDataReader data)
+        private static VentaDetalleEe CastDtoDetalle(SqlDataReader data)
         {
             return new VentaDetalleEe
             {
@@ -662,7 +662,7 @@ namespace DAL
             };
         }
 
-        private VentaDetalleEe CastDtoDetalleAgrupado(SqlDataReader data)
+        private static VentaDetalleEe CastDtoDetalleAgrupado(SqlDataReader data)
         {
             return new VentaDetalleEe
             {
@@ -672,7 +672,7 @@ namespace DAL
             };
         }
 
-        private VentaDetalleEe CastDtoDevolucionOPerdidaAgrupada(SqlDataReader data)
+        private static VentaDetalleEe CastDtoDevolucionOPerdidaAgrupada(SqlDataReader data)
         {
             return new VentaDetalleEe
             {

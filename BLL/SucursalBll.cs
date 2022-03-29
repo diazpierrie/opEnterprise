@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class SucursalBll
+    public static class SucursalBll
     {
         private static readonly SucursalDal Dal = new SucursalDal();
 

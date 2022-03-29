@@ -50,7 +50,7 @@ namespace UI
             this.btnBitacora.TabIndex = 1;
             this.btnBitacora.Text = "Ver bitacora";
             this.btnBitacora.UseSelectable = true;
-            this.btnBitacora.Click += new System.EventHandler(this.metroButton1_Click);
+            this.btnBitacora.Click += new System.EventHandler(this.BtnBitacora_Click);
             // 
             // btnRestore
             // 
@@ -62,7 +62,7 @@ namespace UI
             this.btnRestore.TabIndex = 2;
             this.btnRestore.Text = "Restaurar base de datos";
             this.btnRestore.UseSelectable = true;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
             // 
             // lblResponse
             // 
@@ -93,7 +93,7 @@ namespace UI
             this.btnRestDV.Tag = "rest_dv";
             this.btnRestDV.Text = "Restaurar DV";
             this.btnRestDV.UseSelectable = true;
-            this.btnRestDV.Click += new System.EventHandler(this.btnRestDV_Click);
+            this.btnRestDV.Click += new System.EventHandler(this.BtnRestDV_Click);
             // 
             // ErrorDv
             // 

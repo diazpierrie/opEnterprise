@@ -26,10 +26,10 @@ namespace UI.Familia
             UpdateFamilyList();
         }
 
-        private void btnDeleteFamily_Click(object sender, EventArgs e)
+        private void BtnDeleteFamily_Click(object sender, EventArgs e)
         {
             var selectedFamily = int.Parse(cmbFamilias.SelectedValue.ToString());
-            if (selectedFamily == RolManager.ObtenerFamilia(Sesion.ObtenerSesion().Usuario).Id)
+            if (selectedFamily == RolManager.ObtenerFamiliaPorUsuario(Sesion.ObtenerSesion().Usuario).Id)
             {
                 MetroFramework.MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["cant_delete_my_family"], Sesion.ObtenerSesion().Idioma.Textos["notification"]);
                 return;
@@ -42,7 +42,7 @@ namespace UI.Familia
             UpdateFamilyList();
         }
 
-        private void btnEditFamily_Click(object sender, EventArgs e)
+        private void BtnEditFamily_Click(object sender, EventArgs e)
         {
             if (cmbFamilias.SelectedValue == null)
             {
@@ -52,12 +52,12 @@ namespace UI.Familia
             var ag = new AgregarFamilia()
             {
                 CallBack = this,
-                Family = RolManager.ObtenerFamilia(int.Parse(cmbFamilias.SelectedValue.ToString()))
+                Family = RolManager.ObtenerFamiliaPorId(int.Parse(cmbFamilias.SelectedValue.ToString()))
             };
             Mdi.OpenWindowForm(ag);
         }
 
-        private void btnAddFamily_Click(object sender, EventArgs e)
+        private void BtnAddFamily_Click(object sender, EventArgs e)
         {
             var ag = new AgregarFamilia()
             {

@@ -80,7 +80,7 @@ namespace UI
             this.btnBuscar.Tag = "search";
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseSelectable = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // lblCliente
             // 
@@ -176,7 +176,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // gridClientes
             // 
@@ -226,7 +226,7 @@ namespace UI
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridClientes.Size = new System.Drawing.Size(546, 372);
             this.gridClientes.TabIndex = 0;
-            this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
+            this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridClientes_CellMouseDoubleClick);
             // 
             // btnElegirVenta
             // 
@@ -238,7 +238,7 @@ namespace UI
             this.btnElegirVenta.Tag = "choose_sale";
             this.btnElegirVenta.Text = "Elegir Venta";
             this.btnElegirVenta.UseSelectable = true;
-            this.btnElegirVenta.Click += new System.EventHandler(this.btnElegirVenta_Click);
+            this.btnElegirVenta.Click += new System.EventHandler(this.BtnElegirVenta_Click);
             // 
             // QuejaCrear
             // 

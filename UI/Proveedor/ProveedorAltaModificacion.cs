@@ -1,7 +1,7 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
 
 namespace UI
 {
@@ -56,7 +56,7 @@ namespace UI
             txtMail.Text = _proveedor.Mail;
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -92,7 +92,6 @@ namespace UI
             }
 
             Close();
-
         }
 
         private void ProveedorCrear_Load(object sender, EventArgs e)
@@ -107,12 +106,10 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
-        
+
         private void CambiarTitulo(string titulo)
         {
             Text = titulo;
         }
-
-
     }
 }

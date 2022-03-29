@@ -29,8 +29,8 @@ namespace EE
         {
             unchecked
             {
-                var hashCode = Nombre != null ? Nombre.GetHashCode() : 0;
-                hashCode = (hashCode * 397) ^ (Codigo != null ? Codigo.GetHashCode() : 0);
+                var hashCode = Nombre?.GetHashCode() ?? 0;
+                hashCode = (hashCode * 397) ^ (Codigo?.GetHashCode() ?? 0);
                 hashCode = (hashCode * 397) ^ FechaCreacion.GetHashCode();
                 hashCode = (hashCode * 397) ^ Cantidad;
                 hashCode = (hashCode * 397) ^ Precio.GetHashCode();

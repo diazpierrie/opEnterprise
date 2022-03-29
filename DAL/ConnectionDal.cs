@@ -25,17 +25,7 @@ namespace DAL
 
         protected static bool IsForeignKey(string colName)
         {
-            if (colName.Length < 4)
-            {
-                return false;
-            }
-
-            if (colName.Substring(colName.Length - 3, 3).Equals("_id"))
-            {
-                return true;
-            }
-
-            return false;
+            return colName.Length >= 4 && colName.Substring(colName.Length - 3, 3).Equals("_id");
         }
 
         protected bool DeleteByid(string table, int id)
@@ -86,10 +76,10 @@ namespace DAL
                         queryString.Append(", ");
                     }
 
-                    queryString.Append("@" + columns[i]);
+                    queryString.Append('@').Append(columns[i]);
                 }
 
-                queryString.Append(")");
+                queryString.Append(')');
 
                 var query = new SqlCommand(queryString.ToString(), Conn);
 
@@ -157,10 +147,10 @@ namespace DAL
                         queryString.Append(value[i]);
                     }
 
-                    queryString.Append(")");
+                    queryString.Append(')');
                     if (loopCount != values.Count)
                     {
-                        queryString.Append(",");
+                        queryString.Append(',');
                     }
                 }
 
@@ -206,7 +196,7 @@ namespace DAL
             }
         }
 
-        private string Truncate(string value, int maxChars)
+        private static string Truncate(string value, int maxChars)
         {
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + " ...";
         }
@@ -241,7 +231,7 @@ namespace DAL
             }
         }
 
-        public string GetTimestamp(DateTime value)
+        protected static string GetTimestamp(DateTime value)
         {
             return value.ToString("yyyyMMdd");
         }

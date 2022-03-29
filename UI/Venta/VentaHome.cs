@@ -16,9 +16,9 @@ namespace UI
     {
         public readonly Mdi Mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
-        public BindingList<ProductoEdificioEe> ProductosDeposito;
-        public BindingList<ProductoEdificioEe> ProductosSucursal;
-        public double Total;
+        public BindingList<ProductoEdificioEe> ProductosDeposito { get; set; }
+        public BindingList<ProductoEdificioEe> ProductosSucursal { get; set; }
+        public double Total { get; set; }
 
         public VentaHome(Mdi mdi)
         {
@@ -31,7 +31,7 @@ namespace UI
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
-            lblTotal.Text += @": ";
+            lblTotal.Text += ": ";
         }
 
         public void ActualizarGrid()
@@ -59,7 +59,7 @@ namespace UI
             gridVenta.Columns["TotalProducto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_product"];
 
             Total = ProductosAAsignar.Sum(producto => producto.CantidadAComprar * producto.Precio);
-            lblTotal.Text = $@"Total: ${Total}";
+            lblTotal.Text = $"Total: ${Total}";
 
             gridVenta.Refresh();
 
@@ -71,7 +71,7 @@ namespace UI
             gridVenta.Columns["precio"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnCompletarVenta_Click(object sender, EventArgs e)
+        private void BtnCompletarVenta_Click(object sender, EventArgs e)
         {
             if (ProductosAAsignar.Count != 0)
             {
@@ -85,13 +85,13 @@ namespace UI
             }
         }
 
-        private void btnCrearVenta_Click(object sender, EventArgs e)
+        private void BtnCrearVenta_Click(object sender, EventArgs e)
         {
             var agregarProducto = new VentaProductoAgregar(this);
             Mdi.OpenWindowForm(agregarProducto);
         }
 
-        private void btnRemoverProductos_Click(object sender, EventArgs e)
+        private void BtnRemoverProductos_Click(object sender, EventArgs e)
         {
             if (gridVenta.SelectedRows.Count == 0) return;
 
@@ -100,7 +100,7 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void gridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void GridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ActualizarGrid();
         }

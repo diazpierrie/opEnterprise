@@ -1,11 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using MetroFramework;
 using Security;
+using System;
+using System.Globalization;
+using System.Linq;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -25,7 +25,7 @@ namespace UI
 
         private void ActualizarGrids()
         {
-            var depositosSelectedItem = (DepositoEe) cbDepositos.SelectedItem;
+            var depositosSelectedItem = (DepositoEe)cbDepositos.SelectedItem;
             gridProductos.DataSource = _sucursalPedidoHome.ProductosDeposito
                 .Where(x => x.Edificio.Id == depositosSelectedItem.Id).ToList();
 
@@ -64,7 +64,7 @@ namespace UI
 
             gridProductosAAgregar.Columns["TotalProducto"].HeaderText = "Total del Producto";
 
-            var format = (NumberFormatInfo) NumberFormatInfo.CurrentInfo.Clone();
+            var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
             format.CurrencySymbol = "$";
 
             gridProductosAAgregar.Columns["TotalProducto"].DefaultCellStyle.FormatProvider = format;
@@ -76,21 +76,20 @@ namespace UI
             gridProductos.Columns["costo"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             if (gridProductos.SelectedRows.Count == 0) return;
 
             for (var index = 0; index < gridProductos.SelectedRows.Count; index++)
             {
                 var selectedRow = gridProductos.SelectedRows[index];
-                var producto = (ProductoEdificioEe) selectedRow.DataBoundItem;
-                var productoNuevo = (ProductoEdificioEe) producto.Clone();
+                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
-                if ((int) selectedRow.Cells["CantidadAComprar"].Value == 0 ||
-                    selectedRow.Cells["CantidadAComprar"].Value == null)
+                if ((int)selectedRow.Cells["CantidadAComprar"].Value == 0 || selectedRow.Cells["CantidadAComprar"].Value == null)
                     productoNuevo.Cantidad = 1;
                 else
-                    productoNuevo.Cantidad = (int) selectedRow.Cells["CantidadAComprar"].Value;
+                    productoNuevo.Cantidad = (int)selectedRow.Cells["CantidadAComprar"].Value;
 
                 productoNuevo.TotalProducto = productoNuevo.Cantidad * productoNuevo.Costo;
 
@@ -109,7 +108,7 @@ namespace UI
                 producto.Cantidad -= productoNuevo.Cantidad;
                 if (producto.Cantidad == 0)
                 {
-                    _sucursalPedidoHome.ProductosDeposito.Remove((ProductoEdificioEe) selectedRow.DataBoundItem);
+                    _sucursalPedidoHome.ProductosDeposito.Remove((ProductoEdificioEe)selectedRow.DataBoundItem);
 
                     ActualizarGrids();
                 }
@@ -121,55 +120,59 @@ namespace UI
             }
         }
 
-        private void btnAsignarProductos_Click(object sender, EventArgs e)
+        private void BtnAsignarProductos_Click(object sender, EventArgs e)
         {
             _sucursalPedidoHome.ActualizarGrid();
             Close();
         }
 
-        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
+        private void BtnRemoverProducto_Click(object sender, EventArgs e)
         {
             if (gridProductosAAgregar.SelectedRows.Count == 0) return;
 
             for (var index = 0; index < gridProductosAAgregar.SelectedRows.Count; index++)
             {
                 var selectedRow = gridProductosAAgregar.SelectedRows[index];
-                var producto = (ProductoEdificioEe) selectedRow.DataBoundItem;
-                var productoNuevo = (ProductoEdificioEe) producto.Clone();
+                var producto = (ProductoEdificioEe)selectedRow.DataBoundItem;
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x =>
-                        x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)) != null)
-                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x =>
-                            x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)).Cantidad +=
-                        productoNuevo.Cantidad;
+                if (_sucursalPedidoHome.ProductosDeposito.Any(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)))
+                {
+                    _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)).Cantidad += productoNuevo.Cantidad;
+                }
                 else
+                {
                     _sucursalPedidoHome.ProductosDeposito.Add(productoNuevo);
+                }
 
                 _sucursalPedidoHome.ProductosAAsignar.Remove(producto);
                 ActualizarGrids();
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             if (_sucursalPedidoHome.ProductosAAsignar.Count == 0) Close();
 
             foreach (var producto in _sucursalPedidoHome.ProductosAAsignar)
             {
-                var productoNuevo = (ProductoEdificioEe) producto.Clone();
+                var productoNuevo = (ProductoEdificioEe)producto.Clone();
 
                 productoNuevo.Cantidad = producto.CantidadAComprar;
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x =>
-                        x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)) != null)
+                if (_sucursalPedidoHome.ProductosDeposito.Any(x => x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)))
+                {
                     _sucursalPedidoHome.ProductosDeposito.FirstOrDefault(x =>
                             x.Id == productoNuevo.Id && Equals(x.Edificio, productoNuevo.Edificio)).Cantidad +=
                         productoNuevo.Cantidad;
+                }
                 else
+                {
                     _sucursalPedidoHome.ProductosDeposito.Add(productoNuevo);
+                }
             }
 
             _sucursalPedidoHome.ProductosAAsignar.Clear();
@@ -177,15 +180,15 @@ namespace UI
             Close();
         }
 
-        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbDepositos_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarGrids();
         }
 
-        private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void GridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            var row = (ProductoEdificioEe) gridProductos.Rows[e.RowIndex].DataBoundItem;
-            if (gridProductos.CurrentCell.Value != null && (int) gridProductos.CurrentCell.Value < 0)
+            var row = (ProductoEdificioEe)gridProductos.Rows[e.RowIndex].DataBoundItem;
+            if (gridProductos.CurrentCell.Value != null && (int)gridProductos.CurrentCell.Value < 0)
             {
                 MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Por favor, ingrese un numero positivo",
                     "Valor incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -193,7 +196,7 @@ namespace UI
                 return;
             }
 
-            if ((int) gridProductos.CurrentCell.Value <= row.Cantidad) return;
+            if ((int)gridProductos.CurrentCell.Value <= row.Cantidad) return;
 
             MetroMessageBox.Show(_sucursalPedidoHome.Mdi,
                 "Ingrese un valor positivo igual o menor a la cantidad a entrar",
@@ -201,20 +204,23 @@ namespace UI
             gridProductos.CurrentCell.Value = row.Cantidad;
         }
 
-        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void GridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             gridProductos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void gridProductos_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void GridProductos_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (int.TryParse(gridProductos.CurrentCell.EditedFormattedValue.ToString(), out _))
+            {
                 gridProductos.CurrentCell.Value = 0;
+            }
             else
-                MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Por favor solo ingrese numeros positivos",
-                    "Valor incorrecto");
+            {
+                MetroMessageBox.Show(_sucursalPedidoHome.Mdi, "Por favor solo ingrese numeros positivos", "Valor incorrecto");
+            }
         }
 
         private void ProductoAgregar_Load(object sender, EventArgs e)
@@ -226,9 +232,9 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Enter) & (txtBuscar.Text != null))
+            if ((e.KeyCode == Keys.Enter) && (txtBuscar.Text != null))
                 gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
         }
     }

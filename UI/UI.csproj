@@ -75,6 +75,11 @@
     <Compile Include="MDI.Designer.cs">
       <DependentUpon>MDI.cs</DependentUpon>
     </Compile>
+    <Compile Include="openEnterpriseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Producto\ProductoAltaModificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,12 +177,6 @@
       <DependentUpon>UpdatableUserControl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Venta\Cliente\Direccion\DireccionAgregar.Designer.cs">
-      <DependentUpon>DireccionAgregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\ControlesGestionar.cs">
       <SubType>Form</SubType>
@@ -323,12 +322,6 @@
     <Compile Include="Admin\EdificioConfigurar.Designer.cs">
       <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deposito\DepositoElegir.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deposito\DepositoElegir.Designer.cs">
-      <DependentUpon>DepositoElegir.cs</DependentUpon>
-    </Compile>
     <Compile Include="Deposito\DepositoPedidoHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,12 +370,6 @@
     <Compile Include="Deposito\DepositoAltaModificacion.Designer.cs">
       <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deposito\DepositoBaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deposito\DepositoBaja.Designer.cs">
-      <DependentUpon>DepositoBaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Deposito\DepositoHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,12 +387,6 @@
     </Compile>
     <Compile Include="Servicios\ErrorDV.Designer.cs">
       <DependentUpon>ErrorDV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Login.cs">
       <SubType>Form</SubType>
@@ -594,9 +575,6 @@
     <EmbeddedResource Include="Admin\EdificioConfigurar.resx">
       <DependentUpon>EdificioConfigurar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Deposito\DepositoElegir.resx">
-      <DependentUpon>DepositoElegir.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Deposito\DepositoPedidoHome.resx">
       <DependentUpon>DepositoPedidoHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -621,9 +599,6 @@
     <EmbeddedResource Include="Deposito\DepositoAltaModificacion.resx">
       <DependentUpon>DepositoAltaModificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Deposito\DepositoBaja.resx">
-      <DependentUpon>DepositoBaja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Deposito\DepositoHome.resx">
       <DependentUpon>DepositoHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -633,9 +608,6 @@
     <EmbeddedResource Include="Servicios\ErrorDV.resx">
       <DependentUpon>ErrorDV.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -677,6 +649,17 @@
     </EmbeddedResource>
     <None Include="ManualDeUsuario.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="openEnterpriseDataSet.xsc">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="openEnterpriseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>openEnterpriseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="openEnterpriseDataSet.xss">
+      <DependentUpon>openEnterpriseDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

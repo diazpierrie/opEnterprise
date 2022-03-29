@@ -59,6 +59,7 @@ namespace DAL
 
             return Insert("envio_sucursal_detalle", columnas.ToArray(), valores.ToArray());
         }
+
         public List<EnvioEe> ObtenerDeDeposito()
         {
             try
@@ -85,7 +86,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EnvioEe>();
             }
         }
 
@@ -116,7 +117,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EnvioEe>();
             }
         }
 
@@ -147,7 +148,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EnvioEe>();
             }
         }
 
@@ -177,7 +178,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EnvioDetalleEe>();
             }
         }
 
@@ -207,9 +208,10 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EnvioDetalleEe>();
             }
         }
+
         public EstadoEe ObtenerEstado(int id)
         {
             try
@@ -274,9 +276,10 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<EstadoEe>();
             }
         }
+
         public List<TipoEntregaEe> ObtenerTiposEntrega()
         {
             try
@@ -309,7 +312,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<TipoEntregaEe>();
             }
         }
 
@@ -342,7 +345,8 @@ namespace DAL
 
             return ee;
         }
-        private EnvioDetalleEe CastDtoDepositoDetalle(SqlDataReader data)
+
+        private static EnvioDetalleEe CastDtoDepositoDetalle(SqlDataReader data)
         {
             return new EnvioDetalleEe
             {
@@ -352,7 +356,7 @@ namespace DAL
             };
         }
 
-        private EnvioDetalleEe CastDtoSucursalDetalle(SqlDataReader data)
+        private static EnvioDetalleEe CastDtoSucursalDetalle(SqlDataReader data)
         {
             return new EnvioDetalleEe
             {

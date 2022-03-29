@@ -29,7 +29,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<VersionEntidadEe>();
             }
         }
 

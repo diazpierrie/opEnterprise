@@ -65,7 +65,7 @@ namespace DAL
                 {
                     if (!data.GetName(i).Equals("dvh") && !IsForeignKey(data.GetName(i)))
                     {
-                        dvhs.Append(data.GetValue(i).GetHashCode().ToString());
+                        dvhs.Append(data.GetValue(i).GetHashCode());
                     }
                 }
 
@@ -91,7 +91,7 @@ namespace DAL
                     return;
                 }
 
-                var sql = $"UPDATE Dvv SET dvv = '{CalcularDvv(tabla).GetHashCode().ToString()}' WHERE nombreTabla = '{tabla}'";
+                var sql = $"UPDATE Dvv SET dvv = '{CalcularDvv(tabla).GetHashCode()}' WHERE nombreTabla = '{tabla}'";
                 Conn.Open();
                 var mCom = new SqlCommand(sql, Conn);
 
@@ -126,12 +126,11 @@ namespace DAL
                     {
                         if (!data.GetName(i).Equals("dvh") && !IsForeignKey(data.GetName(i)))
                         {
-                            dvhs.Append(data.GetValue(i).GetHashCode().ToString());
+                            dvhs.Append(data.GetValue(i).GetHashCode());
                         }
                     }
-
-                    finalQuery.Append(
-                        $"UPDATE {tabla} SET dvh = '{dvhs.ToString().GetHashCode().ToString()}' WHERE id = {data["id"]};");
+                    finalQuery.Append("UPDATE ").Append(tabla).Append(" SET dvh = '").Append(dvhs.ToString().GetHashCode())
+                        .Append("' WHERE id = ").Append(data["id"]).Append(';');
                     dvhs.Clear();
                 }
                 Conn.Close();

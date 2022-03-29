@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
-using BLL;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -25,15 +25,14 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == null &&
-                txtCliente.Text == null) return;
+            if (txtUsuario.Text == null && txtCliente.Text == null) return;
 
-                gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                              && x.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
-                gridVentas.Refresh();
+            gridVentas.Refresh();
         }
 
         public void ActualizarGrid()
@@ -59,12 +58,12 @@ namespace UI
             gridVentas.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void GridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             var detalles = VentaBll.ObtenerDetalles(venta);
@@ -77,7 +76,7 @@ namespace UI
             Mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
-        private void btnElegirVenta_Click(object sender, EventArgs e)
+        private void BtnElegirVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             var confirmarPago = new ConfirmarPago(this, venta);

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using BLL;
-using EE;
-using Security;
+using MetroFramework;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -30,8 +31,8 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
             var estados = VentaEstadoBll.Obtener().Where(x => x.Id != 3 &&
-                                                              x.Id != 6 && 
-                                                              x.Id != 7 && 
+                                                              x.Id != 6 &&
+                                                              x.Id != 7 &&
                                                               x.Id != 9).ToList();
             estados.Add(new EstadoEe { Id = 10, Nombre = Sesion.ObtenerSesion().Idioma.Textos["all"] });
             cbEstado.DataSource = estados;
@@ -40,22 +41,21 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == null &&
-                txtCliente.Text == null) return;
+            if (txtUsuario.Text == null && txtCliente.Text == null) return;
 
             var ventaEstado = (EstadoEe)cbEstado.SelectedItem;
             if (ventaEstado.Nombre == Sesion.ObtenerSesion().Idioma.Textos["all"])
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
             else
             {
-                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())
-                                                                  && x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower())
-                                                                  && x.Estado.Nombre.ToLower().Contains(ventaEstado.Nombre.ToLower()));
+                gridClientes.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Comprador.NombreCompleto.IndexOf(txtCliente.Text,StringComparison.OrdinalIgnoreCase) >= 0
+                                                                  && x.Estado.Nombre.IndexOf(ventaEstado.Nombre, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
             gridClientes.Refresh();
@@ -65,7 +65,7 @@ namespace UI
         {
             _dataTable = VentaBll.Obtener(Sesion.ObtenerSesion().Sucursal).Where(x => x.Estado.Id != 3 &&
                                                                                       x.Estado.Id != 6 &&
-                                                                                      x.Estado.Id != 7 && 
+                                                                                      x.Estado.Id != 7 &&
                                                                                       x.Estado.Id != 9).ToList();
             gridClientes.DataSource = _dataTable;
 
@@ -88,12 +88,12 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void GridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
             var detalles = VentaBll.ObtenerDetalles(venta);
@@ -106,10 +106,18 @@ namespace UI
             Mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
-        private void btnElegirVenta_Click(object sender, EventArgs e)
+        private void BtnElegirVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridClientes.SelectedRows[0].DataBoundItem;
-            new QuejaElegir(venta, this);
+            var obtenerDetallesAgrupados = VentaBll.ObtenerDetallesAgrupados(venta);
+            if (obtenerDetallesAgrupados.Count == 0)
+            {
+                MetroMessageBox.Show(Mdi, Sesion.ObtenerSesion().Idioma.Textos["sale_no_products"], Sesion.ObtenerSesion().Idioma.Textos["error"], MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var quejaElegir = new QuejaElegir(venta, this, obtenerDetallesAgrupados);
+            quejaElegir.Show();
         }
     }
 }

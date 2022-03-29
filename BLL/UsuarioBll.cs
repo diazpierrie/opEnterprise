@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class UsuarioBll
+    public static class UsuarioBll
     {
         private static readonly UsuarioDal Dal = new UsuarioDal();
 
         public static void Actualizar(UsuarioEe usuario)
         {
             Dal.Actualizar(usuario);
-            RolManager.ModificarFamilia(usuario, RolManager.ObtenerFamilia(usuario));
+            RolManager.ModificarFamilia(usuario, RolManager.ObtenerFamiliaPorUsuario(usuario));
 
             BitacoraManager.AgregarMensajeControl("Usuario actualizado: ", usuario);
 
@@ -34,7 +34,7 @@ namespace BLL
                 return 0;
             }
 
-            usuario.Id = Dal.Crear(usuario, Encriptador.Encriptar("123456"), RolManager.ObtenerFamilia(usuario));
+            usuario.Id = Dal.Crear(usuario, Encriptador.Encriptar("123456"));
             Dv.ActualizarDv();
 
             BitacoraManager.AgregarMensajeControl("Usuario creado: ", usuario);

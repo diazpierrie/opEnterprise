@@ -98,7 +98,7 @@ namespace UI
             this.btnCompletarVenta.TabIndex = 1;
             this.btnCompletarVenta.Text = "Completar Venta";
             this.btnCompletarVenta.UseSelectable = true;
-            this.btnCompletarVenta.Click += new System.EventHandler(this.btnCompletarVenta_Click);
+            this.btnCompletarVenta.Click += new System.EventHandler(this.BtnCompletarVenta_Click);
             // 
             // btnCerrar
             // 
@@ -109,7 +109,7 @@ namespace UI
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // lblTotal
             // 
@@ -151,7 +151,7 @@ namespace UI
             this.txtEfectivo.UseSelectable = true;
             this.txtEfectivo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEfectivo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtEfectivo.TextChanged += new System.EventHandler(this.txtEfectivo_TextChanged);
+            this.txtEfectivo.TextChanged += new System.EventHandler(this.TxtEfectivo_TextChanged);
             // 
             // lblEfectivoRecibido
             // 

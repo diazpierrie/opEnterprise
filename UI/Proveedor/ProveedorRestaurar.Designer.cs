@@ -93,7 +93,7 @@ namespace UI
             this.btnRestaurar.Tag = "restore";
             this.btnRestaurar.Text = "Restaurar";
             this.btnRestaurar.UseSelectable = true;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            this.btnRestaurar.Click += new System.EventHandler(this.BtnRestaurar_Click);
             // 
             // btnCerrar
             // 
@@ -104,7 +104,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // ProveedorRestaurar
             // 

@@ -66,7 +66,7 @@ namespace UI
             this.btnAsignarQueja.Tag = "assign_complaint";
             this.btnAsignarQueja.Text = "Asignar Queja";
             this.btnAsignarQueja.UseSelectable = true;
-            this.btnAsignarQueja.Click += new System.EventHandler(this.btnAsignarQueja_Click);
+            this.btnAsignarQueja.Click += new System.EventHandler(this.BtnAsignarQueja_Click);
             // 
             // QuejaElegir
             // 

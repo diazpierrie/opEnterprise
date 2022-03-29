@@ -58,7 +58,7 @@ namespace UI
             this.btnDespacharEnvio.Tag = "dispatch_delivery";
             this.btnDespacharEnvio.Text = "Despachar Envio";
             this.btnDespacharEnvio.UseSelectable = true;
-            this.btnDespacharEnvio.Click += new System.EventHandler(this.btnDespacharEnvio_Click);
+            this.btnDespacharEnvio.Click += new System.EventHandler(this.BtnDespacharEnvio_Click);
             // 
             // lblEstado
             // 
@@ -89,7 +89,7 @@ namespace UI
             this.btnBuscar.Tag = "search";
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseSelectable = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // lblCliente
             // 
@@ -180,7 +180,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // gridClientes
             // 
@@ -227,7 +227,7 @@ namespace UI
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridClientes.Size = new System.Drawing.Size(667, 429);
             this.gridClientes.TabIndex = 0;
-            this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridClientes_CellMouseDoubleClick);
+            this.gridClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridClientes_CellMouseDoubleClick);
             // 
             // btnConfirmarRecepcion
             // 
@@ -238,7 +238,7 @@ namespace UI
             this.btnConfirmarRecepcion.Tag = "confirm_reception";
             this.btnConfirmarRecepcion.Text = "Confirmar Recepcion";
             this.btnConfirmarRecepcion.UseSelectable = true;
-            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.btnConfirmarRecepcion_Click);
+            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.BtnConfirmarRecepcion_Click);
             // 
             // DepositoConfirmarRecepcion
             // 

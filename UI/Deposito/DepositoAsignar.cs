@@ -1,14 +1,15 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace UI
 {
     public partial class DepositoAsignar : UpdatableForm
     {
-        public UsuarioEe Usuario;
+        public UsuarioEe Usuario { get; }
 
         public DepositoAsignar(UsuarioEe usuario)
         {
@@ -26,12 +27,12 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnAsignarDeposito_Click(object sender, EventArgs e)
+        private void BtnAsignarDeposito_Click(object sender, EventArgs e)
         {
             if (gridAsignarDeposito.SelectedRows.Count == 0) return;
 
@@ -46,7 +47,7 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnDesasignarDeposito_Click(object sender, EventArgs e)
+        private void BtnDesasignarDeposito_Click(object sender, EventArgs e)
         {
             if (gridDesasignarDeposito.SelectedRows.Count == 0) return;
 

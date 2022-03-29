@@ -75,7 +75,7 @@ namespace UI
             gridProductosRetiro.RefreshEdit();
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             if (gridProductosAComprar.SelectedRows.Count == 0) return;
 
@@ -117,12 +117,12 @@ namespace UI
             }
         }
 
-        private void btnAsignarProductos_Click(object sender, EventArgs e)
+        private void BtnAsignarProductos_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
+        private void BtnRemoverProducto_Click(object sender, EventArgs e)
         {
             if (gridProductosRetiro.SelectedRows.Count == 0) return;
 
@@ -135,7 +135,7 @@ namespace UI
                 productoNuevo.CantidadAComprar = producto.CantidadARetirar;
                 productoNuevo.CantidadARetirar = 0;
 
-                if (_ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)) != null)
+                if (_ventaCompletar.Ventahome.ProductosAAsignar.Any(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)))
                 {
                     _ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id.Equals(productoNuevo.Id) && Equals(x.Edificio, productoNuevo.Edificio)).CantidadAComprar += productoNuevo.CantidadAComprar;
                 }
@@ -148,7 +148,7 @@ namespace UI
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             foreach (var producto in _ventaCompletar.Ventahome.ProductosAAsignar)
             {
@@ -157,7 +157,7 @@ namespace UI
                 productoNuevo.CantidadAComprar = producto.CantidadARetirar;
                 productoNuevo.CantidadAComprar = 0;
 
-                if (_ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                if (_ventaCompletar.Ventahome.ProductosAAsignar.Any(x => x.Id == productoNuevo.Id))
                 {
                     _ventaCompletar.Ventahome.ProductosAAsignar.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                 }
@@ -171,7 +171,7 @@ namespace UI
             Close();
         }
 
-        private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void GridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var row = (ProductoEdificioEe)gridProductosAComprar.Rows[e.RowIndex].DataBoundItem;
 
@@ -184,7 +184,7 @@ namespace UI
             }
         }
 
-        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void GridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             gridProductosAComprar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductosAComprar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -200,9 +200,9 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
+            if (e.KeyCode == Keys.Enter && txtBuscar.Text != null)
             {
                 gridProductosAComprar.DataSource = ProductoBll.ObtenerPorNombre();
             }

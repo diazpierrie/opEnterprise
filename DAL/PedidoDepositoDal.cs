@@ -63,13 +63,13 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT [id] ," +
-                               $"[idUsuario] ," +
-                               $"[idSucursal] ," +
-                               $"[fechaPedido] ," +
-                               $"[fechaRecepcion] ," +
-                               $"[idEstado] " +
-                               $"FROM [openEnterprise].[dbo].[pedido_deposito]" +
+                var strQuery = "SELECT [id] ," +
+                               "[idUsuario] ," +
+                               "[idSucursal] ," +
+                               "[fechaPedido] ," +
+                               "[fechaRecepcion] ," +
+                               "[idEstado] " +
+                               "FROM [openEnterprise].[dbo].[pedido_deposito]" +
                                $" WHERE id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);
@@ -100,13 +100,13 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT [id] ," +
-                               $"[idUsuario] ," +
-                               $"[idSucursal] ," +
-                               $"[fechaPedido] ," +
-                               $"[fechaRecepcion] ," +
-                               $"[idEstado] " +
-                               $"FROM [openEnterprise].[dbo].[pedido_deposito]";
+                const string strQuery = "SELECT [id] ," +
+                                        "[idUsuario] ," +
+                                        "[idSucursal] ," +
+                                        "[fechaPedido] ," +
+                                        "[fechaRecepcion] ," +
+                                        "[idEstado] " +
+                                        "FROM [openEnterprise].[dbo].[pedido_deposito]";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -128,7 +128,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoDepositoEe>();
             }
         }
 
@@ -165,40 +165,38 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoDepositoDetalleEe>();
             }
         }
 
         public List<PedidoDepositoDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
         {
+            try
             {
-                try
+                var strQuery =
+                    $"SELECT [idProducto], [cantidad] FROM [dbo].[pedido_proveedor_detalle] WHERE[idPedidoProveedor] = {proveedor.Id} AND cantidad != 0 GROUP BY idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var detalles = new List<PedidoDepositoDetalleEe>();
+
+                if (data.HasRows)
                 {
-                    var strQuery =
-                        $"SELECT [idProducto], [cantidad] FROM [dbo].[pedido_proveedor_detalle] WHERE[idPedidoProveedor] = {proveedor.Id} AND cantidad != 0 GROUP BY idProducto";
-
-                    var query = new SqlCommand(strQuery, Conn);
-
-                    Conn.Open();
-                    var data = query.ExecuteReader();
-                    var detalles = new List<PedidoDepositoDetalleEe>();
-
-                    if (data.HasRows)
+                    while (data.Read())
                     {
-                        while (data.Read())
-                        {
-                            detalles.Add(CastDtoPedidoDetalleProveedor(data));
-                        }
+                        detalles.Add(CastDtoPedidoDetalleProveedor(data));
                     }
+                }
 
-                    Conn.Close();
-                    return detalles;
-                }
-                catch (Exception e)
-                {
-                    ErrorManagerDal.AgregarMensaje(e.ToString());
-                    return null;
-                }
+                Conn.Close();
+                return detalles;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return new List<PedidoDepositoDetalleEe>();
             }
         }
 
@@ -206,14 +204,14 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT [id], " +
-                               "[idUsuario], " +
-                               "[idSucursal], " +
-                               "[fechaPedido], " +
-                               "[fechaRecepcion] " +
-                               ",[idEstado] " +
-                               "FROM[openEnterprise].[dbo].[pedido_deposito] " +
-                               "WHERE idEstado = 1";
+                const string strQuery = "SELECT [id], " +
+                                        "[idUsuario], " +
+                                        "[idSucursal], " +
+                                        "[fechaPedido], " +
+                                        "[fechaRecepcion] " +
+                                        ",[idEstado] " +
+                                        "FROM[openEnterprise].[dbo].[pedido_deposito] " +
+                                        "WHERE idEstado = 1";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -235,7 +233,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoDepositoEe>();
             }
         }
 
@@ -243,7 +241,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $@"SELECT [id] ,[idSucursal] ,[idProducto] ,[stock] FROM [openEnterprise].[dbo].[sucursal_producto] WHERE idSucursal = {sucursal.Id}";
+                var strQuery = $"SELECT [id] ,[idSucursal] ,[idProducto] ,[stock] FROM [openEnterprise].[dbo].[sucursal_producto] WHERE idSucursal = {sucursal.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -265,37 +263,37 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<StockEe>();
             }
         }
 
-        private PedidoDepositoEe CastDto(SqlDataReader data)
+        private static PedidoDepositoEe CastDto(SqlDataReader data)
         {
             return new PedidoDepositoEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                Sucursal = new SucursalEe() {Id = int.Parse(data["idSucursal"].ToString()) },
-                Empleado = new UsuarioEe() {Id = int.Parse(data["idUsuario"].ToString())},
-                Estado = new PedidoEstadoEe() { Id = int.Parse(data["idEstado"].ToString())},
+                Sucursal = new SucursalEe() { Id = int.Parse(data["idSucursal"].ToString()) },
+                Empleado = new UsuarioEe() { Id = int.Parse(data["idUsuario"].ToString()) },
+                Estado = new PedidoEstadoEe() { Id = int.Parse(data["idEstado"].ToString()) },
                 FechaPedido = data["FechaPedido"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaPedido"].ToString()) : default,
                 FechaRecepcion = data["FechaRecepcion"].ToString() != string.Empty ? Convert.ToDateTime(data["FechaRecepcion"].ToString()) : default,
             };
         }
 
-        private PedidoDepositoDetalleEe CastDtoDetalle(SqlDataReader data)
+        private static PedidoDepositoDetalleEe CastDtoDetalle(SqlDataReader data)
         {
             return new PedidoDepositoDetalleEe
             {
                 Id = int.Parse(data["id"].ToString()),
-                Pedido = new PedidoDepositoEe() { Id = int.Parse(data["idPedidoDeposito"].ToString())},
-                Deposito = new DepositoEe() { Id = int.Parse(data["idDeposito"].ToString())},
-                Producto = new ProductoEdificioEe(){ Id = int.Parse(data["idProducto"].ToString()) },
+                Pedido = new PedidoDepositoEe() { Id = int.Parse(data["idPedidoDeposito"].ToString()) },
+                Deposito = new DepositoEe() { Id = int.Parse(data["idDeposito"].ToString()) },
+                Producto = new ProductoEdificioEe() { Id = int.Parse(data["idProducto"].ToString()) },
                 Costo = double.Parse(data["costoUnitario"].ToString()),
                 Cantidad = int.Parse(data["cantidad"].ToString()),
             };
         }
 
-        private PedidoDepositoDetalleEe CastDtoPedidoDetalleProveedor(SqlDataReader data)
+        private static PedidoDepositoDetalleEe CastDtoPedidoDetalleProveedor(SqlDataReader data)
         {
             return new PedidoDepositoDetalleEe
             {
@@ -304,7 +302,7 @@ namespace DAL
             };
         }
 
-        private StockEe CastDtoStockSucursal(SqlDataReader data)
+        private static StockEe CastDtoStockSucursal(SqlDataReader data)
         {
             return new StockEe
             {

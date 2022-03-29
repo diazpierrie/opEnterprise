@@ -1,7 +1,7 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
 
 namespace UI
 {
@@ -32,6 +32,7 @@ namespace UI
             btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["address"]);
         }
+
         public DireccionAltaModificacion(ClienteAlta clienteAltaForm)
         {
             _clienteAltaForm = clienteAltaForm;
@@ -39,7 +40,6 @@ namespace UI
             _crear = true;
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
-
 
             btnAccion.Text = Sesion.ObtenerSesion().Idioma.Textos["create"];
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["create"] + " " + Sesion.ObtenerSesion().Idioma.Textos["address"]);
@@ -64,7 +64,7 @@ namespace UI
             txtCodigoPostal.Text = _direccion.CodigoPostal;
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -92,12 +92,10 @@ namespace UI
                         Provincia = txtProvincia.Text,
                         Pais = txtPais.Text,
                         CodigoPostal = txtCodigoPostal.Text,
-
                     };
                     DireccionBll.Crear(direccion);
                     _homeForm.ActualizarGrid();
                 }
-
             }
             else
             {
@@ -111,7 +109,6 @@ namespace UI
                 _homeForm.ActualizarGrid();
             }
 
-            
             Close();
         }
 
@@ -127,12 +124,10 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
-        
+
         private void CambiarTitulo(string titulo)
         {
             Text = titulo;
         }
-
-
     }
 }

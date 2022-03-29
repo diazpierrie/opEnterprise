@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EE;
+using System;
 using System.Collections.Generic;
-using EE;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -16,10 +16,9 @@ namespace UI
 
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Pedido"].Visible = false;
-
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -1,6 +1,7 @@
 ﻿using EE;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -68,7 +69,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<DepositoEe>();
             }
         }
 
@@ -139,7 +140,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<DepositoEe>();
             }
         }
 
@@ -221,7 +222,7 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        public DepositoEe CastDto(SqlDataReader data)
+        private static DepositoEe CastDto(IDataRecord data)
         {
             return new DepositoEe
             {

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace UI
 {
@@ -12,6 +12,7 @@ namespace UI
         private readonly UsuarioEe _usuario = new UsuarioEe();
         private readonly EmpleadoHome _homeForm;
         private readonly bool _crear;
+
         public EmpleadoAltaModificacion(EmpleadoHome homeForm)
         {
             _homeForm = homeForm;
@@ -37,7 +38,7 @@ namespace UI
             CambiarTitulo(Sesion.ObtenerSesion().Idioma.Textos["modify_employee"]);
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -71,7 +72,6 @@ namespace UI
 
         private void EmpleadoAltaModificacion_Load(object sender, EventArgs e)
         {
-
             AllControls.Add(lblApellido);
             AllControls.Add(lblMail);
             AllControls.Add(lblNombre);
@@ -90,7 +90,6 @@ namespace UI
             CargarFamilias();
             CargarDetalleUsuario();
         }
-
 
         private void CargarFamilias()
         {
@@ -113,10 +112,10 @@ namespace UI
             txtTelefono.Text = _usuario.Telefono;
             txtUsername.Text = _usuario.NombreUsuario;
 
-            RolManager.ObtenerFamilia(_usuario);
+            RolManager.ObtenerFamiliaPorUsuario(_usuario);
             cbRol.SelectedIndex = cbRol.FindStringExact(_usuario.Rol != null ? _usuario.Rol.Nombre : "");
         }
-        
+
         private void CambiarTitulo(string titulo)
         {
             Text = titulo;

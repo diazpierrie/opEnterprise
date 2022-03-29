@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace EE
+﻿namespace EE
 {
     public class EntidadFiscalEe : IdentityEe
     {
@@ -23,21 +21,19 @@ namespace EE
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
+            if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((EntidadFiscalEe)obj);
+            return obj.GetType() == GetType() && Equals((EntidadFiscalEe)obj);
         }
 
-        [SuppressMessage("ReSharper", "NonReadonlyMemberInGetHashCode")]
         public override int GetHashCode()
         {
             unchecked
             {
-                var hashCode = Nombre != null ? Nombre.GetHashCode() : 0;
-                hashCode = (hashCode * 397) ^ (Direccion != null ? Direccion.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Mail != null ? Mail.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Telefono != null ? Telefono.GetHashCode() : 0);
+                var hashCode = Nombre?.GetHashCode() ?? 0;
+                hashCode = (hashCode * 397) ^ (Direccion?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (Mail?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (Telefono?.GetHashCode() ?? 0);
                 hashCode = (hashCode * 397) ^ CodigoPostal;
                 hashCode = (hashCode * 397) ^ Activo.GetHashCode();
                 return hashCode;

@@ -3,6 +3,7 @@
     public class CompradorEe : PersonaEe
     {
         public bool EsSocio { get; set; }
+
         public string NombreCompleto
         {
             get { return $"{Apellido}, {Nombre}"; }

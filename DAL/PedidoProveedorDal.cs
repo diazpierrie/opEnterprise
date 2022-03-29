@@ -118,15 +118,15 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT [id] ," +
-                                     "[idUsuario] ," +
-                                     "[idProveedor] ," +
-                                     "[idDeposito] ," +
-                                     "[fechaPedido] ," +
-                                     "[fechaRecepcion] ," +
-                                     "[total] ," +
-                                     "[idEstado] " +
-                                     "FROM [dbo].[pedido_proveedor]";
+                const string strQuery = "SELECT [id] ," +
+                                        "[idUsuario] ," +
+                                        "[idProveedor] ," +
+                                        "[idDeposito] ," +
+                                        "[fechaPedido] ," +
+                                        "[fechaRecepcion] ," +
+                                        "[total] ," +
+                                        "[idEstado] " +
+                                        "FROM [dbo].[pedido_proveedor]";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -148,7 +148,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoProveedorEe>();
             }
         }
 
@@ -183,40 +183,38 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoProveedorDetalleEe>();
             }
         }
 
         public List<PedidoProveedorDetalleEe> ObtenerDetallesAgrupados(ProveedorEe proveedor)
         {
+            try
             {
-                try
+                var strQuery =
+                    $"SELECT [idProducto], [cantidad] FROM [dbo].[pedido_proveedor_detalle] WHERE[idPedidoProveedor] = {proveedor.Id} AND cantidad != 0 GROUP BY idProducto";
+
+                var query = new SqlCommand(strQuery, Conn);
+
+                Conn.Open();
+                var data = query.ExecuteReader();
+                var detalles = new List<PedidoProveedorDetalleEe>();
+
+                if (data.HasRows)
                 {
-                    var strQuery =
-                        $"SELECT [idProducto], [cantidad] FROM [dbo].[pedido_proveedor_detalle] WHERE[idPedidoProveedor] = {proveedor.Id} AND cantidad != 0 GROUP BY idProducto";
-
-                    var query = new SqlCommand(strQuery, Conn);
-
-                    Conn.Open();
-                    var data = query.ExecuteReader();
-                    var detalles = new List<PedidoProveedorDetalleEe>();
-
-                    if (data.HasRows)
+                    while (data.Read())
                     {
-                        while (data.Read())
-                        {
-                            detalles.Add(CastDtoPedidoDetalleProveedor(data));
-                        }
+                        detalles.Add(CastDtoPedidoDetalleProveedor(data));
                     }
+                }
 
-                    Conn.Close();
-                    return detalles;
-                }
-                catch (Exception e)
-                {
-                    ErrorManagerDal.AgregarMensaje(e.ToString());
-                    return null;
-                }
+                Conn.Close();
+                return detalles;
+            }
+            catch (Exception e)
+            {
+                ErrorManagerDal.AgregarMensaje(e.ToString());
+                return new List<PedidoProveedorDetalleEe>();
             }
         }
 
@@ -224,16 +222,16 @@ namespace DAL
         {
             try
             {
-                var strQuery = "SELECT [id] ," +
-                               "[idUsuario] ," +
-                               "[idProveedor] ," +
-                               "[idDeposito] ," +
-                               "[fechaPedido] ," +
-                               "[fechaRecepcion] ," +
-                               "[total] ," +
-                               "[idEstado] " +
-                               "FROM [dbo].[pedido_proveedor] " +
-                               "WHERE idEstado = 1";
+                const string strQuery = "SELECT [id] ," +
+                                        "[idUsuario] ," +
+                                        "[idProveedor] ," +
+                                        "[idDeposito] ," +
+                                        "[fechaPedido] ," +
+                                        "[fechaRecepcion] ," +
+                                        "[total] ," +
+                                        "[idEstado] " +
+                                        "FROM [dbo].[pedido_proveedor] " +
+                                        "WHERE idEstado = 1";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -255,7 +253,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<PedidoProveedorEe>();
             }
         }
 
@@ -263,7 +261,7 @@ namespace DAL
         {
             try
             {
-                var strQuery = $@"SELECT [id] ,[idDeposito] ,[idProducto] ,[stock] FROM [openEnterprise].[dbo].[deposito_producto] WHERE idDeposito = {deposito.Id}";
+                var strQuery = $"SELECT [id] ,[idDeposito] ,[idProducto] ,[stock] FROM [openEnterprise].[dbo].[deposito_producto] WHERE idDeposito = {deposito.Id}";
 
                 var query = new SqlCommand(strQuery, Conn);
 
@@ -285,7 +283,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<StockEe>();
             }
         }
 
@@ -315,7 +313,7 @@ namespace DAL
             };
         }
 
-        private PedidoProveedorDetalleEe CastDtoPedidoDetalleProveedor(SqlDataReader data)
+        private static PedidoProveedorDetalleEe CastDtoPedidoDetalleProveedor(SqlDataReader data)
         {
             return new PedidoProveedorDetalleEe
             {
@@ -324,7 +322,7 @@ namespace DAL
             };
         }
 
-        private StockEe CastDtoStockDeposito(SqlDataReader data)
+        private static StockEe CastDtoStockDeposito(SqlDataReader data)
         {
             return new StockEe
             {

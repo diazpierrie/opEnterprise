@@ -122,7 +122,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<IdiomaEe>();
             }
         }
 
@@ -147,7 +147,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<IdiomaEe>();
             }
         }
 
@@ -179,7 +179,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<IdiomaEe>();
             }
         }
 
@@ -207,7 +207,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<ControlEe>();
             }
         }
 
@@ -233,10 +233,11 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new Dictionary<string, string>();
             }
         }
-        private ControlEe CastControlDto(SqlDataReader data)
+
+        private static ControlEe CastControlDto(SqlDataReader data)
         {
             var result = new ControlEe
             {
@@ -249,7 +250,7 @@ namespace DAL
             return result;
         }
 
-        private IdiomaEe CastDto(SqlDataReader data)
+        private static IdiomaEe CastDto(SqlDataReader data)
         {
             var result = new IdiomaEe
             {

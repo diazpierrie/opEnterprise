@@ -45,7 +45,7 @@
 			this.btnEditFamily.Tag = "edit";
 			this.btnEditFamily.Text = "Editar";
 			this.btnEditFamily.UseSelectable = true;
-			this.btnEditFamily.Click += new System.EventHandler(this.btnEditFamily_Click);
+			this.btnEditFamily.Click += new System.EventHandler(this.BtnEditFamily_Click);
 			// 
 			// btnDeleteFamily
 			// 
@@ -57,7 +57,7 @@
 			this.btnDeleteFamily.Tag = "delete";
 			this.btnDeleteFamily.Text = "Borrar";
 			this.btnDeleteFamily.UseSelectable = true;
-			this.btnDeleteFamily.Click += new System.EventHandler(this.btnDeleteFamily_Click);
+			this.btnDeleteFamily.Click += new System.EventHandler(this.BtnDeleteFamily_Click);
 			// 
 			// cmbFamilias
 			// 
@@ -79,7 +79,7 @@
 			this.btnAddFamily.Tag = "add";
 			this.btnAddFamily.Text = "Agregar";
 			this.btnAddFamily.UseSelectable = true;
-			this.btnAddFamily.Click += new System.EventHandler(this.btnAddFamily_Click);
+			this.btnAddFamily.Click += new System.EventHandler(this.BtnAddFamily_Click);
 			// 
 			// GestionarFamilia
 			// 

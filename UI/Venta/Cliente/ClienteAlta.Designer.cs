@@ -61,7 +61,7 @@ namespace UI
             this.btnAccion.Tag = "create";
             this.btnAccion.Text = "Crear";
             this.btnAccion.UseSelectable = true;
-            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
+            this.btnAccion.Click += new System.EventHandler(this.BtnAccion_Click);
             // 
             // lblEsSocio
             // 
@@ -316,7 +316,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // lblDireccion
             // 
@@ -340,7 +340,7 @@ namespace UI
             this.btnAgregarDireccion.Tag = "add_address";
             this.btnAgregarDireccion.Text = "Agregar Direccion";
             this.btnAgregarDireccion.UseSelectable = true;
-            this.btnAgregarDireccion.Click += new System.EventHandler(this.btnAgregarDireccion_Click);
+            this.btnAgregarDireccion.Click += new System.EventHandler(this.BtnAgregarDireccion_Click);
             // 
             // txtDireccion
             // 

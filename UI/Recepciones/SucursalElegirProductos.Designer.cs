@@ -84,8 +84,8 @@ namespace UI
             this.gridDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDetalle.Size = new System.Drawing.Size(630, 334);
             this.gridDetalle.TabIndex = 0;
-            this.gridDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDetalle_CellEndEdit);
-            this.gridDetalle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridDetalle_DataError);
+            this.gridDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalle_CellEndEdit);
+            this.gridDetalle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GridDetalle_DataError);
             // 
             // btnElegir
             // 
@@ -97,7 +97,7 @@ namespace UI
             this.btnElegir.Tag = "choose";
             this.btnElegir.Text = "Elegir";
             this.btnElegir.UseSelectable = true;
-            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
+            this.btnElegir.Click += new System.EventHandler(this.BtnElegir_Click);
             // 
             // metroButton1
             // 
@@ -109,7 +109,7 @@ namespace UI
             this.metroButton1.Tag = "close";
             this.metroButton1.Text = "Cerrar";
             this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.metroButton1.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // SucursalElegirProductos
             // 

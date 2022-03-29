@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using BLL;
+﻿using BLL;
 using EE;
-// ReSharper disable PossibleNullReferenceException
+using System;
+using System.Collections.Generic;
 
 namespace UI
 {
     public partial class ProveedorBuscar : UpdatableForm
     {
-        //public PedidoCompletar Fatherform { get; }
         private List<ProveedorEe> _dataTable;
+
         public readonly DepositoCompletarPedido Fatherform;
+
         public ProveedorBuscar(DepositoCompletarPedido fatherform)
         {
             Fatherform = fatherform;
@@ -18,20 +18,9 @@ namespace UI
             ActualizarGrid();
         }
 
-        //public ProveedorBuscar(PedidoCompletar fatherform)
-        //{
-        //    Fatherform = fatherform;
-        //    InitializeComponent();
-        //    ActualizarGrid();
-        //}
-
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == null &&
-                txtDireccion.Text == null &&
-                txtCodigoPostal.Text == null &&
-                txtMail.Text == null &&
-                txtTelefono.Text == null) return;
+            if (txtNombre.Text == null && txtDireccion.Text == null && txtCodigoPostal.Text == null && txtMail.Text == null && txtTelefono.Text == null) return;
 
             gridClientes.DataSource = _dataTable.FindAll(x => x.Nombre.Contains(txtNombre.Text.ToLower())
                                                              && x.Direccion.Contains(txtDireccion.Text.ToLower())
@@ -41,16 +30,16 @@ namespace UI
             gridClientes.Refresh();
         }
 
-        private void btnElegir_Click(object sender, EventArgs e)
+        private void BtnElegir_Click(object sender, EventArgs e)
         {
             Fatherform.AsignarProveedor(_dataTable[gridClientes.SelectedRows[0].Index]);
             Close();
         }
 
-        private void btnAltaCliente_Click(object sender, EventArgs e)
+        private void BtnAltaCliente_Click(object sender, EventArgs e)
         {
             var altaCliente = new ProveedorAltaModificacion(this);
-            Fatherform.DepositoPedidoHome.Mdi.OpenWindowForm(altaCliente);
+            Fatherform.DepositoPedidoHome.Mdi1.OpenWindowForm(altaCliente);
         }
 
         public void ActualizarGrid()

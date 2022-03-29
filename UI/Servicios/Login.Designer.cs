@@ -130,7 +130,7 @@ namespace UI
             this.btnIniciarSesion.Tag = "login";
             this.btnIniciarSesion.Text = "Iniciar Sesion";
             this.btnIniciarSesion.UseSelectable = true;
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
+            this.btnIniciarSesion.Click += new System.EventHandler(this.BtnIniciarSesion_Click);
             // 
             // cbIdioma
             // 
@@ -141,7 +141,7 @@ namespace UI
             this.cbIdioma.Size = new System.Drawing.Size(200, 29);
             this.cbIdioma.TabIndex = 5;
             this.cbIdioma.UseSelectable = true;
-            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.cbIdioma_SelectedIndexChanged);
+            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.CbIdioma_SelectedIndexChanged);
             // 
             // lbIdioma
             // 

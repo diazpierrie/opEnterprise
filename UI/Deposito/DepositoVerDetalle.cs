@@ -1,6 +1,6 @@
-﻿using System;
-using BLL;
-using EE;
+﻿using EE;
+using System;
+using System.Collections.Generic;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -8,23 +8,15 @@ namespace UI
 {
     public partial class DepositoVerDetalle : UpdatableForm
     {
-        public DepositoVerDetalle(PedidoProveedorEe pedido)
+        public DepositoVerDetalle(List<PedidoProveedorDetalleEe> pedidoProveedorDetalleEes)
         {
             InitializeComponent();
-            gridDetalle.DataSource = PedidoProveedorBll.ObtenerDetalle(pedido);
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
-
+            gridDetalle.DataSource = pedidoProveedorDetalleEes;
             gridDetalle.Columns["id"].Visible = false;
             gridDetalle.Columns["Pedido"].Visible = false;
-
-            Show();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

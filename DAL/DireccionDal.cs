@@ -1,6 +1,7 @@
 ﻿using EE;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -69,7 +70,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<DireccionEe>();
             }
         }
 
@@ -142,7 +143,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<DireccionEe>();
             }
         }
 
@@ -176,7 +177,7 @@ namespace DAL
             return ExecuteQuery(query);
         }
 
-        private DireccionEe CastDto(SqlDataReader data) =>
+        private DireccionEe CastDto(IDataRecord data) =>
             new DireccionEe
             {
                 Id = int.Parse(data["id"].ToString()),

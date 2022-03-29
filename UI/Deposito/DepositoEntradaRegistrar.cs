@@ -11,24 +11,23 @@ namespace UI
 {
     public partial class DepositoEntradaRegistrar : UpdatableForm
     {
-        public Mdi Mdi;
+        public Mdi Mdi1 { get; }
         private List<PedidoProveedorEe> _dataTable;
 
         public DepositoEntradaRegistrar(Mdi mdi)
         {
-            Mdi = mdi;
+            Mdi1 = mdi;
             InitializeComponent();
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtEmpleado.Text == null &&
-                txtProveedor.Text == null) return;
+            if (txtEmpleado.Text == null && txtProveedor.Text == null) return;
 
-                gridPedidos.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtEmpleado.Text.ToLower()) &&
-                                                                               x.Proveedor.Nombre.ToLower().Contains(txtProveedor.Text.ToLower()));
-                gridPedidos.Refresh();
+            gridPedidos.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtEmpleado.Text, StringComparison.OrdinalIgnoreCase) >= 0 &&
+                                                                           x.Proveedor.Nombre.IndexOf(txtProveedor.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            gridPedidos.Refresh();
         }
 
         public void ActualizarGrid()
@@ -54,12 +53,12 @@ namespace UI
             gridPedidos.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
-        
-        private void btnConfirmarRecepcion_Click(object sender, EventArgs e)
+
+        private void BtnConfirmarRecepcion_Click(object sender, EventArgs e)
         {
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoProveedorEe)gridPedidos.SelectedRows[0].DataBoundItem;
@@ -71,15 +70,22 @@ namespace UI
             }
 
             var depositoElegirProductos = new DepositoElegirProductos(pedido, this, detalle);
-            Mdi.OpenWindowForm(depositoElegirProductos);
+            Mdi1.OpenWindowForm(depositoElegirProductos);
         }
 
-        private void gridClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridPedidos.SelectedRows.Count <= 0) return;
             var pedido = (PedidoProveedorEe)gridPedidos.SelectedRows[0].DataBoundItem;
-            new DepositoVerDetalle(pedido);
+            var detalle = PedidoProveedorBll.ObtenerDetalle(pedido);
 
+            if (detalle.Count == 0)
+            {
+                return;
+            }
+
+            var depositoVerDetalle = new DepositoVerDetalle(detalle);
+            Mdi1.OpenWindowForm(depositoVerDetalle);
         }
     }
 }

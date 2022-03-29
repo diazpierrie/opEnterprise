@@ -54,7 +54,7 @@ namespace UI
             this.btnConfirmarRecepcion.Tag = "confirm_reception";
             this.btnConfirmarRecepcion.Text = "Confirmar Recepcion";
             this.btnConfirmarRecepcion.UseSelectable = true;
-            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.btnConfirmarRecepcion_Click);
+            this.btnConfirmarRecepcion.Click += new System.EventHandler(this.BtnConfirmarRecepcion_Click);
             // 
             // btnBuscar
             // 
@@ -66,7 +66,7 @@ namespace UI
             this.btnBuscar.Tag = "search";
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseSelectable = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // lblEmpleado
             // 
@@ -120,7 +120,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // gridPedidos
             // 
@@ -170,7 +170,7 @@ namespace UI
             this.gridPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPedidos.Size = new System.Drawing.Size(647, 429);
             this.gridPedidos.TabIndex = 0;
-            this.gridPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClientes_CellDoubleClick);
+            this.gridPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClientes_CellDoubleClick);
             // 
             // SucursalEntradaRegistrar
             // 

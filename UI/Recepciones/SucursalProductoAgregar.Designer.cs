@@ -98,9 +98,9 @@ namespace UI
             this.gridProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProductos.Size = new System.Drawing.Size(467, 343);
             this.gridProductos.TabIndex = 17;
-            this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProductos_CellEndEdit);
-            this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProductos_DataBindingComplete);
-            this.gridProductos.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridProductos_DataError);
+            this.gridProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProductos_CellEndEdit);
+            this.gridProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.GridProductos_DataBindingComplete);
+            this.gridProductos.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GridProductos_DataError);
             // 
             // btnAgregarProducto
             // 
@@ -114,7 +114,7 @@ namespace UI
             this.btnAgregarProducto.Tag = "";
             this.btnAgregarProducto.Text = ">";
             this.btnAgregarProducto.UseSelectable = true;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
             // gridProductosAAgregar
             // 
@@ -174,7 +174,7 @@ namespace UI
             this.btnQuitarProductos.Tag = "empty_cart";
             this.btnQuitarProductos.Text = "Vaciar Carrito";
             this.btnQuitarProductos.UseSelectable = true;
-            this.btnQuitarProductos.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnQuitarProductos.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // btnRemoverProducto
             // 
@@ -188,7 +188,7 @@ namespace UI
             this.btnRemoverProducto.Tag = "";
             this.btnRemoverProducto.Text = "<";
             this.btnRemoverProducto.UseSelectable = true;
-            this.btnRemoverProducto.Click += new System.EventHandler(this.btnbtnRemoverProducto_Click);
+            this.btnRemoverProducto.Click += new System.EventHandler(this.BtnRemoverProducto_Click);
             // 
             // lblProductos
             // 
@@ -244,7 +244,7 @@ namespace UI
             this.txtBuscar.UseSelectable = true;
             this.txtBuscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBuscar_KeyDown);
             // 
             // btnAgregarProductos
             // 
@@ -257,7 +257,7 @@ namespace UI
             this.btnAgregarProductos.Tag = "add_to_cart";
             this.btnAgregarProductos.Text = "Agregar al Carrito";
             this.btnAgregarProductos.UseSelectable = true;
-            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAsignarProductos_Click);
+            this.btnAgregarProductos.Click += new System.EventHandler(this.BtnAsignarProductos_Click);
             // 
             // lblDeposito
             // 
@@ -279,7 +279,7 @@ namespace UI
             this.cbDepositos.Size = new System.Drawing.Size(397, 29);
             this.cbDepositos.TabIndex = 30;
             this.cbDepositos.UseSelectable = true;
-            this.cbDepositos.SelectedIndexChanged += new System.EventHandler(this.cbDepositos_SelectedIndexChanged);
+            this.cbDepositos.SelectedIndexChanged += new System.EventHandler(this.CbDepositos_SelectedIndexChanged);
             // 
             // SucursalProductoAgregar
             // 

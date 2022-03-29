@@ -33,7 +33,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<MetodoPagoEe>();
             }
         }
 
@@ -41,9 +41,9 @@ namespace DAL
         {
             try
             {
-                var strQuery = $"SELECT cm.id, ctrl.texto as Nombre " +
-                               $"FROM [dbo].cMetodoPago as cm " +
-                               $"INNER JOIN control as ctrl on cm.nombre = ctrl.tag" +
+                var strQuery = "SELECT cm.id, ctrl.texto as Nombre " +
+                               "FROM [dbo].cMetodoPago as cm " +
+                               "INNER JOIN control as ctrl on cm.nombre = ctrl.tag" +
                                $" WHERE ctrl.idIdioma = {Sesion.ObtenerSesion().Idioma.Id} AND cm.id = {id}";
 
                 var query = new SqlCommand(strQuery, Conn);

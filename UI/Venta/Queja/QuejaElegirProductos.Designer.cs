@@ -84,9 +84,9 @@ namespace UI
             this.gridDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDetalle.Size = new System.Drawing.Size(475, 334);
             this.gridDetalle.TabIndex = 0;
-            this.gridDetalle.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.gridDetalle_CellBeginEdit);
-            this.gridDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDetalle_CellEndEdit);
-            this.gridDetalle.SelectionChanged += new System.EventHandler(this.gridDetalle_SelectionChanged);
+            this.gridDetalle.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GridDetalle_CellBeginEdit);
+            this.gridDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalle_CellEndEdit);
+            this.gridDetalle.SelectionChanged += new System.EventHandler(this.GridDetalle_SelectionChanged);
             // 
             // btnElegir
             // 
@@ -97,7 +97,7 @@ namespace UI
             this.btnElegir.Tag = "choose";
             this.btnElegir.Text = "Elegir";
             this.btnElegir.UseSelectable = true;
-            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
+            this.btnElegir.Click += new System.EventHandler(this.BtnElegir_Click);
             // 
             // lblTotal
             // 
@@ -119,7 +119,7 @@ namespace UI
             this.metroButton1.Tag = "close";
             this.metroButton1.Text = "Cerrar";
             this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.metroButton1.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // QuejaElegirProductos
             // 

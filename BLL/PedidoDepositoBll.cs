@@ -47,7 +47,6 @@ namespace BLL
                 pedido.Producto = ProductoDal.Obtener(pedido.Producto.Id);
             }
 
-
             return pedidos;
         }
 
@@ -71,7 +70,7 @@ namespace BLL
 
             foreach (var producto in productos)
             {
-                if (Dal.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                if (Dal.ObtenerPorSucursal(Sesion.ObtenerSesion().Sucursal).Any(x => x.Id == producto.Producto.Id))
                 {
                     Dal.ActualizarStockSucursal(Sesion.ObtenerSesion().Sucursal, producto.Producto);
                 }

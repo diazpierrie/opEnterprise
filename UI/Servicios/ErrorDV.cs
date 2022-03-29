@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using Security;
+using System;
 using System.IO;
 using System.Windows.Forms;
-using EE;
-using Security;
 
 namespace UI
 {
@@ -30,13 +30,13 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void BtnBitacora_Click(object sender, EventArgs e)
         {
             var bt = new BitacoraVer();
             bt.Show();
         }
 
-        private void btnRestore_Click(object sender, EventArgs e)
+        private void BtnRestore_Click(object sender, EventArgs e)
         {
             _openFileDialog1 = new OpenFileDialog
             {
@@ -52,7 +52,7 @@ namespace UI
             }
         }
 
-        private void btnRestDV_Click(object sender, EventArgs e)
+        private void BtnRestDV_Click(object sender, EventArgs e)
         {
             Dv.ActualizarDv();
         }

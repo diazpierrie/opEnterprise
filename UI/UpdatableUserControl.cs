@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using EE;
+using MetroFramework.Controls;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using EE;
-using MetroFramework.Controls;
 
 namespace UI
 {

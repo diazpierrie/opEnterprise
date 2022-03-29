@@ -23,13 +23,13 @@ namespace UI
             _mdi.CargarIdiomas();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             var agregarIdioma = new ControlesGestionar(this);
             _mdi.OpenWindowForm(agregarIdioma);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             var response = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["delete_language"] + " " + (IdiomaEe)cbLenguajes.SelectedValue + "?", Sesion.ObtenerSesion().Idioma.Textos["warning"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class MetodoPagoBll
+    public static class MetodoPagoBll
     {
         private static readonly MetodoPagoDal Dal = new MetodoPagoDal();
 

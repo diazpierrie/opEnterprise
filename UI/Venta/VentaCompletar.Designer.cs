@@ -80,7 +80,7 @@ namespace UI
             this.btnRealizarVenta.Tag = "finish_sale";
             this.btnRealizarVenta.Text = "Completar Venta";
             this.btnRealizarVenta.UseSelectable = true;
-            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
+            this.btnRealizarVenta.Click += new System.EventHandler(this.BtnRealizarVenta_Click);
             // 
             // cbMetodoPago
             // 
@@ -92,7 +92,7 @@ namespace UI
             this.cbMetodoPago.Size = new System.Drawing.Size(204, 29);
             this.cbMetodoPago.TabIndex = 7;
             this.cbMetodoPago.UseSelectable = true;
-            this.cbMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cbMetodoPago_SelectedIndexChanged);
+            this.cbMetodoPago.SelectedIndexChanged += new System.EventHandler(this.CbMetodoPago_SelectedIndexChanged);
             // 
             // btnBuscarCliente
             // 
@@ -104,7 +104,7 @@ namespace UI
             this.btnBuscarCliente.Tag = "search_client";
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.UseSelectable = true;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            this.btnBuscarCliente.Click += new System.EventHandler(this.BtnBuscarCliente_Click);
             // 
             // lblMetodoPago
             // 
@@ -170,7 +170,7 @@ namespace UI
             this.cbMetodoEntrega.Size = new System.Drawing.Size(203, 29);
             this.cbMetodoEntrega.TabIndex = 13;
             this.cbMetodoEntrega.UseSelectable = true;
-            this.cbMetodoEntrega.SelectedIndexChanged += new System.EventHandler(this.cbMetodoEntrega_SelectedIndexChanged);
+            this.cbMetodoEntrega.SelectedIndexChanged += new System.EventHandler(this.CbMetodoEntrega_SelectedIndexChanged);
             // 
             // lblMetodoEntrega
             // 
@@ -226,7 +226,7 @@ namespace UI
             this.btnEnvioLocal.Tag = "branch_delivery";
             this.btnEnvioLocal.Text = "Envio Local";
             this.btnEnvioLocal.UseSelectable = true;
-            this.btnEnvioLocal.Click += new System.EventHandler(this.btnEnvioLocal_Click);
+            this.btnEnvioLocal.Click += new System.EventHandler(this.BtnEnvioLocal_Click);
             // 
             // VentaCompletar
             // 

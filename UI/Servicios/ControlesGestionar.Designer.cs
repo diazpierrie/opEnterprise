@@ -87,7 +87,7 @@ namespace UI
             this.gridIdioma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridIdioma.Size = new System.Drawing.Size(754, 565);
             this.gridIdioma.TabIndex = 0;
-            this.gridIdioma.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridIdioma_CellValueChanged);
+            this.gridIdioma.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridIdioma_CellValueChanged);
             // 
             // txtNombre
             // 
@@ -138,7 +138,7 @@ namespace UI
             this.btnAplicar.TabIndex = 3;
             this.btnAplicar.Text = "Crear";
             this.btnAplicar.UseSelectable = true;
-            this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
+            this.btnAplicar.Click += new System.EventHandler(this.BtnAplicar_Click);
             // 
             // btnCerrar
             // 
@@ -149,7 +149,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // ControlesGestionar
             // 

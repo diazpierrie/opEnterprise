@@ -19,7 +19,7 @@ namespace Security
 
             var textosDefault = Dao.ObtenerTextos(1);
 
-            foreach (var dicc in textosDefault.Where(dicc => sesionidioma.Textos[dicc.Key] == string.Empty))
+            foreach (var dicc in textosDefault.Where(dicc => sesionidioma.Textos[dicc.Key].Length == 0))
             {
                 sesionidioma.Textos[dicc.Key] = textosDefault[dicc.Key];
             }
@@ -85,7 +85,6 @@ namespace Security
         public static void Eliminar(IdiomaEe idioma)
         {
             Dao.EliminarIdioma(idioma.Id);
-            //_dao.EliminarControlesIdioma(idioma.Id);
 
             Dv.ActualizarDv();
 

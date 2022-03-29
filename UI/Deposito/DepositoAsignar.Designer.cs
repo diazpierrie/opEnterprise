@@ -107,7 +107,7 @@ namespace UI
             this.btnAsignarDeposito.Tag = "assign";
             this.btnAsignarDeposito.Text = "Asignar";
             this.btnAsignarDeposito.UseSelectable = true;
-            this.btnAsignarDeposito.Click += new System.EventHandler(this.btnAsignarDeposito_Click);
+            this.btnAsignarDeposito.Click += new System.EventHandler(this.BtnAsignarDeposito_Click);
             // 
             // gridDesasignarDeposito
             // 
@@ -167,7 +167,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // btnDesasignarDeposito
             // 
@@ -180,7 +180,7 @@ namespace UI
             this.btnDesasignarDeposito.Tag = "unassign";
             this.btnDesasignarDeposito.Text = "Desasignar";
             this.btnDesasignarDeposito.UseSelectable = true;
-            this.btnDesasignarDeposito.Click += new System.EventHandler(this.btnDesasignarDeposito_Click);
+            this.btnDesasignarDeposito.Click += new System.EventHandler(this.BtnDesasignarDeposito_Click);
             // 
             // lblDepositos
             // 

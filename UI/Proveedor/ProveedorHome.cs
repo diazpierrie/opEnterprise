@@ -32,7 +32,7 @@ namespace UI
             Text = button;
         }
 
-        public sealed override string Text
+        public override sealed string Text
         {
             get => base.Text;
             set => base.Text = value;
@@ -60,7 +60,7 @@ namespace UI
             gridProveedor.Columns["CantidadErrores"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_errors"];
         }
 
-        private void btnBorrarProveedor_Click(object sender, EventArgs e)
+        private void BtnBorrarProveedor_Click(object sender, EventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
             {
@@ -75,13 +75,13 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnCrearProveedor_Click(object sender, EventArgs e)
+        private void BtnCrearProveedor_Click(object sender, EventArgs e)
         {
             var crearProveedor = new ProveedorAltaModificacion(this);
             Mdi.OpenWindowForm(crearProveedor);
         }
 
-        private void btnModificarProveedor_Click(object sender, EventArgs e)
+        private void BtnModificarProveedor_Click(object sender, EventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
             {
@@ -94,7 +94,7 @@ namespace UI
             Mdi.OpenWindowForm(provAm);
         }
 
-        private void btnPenalizarProveedor_Click(object sender, EventArgs e)
+        private void BtnPenalizarProveedor_Click(object sender, EventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
             {
@@ -107,7 +107,7 @@ namespace UI
             Mdi.OpenWindowForm(provAm);
         }
 
-        private void btnRestaurarProveedor_Click(object sender, EventArgs e)
+        private void BtnRestaurarProveedor_Click(object sender, EventArgs e)
         {
             var selectedItem = int.Parse(gridProveedor.SelectedRows[0].Cells["id"].Value.ToString());
             var selectedProveedor = ProveedorBll.Obtener(selectedItem);
@@ -125,7 +125,7 @@ namespace UI
             Mdi.OpenWindowForm(proveedorRestaurar);
         }
 
-        private void btnVerPenalizaciones_Click(object sender, EventArgs e)
+        private void BtnVerPenalizaciones_Click(object sender, EventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
             {
@@ -144,7 +144,7 @@ namespace UI
             Mdi.OpenWindowForm(proveedorVerPenalizaciones);
         }
 
-        private void gridProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridProveedor.SelectedRows.Count == 0)
             {

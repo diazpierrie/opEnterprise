@@ -50,7 +50,7 @@ namespace DAL
             }
         }
 
-        public UsuarioEe CastDto(SqlDataReader data)
+        public static UsuarioEe CastDto(SqlDataReader data)
         {
             var result = new UsuarioEe
             {
@@ -62,7 +62,7 @@ namespace DAL
                 Dni = int.Parse(data["dni"].ToString()),
                 Telefono = data["telefono"].ToString(),
 
-                Rol = DalFamilia.Obtener(int.Parse(data["idFamilia"].ToString())),
+                Rol = DalFamilia.ObtenerPorId(int.Parse(data["idFamilia"].ToString())),
             };
 
             result.Activo = Convert.ToBoolean(data["activo"].ToString());
@@ -70,7 +70,7 @@ namespace DAL
             return result;
         }
 
-        public int Crear(UsuarioEe us, string pass, FamiliaEe fam = null)
+        public int Crear(UsuarioEe us, string pass)
         {
             var columns = new List<string>
             {
@@ -100,11 +100,10 @@ namespace DAL
                 0.ToString()
             };
 
-            if (us.Rol != null)
-            {
-                columns.Add("idFamilia");
-                values.Add(us.Rol.Id.ToString());
-            }
+            if (us.Rol == null) return Insert("usuario", columns.ToArray(), values.ToArray());
+
+            columns.Add("idFamilia");
+            values.Add(us.Rol.Id.ToString());
 
             return Insert("usuario", columns.ToArray(), values.ToArray());
         }
@@ -188,7 +187,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<UsuarioEe>();
             }
         }
 
@@ -257,7 +256,7 @@ namespace DAL
             catch (Exception e)
             {
                 ErrorManagerDal.AgregarMensaje(e.ToString());
-                return null;
+                return new List<UsuarioEe>();
             }
         }
 

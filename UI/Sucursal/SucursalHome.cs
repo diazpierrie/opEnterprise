@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using BLL;
+﻿using BLL;
 using EE;
 using MetroFramework;
+using System;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -16,16 +16,15 @@ namespace UI.Sucursal
         {
             _mdi = mdi;
             InitializeComponent();
-
         }
 
-        private void btnCrearSucursal_Click(object sender, EventArgs e)
+        private void BtnCrearSucursal_Click(object sender, EventArgs e)
         {
             var sucursalAltaModificacion = new SucursalAltaModificacion(this);
             _mdi.OpenWindowForm(sucursalAltaModificacion);
         }
 
-        private void btnModificarSucursal_Click(object sender, EventArgs e)
+        private void BtnModificarSucursal_Click(object sender, EventArgs e)
         {
             if (gridSucursal.SelectedRows.Count == 0)
             {
@@ -38,7 +37,7 @@ namespace UI.Sucursal
             _mdi.OpenWindowForm(provAm);
         }
 
-        private void btnBorrarSucursal_Click(object sender, EventArgs e)
+        private void BtnBorrarSucursal_Click(object sender, EventArgs e)
         {
             if (gridSucursal.SelectedRows.Count == 0)
             {
@@ -50,7 +49,6 @@ namespace UI.Sucursal
             if (response != DialogResult.Yes) return;
             SucursalBll.Eliminar(sucursalEe);
             ActualizarGrid();
-
         }
 
         private void SucursalHome_Load(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace UI.Sucursal
             gridSucursal.Columns["telefono"].DisplayIndex = 4;
         }
 
-        private void gridSucursal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridSucursal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridSucursal.SelectedRows.Count == 0)
             {
@@ -82,7 +80,5 @@ namespace UI.Sucursal
             var provAm = new SucursalAltaModificacion(this, sucursal);
             _mdi.OpenWindowForm(provAm);
         }
-
     }
-
 }

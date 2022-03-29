@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class CompradorBll
+    public static class CompradorBll
     {
         private static readonly CompradorDal Dao = new CompradorDal();
 

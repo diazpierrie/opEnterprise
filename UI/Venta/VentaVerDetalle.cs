@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using EE;
+﻿using EE;
 using Security;
+using System;
+using System.Collections.Generic;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -29,11 +29,10 @@ namespace UI
             gridDetalle.Columns["cantidad"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount"];
             gridDetalle.Columns["totaldetalle"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_detail"];
 
-            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + $@": ${venta.Total}";
-
+            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + $": ${venta.Total}";
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

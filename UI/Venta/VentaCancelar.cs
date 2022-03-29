@@ -1,11 +1,11 @@
 ﻿using BLL;
 using EE;
+using MetroFramework;
+using Security;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
-using MetroFramework;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -31,16 +31,15 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == null &&
-                txtCliente.Text == null) return;
+            if (txtUsuario.Text == null && txtCliente.Text == null) return;
 
-            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower()) &&
-                                                                  x.Comprador.NombreCompleto.ToLower().Contains(txtCliente.Text.ToLower()));
+            gridVentas.DataSource = _dataTable.FindAll(x => x.Empleado.NombreCompleto.IndexOf(txtUsuario.Text, StringComparison.OrdinalIgnoreCase) >= 0 &&
+                                                                  x.Comprador.NombreCompleto.IndexOf(txtCliente.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
             gridVentas.Refresh();
-        }   
+        }
 
         private void ActualizarGrid()
         {
@@ -71,12 +70,12 @@ namespace UI
             gridVentas.Refresh();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void gridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void GridClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             // ReSharper disable once ObjectCreationAsStatement
@@ -90,7 +89,7 @@ namespace UI
             _mdi.OpenWindowForm(new VentaVerDetalle(venta, detalles));
         }
 
-        private void btnCancelarVenta_Click(object sender, EventArgs e)
+        private void BtnCancelarVenta_Click(object sender, EventArgs e)
         {
             var venta = (VentaEe)gridVentas.SelectedRows[0].DataBoundItem;
             var respuesta = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_cancel_sale"],

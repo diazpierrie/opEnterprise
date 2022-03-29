@@ -1,5 +1,5 @@
-﻿using System;
-using EE;
+﻿using EE;
+using System;
 
 namespace UI
 {
@@ -15,7 +15,7 @@ namespace UI
         {
             AllControls = Program.GetAllControls(this);
 
-            var fileName = System.IO.Directory.GetCurrentDirectory() + "\\ManualDeUsuario" + ".pdf";
+            var fileName = System.IO.Directory.GetCurrentDirectory() + "\\ManualDeUsuario.pdf";
             view.LoadFromFile(fileName);
         }
     }

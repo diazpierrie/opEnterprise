@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using Security;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using BLL;
-using EE;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -32,7 +32,6 @@ namespace UI
 
         private void ActualizarGrids()
         {
-
             if (rbSucursal.Checked)
             {
                 gridProductos.DataSource = _ventaHome.ProductosSucursal;
@@ -56,11 +55,11 @@ namespace UI
             gridProductos.Columns["cantidad"].DisplayIndex = 3;
             gridProductos.Columns["CantidadAComprar"].DisplayIndex = 4;
 
-            gridProductos.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"]; 
-            gridProductos.Columns["Edificio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["building"]; 
-            gridProductos.Columns["precio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["price"]; 
-            gridProductos.Columns["cantidad"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["stock"]; 
-            gridProductos.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"]; 
+            gridProductos.Columns["nombre"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["name"];
+            gridProductos.Columns["Edificio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["building"];
+            gridProductos.Columns["precio"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["price"];
+            gridProductos.Columns["cantidad"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["stock"];
+            gridProductos.Columns["CantidadAComprar"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["amount_buy"];
 
             gridProductos.Columns["nombre"].ReadOnly = true;
             gridProductos.Columns["precio"].ReadOnly = true;
@@ -101,7 +100,7 @@ namespace UI
             gridProductos.Columns["precio"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             if (gridProductos.SelectedRows.Count == 0) return;
 
@@ -154,13 +153,13 @@ namespace UI
             }
         }
 
-        private void btnAsignarProductos_Click(object sender, EventArgs e)
+        private void BtnAsignarProductos_Click(object sender, EventArgs e)
         {
             _ventaHome.ActualizarGrid();
             Close();
         }
 
-        private void btnbtnRemoverProducto_Click(object sender, EventArgs e)
+        private void BtnRemoverProducto_Click(object sender, EventArgs e)
         {
             if (gridProductosAAgregar.SelectedRows.Count == 0) return;
 
@@ -175,7 +174,7 @@ namespace UI
 
                 if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
                 {
-                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    if (_ventaHome.ProductosSucursal.Any(x => x.Id == productoNuevo.Id))
                     {
                         _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                     }
@@ -186,7 +185,7 @@ namespace UI
                 }
                 else
                 {
-                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    if (_ventaHome.ProductosDeposito.Any(x => x.Id == productoNuevo.Id))
                     {
                         _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                     }
@@ -200,7 +199,7 @@ namespace UI
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             if (_ventaHome.ProductosAAsignar.Count == 0) Close();
 
@@ -213,7 +212,7 @@ namespace UI
 
                 if (productoNuevo.Edificio.GetType().Name == "SucursalEe")
                 {
-                    if (_ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    if (_ventaHome.ProductosSucursal.Any(x => x.Id == productoNuevo.Id))
                     {
                         _ventaHome.ProductosSucursal.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                     }
@@ -224,7 +223,7 @@ namespace UI
                 }
                 else
                 {
-                    if (_ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id) != null)
+                    if (_ventaHome.ProductosDeposito.Any(x => x.Id == productoNuevo.Id))
                     {
                         _ventaHome.ProductosDeposito.FirstOrDefault(x => x.Id == productoNuevo.Id).Cantidad += productoNuevo.Cantidad;
                     }
@@ -238,14 +237,14 @@ namespace UI
             ActualizarGrids();
             Close();
         }
-        private void cbDepositos_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void CbDepositos_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarGrids();
         }
 
-        private void gridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void GridProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
             var row = (ProductoEe)gridProductos.Rows[e.RowIndex].DataBoundItem;
 
             if (gridProductos.CurrentCell.Value == null) return;
@@ -257,7 +256,7 @@ namespace UI
             }
         }
 
-        private void gridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void GridProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             gridProductos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             gridProductos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -273,16 +272,16 @@ namespace UI
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
 
-        private void rbSucursal_CheckedChanged(object sender, EventArgs e)
+        private void RbSucursal_CheckedChanged(object sender, EventArgs e)
         {
             ActualizarGrids();
 
             cbDepositos.Visible = !rbSucursal.Checked;
         }
 
-        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        private void TxtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter & txtBuscar.Text != null)
+            if (e.KeyCode == Keys.Enter && txtBuscar.Text != null)
             {
                 gridProductos.DataSource = ProductoBll.ObtenerPorNombre();
             }

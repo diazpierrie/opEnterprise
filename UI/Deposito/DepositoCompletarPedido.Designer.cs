@@ -47,7 +47,7 @@ namespace UI
             this.btnRealizarVenta.TabIndex = 8;
             this.btnRealizarVenta.Text = "Completar Pedido";
             this.btnRealizarVenta.UseSelectable = true;
-            this.btnRealizarVenta.Click += new System.EventHandler(this.btnCompletarPedido_Click);
+            this.btnRealizarVenta.Click += new System.EventHandler(this.BtnCompletarPedido_Click);
             // 
             // btnBuscarProveedor
             // 
@@ -58,7 +58,7 @@ namespace UI
             this.btnBuscarProveedor.TabIndex = 6;
             this.btnBuscarProveedor.Text = "Buscar Proveedor";
             this.btnBuscarProveedor.UseSelectable = true;
-            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.BtnBuscarProveedor_Click);
             // 
             // txtCliente
             // 

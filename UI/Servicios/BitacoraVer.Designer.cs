@@ -107,7 +107,7 @@ namespace UI
             this.gridBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridBitacora.Size = new System.Drawing.Size(661, 341);
             this.gridBitacora.TabIndex = 0;
-            this.gridBitacora.SelectionChanged += new System.EventHandler(this.gridBitacora_SelectionChanged);
+            this.gridBitacora.SelectionChanged += new System.EventHandler(this.GridBitacora_SelectionChanged);
             // 
             // id
             // 
@@ -201,7 +201,6 @@ namespace UI
             this.messageDetail.Name = "messageDetail";
             this.messageDetail.Size = new System.Drawing.Size(319, 341);
             this.messageDetail.TabIndex = 7;
-            this.messageDetail.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.messageDetail_DocumentCompleted);
             // 
             // cbTipo
             // 

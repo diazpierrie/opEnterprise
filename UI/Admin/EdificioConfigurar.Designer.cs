@@ -49,7 +49,7 @@ namespace UI
             this.cbTipoEdificio.Size = new System.Drawing.Size(219, 29);
             this.cbTipoEdificio.TabIndex = 0;
             this.cbTipoEdificio.UseSelectable = true;
-            this.cbTipoEdificio.SelectedIndexChanged += new System.EventHandler(this.cbTipoEdificio_SelectedIndexChanged);
+            this.cbTipoEdificio.SelectedIndexChanged += new System.EventHandler(this.CbTipoEdificio_SelectedIndexChanged);
             // 
             // cbEdificio
             // 
@@ -90,7 +90,7 @@ namespace UI
             this.btnConfigurar.Tag = "set_up";
             this.btnConfigurar.Text = "Configurar";
             this.btnConfigurar.UseSelectable = true;
-            this.btnConfigurar.Click += new System.EventHandler(this.btnConfigurar_Click);
+            this.btnConfigurar.Click += new System.EventHandler(this.BtnConfigurar_Click);
             // 
             // btnCerrar
             // 
@@ -101,7 +101,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // EdificioConfigurar
             // 

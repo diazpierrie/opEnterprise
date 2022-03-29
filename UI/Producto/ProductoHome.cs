@@ -1,9 +1,9 @@
 ﻿using BLL;
 using EE;
-using System;
-using System.Windows.Forms;
 using MetroFramework;
 using Security;
+using System;
+using System.Windows.Forms;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -19,8 +19,8 @@ namespace UI
             InitializeComponent();
             Sesion.ObtenerSesion().Idioma.Forms.Add(this);
         }
-        
-        public sealed override string Text
+
+        public override sealed string Text
         {
             get => base.Text;
             set => base.Text = value;
@@ -35,7 +35,6 @@ namespace UI
             gridProducto.Columns["cantidad"].Visible = false;
             gridProducto.Columns["totalproducto"].Visible = false;
             gridProducto.Columns["activo"].Visible = false;
-            
             gridProducto.Columns["nombre"].DisplayIndex = 0;
             gridProducto.Columns["codigo"].DisplayIndex = 1;
             gridProducto.Columns["fechaCreacion"].DisplayIndex = 2;
@@ -48,30 +47,28 @@ namespace UI
             gridProducto.Columns["costo"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["cost"];
         }
 
-        private void btnBorrarProducto_Click(object sender, EventArgs e)
+        private void BtnBorrarProducto_Click(object sender, EventArgs e)
         {
             if (gridProducto.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            var selectedProducto = (ProductoEe) gridProducto.SelectedRows[0].DataBoundItem;
+            var selectedProducto = (ProductoEe)gridProducto.SelectedRows[0].DataBoundItem;
             var response = MetroMessageBox.Show(_mdi, Sesion.ObtenerSesion().Idioma.Textos["question_delete"] + " " + Sesion.ObtenerSesion().Idioma.Textos["product"].ToLower() + " " + selectedProducto.Nombre + "?", Sesion.ObtenerSesion().Idioma.Textos["confirm_delete"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (response != DialogResult.Yes) return;
 
             ProductoBll.Eliminar(selectedProducto);
             ActualizarGrid();
-
-
         }
 
-        private void btnCrearProducto_Click(object sender, EventArgs e)
+        private void BtnCrearProducto_Click(object sender, EventArgs e)
         {
             var crearProducto = new ProductoAltaModificacion(this);
             _mdi.OpenWindowForm(crearProducto);
         }
 
-        private void btnModificarProducto_Click(object sender, EventArgs e)
+        private void BtnModificarProducto_Click(object sender, EventArgs e)
         {
             if (gridProducto.SelectedRows.Count == 0)
             {
@@ -83,8 +80,8 @@ namespace UI
             var provAm = new ProductoAltaModificacion(this, selectedProducto);
             _mdi.OpenWindowForm(provAm);
         }
-        
-        private void gridProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void GridProducto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (gridProducto.SelectedRows.Count == 0)
             {

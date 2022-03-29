@@ -1,7 +1,7 @@
 ﻿using BLL;
 using EE;
-using System;
 using Security;
+using System;
 using UI.Properties;
 
 namespace UI
@@ -21,12 +21,12 @@ namespace UI
             CargarEdificios();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void cbTipoEdificio_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbTipoEdificio_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarEdificios();
         }
@@ -46,7 +46,7 @@ namespace UI
             }
         }
 
-        private void btnConfigurar_Click(object sender, EventArgs e)
+        private void BtnConfigurar_Click(object sender, EventArgs e)
         {
             if (cbEdificio.SelectedIndex == -1 || cbTipoEdificio.SelectedIndex == -1)
             {

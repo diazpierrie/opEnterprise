@@ -1,11 +1,11 @@
 ﻿using BLL;
 using EE;
+using Security;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -13,14 +13,14 @@ namespace UI
 {
     public partial class DepositoPedidoHome : UpdatableForm
     {
-        public Mdi Mdi;
+        public Mdi Mdi1 { get; }
         public readonly BindingList<ProductoEe> ProductosAAsignar = new BindingList<ProductoEe>();
-        public BindingList<ProductoEe> ProductosProveedor;
-        public double Total;
+        public BindingList<ProductoEe> ProductosProveedor { get; private set; }
+        public double Total { get; private set; }
 
         public DepositoPedidoHome(Mdi mdi)
         {
-            Mdi = mdi;
+            Mdi1 = mdi;
             InitializeComponent();
 
             AllControls = Program.GetAllControls(this);
@@ -51,7 +51,7 @@ namespace UI
             gridPedido.Columns["TotalProducto"].HeaderText = Sesion.ObtenerSesion().Idioma.Textos["total_product"];
 
             Total = ProductosAAsignar.Sum(producto => producto.Cantidad * producto.Costo);
-            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + @": $" + Total;
+            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["total"] + ": $" + Total;
 
             gridPedido.Refresh();
 
@@ -63,19 +63,19 @@ namespace UI
             gridPedido.Columns["costo"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        private void BtnAgregarProductos_Click(object sender, EventArgs e)
         {
             var agregarProducto = new DepositoProductoAgregar(this);
-            Mdi.OpenWindowForm(agregarProducto);
+            Mdi1.OpenWindowForm(agregarProducto);
         }
 
-        private void btnCompletarPedido_Click(object sender, EventArgs e)
+        private void BtnCompletarPedido_Click(object sender, EventArgs e)
         {
             var agregarProducto = new DepositoCompletarPedido(this);
-            Mdi.OpenWindowForm(agregarProducto);
+            Mdi1.OpenWindowForm(agregarProducto);
         }
 
-        private void btnRemoverProductos_Click(object sender, EventArgs e)
+        private void BtnRemoverProductos_Click(object sender, EventArgs e)
         {
             if (gridPedido.SelectedRows.Count == 0) return;
 
@@ -84,7 +84,7 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void gridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void GridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ActualizarGrid();
         }

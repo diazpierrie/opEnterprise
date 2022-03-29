@@ -5,7 +5,7 @@ namespace EE
 {
     public class FamiliaEe : RolEe
     {
-        public List<RolEe> Patentes;
+        public List<RolEe> Patentes { get; set; }
 
         public override bool TieneRol(string rol)
         {

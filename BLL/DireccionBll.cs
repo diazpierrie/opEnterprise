@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class DireccionBll
+    public static class DireccionBll
     {
         private static readonly DireccionDal Dal = new DireccionDal();
 

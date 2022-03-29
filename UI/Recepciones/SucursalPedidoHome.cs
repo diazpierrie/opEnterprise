@@ -1,11 +1,11 @@
 ﻿using BLL;
 using EE;
+using MetroFramework;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using MetroFramework;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -15,7 +15,7 @@ namespace UI
     {
         public readonly Mdi Mdi;
         public readonly BindingList<ProductoEdificioEe> ProductosAAsignar = new BindingList<ProductoEdificioEe>();
-        public BindingList<ProductoEdificioEe> ProductosDeposito;
+        public BindingList<ProductoEdificioEe> ProductosDeposito { get; set; }
         private double _total;
 
         public SucursalPedidoHome(Mdi mdi)
@@ -46,7 +46,7 @@ namespace UI
             gridPedido.Columns["TotalProducto"].HeaderText = "Total del Producto";
 
             _total = ProductosAAsignar.Sum(producto => producto.Cantidad * producto.Costo);
-            lblTotal.Text = $@"Total: ${_total}";
+            lblTotal.Text = $"Total: ${_total}";
 
             gridPedido.Refresh();
 
@@ -58,13 +58,13 @@ namespace UI
             gridPedido.Columns["costo"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        private void BtnAgregarProductos_Click(object sender, EventArgs e)
         {
             var agregarProducto = new SucursalProductoAgregar(this);
             Mdi.OpenWindowForm(agregarProducto);
         }
 
-        private void btnCompletarPedido_Click(object sender, EventArgs e)
+        private void BtnCompletarPedido_Click(object sender, EventArgs e)
         {
             var respuesta = MetroMessageBox.Show(Mdi, "¿Esta seguro de realizar el pedido?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (respuesta != DialogResult.Yes) return;
@@ -83,7 +83,7 @@ namespace UI
             Close();
         }
 
-        private void btnRemoverProductos_Click(object sender, EventArgs e)
+        private void BtnRemoverProductos_Click(object sender, EventArgs e)
         {
             if (gridPedido.SelectedRows.Count == 0) return;
 
@@ -92,7 +92,7 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void gridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void GridVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ActualizarGrid();
         }

@@ -2,8 +2,8 @@
 {
     public abstract class RolEe
     {
-        public int Id;
-        public string Nombre;
+        public int Id { get; set; }
+        public string Nombre { get; set; }
 
         public abstract bool TieneRol(string rol);
 

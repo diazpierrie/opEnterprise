@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace EE
 {
-    [SuppressMessage("ReSharper", "NonReadonlyMemberInGetHashCode")]
     public class VentaEe : IdentityEe
     {
         public UsuarioEe Empleado { get; set; }
@@ -26,12 +24,12 @@ namespace EE
             unchecked
             {
                 // ReSharper disable once NonReadonlyMemberInGetHashCode
-                var hashCode = Empleado != null ? Empleado.GetHashCode() : 0;
-                hashCode = (hashCode * 397) ^ (Comprador != null ? Comprador.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Sucursal != null ? Sucursal.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (MetodoPago != null ? MetodoPago.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (TipoEntrega != null ? TipoEntrega.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Estado != null ? Estado.GetHashCode() : 0);
+                var hashCode = Empleado?.GetHashCode() ?? 0;
+                hashCode = (hashCode * 397) ^ (Comprador?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (Sucursal?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (MetodoPago?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (TipoEntrega?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ (Estado?.GetHashCode() ?? 0);
                 hashCode = (hashCode * 397) ^ Fecha.GetHashCode();
                 hashCode = (hashCode * 397) ^ Total.GetHashCode();
                 return hashCode;

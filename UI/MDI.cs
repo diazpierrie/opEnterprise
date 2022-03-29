@@ -37,12 +37,10 @@ namespace UI
 
         public void CargarEdificioLabel()
         {
-
             var depositoEe = Sesion.ObtenerSesion().Deposito;
             var sucursalEe = Sesion.ObtenerSesion().Sucursal;
 
-            lblEdificio.Text = (string) Settings.Default["TipoEdificio"] == "Sucursal" ? sucursalEe.ToString() : depositoEe.ToString();
-            
+            lblEdificio.Text = (string)Settings.Default["TipoEdificio"] == "Sucursal" ? sucursalEe.ToString() : depositoEe.ToString();
         }
 
         public void CargarIdiomas()
@@ -109,113 +107,99 @@ namespace UI
             childForm.Show();
         }
 
-        private void btnAdminConfig_Click(object sender, EventArgs e)
+        private void BtnAdminConfig_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelAdminConfig);
         }
 
-        private void btnAdminGestion_Click(object sender, EventArgs e)
+        private void BtnAdminGestion_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelAdminGestion);
         }
 
-        private void btnAyuda_Click(object sender, EventArgs e)
+        private void BtnAyuda_Click(object sender, EventArgs e)
         {
             var home = new Ayuda();
             OpenChildForm(home);
         }
 
-        private void btnBackup_Click(object sender, EventArgs e)
+        private void BtnBackup_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new RealizarBackup();
             OpenChildForm(home);
         }
 
-        private void btnBitacora_Click(object sender, EventArgs e)
+        private void BtnBitacora_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new BitacoraVer();
             OpenChildForm(home);
         }
 
-        private void btnBuscarVenta_Click(object sender, EventArgs e)
+        private void BtnBuscarVenta_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new VentaBuscar(this);
             OpenChildForm(home);
         }
 
-        private void btnBuscarVentaCaja_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
-            var home = new VentaBuscar(this);
-            OpenChildForm(home);
-        }
-
-        private void btnCajaPanel_Click(object sender, EventArgs e)
+        private void BtnCajaPanel_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelCaja);
         }
 
-        private void btnCancelarVentaCaja_Click(object sender, EventArgs e)
+        private void BtnCancelarVenta_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new VentaCancelar(this);
             OpenChildForm(home);
         }
 
-        private void btnCancelarVentaVenta_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
-            var home = new VentaCancelar(this);
-            OpenChildForm(home);
-        }
-
-        private void btnConfigurarEdificio_Click(object sender, EventArgs e)
+        private void BtnConfigurarEdificio_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new EdificioConfigurar(this);
             OpenChildForm(home);
         }
 
-        private void btnCrearQueja_Click(object sender, EventArgs e)
+        private void BtnCrearQueja_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new QuejaCrear(this);
             OpenChildForm(home);
         }
 
-        private void btnDeposito_Click(object sender, EventArgs e)
+        private void BtnDeposito_Click(object sender, EventArgs e)
         {
             var depositoHome = new DepositoHome(this);
             OpenChildForm(depositoHome);
         }
 
-        private void btnDepositoPanel_Click(object sender, EventArgs e)
+        private void BtnDepositoPanel_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelDeposito);
         }
 
-        private void btnDespacharEnvio_Click(object sender, EventArgs e)
+        private void BtnDespacharEnvio_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var home = new EnvioGestion(this);
             OpenChildForm(home);
         }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
+        private void BtnEmpleado_Click(object sender, EventArgs e)
         {
             var empleadoHome = new EmpleadoHome(this);
             OpenChildForm(empleadoHome);
         }
 
-        private void btnEnviosPanel_Click(object sender, EventArgs e)
+        private void BtnEnviosPanel_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelEnvios);
         }
 
-        private void btnExportReport_Click(object sender, EventArgs e)
+        private void BtnExportReport_Click(object sender, EventArgs e)
         {
             var exportData = new SaveFileDialog
             {
@@ -230,119 +214,119 @@ namespace UI
             }
         }
 
-        private void btnFamilia_Click(object sender, EventArgs e)
+        private void BtnFamilia_Click(object sender, EventArgs e)
         {
             var gestionarFamilia = new GestionarFamilia(this);
             OpenChildForm(gestionarFamilia);
         }
 
-        private void btnIdioma_Click(object sender, EventArgs e)
+        private void BtnIdioma_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
             var gestionarIdioma = new IdiomaGestionar(this);
             OpenChildForm(gestionarIdioma);
         }
 
-        private void btnPenalizarProveedor_Click(object sender, EventArgs e)
+        private void BtnPenalizarProveedor_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var proveedorHome = new ProveedorHome(this, Sesion.ObtenerSesion().Idioma.Textos["penalize_vendor"]);
             OpenChildForm(proveedorHome);
         }
 
-        private void btnProducto_Click(object sender, EventArgs e)
+        private void BtnProducto_Click(object sender, EventArgs e)
         {
             var productoHome = new ProductoHome(this);
             OpenChildForm(productoHome);
         }
 
-        private void btnProveedor_Click(object sender, EventArgs e)
+        private void BtnProveedor_Click(object sender, EventArgs e)
         {
             var proveedorHome = new ProveedorHome(this);
             OpenChildForm(proveedorHome);
         }
 
-        private void btnRealizarPedidoDeposito_Click(object sender, EventArgs e)
+        private void BtnRealizarPedidoDeposito_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var sucursalPedidoHome = new SucursalPedidoHome(this);
             OpenChildForm(sucursalPedidoHome);
         }
 
-        private void btnRealizarPedidoProveedor_Click(object sender, EventArgs e)
+        private void BtnRealizarPedidoProveedor_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var realizarPedido = new DepositoPedidoHome(this);
             OpenChildForm(realizarPedido);
         }
 
-        private void btnRealizarVenta_Click(object sender, EventArgs e)
+        private void BtnRealizarVenta_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var ventaHome = new VentaHome(this);
             OpenChildForm(ventaHome);
         }
 
-        private void btnRecepcionarPedidoDeposito_Click(object sender, EventArgs e)
+        private void BtnRecepcionarPedidoDeposito_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var sucursalEntradaRegistrar = new SucursalEntradaRegistrar(this);
             OpenChildForm(sucursalEntradaRegistrar);
         }
 
-        private void btnRecibirPago_Click(object sender, EventArgs e)
+        private void BtnRecibirPago_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var recibirPago = new PagoRecibir(this);
             OpenChildForm(recibirPago);
         }
 
-        private void btnRegistrarEntrada_Click(object sender, EventArgs e)
+        private void BtnRegistrarEntrada_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var entradaRegistrar = new DepositoEntradaRegistrar(this);
             OpenChildForm(entradaRegistrar);
         }
 
-        private void btnRestaurarDv_Click(object sender, EventArgs e)
+        private void BtnRestaurarDv_Click(object sender, EventArgs e)
         {
             Dv.ActualizarDv();
             MetroMessageBox.Show(this, Sesion.ObtenerSesion().Idioma.Textos["dv_restored"], Sesion.ObtenerSesion().Idioma.Textos["notification"], MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
-        private void btnSucursal_Click(object sender, EventArgs e)
+        private void BtnSucursal_Click(object sender, EventArgs e)
         {
             var sucursalHome = new SucursalHome(this);
             OpenChildForm(sucursalHome);
         }
 
-        private void btnSucursalPanel_Click(object sender, EventArgs e)
+        private void BtnSucursalPanel_Click(object sender, EventArgs e)
         {
             ShowSubMenu(panelSucursal);
         }
 
-        private void btnVerEnvios_Click(object sender, EventArgs e)
+        private void BtnVerEnvios_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var buscarEnvio = new EnvioBuscar(this);
             OpenChildForm(buscarEnvio);
         }
 
-        private void btnVerInventario_Click(object sender, EventArgs e)
+        private void BtnVerInventario_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var verInventario = new DepositoVerInventario();
             OpenChildForm(verInventario);
         }
 
-        private void btnVerQuejas_Click(object sender, EventArgs e)
+        private void BtnVerQuejas_Click(object sender, EventArgs e)
         {
             HideSubMenu();
             var verInventario = new DepositoVerInventario();
             OpenChildForm(verInventario);
         }
 
-        private void cbIdiomas_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbIdiomas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!_langLoaded) return;
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, int.Parse(cbIdiomas.SelectedValue.ToString()));
@@ -363,6 +347,7 @@ namespace UI
         {
             PrepararIdiomas();
         }
+
         private void OpenChildForm(UpdatableForm childForm)
         {
             _activeForm?.Close();
@@ -381,12 +366,12 @@ namespace UI
             childForm.Show();
         }
 
-        private void pbLogout_Click(object sender, EventArgs e)
+        private void PbLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void picLogo_Click(object sender, EventArgs e)
+        private void PicLogo_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
             var home = new Logo();
@@ -405,6 +390,7 @@ namespace UI
 
             _langLoaded = true;
         }
+
         private void RemoveUserControl()
         {
             if (panelContainer.Controls.Count > 0) panelContainer.Controls.RemoveAt(panelContainer.Controls.Count - 1);
@@ -412,13 +398,15 @@ namespace UI
 
         private void ShowSubMenu(Panel subMenu)
         {
-            if (subMenu.Visible == false)
+            if (subMenu.Visible)
             {
                 HideSubMenu();
                 subMenu.Visible = true;
             }
             else
+            {
                 subMenu.Visible = false;
+            }
         }
     }
 }

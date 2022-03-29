@@ -17,7 +17,7 @@ namespace UI
             gridDetalle.Columns["Edificio"].Visible = false;
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

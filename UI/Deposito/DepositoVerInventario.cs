@@ -18,19 +18,18 @@ namespace UI
             ActualizarGrid();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == null &&
-                txtCodigo.Text == null) return;
+            if (txtNombre.Text == null && txtCodigo.Text == null) return;
 
-            gridInventario.DataSource = _dataTable.FindAll(x => x.Nombre.ToLower().Contains(txtNombre.Text.ToLower()) &&
-                                                                              x.Codigo.ToLower().Contains(txtCodigo.Text.ToLower()));
+            gridInventario.DataSource = _dataTable.FindAll(x => x.Nombre.IndexOf(txtNombre.Text, StringComparison.OrdinalIgnoreCase) >= 0 &&
+                                                                              x.Codigo.IndexOf(txtCodigo.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
             gridInventario.Refresh();
         }
 
         private void ActualizarGrid()
-        { 
+        {
             _dataTable = ProductoBll.ObtenerDeposito(Sesion.ObtenerSesion().Deposito);
             gridInventario.DataSource = _dataTable;
 

@@ -66,7 +66,7 @@ namespace UI
             this.btnCrearProducto.Tag = "";
             this.btnCrearProducto.Text = "Crear Producto";
             this.btnCrearProducto.UseSelectable = true;
-            this.btnCrearProducto.Click += new System.EventHandler(this.btnCrearProducto_Click);
+            this.btnCrearProducto.Click += new System.EventHandler(this.BtnCrearProducto_Click);
             // 
             // btnModificarProducto
             // 
@@ -78,7 +78,7 @@ namespace UI
             this.btnModificarProducto.Tag = "";
             this.btnModificarProducto.Text = "Modificar Producto";
             this.btnModificarProducto.UseSelectable = true;
-            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
+            this.btnModificarProducto.Click += new System.EventHandler(this.BtnModificarProducto_Click);
             // 
             // btnBorrarProducto
             // 
@@ -90,7 +90,7 @@ namespace UI
             this.btnBorrarProducto.Tag = "";
             this.btnBorrarProducto.Text = "Borrar Producto";
             this.btnBorrarProducto.UseSelectable = true;
-            this.btnBorrarProducto.Click += new System.EventHandler(this.btnBorrarProducto_Click);
+            this.btnBorrarProducto.Click += new System.EventHandler(this.BtnBorrarProducto_Click);
             // 
             // gridProducto
             // 
@@ -141,7 +141,7 @@ namespace UI
             this.gridProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProducto.Size = new System.Drawing.Size(730, 436);
             this.gridProducto.TabIndex = 3;
-            this.gridProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProducto_CellDoubleClick);
+            this.gridProducto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProducto_CellDoubleClick);
             // 
             // ProductoHome
             // 

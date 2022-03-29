@@ -167,13 +167,13 @@ namespace BLL
                 detalle.Venta = Obtener(detalle.Id);
                 detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
                 detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
-                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (devoluciones.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= devoluciones.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                 }
-                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (perdidas.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= perdidas.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                 }
             }
 
@@ -190,7 +190,7 @@ namespace BLL
         {
             var devolucion = new DevolucionEe { Id = Dal.RegistrarDevolucion(venta) };
             Dal.RegistrarDetallesDevolucion(devolucion, productos);
-            Dal.RegistrarProductosDevueltos(devolucion, productos);
+            Dal.RegistrarProductosDevueltos(productos);
             if (VerificarDevolucionEntera(venta))
             {
                 Dal.MarcarVentaDevuelta(venta);
@@ -266,9 +266,9 @@ namespace BLL
                 detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
                 detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
 
-                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (devoluciones.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= devoluciones.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                     if (detalle.Cantidad != 0)
                     {
                         return false;
@@ -289,9 +289,9 @@ namespace BLL
                 detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
                 detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
 
-                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (perdidas.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= perdidas.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                     if (detalle.Cantidad != 0)
                     {
                         return false;
@@ -313,14 +313,14 @@ namespace BLL
                 detalle.Producto = ProductoBll.Obtener(detalle.Producto.Id);
                 detalle.TotalDetalle = detalle.Cantidad * detalle.Precio;
 
-                if (perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (perdidas.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= perdidas.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= perdidas.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                 }
 
-                if (devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id) != null)
+                if (devoluciones.Any(x => x.Producto.Id == detalle.Producto.Id))
                 {
-                    detalle.Cantidad -= devoluciones.FirstOrDefault(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
+                    detalle.Cantidad -= devoluciones.First(x => x.Producto.Id == detalle.Producto.Id).Cantidad;
                 }
 
                 if (detalle.Cantidad != 0)

@@ -36,9 +36,9 @@ namespace Security
                 tf.DrawString($"{sucursal}, {sucursal.Direccion} ", fontTitle, XBrushes.Black, rect, XStringFormats.TopLeft);
 
                 tf.DrawString($"El producto mas vendido: {sucursalDal.CalcularProductoMasVendido(sucursal) ?? "No se registran ventas"} " +
-                              $"\n" +
+                              "\n" +
                               $"Ganancias Totales: {sucursalDal.CalcularGananciasTotales(sucursal) ?? "No se registran ganancias"}" +
-                              $"\n" +
+                              "\n" +
                               $"Mejor Vendedor: {sucursalDal.CalcularMejorVendedor(sucursal) ?? "No se registran ventas"}", fontBody, XBrushes.Black,
                    new XRect(40, 90, page.Width, page.Height), XStringFormats.TopLeft);
             }
@@ -47,6 +47,5 @@ namespace Security
 
             return filename;
         }
-
     }
 }

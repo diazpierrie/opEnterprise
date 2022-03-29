@@ -231,7 +231,7 @@ namespace UI
             this.btnAccion.Tag = "create";
             this.btnAccion.Text = "Crear";
             this.btnAccion.UseSelectable = true;
-            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
+            this.btnAccion.Click += new System.EventHandler(this.BtnAccion_Click);
             // 
             // txtCodigoPostal
             // 

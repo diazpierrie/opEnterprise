@@ -10,8 +10,10 @@ namespace EE
         public int Cantidad { get; set; }
         public double TotalDetalle { get; set; }
 
-        protected bool Equals(VentaDetalleEe other)
+        public override bool Equals(object obj)
         {
+            if (obj == null) return false;
+            var other = (VentaDetalleEe) obj;
             return Equals(Venta, other.Venta) && Equals(Producto, other.Producto) && Costo.Equals(other.Costo) && Precio.Equals(other.Precio) && Cantidad == other.Cantidad && TotalDetalle.Equals(other.TotalDetalle);
         }
 
@@ -19,8 +21,8 @@ namespace EE
         {
             unchecked
             {
-                var hashCode = Venta != null ? Venta.GetHashCode() : 0;
-                hashCode = (hashCode * 397) ^ (Producto != null ? Producto.GetHashCode() : 0);
+                var hashCode = Venta?.GetHashCode() ?? 0;
+                hashCode = (hashCode * 397) ^ (Producto?.GetHashCode() ?? 0);
                 hashCode = (hashCode * 397) ^ Costo.GetHashCode();
                 hashCode = (hashCode * 397) ^ Precio.GetHashCode();
                 hashCode = (hashCode * 397) ^ Cantidad;

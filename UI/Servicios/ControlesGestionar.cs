@@ -1,8 +1,8 @@
-﻿using System;
+﻿using EE;
+using Security;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using EE;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -50,7 +50,7 @@ namespace UI
             btnAplicar.Text = "Actualizar";
         }
 
-        private void gridIdioma_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void GridIdioma_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var row = gridIdioma.Rows[e.RowIndex];
 
@@ -63,7 +63,7 @@ namespace UI
             });
         }
 
-        private void btnAplicar_Click(object sender, EventArgs e)
+        private void BtnAplicar_Click(object sender, EventArgs e)
         {
             IdiomaManager.ActualizarIdioma(_idioma, txtNombre.Text);
             if (_controlesModificados.Count != 0)
@@ -75,7 +75,7 @@ namespace UI
             Close();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

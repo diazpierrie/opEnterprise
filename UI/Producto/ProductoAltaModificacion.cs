@@ -1,8 +1,8 @@
-﻿using System;
-using System.Globalization;
-using BLL;
+﻿using BLL;
 using EE;
 using Security;
+using System;
+using System.Globalization;
 
 namespace UI
 {
@@ -12,7 +12,6 @@ namespace UI
         private readonly ProductoHome _homeForm;
 
         private readonly bool _crear;
-
 
         public ProductoAltaModificacion(ProductoHome homeForm)
         {
@@ -44,7 +43,7 @@ namespace UI
             txtCosto.Text = _producto.Costo.ToString(CultureInfo.InvariantCulture);
         }
 
-        private void btnAccion_Click(object sender, EventArgs e)
+        private void BtnAccion_Click(object sender, EventArgs e)
         {
             if (_crear)
             {
@@ -53,7 +52,7 @@ namespace UI
                     Nombre = txtNombre.Text,
                     Precio = double.Parse(txtPrecio.Text),
                     Codigo = txtCodigo.Text,
-                    Costo =  double.Parse(txtCosto.Text),
+                    Costo = double.Parse(txtCosto.Text),
                 };
 
                 ProductoBll.Crear(producto);
@@ -70,7 +69,6 @@ namespace UI
 
             _homeForm.ActualizarGrid();
             Close();
-
         }
 
         private void ProductoCrear_Load(object sender, EventArgs e)
@@ -84,12 +82,10 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
         }
-        
+
         private void CambiarTitulo(string titulo)
         {
             Text = titulo;
         }
-
-
     }
 }

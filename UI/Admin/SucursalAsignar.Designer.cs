@@ -107,7 +107,7 @@ namespace UI
             this.btnAsignarSucursal.Tag = "assign";
             this.btnAsignarSucursal.Text = "Asignar";
             this.btnAsignarSucursal.UseSelectable = true;
-            this.btnAsignarSucursal.Click += new System.EventHandler(this.btnAsignarSucursal_Click);
+            this.btnAsignarSucursal.Click += new System.EventHandler(this.BtnAsignarSucursal_Click);
             // 
             // gridDesasignarSucursal
             // 
@@ -167,7 +167,7 @@ namespace UI
             this.btnCerrar.Tag = "close";
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseSelectable = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // btnDesasignarSucursal
             // 
@@ -180,7 +180,7 @@ namespace UI
             this.btnDesasignarSucursal.Tag = "unassign";
             this.btnDesasignarSucursal.Text = "Desasignar";
             this.btnDesasignarSucursal.UseSelectable = true;
-            this.btnDesasignarSucursal.Click += new System.EventHandler(this.btnDesasignarSucursal_Click);
+            this.btnDesasignarSucursal.Click += new System.EventHandler(this.BtnDesasignarSucursal_Click);
             // 
             // lblSucursales
             // 

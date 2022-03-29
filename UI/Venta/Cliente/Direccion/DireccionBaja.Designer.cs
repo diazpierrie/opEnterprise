@@ -54,7 +54,7 @@ namespace UI
             this.btnSi.TabIndex = 1;
             this.btnSi.Text = "Si";
             this.btnSi.UseSelectable = true;
-            this.btnSi.Click += new System.EventHandler(this.btnSi_Click);
+            this.btnSi.Click += new System.EventHandler(this.BtnSi_Click);
             // 
             // btnNo
             // 
@@ -64,7 +64,7 @@ namespace UI
             this.btnNo.TabIndex = 2;
             this.btnNo.Text = "No";
             this.btnNo.UseSelectable = true;
-            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
+            this.btnNo.Click += new System.EventHandler(this.BtnNo_Click);
             // 
             // DireccionBaja
             // 

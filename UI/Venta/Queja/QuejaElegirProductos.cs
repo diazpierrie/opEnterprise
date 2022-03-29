@@ -1,10 +1,10 @@
 ﻿using BLL;
 using EE;
 using MetroFramework;
+using Security;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Security;
 
 // ReSharper disable PossibleNullReferenceException
 
@@ -18,7 +18,8 @@ namespace UI
         private readonly VentaEe _venta;
         private double _total;
 
-        public QuejaElegirProductos(VentaEe venta, string motivo, QuejaElegir quejaElegir)
+        public QuejaElegirProductos(VentaEe venta, string motivo, QuejaElegir quejaElegir,
+            List<VentaDetalleEe> ventaDetalleEes)
         {
             _venta = venta;
             _motivo = motivo;
@@ -30,13 +31,7 @@ namespace UI
 
             IdiomaManager.Cambiar(Sesion.ObtenerSesion().Idioma, Sesion.ObtenerSesion().Idioma.Id, this);
 
-            var productos = VentaBll.ObtenerDetallesAgrupados(venta);
-            gridDetalle.DataSource = productos;
-
-            if (gridDetalle.ColumnCount == 0 || gridDetalle.RowCount == 0)
-            {
-                return;
-            }
+            gridDetalle.DataSource = ventaDetalleEes;
 
             gridDetalle.Columns["venta"].Visible = false;
             gridDetalle.Columns["precio"].Visible = false;
@@ -51,10 +46,8 @@ namespace UI
             gridDetalle.Columns["costo"].ReadOnly = true;
 
             if (_motivo == Sesion.ObtenerSesion().Idioma.Textos["loss"])
-                lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["loss"] + @" " + Sesion.ObtenerSesion().Idioma.Textos["total"] + @": $";
+                lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["loss"] + " " + Sesion.ObtenerSesion().Idioma.Textos["total"] + ": $";
             else if (_motivo == Sesion.ObtenerSesion().Idioma.Textos["devolution"]) lblTotal.Visible = false;
-
-            Show();
         }
 
         private void ActualizarTotal()
@@ -68,15 +61,15 @@ namespace UI
                 _total += producto.Costo * producto.Cantidad;
             }
 
-            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["loss"] + @" " + Sesion.ObtenerSesion().Idioma.Textos["total"] + $@": ${ _total}";
+            lblTotal.Text = Sesion.ObtenerSesion().Idioma.Textos["loss"] + " " + Sesion.ObtenerSesion().Idioma.Textos["total"] + $": ${ _total}";
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnElegir_Click(object sender, EventArgs e)
+        private void BtnElegir_Click(object sender, EventArgs e)
         {
             if (_motivo == Sesion.ObtenerSesion().Idioma.Textos["loss"])
             {
@@ -102,12 +95,12 @@ namespace UI
             Close();
         }
 
-        private void gridDetalle_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private void GridDetalle_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             gridDetalle.Tag = gridDetalle.CurrentCell.Value;
         }
 
-        private void gridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void GridDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var row = (VentaDetalleEe)gridDetalle.Rows[e.RowIndex].DataBoundItem;
             if (gridDetalle.CurrentCell.Value != null && (int)gridDetalle.CurrentCell.Value < 0)
@@ -135,7 +128,7 @@ namespace UI
             }
         }
 
-        private void gridDetalle_SelectionChanged(object sender, EventArgs e)
+        private void GridDetalle_SelectionChanged(object sender, EventArgs e)
         {
             ActualizarTotal();
         }

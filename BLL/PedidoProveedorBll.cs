@@ -52,7 +52,7 @@ namespace BLL
 
             foreach (var producto in productos)
             {
-                if (Dal.ObtenerPorDeposito(Sesion.ObtenerSesion().Deposito).FirstOrDefault(x => x.Id == producto.Producto.Id) != null)
+                if (Dal.ObtenerPorDeposito(Sesion.ObtenerSesion().Deposito).Any(x => x.Id == producto.Producto.Id))
                 {
                     Dal.AumentarStockDeposito(Sesion.ObtenerSesion().Deposito, producto);
                 }

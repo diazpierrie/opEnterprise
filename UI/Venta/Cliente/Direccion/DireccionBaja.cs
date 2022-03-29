@@ -1,6 +1,6 @@
-﻿using System;
-using BLL;
+﻿using BLL;
 using EE;
+using System;
 
 namespace UI
 {
@@ -15,17 +15,17 @@ namespace UI
             _homeForm = homeForm;
             _direccion = direccion;
 
-            lblPregunta.Text = $@"¿Está seguro que desea eliminar la direccion con calle {_direccion.Calle}?";
+            lblPregunta.Text = $"¿Está seguro que desea eliminar la direccion con calle {_direccion.Calle}?";
         }
 
-        private void btnSi_Click(object sender, EventArgs e)
+        private void BtnSi_Click(object sender, EventArgs e)
         {
             DireccionBll.Eliminar(_direccion);
             _homeForm.ActualizarGrid();
             Close();
         }
 
-        private void btnNo_Click(object sender, EventArgs e)
+        private void BtnNo_Click(object sender, EventArgs e)
         {
             Close();
         }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BLL
 {
-    public class DepositoBll
+    public static class DepositoBll
     {
         private static readonly DepositoDal Dal = new DepositoDal();
 

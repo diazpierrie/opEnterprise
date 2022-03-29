@@ -29,7 +29,6 @@ namespace UI
             EnableVisualStyles();
             SetCompatibleTextRenderingDefault(false);
 
-
             // Check DB installation
             if (ConfigurationManager.AppSettings["database"] == "false" && !CheckDatabaseExists("openEnterprise"))
             {
@@ -44,8 +43,6 @@ namespace UI
                 }
             }
 
-
-
             Run(new Login());
         }
 
@@ -54,9 +51,9 @@ namespace UI
             var message = "Sorry, something went wrong. \r\n" + $"{((Exception)e.ExceptionObject).Message}\r\n" +
                           "Please contact support.";
 
-            Console.WriteLine(@"Error {0}: {1}", DateTimeOffset.Now, e.ExceptionObject);
+            Console.WriteLine("Error {0}: {1}", DateTimeOffset.Now, e.ExceptionObject);
 
-            MessageBox.Show(message, @"Unexpected Error");
+            MessageBox.Show(message, "Unexpected Error");
         }
 
         private static void ApplicationOnThreadException(object sender, ThreadExceptionEventArgs e)
@@ -64,9 +61,9 @@ namespace UI
             var message = "Sorry, something went wrong. \r\n" + $"{e.Exception.Message}\r\n" +
                           "Please contact support.";
 
-            Console.WriteLine(@"Error {0}: {1}", DateTimeOffset.Now, e.Exception);
+            Console.WriteLine("Error {0}: {1}", DateTimeOffset.Now, e.Exception);
 
-            MessageBox.Show(message, @"Unexpected Error");
+            MessageBox.Show(message, "Unexpected Error");
         }
 
         private static List<Control> GetAllControls(Control container, List<Control> list)

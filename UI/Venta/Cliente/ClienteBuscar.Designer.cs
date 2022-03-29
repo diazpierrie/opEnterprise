@@ -319,7 +319,7 @@ namespace UI
             this.btnBuscar.Tag = "search";
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseSelectable = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnElegir
             // 
@@ -331,7 +331,7 @@ namespace UI
             this.btnElegir.Tag = "choose";
             this.btnElegir.Text = "Elegir";
             this.btnElegir.UseSelectable = true;
-            this.btnElegir.Click += new System.EventHandler(this.btnElegir_Click);
+            this.btnElegir.Click += new System.EventHandler(this.BtnElegir_Click);
             // 
             // btnAltaCliente
             // 
@@ -343,7 +343,7 @@ namespace UI
             this.btnAltaCliente.Tag = "create_client";
             this.btnAltaCliente.Text = "Alta Cliente";
             this.btnAltaCliente.UseSelectable = true;
-            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
+            this.btnAltaCliente.Click += new System.EventHandler(this.BtnAltaCliente_Click);
             // 
             // ClienteBuscar
             // 

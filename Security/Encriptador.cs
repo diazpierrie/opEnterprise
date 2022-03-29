@@ -7,9 +7,9 @@ namespace Security
 {
     public static class Encriptador
     {
-        private static readonly string PasswordHash = "P@@Sw0rd";
-        private static readonly string SaltKey = "S@LT&KEY";
-        private static readonly string ViKey = "@1B2c3D4e5F6g7H8";
+        private const string PasswordHash = "P@@Sw0rd";
+        private const string SaltKey = "S@LT&KEY";
+        private const string ViKey = "@1B2c3D4e5F6g7H8";
 
         public static string Encriptar(string texto)
         {

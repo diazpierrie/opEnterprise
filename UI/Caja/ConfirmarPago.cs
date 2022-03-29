@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BLL;
+using EE;
+using MetroFramework;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using BLL;
-using EE;
-using MetroFramework;
 using static System.String;
 
 namespace UI
@@ -21,7 +21,7 @@ namespace UI
             _venta = venta;
             InitializeComponent();
             ActualizarGrid();
-            lblTotal.Text = $@"Total: ${venta.Total}";
+            lblTotal.Text = $"Total: ${venta.Total}";
 
             if (venta.MetodoPago.Nombre != "Efectivo")
             {
@@ -58,7 +58,7 @@ namespace UI
             gridVentaDetalle.Columns["precio"].DefaultCellStyle.Format = "c";
         }
 
-        private void btnCompletarVenta_Click(object sender, EventArgs e)
+        private void BtnCompletarVenta_Click(object sender, EventArgs e)
         {
             if (_vuelto <= 0)
             {
@@ -73,7 +73,7 @@ namespace UI
             }
         }
 
-        private void txtEfectivo_TextChanged(object sender, EventArgs e)
+        private void TxtEfectivo_TextChanged(object sender, EventArgs e)
         {
             if (txtEfectivo.Text == Empty || !txtEfectivo.Text.All(char.IsDigit)) return;
 
@@ -87,16 +87,15 @@ namespace UI
             }
             else if (_vuelto < 0)
             {
-                lblVueltoADar.Text = $@"Vuelto a dar: ${_vuelto * -1}";
+                lblVueltoADar.Text = $"Vuelto a dar: ${_vuelto * -1}";
             }
             else
             {
-                lblVueltoADar.Text = $@"Dinero faltante: ${_vuelto }";
-
+                lblVueltoADar.Text = $"Dinero faltante: ${_vuelto }";
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }

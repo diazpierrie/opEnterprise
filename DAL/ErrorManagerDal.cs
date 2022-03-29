@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DAL
 {
-    public class ErrorManagerDal
+    public static class ErrorManagerDal
     {
         public static void AgregarMensaje(string errorMsg)
         {

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Linq;
-using EE;
+﻿using EE;
 using MetroFramework.Controls;
 using Security;
+using System;
+using System.Linq;
 
 namespace UI
 {
     public partial class BitacoraVer : UpdatableForm
     {
-
         public BitacoraVer()
         {
             InitializeComponent();
@@ -51,8 +50,6 @@ namespace UI
             gridBitacora.Columns.Add("Tipo", Sesion.ObtenerSesion().Idioma.Textos["type"]);
             gridBitacora.Columns.Add("Nombre de usuario", Sesion.ObtenerSesion().Idioma.Textos["username"]);
 
-            //var filter = cbTipo.Text == Sesion.ObtenerSesion().Idioma.Textos["all"] ? null : cbTipo.Text;
-
             var filter = cbTipo.SelectedIndex == 4 ? null : cbTipo.Text;
 
             var mensajes = BitacoraManager.Obtener(dateFrom.Value, dateTo.Value, filter);
@@ -75,17 +72,12 @@ namespace UI
             UpdateGrid();
         }
 
-        private void gridBitacora_SelectionChanged(object sender, EventArgs e)
+        private void GridBitacora_SelectionChanged(object sender, EventArgs e)
         {
-            if (messageDetail.Document == null || ((MetroGrid) sender).SelectedRows.Count <= 0) return;
+            if (messageDetail.Document == null || ((MetroGrid)sender).SelectedRows.Count <= 0) return;
             var code = BitacoraManager.FormatJson(((MetroGrid)sender).SelectedRows[0].Cells[2].Value.ToString());
             // ReSharper disable once PossibleNullReferenceException
             messageDetail.Document.Body.InnerHtml = "<pre><code>" + code + "</code></pre>";
-        }
-
-        private void messageDetail_DocumentCompleted(object sender, System.Windows.Forms.WebBrowserDocumentCompletedEventArgs e)
-        {
-
         }
     }
 }
